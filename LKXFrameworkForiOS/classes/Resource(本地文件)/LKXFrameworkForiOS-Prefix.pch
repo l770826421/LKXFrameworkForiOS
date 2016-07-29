@@ -1,0 +1,48 @@
+//
+//  LKXFrameworkForiOS-Prefix.pch
+//  LKXFrameworkForiOS
+//
+//  Created by lkx on 16/3/21.
+//  Copyright © 2016年 刘克邪. All rights reserved.
+//
+
+#ifndef LKXFrameworkForiOS-Prefix_pch
+#define LKXFrameworkForiOS-Prefix_pch
+
+#ifdef __OBJC__
+
+#import "LKXAPPDefine.h"
+#import "MBHUDTool.h"
+#import "LKXConstString.h"
+
+/************** AFNetworking **************/
+#ifndef TARGET_OS_IOS
+
+#define TARGET_OS_IOS TARGET_OS_IPHONE
+
+#endif
+
+#ifndef TARGET_OS_WATCH
+
+#define TARGET_OS_WATCH 0
+
+#endif
+/************** AFNetworking **************/
+
+// 各个屏幕的比例,这取最小屏
+#define KDesignScale (480.0 / Dev_ScreenHeight)
+
+/*********** ViewController ***************/
+#define kAPPMainColor RGBCOLOR(57, 115, 210)
+#define kAPPVCMainColor RGBCOLOR(241, 241, 241)
+#define kCellColor RGBCOLOR(204, 204, 204)
+#define kCellLightColor RGBCOLOR(224, 224, 224)
+#define kTextMainColor [UIColor blackColor]
+
+#endif
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#endif /* LKXFrameworkForiOS-Prefix */

@@ -1,0 +1,65 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EFAE7B34430B52A88A9FD67FB3831728BAA99026",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7C25AC53B95FE9469712D29C518D4ECD1787C7CD" : 0,
+    "EFAE7B34430B52A88A9FD67FB3831728BAA99026" : 0,
+    "272F684BDB48C12FB82F63EFB90FF2436BBA2473" : 0,
+    "2A8CC76D0984F5186F869B6CBF35034B58A5ACD9" : 0,
+    "E28E36D423EC87798E52E2BF482E9F7A1E6479D6" : 0,
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : 0,
+    "7B32F7F9798E2F7C825A51348C56BF07C5CD89BE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EC34D9AE-B7D5-49B7-B33A-FC2A443A7550",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7C25AC53B95FE9469712D29C518D4ECD1787C7CD" : "LKXFrameworkForiOS\/LKXFrameworkForiOS\/classes\/OpenSource(%E5%BC%80%E6%BA%90%E6%96%87%E4%BB%B6)\/MJExtension\/",
+    "EFAE7B34430B52A88A9FD67FB3831728BAA99026" : "LKXFrameworkForiOS\/",
+    "272F684BDB48C12FB82F63EFB90FF2436BBA2473" : "LKXFrameworkForiOS\/LKXFrameworkForiOS\/classes\/OpenSource(%E5%BC%80%E6%BA%90%E6%96%87%E4%BB%B6)\/SDWebImage\/Vendors\/libwebp\/",
+    "2A8CC76D0984F5186F869B6CBF35034B58A5ACD9" : "LKXFrameworkForiOS\/LKXFrameworkForiOS\/classes\/OpenSource(%E5%BC%80%E6%BA%90%E6%96%87%E4%BB%B6)\/MJRefresh\/",
+    "E28E36D423EC87798E52E2BF482E9F7A1E6479D6" : "LKXFrameworkForiOS\/LKXFrameworkForiOS\/classes\/OpenSource(%E5%BC%80%E6%BA%90%E6%96%87%E4%BB%B6)\/SDWebImage\/",
+    "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8" : "LKXFrameworkForiOS\/LKXFrameworkForiOS\/classes\/OpenSource(%E5%BC%80%E6%BA%90%E6%96%87%E4%BB%B6)\/AFNetworking\/",
+    "7B32F7F9798E2F7C825A51348C56BF07C5CD89BE" : "LKXFrameworkForiOS\/LKXFrameworkForiOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LKXFrameworkForiOS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LKXFrameworkForiOS.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/webmproject\/libwebp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "272F684BDB48C12FB82F63EFB90FF2436BBA2473"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CoderMJLee\/MJRefresh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A8CC76D0984F5186F869B6CBF35034B58A5ACD9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/l770826421\/LKXFrameworkForiOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7B32F7F9798E2F7C825A51348C56BF07C5CD89BE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CoderMJLee\/MJExtension.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7C25AC53B95FE9469712D29C518D4ECD1787C7CD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/l770826421\/AFNetworking.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rs\/SDWebImage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E28E36D423EC87798E52E2BF482E9F7A1E6479D6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/l770826421\/LKXFrameworkForiOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EFAE7B34430B52A88A9FD67FB3831728BAA99026"
+    }
+  ]
+}
