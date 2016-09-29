@@ -59,6 +59,10 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = formatter;
     
+    // 统一设置成东八区,为了服务器端的超时判断
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT+0800"];
+    LKXMLog(@"timeZone = %@", dateFormatter.timeZone);
+    
     NSString *str = [dateFormatter stringFromDate:self];
     return str;
 }
