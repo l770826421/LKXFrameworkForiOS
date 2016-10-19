@@ -20,7 +20,7 @@
 + (NSString *)stringWithTimeInterval:(NSInteger)timeInterval
 {
     NSString *timeStr;
-    int hour = timeInterval / (60*60);
+    int hour = (int) (timeInterval / (60*60));
     int minute = timeInterval / 60 % 60;
     int second = timeInterval % 60;
     timeStr = [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];

@@ -27,10 +27,10 @@
 		166C73521D4B4FBF00D66FEA /* UIControl+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73111D4B4FBF00D66FEA /* UIControl+Runtime.m */; };
 		166C73531D4B4FBF00D66FEA /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73131D4B4FBF00D66FEA /* UIImage+Category.m */; };
 		166C73541D4B4FBF00D66FEA /* UIWebView+CallPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73151D4B4FBF00D66FEA /* UIWebView+CallPhone.m */; };
-		166C73551D4B4FBF00D66FEA /* UIKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73181D4B4FBF00D66FEA /* UIKeyboardView.m */; };
-		166C73561D4B4FBF00D66FEA /* UIKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731A1D4B4FBF00D66FEA /* UIKeyboardViewController.m */; };
+		166C73551D4B4FBF00D66FEA /* UIKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73181D4B4FBF00D66FEA /* UIKeyboardView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		166C73561D4B4FBF00D66FEA /* UIKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731A1D4B4FBF00D66FEA /* UIKeyboardViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166C73571D4B4FBF00D66FEA /* BigBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731D1D4B4FBF00D66FEA /* BigBtn.m */; };
-		166C73581D4B4FBF00D66FEA /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731F1D4B4FBF00D66FEA /* ChineseToPinyin.m */; };
+		166C73581D4B4FBF00D66FEA /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731F1D4B4FBF00D66FEA /* ChineseToPinyin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166C73591D4B4FBF00D66FEA /* LKX_Tooles.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73211D4B4FBF00D66FEA /* LKX_Tooles.m */; };
 		166C735A1D4B4FBF00D66FEA /* LKXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73231D4B4FBF00D66FEA /* LKXAlertView.m */; };
 		166C735B1D4B4FBF00D66FEA /* LKXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73261D4B4FBF00D66FEA /* LKXTextView.m */; };
@@ -41,7 +41,7 @@
 		166C73601D4B4FBF00D66FEA /* LKXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73331D4B4FBF00D66FEA /* LKXWebView.m */; };
 		166C73611D4B4FBF00D66FEA /* MBHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73361D4B4FBF00D66FEA /* MBHUDTool.m */; };
 		166C73621D4B4FBF00D66FEA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73381D4B4FBF00D66FEA /* MBProgressHUD.m */; };
-		166C73631D4B4FBF00D66FEA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C733B1D4B4FBF00D66FEA /* Reachability.m */; };
+		166C73631D4B4FBF00D66FEA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C733B1D4B4FBF00D66FEA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166C73641D4B4FBF00D66FEA /* ReachabilityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C733D1D4B4FBF00D66FEA /* ReachabilityTool.m */; };
 		166C73651D4B4FBF00D66FEA /* AFNetWorkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73411D4B4FBF00D66FEA /* AFNetWorkingTool.m */; };
 		166C73661D4B4FBF00D66FEA /* LKXRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73431D4B4FBF00D66FEA /* LKXRequestManager.m */; };
@@ -1050,6 +1050,7 @@
 				TargetAttributes = {
 					163DF2091CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = CCE8HZ4H5D;
 					};
 					163DF2221CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1371,12 +1372,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/Classes/Resource(本地文件)/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -1384,12 +1387,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/Classes/Resource(本地文件)/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};

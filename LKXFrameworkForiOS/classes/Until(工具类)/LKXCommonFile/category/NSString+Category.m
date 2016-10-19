@@ -363,7 +363,15 @@
     
     //使用同步方法后去MIMEType
     NSURLResponse *response = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    if (Dev_IOSVersion < 9.0) {
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    } else {
+        [[NSURLSession alloc] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSLog(@"---%@", response.MIMEType);
+        }];
+    }
+    
     NSLog(@"---%@", response.MIMEType);
     return response.MIMEType;
 }
