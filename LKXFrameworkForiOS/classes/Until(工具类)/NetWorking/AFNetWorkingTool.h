@@ -19,7 +19,7 @@
 #endif
 
 typedef void (^AFNetWorkingToolSuccessBlock)(id JSON);
-typedef void (^AFNetWorkingToolFailureBlock)(NSString *errorInfo);
+typedef void (^AFNetWorkingToolFailureBlock)(NSError *error);
 
 /**
  *  @author 刘克邪

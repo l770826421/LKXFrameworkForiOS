@@ -348,11 +348,24 @@
     return [src copy];;
 }
 
-
 /*
  * 获取指定URL的MIMEType类型
  */
-- (NSString *)mimeType
+- (void)mimeType:(void (^)(NSString *mimeType))mimeTypeBlock {
+    if (Dev_IOSVersion < 9.0) {
+        mimeTypeBlock([self mimeTypeBefore_iOS_9_0]);
+    } else {
+        [self mimeTypeAfter_iOS_9_0:^(NSString *mimeType) {
+            mimeTypeBlock(mimeType);
+        }];
+    }
+}
+
+
+/*
+ * iOS9.0前获取指定URL的MIMEType类型
+ */
+- (NSString *)mimeTypeBefore_iOS_9_0
 {
     NSURL *url = [NSURL URLWithString:self];
     //1NSURLRequest
@@ -363,17 +376,30 @@
     
     //使用同步方法后去MIMEType
     NSURLResponse *response = nil;
-    if (Dev_IOSVersion < 9.0) {
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
-        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    } else {
-        [[NSURLSession alloc] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            NSLog(@"---%@", response.MIMEType);
-        }];
-    }
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     
     NSLog(@"---%@", response.MIMEType);
     return response.MIMEType;
+}
+
+/*
+ * iOS9.0后获取指定URL的MIMEType类型
+ */
+- (void)mimeTypeAfter_iOS_9_0:(void (^)(NSString *mimeType))mimeTypeBlock
+{
+    NSURL *url = [NSURL URLWithString:self];
+    //1NSURLRequest
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    //2NSURLConnection
+    
+    //3 在NSURLResponse里，服务器告诉浏览器用什么方式打开文件。
+    
+    //使用同步方法后去MIMEType
+    [[NSURLSession alloc] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"---%@", response.MIMEType);
+        mimeTypeBlock(response.MIMEType);
+    }];
 }
 
 /**

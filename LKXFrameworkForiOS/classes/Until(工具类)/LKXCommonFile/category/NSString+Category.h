@@ -145,7 +145,7 @@
 /*
  * 获取指定URL的MIMEType类型
  */
-- (NSString *)mimeType;
+- (void)mimeType:(void (^)(NSString *mimeType))mimeTypeBlock;
 
 /**
  *  除去字符串中的第一个匹配的子字符串

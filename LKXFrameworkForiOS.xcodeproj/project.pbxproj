@@ -52,6 +52,7 @@
 		16CA804F1DB7261100FF5F1A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80471DB7261100FF5F1A /* AFURLRequestSerialization.m */; };
 		16CA80501DB7261100FF5F1A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80491DB7261100FF5F1A /* AFURLResponseSerialization.m */; };
 		16CA80511DB7261100FF5F1A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA804B1DB7261100FF5F1A /* AFURLSessionManager.m */; };
+		16CA80541DB728DE00FF5F1A /* LKXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80531DB728DE00FF5F1A /* LKXError.m */; };
 		16CED7FB1D4AF36D006C09CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CED7161D4AF36D006C09CC /* AppDelegate.m */; };
 		16CED7FC1D4AF36D006C09CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CED7171D4AF36D006C09CC /* main.m */; };
 		16CED8231D4AF36D006C09CC /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CED7751D4AF36D006C09CC /* TAAbstractDotView.m */; };
@@ -246,6 +247,8 @@
 		16CA80491DB7261100FF5F1A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		16CA804A1DB7261100FF5F1A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		16CA804B1DB7261100FF5F1A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		16CA80521DB728DE00FF5F1A /* LKXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXError.h; sourceTree = "<group>"; };
+		16CA80531DB728DE00FF5F1A /* LKXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXError.m; sourceTree = "<group>"; };
 		16CED7151D4AF36D006C09CC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16CED7161D4AF36D006C09CC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		16CED7171D4AF36D006C09CC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -571,6 +574,8 @@
 		166C731B1D4B4FBF00D66FEA /* CommonTool */ = {
 			isa = PBXGroup;
 			children = (
+				16CA80521DB728DE00FF5F1A /* LKXError.h */,
+				16CA80531DB728DE00FF5F1A /* LKXError.m */,
 				166C731C1D4B4FBF00D66FEA /* BigBtn.h */,
 				166C731D1D4B4FBF00D66FEA /* BigBtn.m */,
 				166C731E1D4B4FBF00D66FEA /* ChineseToPinyin.h */,
@@ -1138,6 +1143,7 @@
 				166C73581D4B4FBF00D66FEA /* ChineseToPinyin.m in Sources */,
 				166C73641D4B4FBF00D66FEA /* ReachabilityTool.m in Sources */,
 				16CEDD8A1D4AFB27006C09CC /* UIView+WebCacheOperation.m in Sources */,
+				16CA80541DB728DE00FF5F1A /* LKXError.m in Sources */,
 				16CEDD4E1D4AFB1E006C09CC /* MJRefreshBackNormalFooter.m in Sources */,
 				166489B91D4B076B0037F789 /* LKXBarButton.m in Sources */,
 				16CEDD851D4AFB27006C09CC /* UIImage+GIF.m in Sources */,

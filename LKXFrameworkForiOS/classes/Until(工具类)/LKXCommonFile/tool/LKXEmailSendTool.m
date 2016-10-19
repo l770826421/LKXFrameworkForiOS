@@ -108,7 +108,9 @@
     {
         NSData *data = [NSData dataWithContentsOfFile:path];
         NSString *name = [[path componentsSeparatedByString:@"/"] lastObject];
-        [mailPicker addAttachmentData:data mimeType:[path mimeType] fileName:name];
+        [path mimeType:^(NSString *mimeType) {
+            [mailPicker addAttachmentData:data mimeType:mimeType fileName:name];
+        }];
     }
     
     NSString *emailBody = [NSString stringWithFormat:@"<font color='red'>%@</font>", body];

@@ -7,6 +7,7 @@
 //
 
 #import "AFNetWorkingTool.h"
+#import "LKXError.h"
 
 #define kTimeoutIntervalForRequest 60
 
@@ -91,21 +92,26 @@
                          failure:(AFNetWorkingToolFailureBlock)failure {
     
     [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
-    [self.sessionManager GET:@""
-                  parameters:parameters
-                     success:^(NSURLSessionDataTask * _Nonnull task,
-                id  _Nullable responseObject) {
+    [self.sessionManager GET:@"" parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         BOOL succ = [self dataSeparteWithCode:responseObject];
         if (succ) { // 获取到成功的数据
             success(responseObject[@"data"]);
         } else { // 获取到失败的信息
-            failure(responseObject[@"info"]);
+            LKXError *err = [LKXError lkx_error];
+            [err lkx_setUserInfo:responseObject[@"info"]];
+            failure(err);
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task,
-                NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        LKXError *err = [LKXError lkx_error];
+        if (Dev_IOSVersion < 10.0) {
+            [err lkx_setUserInfo:@"网络已断开,请检查网络是否连接。"];
+        } else {
+            [err lkx_setUserInfo:@"网络已断开,请检查网络设置，设置>蜂窝移动网络>使用无线局域网与蜂窝移动的应用。"];
+        }
         
-        failure(error.description);
+        failure(err);
     }];
 }
 
@@ -120,15 +126,14 @@
                           failure:(AFNetWorkingToolFailureBlock)failure {
     
     [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
-    [self.sessionManager POST:@""
-                   parameters:parameters
-                     success:^(NSURLSessionDataTask * _Nonnull task,
-                id  _Nullable responseObject) {
+    [self.sessionManager POST:@"" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         LKXMLog(@"%@", task.currentRequest.URL);
         NSDictionary *json = [self dictionaryForData:responseObject];
         if (json == nil) {
-            failure(@"返回数据为空");
+            LKXError *err = [LKXError lkx_error];
+            [err lkx_setUserInfo:@"返回数据为空"];
             return ;
         }
         
@@ -138,10 +143,15 @@
         } else { // 获取到失败的信息
             failure(json[@"info"]);
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task,
-                NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        LKXError *err = [LKXError lkx_error];
+        if (Dev_IOSVersion < 10.0) {
+            [err lkx_setUserInfo:@"网络已断开,请检查网络是否连接。"];
+        } else {
+            [err lkx_setUserInfo:@"网络已断开,请检查网络设置，设置>蜂窝移动网络>使用无线局域网与蜂窝移动的应用。"];
+        }
         
-        failure(error.description);
+        failure(err);
     }];
 }
 
