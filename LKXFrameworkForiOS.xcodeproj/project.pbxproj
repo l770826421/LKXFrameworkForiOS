@@ -53,7 +53,6 @@
 		16CA80501DB7261100FF5F1A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80491DB7261100FF5F1A /* AFURLResponseSerialization.m */; };
 		16CA80511DB7261100FF5F1A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA804B1DB7261100FF5F1A /* AFURLSessionManager.m */; };
 		16CA80541DB728DE00FF5F1A /* LKXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80531DB728DE00FF5F1A /* LKXError.m */; };
-		16CA80701DB7515F00FF5F1A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16CA80561DB7515F00FF5F1A /* Info.plist */; };
 		16CA80711DB7515F00FF5F1A /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80581DB7515F00FF5F1A /* MASCompositeConstraint.m */; };
 		16CA80721DB7515F00FF5F1A /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA805B1DB7515F00FF5F1A /* MASConstraint.m */; };
 		16CA80731DB7515F00FF5F1A /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA805D1DB7515F00FF5F1A /* MASConstraintMaker.m */; };
@@ -261,7 +260,6 @@
 		16CA804B1DB7261100FF5F1A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		16CA80521DB728DE00FF5F1A /* LKXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXError.h; sourceTree = "<group>"; };
 		16CA80531DB728DE00FF5F1A /* LKXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXError.m; sourceTree = "<group>"; };
-		16CA80561DB7515F00FF5F1A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16CA80571DB7515F00FF5F1A /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		16CA80581DB7515F00FF5F1A /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		16CA80591DB7515F00FF5F1A /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -709,7 +707,6 @@
 		16CA80551DB7515E00FF5F1A /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
-				16CA80561DB7515F00FF5F1A /* Info.plist */,
 				16CA80571DB7515F00FF5F1A /* MASCompositeConstraint.h */,
 				16CA80581DB7515F00FF5F1A /* MASCompositeConstraint.m */,
 				16CA80591DB7515F00FF5F1A /* MASConstraint+Private.h */,
@@ -1167,7 +1164,6 @@
 				16CED83D1D4AF36D006C09CC /* Info.plist in Resources */,
 				16CEDD0B1D4AFB18006C09CC /* Info.plist in Resources */,
 				16CED83C1D4AF36D006C09CC /* Main.storyboard in Resources */,
-				16CA80701DB7515F00FF5F1A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

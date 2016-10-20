@@ -52,6 +52,7 @@
         _scroll = [[UIScrollView alloc] init];
         _scroll.translatesAutoresizingMaskIntoConstraints = NO;
         _scroll.showsHorizontalScrollIndicator = NO;
+        _scroll.showsVerticalScrollIndicator = NO;
         _scroll.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     }
     

@@ -22,16 +22,24 @@
     
     [self autolayoutScroll];
     self.scroll.backgroundColor = [UIColor greenColor];
-    
     __weak typeof(self) selfWeak = self;
+    
+    UIView *container = [[UIView alloc] init];
+    container.backgroundColor = [UIColor brownColor];
+    [self.scroll addSubview:container];
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(selfWeak.scroll);
+        make.width.equalTo(selfWeak.scroll);
+    }];
+    
     UIView *redView = [[UIView alloc] init];
     redView.backgroundColor = [UIColor redColor];
-    [self.scroll addSubview:redView];
+    [container addSubview:redView];
     [redView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(selfWeak.scroll);
-        make.left.equalTo(selfWeak.scroll);
-        make.right.equalTo(selfWeak.scroll);
-        make.width.equalTo(selfWeak.scroll.mas_width);
+        make.top.equalTo(container);
+        make.left.equalTo(container);
+        make.right.equalTo(container);
+        make.width.equalTo(container);
         make.height.equalTo(@150);
     }];
     
@@ -62,6 +70,40 @@
         make.right.equalTo(redViewWeak.mas_right).with.offset(-padding);
         make.width.equalTo(subWhiteViewWeak);
         make.height.equalTo(redViewWeak.mas_height);
+    }];
+    
+    UIView *whiteView = [[UIView alloc] init];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    [container addSubview:whiteView];
+    [whiteView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(redView.mas_bottom).with.offset(padding);
+        make.left.equalTo(container);
+        make.right.equalTo(container);
+        make.height.equalTo(@200);
+    }];
+    
+    UIView *blueView = [[UIView alloc] init];
+    blueView.backgroundColor = [UIColor blueColor];
+    [container addSubview:blueView];
+    [blueView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(whiteView.mas_bottom).with.offset(padding);
+        make.left.equalTo(container);
+        make.right.equalTo(container);
+        make.height.equalTo(@200);
+    }];
+    
+    UIView *blackView = [[UIView alloc] init];
+    blackView.backgroundColor = [UIColor blackColor];
+    [container addSubview:blackView];
+    [blackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(blueView.mas_bottom).with.offset(padding);
+        make.left.equalTo(container);
+        make.right.equalTo(container);
+        make.height.equalTo(@200);
+    }];
+    
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(blackView.mas_bottom);
     }];
 }
 
