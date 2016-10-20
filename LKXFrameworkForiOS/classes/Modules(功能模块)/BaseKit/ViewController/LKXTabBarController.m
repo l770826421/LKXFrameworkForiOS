@@ -11,6 +11,7 @@
 #import "LKXNavigationController.h"
 
 #import "LKXBaseViewController.h"
+#import "LKXcardPassesViewController.h"
 
 #import "LKXTabBar.h"
 
@@ -66,7 +67,7 @@
 }
 
 - (void)setupChildVCs {
-    LKXBaseViewController *cardPassesVC = [[LKXBaseViewController alloc] init];
+    LKXcardPassesViewController *cardPassesVC = [[LKXcardPassesViewController alloc] init];
     [self addChildVC:cardPassesVC
         andItemTitle:@"一卡通"
          normalImage:@"icon_home_normal"
