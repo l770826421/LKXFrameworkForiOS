@@ -19,7 +19,7 @@
 
 
 /**
- 这里集成了系统的提示选择框,但是UIAlertView和UIActionSheet的delegate只能是UIViewController,所有他们的代理只能实现在外部
+ 这里集成了系统的提示选择框,但是UIAlertView和UIActionSheet的delegate只能是UIViewController及其子类,所有他们的代理只能实现在外部
  */
 @interface LKXAlertTool : NSObject
 
