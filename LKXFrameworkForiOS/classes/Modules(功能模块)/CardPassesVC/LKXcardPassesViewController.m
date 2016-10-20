@@ -7,10 +7,14 @@
 //
 
 #import "LKXcardPassesViewController.h"
+#import "LKXAlertTool.h"
 
 #import "Masonry.h"
 
-@interface LKXcardPassesViewController ()
+@interface LKXcardPassesViewController () <LKXAlertToolDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+{
+    NSArray *_titles;
+}
 
 @end
 
@@ -19,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _titles = @[@"title1", @"title2", @"title3", @"title4", @"cacel"];
     
     [self autolayoutScroll];
     self.scroll.backgroundColor = [UIColor greenColor];
@@ -82,6 +87,19 @@
         make.height.equalTo(@200);
     }];
     
+    /** 居中显示 */
+    UIButton *alertBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [alertBtn setTitle:@"弹出系统提示框" forState:UIControlStateNormal];
+    [alertBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [alertBtn addTarget:self
+                 action:@selector(btnActionShowAlert:)
+       forControlEvents:UIControlEventTouchUpInside];
+    [whiteView addSubview:alertBtn];
+    [alertBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(whiteView);
+        make.size.mas_equalTo(CGSizeMake(100, 44));
+    }];
+    
     UIView *blueView = [[UIView alloc] init];
     blueView.backgroundColor = [UIColor blueColor];
     [container addSubview:blueView];
@@ -114,14 +132,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
- In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 其他 
+- (void)btnActionShowAlert:(UIButton *)btn {
+    LKXAlertTool *alertTool = [[LKXAlertTool alloc] init];
+    alertTool.style = UIAlertControllerStyleAlert;
+    alertTool.showViewController = self;
+    alertTool.delegate = self;
+    alertTool.title = @"测试alertTool";
+    alertTool.message = @"测试bug。。。";
+    alertTool.titles = _titles;
+    [alertTool show];
 }
-*/
+
+#pragma mark - UIAlertToolDelegate 
+- (void)alertTool:(LKXAlertTool *)alertTool didSelectedIndex:(NSInteger)index {
+    LKXMLog(@"--------%@", _titles[index]);
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    LKXMLog(@"--------%@", _titles[buttonIndex]);
+}
+
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    LKXMLog(@"--------%@", _titles[buttonIndex]);
+}
 
 @end
