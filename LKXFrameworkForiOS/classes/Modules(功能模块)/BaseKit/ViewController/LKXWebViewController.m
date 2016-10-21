@@ -7,7 +7,8 @@
 //
 
 #import "LKXWebViewController.h"
-#import "LKXLayoutContraint.h"
+//#import "LKXLayoutContraint.h"
+#import "Masonry.h"
 
 @interface LKXWebViewController ()
 
@@ -29,7 +30,10 @@
     // Do any additional setup after loading the view.
     
     [self.view addSubview:self.webView];
-    [self.view addConstraints:[NSLayoutConstraint lkx_constraintsWithItem:self.webView]];
+//    [self.view addConstraints:[NSLayoutConstraint lkx_constraintsWithItem:self.webView]];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     
     [self addHeaderInScrollView:self.webView.scrollView];
     self.webView.scrollView.bounces = YES;

@@ -8,7 +8,7 @@
 
 #import "LKXScrollViewController.h"
 
-#import "LKXLayoutContraint.h"
+//#import "LKXLayoutContraint.h"
 #import "Masonry.h"
 
 @interface LKXScrollViewController ()
@@ -38,9 +38,7 @@
 //    [self.view addConstraints:[NSLayoutConstraint lkx_constraintsWit hScroll:self.scroll]];
     __weak typeof(self) selfWeak = self;
     [self.scroll mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(selfWeak.view).with.insets(UIEdgeInsetsZero);
-//        make.center.equalTo(selfWeak.view);
-//        make.size.mas_equalTo(selfWeak.view.bounds.size);
+        make.edges.equalTo(selfWeak.view);//.with.insets(UIEdgeInsetsZero);
     }];
 }
 

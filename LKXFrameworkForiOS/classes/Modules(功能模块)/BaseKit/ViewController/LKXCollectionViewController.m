@@ -10,7 +10,8 @@
 
 #import "LKXCollectionViewCell.h"
 
-#import "LKXLayoutContraint.h"
+//#import "LKXLayoutContraint.h"
+#import "Masonry.h"
 
 @interface LKXCollectionViewController ()
 
@@ -39,7 +40,10 @@
  *  @brief  如果只有collection一个子控件就调用这个方法进行布局
  */
 - (void)autolayoutCollection {
-    [self.view addConstraints:[NSLayoutConstraint lkx_constraintsWithItem:self.collectionView]];
+//    [self.view addConstraints:[NSLayoutConstraint lkx_constraintsWithItem:self.collectionView]];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 #pragma mark - setter and getter
