@@ -12,6 +12,7 @@
 
 #import "LKXBaseViewController.h"
 #import "LKXcardPassesViewController.h"
+#import "LKXWKWebViewController.h"
 
 #import "LKXTabBar.h"
 
@@ -73,7 +74,7 @@
          normalImage:@"icon_home_normal"
        selectedImage:@"icon_home_hightlight"];
     
-    LKXBaseViewController *eportVC = [[LKXBaseViewController alloc] init];
+    LKXWKWebViewController *eportVC = [[LKXWKWebViewController alloc] init];
     [self addChildVC:eportVC
         andItemTitle:@"集港计划"
          normalImage:@"icon_order_normal"

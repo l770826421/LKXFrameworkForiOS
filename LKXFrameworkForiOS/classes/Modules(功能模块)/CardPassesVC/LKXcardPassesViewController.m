@@ -9,6 +9,9 @@
 #import "LKXcardPassesViewController.h"
 #import "LKXAlertTool.h"
 
+#import <LocalAuthentication/LocalAuthentication.h>
+#import "LKXTouchIDValidateTool.h"
+
 #import "Masonry.h"
 
 @interface LKXcardPassesViewController () <LKXAlertToolDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
@@ -77,6 +80,19 @@
         make.height.equalTo(redViewWeak.mas_height);
     }];
     
+    // 在subWhiteView中添加一个button
+    UIButton *touchIDButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [touchIDButton setTitle:@"touch ID 测试" forState:UIControlStateNormal];
+    [touchIDButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    touchIDButton.titleLabel.font = [UIFont systemFontOfSize:FONT_size12];
+    [touchIDButton addTarget:self
+                   action:@selector(btnActionTouchID:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [subWhiteView addSubview:touchIDButton];
+    [touchIDButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
     UIView *whiteView = [[UIView alloc] init];
     whiteView.backgroundColor = [UIColor whiteColor];
     [container addSubview:whiteView];
@@ -142,6 +158,105 @@
     alertTool.message = @"测试bug。。。";
     alertTool.titles = _titles;
     [alertTool show];
+}
+
+
+/**
+ 测试touchID
+ */
+- (void)btnActionTouchID:(UIButton *)btn {
+    [[LKXTouchIDValidateTool sharedTouchIDValidateTool] touchValidateSupportFailure:^(LAError errorCode) {
+        // 不支持指纹识别,log出错误详情
+        switch (errorCode) {
+            case LAErrorTouchIDNotEnrolled:
+                LKXMLog(@"Touch ID id not enrolled");
+                break;
+            case LAErrorPasscodeNotSet:
+                LKXMLog(@"A passcode has not been set");
+                break;
+            default:
+                LKXMLog(@"Touch ID not available");
+                break;
+        }
+    } success:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            // 其他情况,切换主线程处理
+            [kMBHUDTool showHUDWithText:@"Touch ID验证成功" delay:kMBHUDDelay];
+        }];
+    } validateFailure:^(LAError errorCode) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            // 其他情况,切换主线程处理
+            [kMBHUDTool showHUDWithText:@"Touch ID验证失败" delay:kMBHUDDelay];
+        }];
+        switch (errorCode) {
+            case LAErrorSystemCancel:
+                LKXMLog(@"系统取消");
+                break;
+            case LAErrorUserCancel:
+                LKXMLog(@"用户取消");
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // 用户选择输入密码,切换主线程处理
+                }];
+                break;
+            default:
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // 其他情况,切换主线程处理
+                }];
+                break;
+        }
+    }];
+
+    return;
+    // 初始化上下文对象
+    LAContext *context = [[LAContext alloc] init];
+    NSError *error = nil;
+    NSString *result = @"我的Touch ID";
+
+    // 先判断设备是否支持Touch ID
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        // 支持指纹验证
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:result reply:^(BOOL success, NSError * _Nullable error) {
+            if (success) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // 其他情况,切换主线程处理
+                    [kMBHUDTool showHUDWithText:@"Touch ID验证成功" delay:kMBHUDDelay];
+                }];
+            } else {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // 其他情况,切换主线程处理
+                    [kMBHUDTool showHUDWithText:@"Touch ID验证失败" delay:kMBHUDDelay];
+                }];
+                switch (error.code) {
+                    case LAErrorSystemCancel:
+                        LKXMLog(@"系统取消");
+                        break;
+                    case LAErrorUserCancel:
+                        LKXMLog(@"用户取消");
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                           // 用户选择输入密码,切换主线程处理
+                        }];
+                        break;
+                    default:
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                            // 其他情况,切换主线程处理
+                        }];
+                        break;
+                }
+            }
+        }];
+    } else {    // 不支持指纹识别,log出错误详情
+        switch (error.code) {
+            case LAErrorTouchIDNotEnrolled:
+                LKXMLog(@"Touch ID id not enrolled");
+                break;
+            case LAErrorPasscodeNotSet:
+                LKXMLog(@"A passcode has not been set");
+                break;
+            default:
+                LKXMLog(@"Touch ID not available");
+                break;
+        }
+    }
 }
 
 #pragma mark - UIAlertToolDelegate 

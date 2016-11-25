@@ -1,5 +1,5 @@
 //
-//  LKXWebViewController.h
+//  LKXWKWebViewController.h
 //  XGMEport
 //
 //  Created by lkx on 16/3/29.
@@ -10,7 +10,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <WebKit/WebKit.h>
 
-@interface LKXWebViewController : LKXBaseViewController <UIWebViewDelegate>
+@interface LKXWKWebViewController : LKXScrollViewController <WKUIDelegate, WKNavigationDelegate, UIScrollViewDelegate>
 
 /** webView */
 @property (nonatomic, strong) WKWebView * _Nonnull webView;
