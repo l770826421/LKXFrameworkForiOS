@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 添加placeholder的起始位置(0, 10)
+ */
 @interface LKXTextField : UITextField
 
 @end

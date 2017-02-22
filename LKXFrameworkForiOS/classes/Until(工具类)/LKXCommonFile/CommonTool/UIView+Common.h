@@ -16,30 +16,63 @@
 @interface UIView (Common)
 
 #pragma mark - 获取视图的上下左右宽高
-- (float)Top;            //上
-- (float)Bottom;         //下
-- (float)Left;           //左
-- (float)Right;          //右
-- (float)Width;          //宽
-- (float)Height;         //高
+/** X坐标 */
+@property (nonatomic, assign) CGFloat lkx_x;
+/** y坐标 */
+@property (nonatomic, assign) CGFloat lkx_y;
+/** 最右边x坐标 */
+@property (nonatomic, assign, readonly) CGFloat lkx_right;
+/** 最底部y坐标 */
+@property (nonatomic, assign, readonly) CGFloat lkx_bottom;
+/** width */
+@property (nonatomic, assign) CGFloat lkx_width;
+/** height */
+@property (nonatomic, assign) CGFloat lkx_height;
 
 
 #pragma mark - 获取视图的常用坐标
-- (CGPoint)FrameOrigin;      //FramePoint
-- (CGPoint)FrameCenter;      //FrameCenter
-- (CGSize)FrameSize;         //FrameSize
-
-- (CGPoint)BoundsOrigin;     //BoundsPoint
-- (CGPoint)BoundsCenter;     //BoundsCenter
-- (CGSize)BoundsSize;        //BoundsSize
-
+/** frame origin */
+@property (nonatomic, assign) CGPoint lkx_frameOrigin;
+/** frame center */
+@property (nonatomic, assign, readonly) CGPoint lkx_frameCenter;
+/** frame size */
+@property (nonatomic, assign) CGSize lkx_frameSize;
+/** bounds origin */
+@property (nonatomic, assign, readonly) CGPoint lkx_boundsOrigin;
+/** bounds center */
+@property (nonatomic, assign, readonly) CGPoint lkx_boundsCenter;
+/** bounds size */
+@property (nonatomic, assign, readonly) CGSize lkx_boundsSize;
 
 #pragma mark - 设置圆角,边框,边框颜色,背景颜色
-//设置圆角,边框,边框颜色,背景颜色
-- (void)setBackgroundColor:(UIColor *)BGColor
-          andCornerRadius:(float)Radius     //5.0
-           andBorderWidth:(float)Width      //2.0
-           andBorderColor:(UIColor *)Color;
+
+/**
+ 设置圆角
+
+ @param cornerRadius 圆角数
+ */
+- (void)setCornerRadius:(CGFloat)cornerRadius;
+
+/**
+ 这是表框线
+
+ @param borderWidth 边框线粗
+ @param borderColor 边框的颜色
+ */
+- (void)setBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+
+/**
+ 设置圆角,边框,边框颜色,背景颜色
+
+ @param BGColor 背景颜色
+ @param Radius 圆角,默认5.0
+ @param Width 边框线粗,默认2.0
+ @param Color 边框颜色
+ */
+- (void)setBackgroundColor:(UIColor *)bgColor
+              cornerRadius:(CGFloat)cornerRadius
+               borderWidth:(CGFloat)borderWidth
+               borderColor:(UIColor *)borderColor;
 
 
 #pragma mark - 给视图添加一下划线
@@ -50,30 +83,64 @@
                    andFrame:(CGRect)frame;
 
 
-#pragma mark - SaveViewImage     保存成为图片
+#pragma mark - SaveViewImage
+/**
+ 保存图片
+ */
 - (UIImage *)SaveViewImage;
 
 #pragma mark -  绘制可以带虚线框的View视图
-- (void)setShapeLayerWithBGColor:(UIColor *)BGColor         //背景色
-                  andCornerRadiu:(CGFloat)CornerRadiu       //圆角度数
-                  andBorderWidth:(CGFloat)BorderWidth       //线宽
-                     andPattern1:(NSInteger)Pattern1        //虚线1长度
-                     andPattern2:(NSInteger)Pattern2        //虚线2长度
-                  andBorderColor:(UIColor *)BorderColor;    //虚线颜色
+/**
+ 绘制可以带虚线框的View视图
+ 
+ @param BGColor 背景色
+ @param CornerRadius 圆角度数
+ @param BorderWidth 线宽
+ @param dashPattern1 虚线1长度
+ @param dashPattern2 虚线2长度
+ @param BorderColor 虚线颜色
+ */
+- (void)setShapeLayerWithBGColor:(UIColor *)bgColor
+                    cornerRadius:(CGFloat)cornerRadius
+                     borderWidth:(CGFloat)borderWidth
+                    dashPattern1:(NSInteger)dashPattern1
+                    dashPattern2:(NSInteger)dashPattern2
+                     borderColor:(UIColor *)borderColor;
 
+#pragma mark - addAnimation    
 
+/**
+ 添加视图动画
 
-#pragma mark - addAnimation     添加视图动画
+ @param Duration 动画时间
+ @param AmtionType 动画类型
+ @param AmtionFrom 动画方向
+ */
 -(void)addAnimationWithDuration:(CFTimeInterval)Duration
                   andAmtionType:(NSString *)AmtionType
                   andAmtionFrom:(NSString *)AmtionFrom;
 
-
-
 #pragma mark - setShadow        设置视图阴影效果
+/**
+ 设置视图阴影效果
+ */
 - (void)makeInsetShadow;
+
+/**
+ 设置视图阴影效果
+
+ @param radius 阴影的偏移大小
+ @param alpha 透明度
+ */
 - (void)makeInsetShadowWithRadius:(float)radius
                             Alpha:(float)alpha;
+/**
+ 设置视图阴影效果
+ 
+ @param radius 阴影的偏移大小
+ @param alpha 透明度
+ @param directions 阴影散发方向
+ */
 - (void)makeInsetShadowWithRadius:(float)radius
                             Color:(UIColor *)color
                        Directions:(NSArray *)directions;
@@ -94,15 +161,32 @@
 + (UIImage *)createImageWithColor:(UIColor *)color
                              rect:(CGRect)aRect;
 
-
-
-
 #pragma mark - AllViews
+/**
+ 创建一个可响应交互imageview
+
+ @param image 图片对象
+ @param frame frame
+ @param userinterface 是否开启交互
+ @return UIImageView
+ */
 + (UIImageView *)createImageViewWithImage:(UIImage *)image
                                andFrame:(CGRect)frame
               andUserInteractionEnabled:(BOOL)userinterface;
 
-
+/**
+ 创建一个UIButton
+ 
+ @param title 文字
+ @param frame Frame设定
+ @param type 按键类型
+ @param color 背景颜色
+ @param normalImg 按键未按下正常图片
+ @param hightedImg 按键按下高亮图片
+ @param tag 事件响应者
+ @param action  事件执行函数
+ @return UIButton
+ */
 + (UIButton *)createButtonWithTitle:(NSString *)title
                          andFrame:(CGRect)frame
                           andType:(UIButtonType)type
@@ -112,6 +196,17 @@
                         andTarget:(id)tag
                         andAction:(SEL)action;
 
+/**
+ 创建一个UILabel
+
+ @param text 文字
+ @param frame Frame设定
+ @param font 文字格式
+ @param T_Color 文字颜色
+ @param B_Color 背景颜色
+ @param textalignment 文字排版
+ @return UILabel
+ */
 + (UILabel *)createLabelWithText:(NSString *)text
                       andFrame:(CGRect)frame
                        andFont:(UIFont *)font
@@ -119,7 +214,18 @@
             andBackgroundColor:(UIColor *)B_Color
               andTextAlignment:(NSTextAlignment)textalignment;
 
-
+/**
+ 创建一个UITextField
+ 
+ @param text 文字
+ @param frame Frame设定
+ @param font 文字格式
+ @param T_Color 文字颜色
+ @param B_Color 背景颜色
+ @param placetext 提示文字
+ @param textAlignment 文字排版
+ @return UITextField
+ */
 + (UITextField *)createTextFieldWithText:(NSString *)text
                                andFrame:(CGRect)frame
                                 andFont:(UIFont *)font

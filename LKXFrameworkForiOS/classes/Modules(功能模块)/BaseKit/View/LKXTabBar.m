@@ -35,8 +35,8 @@
 
 - (void)layoutSubviews {
     NSInteger count = self.subviews.count;
-    CGFloat width = self.Width / count;
-    CGFloat height = self.Height;
+    CGFloat width = self.lkx_width / count;
+    CGFloat height = self.lkx_height;
     for (int i = 0; i < count; i++) {
         LKXTabBarButton *btn = self.subviews[i];
         btn.tag = i;

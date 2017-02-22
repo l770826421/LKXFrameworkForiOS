@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 弹簧TableView
+ */
 @interface LKXSpringCollectionViewFlowLayout : UICollectionViewFlowLayout
 
+/**
+ 弹簧阻尼
+ */
 @property (nonatomic, assign) CGFloat springDamping;
+/**
+ 弹簧频率
+ */
 @property (nonatomic, assign) CGFloat springFrequency;
+/**
+ 阻力系数
+ */
 @property (nonatomic, assign) CGFloat resistanceFactor;
 
 @end

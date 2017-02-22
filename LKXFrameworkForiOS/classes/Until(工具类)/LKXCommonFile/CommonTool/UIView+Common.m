@@ -13,109 +13,138 @@
 
 
 #pragma mark - 获取视图的上下左右宽高
-- (float)Top
-{
-    float length = 0.0;
-    length = self.frame.origin.y;
-    return length;
+- (void)setLkx_x:(CGFloat)lkx_x {
+    CGRect frame = CGRectMake(lkx_x, self.lkx_y, self.lkx_width, self.lkx_height);
+    self.frame = frame;
 }
 
-- (float)Bottom
-{
-    float length = 0.0;
-    length = self.frame.origin.y + self.frame.size.height;
-    return length;
+- (CGFloat)lkx_x {
+    return self.frame.origin.x;
 }
 
-
-- (float)Left
-{
-    float length = 0.0;
-    length = self.frame.origin.x;
-    return length;
+- (void)setLkx_y:(CGFloat)lkx_y {
+    CGRect frame = CGRectMake(self.lkx_x, lkx_y, self.lkx_width, self.lkx_height);
+    self.frame = frame;
 }
 
-
-- (float)Right
-{
-    float length = 0.0;
-    length = self.frame.origin.x + self.frame.size.width;
-    return length;
+- (CGFloat)lkx_y {
+    return self.frame.origin.y;
 }
 
-
-
-- (float)Width
-{
-    float length = 0.0;
-    length = self.frame.size.width;
-    return length;
+- (CGFloat)lkx_right {
+    return self.lkx_x + self.lkx_width;
 }
 
+- (CGFloat)lkx_bottom {
+    return self.lkx_y + self.lkx_height;
+}
 
-- (float)Height
-{
-    float length = 0.0;
-    length = self.frame.size.height;
-    return length;
+- (void)setLkx_width:(CGFloat)lkx_width {
+    CGRect frame = CGRectMake(self.lkx_x, self.lkx_y, lkx_width, self.lkx_height);
+    self.frame = frame;
+}
+
+- (CGFloat)lkx_width {
+    return self.frame.size.width;
+}
+
+- (void)setLkx_height:(CGFloat)lkx_height {
+    CGRect frame = CGRectMake(self.lkx_x, self.lkx_y, self.lkx_width, lkx_height);
+    self.frame = frame;
+}
+
+- (CGFloat)lkx_height {
+    return self.frame.size.height;
 }
 
 #pragma mark - 获取视图的常用坐标
-- (CGPoint)FrameOrigin
+- (void)setLkx_frameOrigin:(CGPoint)lkx_frameOrigin
 {
-    return  self.frame.origin;
+    CGRect frame = CGRectMake(lkx_frameOrigin.x, lkx_frameOrigin.y, self.lkx_width, self.lkx_height);
+    self.frame = frame;
 }
 
-
-- (CGSize)FrameSize
+- (CGPoint)lkx_frameOrigin
 {
-    return  self.frame.size;
+    return self.frame.origin;
 }
 
-
-- (CGPoint)FrameCenter
+- (CGPoint)lkx_frameCenter
 {
-    return  self.center;
+    return self.center;
 }
 
-
-
-- (CGPoint)BoundsOrigin
+- (void)setLkx_frameSize:(CGSize)lkx_frameSize
 {
-    return  self.bounds.origin;
+    CGRect frame = CGRectMake(self.lkx_x, self.lkx_y, lkx_frameSize.width, lkx_frameSize.height);
+    self.frame = frame;
 }
 
-
-- (CGSize)BoundsSize
+- (CGSize)lkx_frameSize
 {
-    return  self.bounds.size;
+    return self.frame.size;
 }
 
-
-- (CGPoint)BoundsCenter
+- (CGPoint)lkx_boundsOrigin
 {
-    return  CGPointMake(self.Width/2.0, self.Height/2.0);
+    return self.bounds.origin;
 }
 
+- (CGPoint)lkx_boundsCenter
+{
+    return CGPointMake(self.lkx_width * 0.5, self.lkx_height * 0.5);
+}
 
-
+- (CGSize)lkx_boundsSize {
+    return self.bounds.size;
+}
 
 #pragma mark - 设置圆角,边框,边框颜色,背景颜色
-//设置圆角,边框,边框颜色,背景颜色
--(void)setBackgroundColor:(UIColor *)BGColor
-          andCornerRadius:(float)Radius
-           andBorderWidth:(float)Width
-           andBorderColor:(UIColor *)BorderColor
+/**
+ 设置圆角
+ 
+ @param cornerRadius 圆角数
+ */
+- (void)setCornerRadius:(CGFloat)cornerRadius
 {
-    if (BGColor)
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = YES;
+}
+
+/**
+ 这是表框线
+ 
+ @param borderWidth 边框线粗
+ @param borderColor 边框的颜色
+ */
+- (void)setBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor
+{
+    self.layer.borderColor = borderColor.CGColor;
+    self.layer.borderWidth = borderWidth;
+}
+
+/**
+ 设置圆角,边框,边框颜色,背景颜色
+ 
+ @param BGColor 背景颜色
+ @param Radius 圆角,默认5.0
+ @param Width 边框线粗,默认2.0
+ @param Color 边框颜色
+ */
+- (void)setBackgroundColor:(UIColor *)bgColor
+              cornerRadius:(CGFloat)cornerRadius
+               borderWidth:(CGFloat)borderWidth
+               borderColor:(UIColor *)borderColor
+{
+    if (bgColor)
     {
-        [self setBackgroundColor:BGColor];
+        [self setBackgroundColor:bgColor];
     }
-    [self.layer setCornerRadius:Radius];
-    [self.layer setBorderWidth:Width];
-    if (BorderColor)
+    [self.layer setCornerRadius:cornerRadius];
+    [self.layer setBorderWidth:borderWidth];
+    if (borderColor)
     {
-        [self.layer setBorderColor:[BorderColor CGColor]];
+        [self.layer setBorderColor:[borderColor CGColor]];
     }
     self.layer.masksToBounds = YES;
 }
@@ -162,26 +191,28 @@
 }
 
 #pragma mark -  //绘制可以带虚线框的View视图
-//绘制可以呆虚线框的View视图
-- (void)setShapeLayerWithBGColor:(UIColor *)BGColor         //背景色
-                  andCornerRadiu:(CGFloat)CornerRadiu       //圆角度数
-                  andBorderWidth:(CGFloat)BorderWidth       //线宽
-                     andPattern1:(NSInteger)Pattern1        //虚线1长度
-                     andPattern2:(NSInteger)Pattern2        //虚线2长度
-                  andBorderColor:(UIColor *)BorderColor     //虚线颜色
+/**
+ 绘制可以带虚线框的View视图
+ 
+ @param BGColor 背景色
+ @param CornerRadius 圆角度数
+ @param BorderWidth 线宽
+ @param dashPattern1 虚线1长度
+ @param dashPattern2 虚线2长度
+ @param BorderColor 虚线颜色
+ */
+- (void)setShapeLayerWithBGColor:(UIColor *)bgColor
+                     cornerRadius:(CGFloat)cornerRadius
+                     borderWidth:(CGFloat)borderWidth
+                    dashPattern1:(NSInteger)dashPattern1
+                    dashPattern2:(NSInteger)dashPattern2
+                     borderColor:(UIColor *)borderColor
 {
-    //border definitions
-    CGFloat     cornerRadius    = CornerRadiu;
-    CGFloat     borderWidth     = BorderWidth;
-    NSInteger   dashPattern1    = Pattern1;
-    NSInteger   dashPattern2    = Pattern2;
-    UIColor     *lineColor      = BorderColor;
-    
-    
-    [self setBackgroundColor:BGColor
-             andCornerRadius:CornerRadiu
-              andBorderWidth:BorderWidth
-              andBorderColor:[UIColor clearColor]];
+
+    [self setBackgroundColor:bgColor
+                cornerRadius:cornerRadius
+                 borderWidth:borderWidth
+                 borderColor:[UIColor clearColor]];
     
     //drawing
     CGRect frame = self.bounds;
@@ -211,7 +242,7 @@
     _shapeLayer.masksToBounds = NO;
     [_shapeLayer setValue:[NSNumber numberWithBool:NO] forKey:@"isCircle"];
     _shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-    _shapeLayer.strokeColor = [lineColor CGColor];
+    _shapeLayer.strokeColor = [borderColor CGColor];
     _shapeLayer.lineWidth = borderWidth;
     _shapeLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInteger:dashPattern1], [NSNumber numberWithInteger:dashPattern2], nil];
     _shapeLayer.lineCap = kCALineCapRound;
@@ -248,10 +279,10 @@
     [self.layer addAnimation:animation forKey:@"animation"];
 }
 
-
-
-
 #pragma mark - setShadow
+/**
+ 设置视图阴影效果
+ */
 - (void) makeInsetShadow
 {
     NSArray *shadowDirections = [NSArray arrayWithObjects:@"top", @"bottom", @"left" , @"right" , nil];
@@ -263,7 +294,12 @@
     [self addSubview:shadowView];
 }
 
-
+/**
+ 设置视图阴影效果
+ 
+ @param radius 阴影的偏移大小
+ @param alpha 透明度
+ */
 - (void) makeInsetShadowWithRadius:(float)radius Alpha:(float)alpha
 {
     NSArray *shadowDirections = [NSArray arrayWithObjects:@"top", @"bottom", @"left" , @"right" , nil];
@@ -275,6 +311,13 @@
     [self addSubview:shadowView];
 }
 
+/**
+ 设置视图阴影效果
+ 
+ @param radius 阴影的偏移大小
+ @param alpha 透明度
+ @param directions 阴影散发方向
+ */
 - (void) makeInsetShadowWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
 {
     UIView *shadowView = [self createShadowViewWithRadius:radius Color:color Directions:directions];
@@ -283,6 +326,13 @@
     [self addSubview:shadowView];
 }
 
+/**
+ 设置视图阴影效果
+ 
+ @param radius 阴影的偏移大小
+ @param alpha 透明度
+ @param directions 阴影散发方向
+ */
 - (UIView *) createShadowViewWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
 {
     UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
@@ -376,20 +426,19 @@
 
 
 #pragma mark - AllViews
-/*
+/**
+ 创建一个可响应点击imageview
  
- 创建一个UIImageView
- 参数：                描述
- image              图片
- frame              Frame设定
- userinterface      是否开启交互
- 
+ @param image 图片对象
+ @param frame frame
+ @param userinterface 是否开启交互
+ @return UIImageView
  */
 + (UIImageView *)createImageViewWithImage:(UIImage *)image
                                andFrame:(CGRect)frame
               andUserInteractionEnabled:(BOOL)userinterface
 {
-    UIImageView* ImageView = [[UIImageView alloc]initWithFrame:frame];
+    UIImageView* ImageView = [[UIImageView alloc] initWithFrame:frame];
     [ImageView setImage:image];
     ImageView.userInteractionEnabled = userinterface;
     
@@ -397,19 +446,18 @@
 }
 
 
-/*
- 
+/**
  创建一个UIButton
- 参数：                描述
- title              文字
- frame              Frame设定
- type               按键类型
- color              背景颜色
- normalImg          按键未按下正常图片
- hightedImg         按键按下高亮图片
- target             事件响应者
- action             事件执行函数
  
+ @param title 文字
+ @param frame Frame设定
+ @param type 按键类型
+ @param color 背景颜色
+ @param normalImg 按键未按下正常图片
+ @param hightedImg 按键按下高亮图片
+ @param tag 事件响应者
+ @param action  事件执行函数
+ @return UIButton
  */
 + (UIButton *)createButtonWithTitle:(NSString *)title
                           andFrame:(CGRect)frame
@@ -436,19 +484,16 @@
     return btn;
 }
 
-
-
-/*
- 
+/**
  创建一个UILabel
- 参数：                描述
- text              文字
- frame              Frame设定
- font               文字格式
- T_Color            文字颜色
- B_Color            背景颜色
- textalignment      文字排版
  
+ @param text 文字
+ @param frame Frame设定
+ @param font 文字格式
+ @param T_Color 文字颜色
+ @param B_Color 背景颜色
+ @param textalignment 文字排版
+ @return UILabel
  */
 + (UILabel *)createLabelWithText:(NSString *)text
                       andFrame:(CGRect)frame
@@ -467,18 +512,17 @@
     return label;
 }
 
-
-/*
+/**
  创建一个UITextField
- 参数：                描述
- text              文字
- frame              Frame设定
- font               文字格式
- T_Color            文字颜色
- B_Color            背景颜色
- placetext          提示文字
- textalignment      文字排版
- 
+
+ @param text 文字
+ @param frame Frame设定
+ @param font 文字格式
+ @param T_Color 文字颜色
+ @param B_Color 背景颜色
+ @param placetext 提示文字
+ @param textAlignment 文字排版
+ @return UITextField
  */
 + (UITextField *)createTextFieldWithText:(NSString *)text
                                andFrame:(CGRect)frame

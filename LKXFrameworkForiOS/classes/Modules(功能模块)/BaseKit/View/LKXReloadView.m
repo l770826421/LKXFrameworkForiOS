@@ -36,7 +36,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Dev_ScreenWidth - 20 * 2, 200)];
     [self addSubview:view];
     
-    self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.Width, 80)];
+    self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.lkx_width, 80)];
     self.messageLabel.textColor = [UIColor grayColor];
     self.messageLabel.font = [UIFont systemFontOfSize:kMessageFontSize];
     self.messageLabel.textAlignment = NSTextAlignmentCenter;
@@ -44,8 +44,8 @@
     [view addSubview:self.messageLabel];
     
     self.relodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.relodButton.frame = CGRectMake((view.Width - 100 ) * 0.5, self.messageLabel.Bottom + 8, 100, 40);
-    [self.relodButton setBackgroundColor:[UIColor whiteColor] andCornerRadius:4.0 andBorderWidth:1.0 andBorderColor:[UIColor lightGrayColor]];
+    self.relodButton.frame = CGRectMake((view.lkx_width - 100 ) * 0.5, self.messageLabel.lkx_bottom + 8, 100, 40);
+    [self.relodButton setBackgroundColor:[UIColor whiteColor] cornerRadius:4.0 borderWidth:1.0 borderColor:[UIColor lightGrayColor]];
     [self.relodButton setTitle:@"重新加载" forState:UIControlStateNormal];
     [self.relodButton setTitleColor:[UIColor lightGrayColor]
                            forState:UIControlStateNormal];

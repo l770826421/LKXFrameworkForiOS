@@ -1559,6 +1559,7 @@
 		163DF23E1CC6000600A2DA26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSUITests;

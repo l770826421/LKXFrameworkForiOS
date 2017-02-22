@@ -139,6 +139,10 @@
     [container mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(blackView.mas_bottom);
     }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        LKXMLog(@"(x: %f, y: %f) -- (width: %f, height: %f)", blackView.lkx_x, blackView.lkx_y, blackView.lkx_width, blackView.lkx_height);
+    });
 }
 
 

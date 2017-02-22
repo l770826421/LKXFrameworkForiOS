@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ button frame太小的时候，扩大响应区域
+ */
 @interface BigBtn : UIButton
 
 @end

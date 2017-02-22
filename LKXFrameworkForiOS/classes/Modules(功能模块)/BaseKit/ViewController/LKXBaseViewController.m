@@ -133,7 +133,7 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
  *  @brief  没有数据是展示的view
  */
 - (void)showReloadView {
-    LKXReloadView *reloadView = [[LKXReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.Width, self.view.Height)];
+    LKXReloadView *reloadView = [[LKXReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.lkx_width, self.view.lkx_height)];
     reloadView.delegate = self;
     [self.view addSubview:reloadView];
 }

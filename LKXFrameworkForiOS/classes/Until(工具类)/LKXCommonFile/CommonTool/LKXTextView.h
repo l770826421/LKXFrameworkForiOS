@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 有提示语的TextView
+ */
 @interface LKXTextView : UITextView
 
 /** 设置提示语句 */

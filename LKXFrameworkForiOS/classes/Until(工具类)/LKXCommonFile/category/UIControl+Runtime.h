@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 防止连续点击响应的问题
+ */
 @interface UIControl (Runtime)
 
 // 点击之后每过lkx_acceptEventInterval点击,该UIControl才有效

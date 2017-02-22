@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ webView实现了代理
+ */
 @interface LKXWebView : UIWebView <UIWebViewDelegate>
 
 @property (nonatomic, copy) void (^ReturnWebInfoBlock)(NSString *info);
