@@ -17,9 +17,9 @@
 
 #pragma mark - 获取视图的上下左右宽高
 /** X坐标 */
-@property (nonatomic, assign) CGFloat lkx_x;
+@property (nonatomic, assign) CGFloat lkx_left;
 /** y坐标 */
-@property (nonatomic, assign) CGFloat lkx_y;
+@property (nonatomic, assign) CGFloat lkx_top;
 /** 最右边x坐标 */
 @property (nonatomic, assign, readonly) CGFloat lkx_right;
 /** 最底部y坐标 */
@@ -163,44 +163,44 @@
 
 #pragma mark - AllViews
 /**
- 创建一个可响应交互imageview
-
+ 创建一个可响应点击imageview
+ 
  @param image 图片对象
  @param frame frame
  @param userinterface 是否开启交互
  @return UIImageView
  */
 + (UIImageView *)createImageViewWithImage:(UIImage *)image
-                               andFrame:(CGRect)frame
-              andUserInteractionEnabled:(BOOL)userinterface;
+                                    frame:(CGRect)frame
+                   userInteractionEnabled:(BOOL)userinterface;
 
 /**
  创建一个UIButton
  
  @param title 文字
- @param frame Frame设定
+ @param frame frame
  @param type 按键类型
  @param color 背景颜色
  @param normalImg 按键未按下正常图片
  @param hightedImg 按键按下高亮图片
- @param tag 事件响应者
- @param action  事件执行函数
+ @param target 事件响应者
+ @param action 事件执行函数
  @return UIButton
  */
 + (UIButton *)createButtonWithTitle:(NSString *)title
-                         andFrame:(CGRect)frame
-                          andType:(UIButtonType)type
-               andBackGroundColor:(UIColor *)color
-          andBackGroundIMg_Normal:(UIImage *)normalImg
-         andBackGroundIMG_Highted:(UIImage *)hightedImg
-                        andTarget:(id)tag
-                        andAction:(SEL)action;
+                              frame:(CGRect)frame
+                               type:(UIButtonType)type
+                    backGroundColor:(UIColor *)color
+               backGroundIMg_Normal:(UIImage *)normalImg
+              backGroundIMG_Highted:(UIImage *)hightedImg
+                             target:(id)target
+                             action:(SEL)action;
 
 /**
  创建一个UILabel
-
+ 
  @param text 文字
- @param frame Frame设定
+ @param frame frame
  @param font 文字格式
  @param T_Color 文字颜色
  @param B_Color 背景颜色
@@ -208,17 +208,17 @@
  @return UILabel
  */
 + (UILabel *)createLabelWithText:(NSString *)text
-                      andFrame:(CGRect)frame
-                       andFont:(UIFont *)font
-                  andTextColor:(UIColor *)T_Color
-            andBackgroundColor:(UIColor *)B_Color
-              andTextAlignment:(NSTextAlignment)textalignment;
+                           frame:(CGRect)frame
+                            font:(UIFont *)font
+                       textColor:(UIColor *)T_Color
+                 backgroundColor:(UIColor *)B_Color
+                   textAlignment:(NSTextAlignment)textalignment;
 
 /**
  创建一个UITextField
  
  @param text 文字
- @param frame Frame设定
+ @param frame frame
  @param font 文字格式
  @param T_Color 文字颜色
  @param B_Color 背景颜色
@@ -227,11 +227,10 @@
  @return UITextField
  */
 + (UITextField *)createTextFieldWithText:(NSString *)text
-                               andFrame:(CGRect)frame
-                                andFont:(UIFont *)font
-                           andTextColor:(UIColor *)T_Color
-                     andBackgroundColor:(UIColor *)B_Color
-                           andPlacetext:(NSString *)placetext
-                       andTextAlignment:(NSTextAlignment)textAlignment;
-
+                                   frame:(CGRect)frame
+                                    font:(UIFont *)font
+                               textColor:(UIColor *)T_Color
+                         backgroundColor:(UIColor *)B_Color
+                               placetext:(NSString *)placetext
+                           textAlignment:(NSTextAlignment)textAlignment;
 @end

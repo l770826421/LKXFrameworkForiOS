@@ -11,36 +11,35 @@
 
 @implementation UIView (Common)
 
-
 #pragma mark - 获取视图的上下左右宽高
-- (void)setLkx_x:(CGFloat)lkx_x {
-    CGRect frame = CGRectMake(lkx_x, self.lkx_y, self.lkx_width, self.lkx_height);
+- (void)setLkx_left:(CGFloat)lkx_left {
+    CGRect frame = CGRectMake(lkx_left, self.lkx_top, self.lkx_width, self.lkx_height);
     self.frame = frame;
 }
 
-- (CGFloat)lkx_x {
+- (CGFloat)lkx_left {
     return self.frame.origin.x;
 }
 
-- (void)setLkx_y:(CGFloat)lkx_y {
-    CGRect frame = CGRectMake(self.lkx_x, lkx_y, self.lkx_width, self.lkx_height);
+- (void)setLkx_top:(CGFloat)lkx_top {
+    CGRect frame = CGRectMake(self.lkx_left, lkx_top, self.lkx_width, self.lkx_height);
     self.frame = frame;
 }
 
-- (CGFloat)lkx_y {
+- (CGFloat)lkx_top {
     return self.frame.origin.y;
 }
 
 - (CGFloat)lkx_right {
-    return self.lkx_x + self.lkx_width;
+    return self.lkx_left + self.lkx_width;
 }
 
 - (CGFloat)lkx_bottom {
-    return self.lkx_y + self.lkx_height;
+    return self.lkx_top + self.lkx_height;
 }
 
 - (void)setLkx_width:(CGFloat)lkx_width {
-    CGRect frame = CGRectMake(self.lkx_x, self.lkx_y, lkx_width, self.lkx_height);
+    CGRect frame = CGRectMake(self.lkx_left, self.lkx_top, lkx_width, self.lkx_height);
     self.frame = frame;
 }
 
@@ -49,7 +48,7 @@
 }
 
 - (void)setLkx_height:(CGFloat)lkx_height {
-    CGRect frame = CGRectMake(self.lkx_x, self.lkx_y, self.lkx_width, lkx_height);
+    CGRect frame = CGRectMake(self.lkx_left, self.lkx_top, self.lkx_width, lkx_height);
     self.frame = frame;
 }
 
@@ -76,7 +75,7 @@
 
 - (void)setLkx_frameSize:(CGSize)lkx_frameSize
 {
-    CGRect frame = CGRectMake(self.lkx_x, self.lkx_y, lkx_frameSize.width, lkx_frameSize.height);
+    CGRect frame = CGRectMake(self.lkx_left, self.lkx_top, lkx_frameSize.width, lkx_frameSize.height);
     self.frame = frame;
 }
 
@@ -435,8 +434,8 @@
  @return UIImageView
  */
 + (UIImageView *)createImageViewWithImage:(UIImage *)image
-                               andFrame:(CGRect)frame
-              andUserInteractionEnabled:(BOOL)userinterface
+                                    frame:(CGRect)frame
+                   userInteractionEnabled:(BOOL)userinterface
 {
     UIImageView* ImageView = [[UIImageView alloc] initWithFrame:frame];
     [ImageView setImage:image];
@@ -445,28 +444,27 @@
     return ImageView;
 }
 
-
 /**
  创建一个UIButton
  
  @param title 文字
- @param frame Frame设定
+ @param frame frame
  @param type 按键类型
  @param color 背景颜色
  @param normalImg 按键未按下正常图片
  @param hightedImg 按键按下高亮图片
- @param tag 事件响应者
- @param action  事件执行函数
+ @param target 事件响应者
+ @param action 事件执行函数
  @return UIButton
  */
 + (UIButton *)createButtonWithTitle:(NSString *)title
-                          andFrame:(CGRect)frame
-                           andType:(UIButtonType)type
-                andBackGroundColor:(UIColor *)color
-           andBackGroundIMg_Normal:(UIImage *)normalImg
-          andBackGroundIMG_Highted:(UIImage *)hightedImg
-                         andTarget:(id)target
-                         andAction:(SEL)action
+                              frame:(CGRect)frame
+                               type:(UIButtonType)type
+                    backGroundColor:(UIColor *)color
+               backGroundIMg_Normal:(UIImage *)normalImg
+              backGroundIMG_Highted:(UIImage *)hightedImg
+                             target:(id)target
+                             action:(SEL)action
 {
     BigBtn * btn = [BigBtn buttonWithType:type];
     btn.frame = frame;
@@ -488,7 +486,7 @@
  创建一个UILabel
  
  @param text 文字
- @param frame Frame设定
+ @param frame frame
  @param font 文字格式
  @param T_Color 文字颜色
  @param B_Color 背景颜色
@@ -496,11 +494,11 @@
  @return UILabel
  */
 + (UILabel *)createLabelWithText:(NSString *)text
-                      andFrame:(CGRect)frame
-                       andFont:(UIFont *)font
-                  andTextColor:(UIColor *)T_Color
-            andBackgroundColor:(UIColor *)B_Color
-              andTextAlignment:(NSTextAlignment)textalignment
+                           frame:(CGRect)frame
+                            font:(UIFont *)font
+                       textColor:(UIColor *)T_Color
+                 backgroundColor:(UIColor *)B_Color
+                   textAlignment:(NSTextAlignment)textalignment
 {
     UILabel* label = [[UILabel alloc] initWithFrame:frame];
     [label setText:text];
@@ -514,9 +512,9 @@
 
 /**
  创建一个UITextField
-
+ 
  @param text 文字
- @param frame Frame设定
+ @param frame frame
  @param font 文字格式
  @param T_Color 文字颜色
  @param B_Color 背景颜色
@@ -525,12 +523,12 @@
  @return UITextField
  */
 + (UITextField *)createTextFieldWithText:(NSString *)text
-                               andFrame:(CGRect)frame
-                                andFont:(UIFont *)font
-                           andTextColor:(UIColor *)T_Color
-                     andBackgroundColor:(UIColor *)B_Color
-                           andPlacetext:(NSString *)placetext
-                       andTextAlignment:(NSTextAlignment)textAlignment
+                                   frame:(CGRect)frame
+                                    font:(UIFont *)font
+                               textColor:(UIColor *)T_Color
+                         backgroundColor:(UIColor *)B_Color
+                               placetext:(NSString *)placetext
+                           textAlignment:(NSTextAlignment)textAlignment
 {
     UITextField *TextField = [[UITextField alloc]initWithFrame:frame];
     [TextField setFont:font];
