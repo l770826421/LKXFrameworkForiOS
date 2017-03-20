@@ -342,7 +342,7 @@
  *  @brief  为NSMutableAttributedString写作方向
  *
  *  @param src       设置写作方向的子字符串
- *  @param expansion 写作方向(值查看NSWritingDirectionAttributeName的说明)
+ *  @param direction 写作方向(值查看NSWritingDirectionAttributeName的说明)
  */
 - (void)setWritingDirectionWithString:(NSString *)src writingDirection:(NSInteger)direction {
     

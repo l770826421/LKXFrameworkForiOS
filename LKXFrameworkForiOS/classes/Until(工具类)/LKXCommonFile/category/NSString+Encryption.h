@@ -23,7 +23,6 @@
  *
  *  @brief  MD5大写加密
  *
- *  @param str    加密字符串
  *  @param length 加密长度
  *
  *  @return 加密后的数据
@@ -38,7 +37,6 @@
  *
  *  @brief  MD5小写加密
  *
- *  @param str    加密字符串
  *  @param length 加密长度
  *
  *  @return 加密后的数据

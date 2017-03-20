@@ -126,10 +126,10 @@
 /**
  设置圆角,边框,边框颜色,背景颜色
  
- @param BGColor 背景颜色
- @param Radius 圆角,默认5.0
- @param Width 边框线粗,默认2.0
- @param Color 边框颜色
+ @param bgColor 背景颜色
+ @param cornerRadius 圆角,默认5.0
+ @param borderWidth 边框线粗,默认2.0
+ @param borderColor 边框颜色
  */
 - (void)setBackgroundColor:(UIColor *)bgColor
               cornerRadius:(CGFloat)cornerRadius
@@ -194,12 +194,12 @@
 /**
  绘制可以带虚线框的View视图
  
- @param BGColor 背景色
- @param CornerRadius 圆角度数
- @param BorderWidth 线宽
+ @param bgColor 背景色
+ @param cornerRadius 圆角度数
+ @param borderWidth 线宽
  @param dashPattern1 虚线1长度
  @param dashPattern2 虚线2长度
- @param BorderColor 虚线颜色
+ @param borderColor 虚线颜色
  */
 - (void)setShapeLayerWithBGColor:(UIColor *)bgColor
                      cornerRadius:(CGFloat)cornerRadius
@@ -288,7 +288,7 @@
     NSArray *shadowDirections = [NSArray arrayWithObjects:@"top", @"bottom", @"left" , @"right" , nil];
     UIColor *color = [UIColor colorWithRed:(0.0) green:(0.0) blue:(0.0) alpha:0.5];
     
-    UIView *shadowView = [self createShadowViewWithRadius:3 Color:color Directions:shadowDirections];
+    UIView *shadowView = [self createShadowViewWithRadius:3 color:color directions:shadowDirections];
     shadowView.tag = kShadowViewTag;
     
     [self addSubview:shadowView];
@@ -300,12 +300,12 @@
  @param radius 阴影的偏移大小
  @param alpha 透明度
  */
-- (void) makeInsetShadowWithRadius:(float)radius Alpha:(float)alpha
+- (void) makeInsetShadowWithRadius:(float)radius alpha:(float)alpha
 {
     NSArray *shadowDirections = [NSArray arrayWithObjects:@"top", @"bottom", @"left" , @"right" , nil];
     UIColor *color = [UIColor colorWithRed:(0.0) green:(0.0) blue:(0.0) alpha:alpha];
     
-    UIView *shadowView = [self createShadowViewWithRadius:radius Color:color Directions:shadowDirections];
+    UIView *shadowView = [self createShadowViewWithRadius:radius color:color directions:shadowDirections];
     shadowView.tag = kShadowViewTag;
     
     [self addSubview:shadowView];
@@ -315,12 +315,12 @@
  设置视图阴影效果
  
  @param radius 阴影的偏移大小
- @param alpha 透明度
+ @param color 透明度
  @param directions 阴影散发方向
  */
-- (void) makeInsetShadowWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
+- (void) makeInsetShadowWithRadius:(float)radius color:(UIColor *)color directions:(NSArray *)directions
 {
-    UIView *shadowView = [self createShadowViewWithRadius:radius Color:color Directions:directions];
+    UIView *shadowView = [self createShadowViewWithRadius:radius color:color directions:directions];
     shadowView.tag = kShadowViewTag;
     
     [self addSubview:shadowView];
@@ -333,7 +333,7 @@
  @param alpha 透明度
  @param directions 阴影散发方向
  */
-- (UIView *) createShadowViewWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
+- (UIView *)createShadowViewWithRadius:(float)radius color:(UIColor *)color directions:(NSArray *)directions
 {
     UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
     shadowView.backgroundColor = [UIColor clearColor];

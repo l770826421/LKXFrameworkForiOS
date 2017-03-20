@@ -27,7 +27,7 @@
 }
 
 
-@property(nonatomic,assign) id /*<LKXAlertViewDelegate>*/ delegate;
+@property(nonatomic,assign) id delegate;
 
 - (id)initWithTitle:(NSString *)title
             message:(NSString *)message

@@ -41,7 +41,7 @@ typedef void (^AFNetWorkingToolFailureBlock)(NSError *error);
  *
  *  @brief  GET请求
  *
- *  @param path       请求子路径
+ *  @param parameters       请求子路径
  *  @param success    success Block
  *  @param failure    failure Block
  */

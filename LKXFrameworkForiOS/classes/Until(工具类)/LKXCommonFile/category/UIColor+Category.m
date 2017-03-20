@@ -9,12 +9,10 @@
 #import "UIColor+category.h"
 
 @implementation UIColor (Category)
-/*!
- * @method 通过16进制计算颜色
- * @abstract
- * @discussion
- * @param 16机制
- * @result 颜色对象
+/**
+ 通过16进制计算颜色
+ 
+ @param inColorString 16进制
  */
 + (UIColor *)colorFromHexRGB:(NSString *)inColorString
 {
