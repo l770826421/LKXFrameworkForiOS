@@ -1,23 +1,21 @@
 //
-//  LKXWebViewController.m
-//  XGMEport
+//  LKXUKWebViewController.m
+//  LKXFrameworkForiOS
 //
-//  Created by lkx on 16/3/29.
-//  Copyright © 2016年 刘克邪. All rights reserved.
+//  Created by lkx on 2017/3/20.
+//  Copyright © 2017年 刘克邪. All rights reserved.
 //
 
-#import "LKXWebViewController.h"
-//#import "LKXLayoutContraint.h"
+#import "LKXUKWebViewController.h"
 #import "Masonry.h"
 
-@interface LKXWebViewController ()
+@interface LKXUKWebViewController ()
 
 @end
 
-@implementation LKXWebViewController
+@implementation LKXUKWebViewController
 
 - (void)viewWillDisappear:(BOOL)animated {
-    
     [super viewWillDisappear:animated];
     NSURLCache *cache = [NSURLCache sharedURLCache];
     [cache removeAllCachedResponses];
@@ -27,8 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -72,11 +68,7 @@
 
 - (void)startLoadWeb {
     
-    if ([NSString isEmptyWithString:self.urlString]) {
-        [kMBHUDTool showHUDWithText:@"没有填充URL" delay:kMBHUDDelay];
-        LKXMLog(@"没有填充URL");
-        return;
-    }
+    NSAssert([NSString isEmptyWithString:self.urlString], @"没有传入网址URL");
     
     NSURL *url = [NSURL URLWithString:self.urlString];
     
@@ -97,19 +89,16 @@
 }
 
 #pragma mark - getter and setter
-- (UIWebView *)webView {
+- (WKWebView *)webView {
     
     if (!_webView ) {
-        _webView = [[UIWebView alloc] init];
+        _webView = [[WKWebView alloc] init];
         _webView.translatesAutoresizingMaskIntoConstraints = NO;
-        _webView.delegate = self;
-        _webView.scalesPageToFit     = YES;
+        _webView.navigationDelegate = self;
+        _webView.UIDelegate = self;
         _webView.scrollView.bounces  = NO;
         _webView.scrollView.delegate = self;
         _webView.scrollView.backgroundColor = self.view.backgroundColor;
-        _webView.dataDetectorTypes   = UIDataDetectorTypeLink;
-        _webView.allowsInlineMediaPlayback = YES;
-        _webView.suppressesIncrementalRendering = YES;
     }
     
     return _webView;
@@ -122,44 +111,97 @@
     return _context;
 }
 
-#pragma mark - UIWebViewDelegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-//    NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-     NSString *requestString = [[[request URL] absoluteString] stringByRemovingPercentEncoding];
+#pragma mark - WKNavigationDelegate
+// 追踪加载过程
+/**
+ 页面开始加载调用
+ */
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     
-    if (self.isAutoRedirect) {
-        return YES;
-    } /*else if (![requestString hasPrefix:self.urlString]) {
-        return NO;
-    }*/
-    LKXMLog(@"%@", requestString);
-    
-    return YES;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    LKXMLog(@"webViewDidStartLoad");
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-
-    [[MBHUDTool sharedMBHUDTool] hideMBHUD:YES];
-    //禁止长按打开某东西
-//    [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
-//    NSString *downRefresh = @"javascript:(function(){$(window).scroll(function(){"
-//    "if($(document).height()-$(document).scrollTop()-$(window).height() < 20){"
-//    "var hasData = $(this).attr('hasData');"
-//    "showMsgWithDownRefresh(hasData);}});})()";
-//    [webView stringByEvaluatingJavaScriptFromString:downRefresh];
+/**
+ 当内容开始返回时调用
+ */
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     
-    [webView.scrollView.mj_header endRefreshing];
-    LKXMLog(@"webViewDidFinishLoad");
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
-    LKXMLog(@"didFailLoadWithError , error = %@", error.description);
-    [webView.scrollView.mj_header endRefreshing];
-    [[MBHUDTool sharedMBHUDTool] hideMBHUD:YES];
+/**
+ 页面加载完成之后调用
+ */
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+}
+
+/**
+ 页面加载失败调用
+ */
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    LKXMLog(@"页面加载失败%@", error);
+}
+
+// 页面跳转
+
+/**
+ 接收到服务器跳转请求之后再执行
+ */
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
+    
+}
+
+/**
+ 在发送请求之前,决定是否跳转
+ */
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    WKNavigationActionPolicy policy = _autoRedirect ? WKNavigationActionPolicyAllow : WKNavigationActionPolicyCancel;
+    decisionHandler(policy);
+}
+
+
+/**
+ 接收到响应后,决定是否跳转
+ */
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    WKNavigationResponsePolicy policy = _autoRedirect ? WKNavigationResponsePolicyAllow : WKNavigationResponsePolicyCancel;
+    decisionHandler(policy);
+}
+
+#pragma mark - WKUIDelegate
+
+/**
+ 创建一个新的webView
+ */
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    return webView;
+}
+
+/**
+ webView关闭 9.0新方法
+ */
+- (void)webViewDidClose:(WKWebView *)webView {
+    
+}
+
+/**
+ 显示一个JS的Alert(与JS交互)
+ */
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    
+}
+
+/**
+ 弹出一个输入框(与JS交互的)
+ */
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable))completionHandler {
+    
+}
+
+/**
+ 显示一个确认框(JS的)
+ */
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
+    
 }
 
 #pragma mark - other
@@ -209,7 +251,7 @@
 /**
  *  @author 刘克邪
  *
- *  @brief  webView Post 的请求参数
+ *  @brief  webView 请求参数
  */
 - (void)jionParameterWithDictionary:(NSDictionary *)dic {
     

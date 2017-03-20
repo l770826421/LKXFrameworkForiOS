@@ -40,6 +40,14 @@
 #define kCellLightColor RGBCOLOR(224, 224, 224)
 #define kTextMainColor [UIColor blackColor]
 
+/**
+ WebView的请求方式
+ */
+typedef NS_ENUM(NSInteger, LKXWebViewHTTPMethod) {
+    LKXWebViewHTTPMethodGET,
+    LKXWebViewHTTPMethodPOST
+};
+
 #endif
 
 // Include any system framework and library headers here that should be included in all compilation units.

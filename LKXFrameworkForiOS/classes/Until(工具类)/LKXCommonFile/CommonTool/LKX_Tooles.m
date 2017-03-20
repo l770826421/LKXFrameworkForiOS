@@ -128,8 +128,9 @@
     {
         return UIDeviceOrientationPortrait;
     }
-    else
+    else {
         return orient;
+    }
 }
 
 //判断当前的设备是否支持该手持姿势，IPad全支持，IPhone不允许倒立持握

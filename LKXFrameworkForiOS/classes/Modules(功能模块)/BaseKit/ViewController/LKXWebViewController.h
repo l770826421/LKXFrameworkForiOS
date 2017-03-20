@@ -24,6 +24,9 @@
 
 /** post参数 */
 @property (nonatomic, strong) NSMutableDictionary * _Nullable parameters;
+/** 请求方式,默认是"GET" */
+@property (nonatomic, assign) LKXWebViewHTTPMethod HTTPMethod;
+
 
 - (void)startLoadWeb;
 

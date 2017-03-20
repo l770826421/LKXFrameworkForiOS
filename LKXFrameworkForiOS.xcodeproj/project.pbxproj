@@ -45,9 +45,9 @@
 		166C73651D4B4FBF00D66FEA /* AFNetWorkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73411D4B4FBF00D66FEA /* AFNetWorkingTool.m */; };
 		166C73661D4B4FBF00D66FEA /* LKXRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73431D4B4FBF00D66FEA /* LKXRequestManager.m */; };
 		16837AB31DD0867B0048BCE0 /* LKXWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16837AB21DD0867B0048BCE0 /* LKXWKWebViewController.m */; };
+		1684C7761E7F81ED0006B43D /* LKXUKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1684C7751E7F81ED0006B43D /* LKXUKWebViewController.m */; };
 		16859D301E70FA510025A0C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16859D271E70FA510025A0C6 /* AppDelegate.m */; };
 		16859D311E70FA510025A0C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16859D281E70FA510025A0C6 /* Assets.xcassets */; };
-		16859D341E70FA510025A0C6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16859D2E1E70FA510025A0C6 /* Info.plist */; };
 		16859D351E70FA510025A0C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16859D2F1E70FA510025A0C6 /* main.m */; };
 		16859D381E70FAB30025A0C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16859D361E70FAB30025A0C6 /* LaunchScreen.storyboard */; };
 		16859D391E70FAB30025A0C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16859D371E70FAB30025A0C6 /* Main.storyboard */; };
@@ -257,6 +257,8 @@
 		166C73431D4B4FBF00D66FEA /* LKXRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXRequestManager.m; sourceTree = "<group>"; };
 		16837AB11DD0867B0048BCE0 /* LKXWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXWKWebViewController.h; sourceTree = "<group>"; };
 		16837AB21DD0867B0048BCE0 /* LKXWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXWKWebViewController.m; sourceTree = "<group>"; };
+		1684C7741E7F81ED0006B43D /* LKXUKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXUKWebViewController.h; sourceTree = "<group>"; };
+		1684C7751E7F81ED0006B43D /* LKXUKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXUKWebViewController.m; sourceTree = "<group>"; };
 		16859D261E70FA510025A0C6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
 		16859D271E70FA510025A0C6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		16859D281E70FA510025A0C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
@@ -1088,6 +1090,8 @@
 				16CEDDB51D4AFBBE006C09CC /* LKXTableViewController.m */,
 				16CEDDB61D4AFBBE006C09CC /* LKXWebViewController.h */,
 				16CEDDB71D4AFBBE006C09CC /* LKXWebViewController.m */,
+				1684C7741E7F81ED0006B43D /* LKXUKWebViewController.h */,
+				1684C7751E7F81ED0006B43D /* LKXUKWebViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1155,7 +1159,7 @@
 		163DF2021CC6000600A2DA26 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "刘克邪";
 				TargetAttributes = {
 					163DF2091CC6000600A2DA26 = {
@@ -1197,7 +1201,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16859D341E70FA510025A0C6 /* Info.plist in Resources */,
 				16859D391E70FAB30025A0C6 /* Main.storyboard in Resources */,
 				16859D381E70FAB30025A0C6 /* LaunchScreen.storyboard in Resources */,
 				16CEDD531D4AFB1E006C09CC /* MJRefresh.bundle in Resources */,
@@ -1274,6 +1277,7 @@
 				16CEDD851D4AFB27006C09CC /* UIImage+GIF.m in Sources */,
 				16CEDD151D4AFB18006C09CC /* NSString+MJExtension.m in Sources */,
 				166C734C1D4B4FBF00D66FEA /* NSMutableAttributedString+Category.m in Sources */,
+				1684C7761E7F81ED0006B43D /* LKXUKWebViewController.m in Sources */,
 				16CEDDC31D4AFBBE006C09CC /* LKXTableViewController.m in Sources */,
 				16CEDDD31D4AFC1C006C09CC /* LKXCollectionViewCell.m in Sources */,
 				16CED8261D4AF36D006C09CC /* TAPageControl.m in Sources */,
@@ -1400,8 +1404,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1444,8 +1450,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
