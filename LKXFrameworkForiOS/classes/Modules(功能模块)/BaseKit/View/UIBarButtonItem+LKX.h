@@ -32,7 +32,7 @@
  *  @brief  实例化一个UIBarButtonItem对象(没有高亮效果)
  *
  *  @param icon   图标
- *  @param icon   图标大小
+ *  @param size   图标大小
  *  @param target 响应对象
  *  @param action 响应方法
  *
