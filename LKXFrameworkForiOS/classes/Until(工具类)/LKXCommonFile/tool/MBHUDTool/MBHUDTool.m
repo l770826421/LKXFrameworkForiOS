@@ -31,6 +31,7 @@ single_implementation(MBHUDTool)
     {
         //如果不存在,就实例化
         mbHud = [[MBProgressHUD alloc] initWithView:[kAppDelegate window]];
+        mbHud.opaque = YES;
         mbHud.delegate = self;
     }
 }

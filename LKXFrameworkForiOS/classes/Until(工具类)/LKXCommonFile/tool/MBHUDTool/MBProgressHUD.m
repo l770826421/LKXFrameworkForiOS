@@ -250,6 +250,17 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 #endif
 }
 
+/**
+ 响应链传递，当高度小于64需要将响应传递到上一层
+ */
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *view = [super hitTest:point withEvent:event];
+    if (point.y <= 64.0f) {
+        return view.superview.superview;
+    }
+    return view;
+}
+
 #pragma mark - Show & hide
 
 - (void)show:(BOOL)animated {
