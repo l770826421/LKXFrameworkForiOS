@@ -201,4 +201,55 @@
     return components;
 }
 
+/**
+ 时间加减
+ 
+ @param ti 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingTimeInterval:(NSTimeInterval)ti {
+    NSDate *date = nil;
+    
+#if __IPHONE_OS_VERSION_MAX_REQUIRED < __IPHONE_10_0
+    date = [self dateByAddingTimeInterval:ti];
+#else
+    date = [self dateByAddingTimeInterval:ti];
+#endif
+    
+    return date;
+}
+
+/**
+ 按分钟时间加减
+ 
+ @param minute 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingMinute:(NSInteger)minute {
+    NSTimeInterval ti = 60 * minute;
+    return [self lkx_dateByAddingTimeInterval:ti];
+}
+
+/**
+ 按小时时间加减
+ 
+ @param hour 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingHour:(NSInteger)hour {
+    NSTimeInterval ti = 60 * 60 * hour;
+    return [self lkx_dateByAddingTimeInterval:ti];
+}
+
+/**
+ 按天时间加减
+ 
+ @param day 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingDay:(NSInteger)day {
+    NSTimeInterval ti = 60 * 60 * 24 * day;
+    return [self lkx_dateByAddingTimeInterval:ti];
+}
+
 @end
