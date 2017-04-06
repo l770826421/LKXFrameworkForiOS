@@ -76,7 +76,6 @@
         _collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _collectionView.alwaysBounceVertical = YES;
     }
-
     return _collectionView;
 }
 

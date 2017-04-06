@@ -40,12 +40,17 @@
     [self.scroll mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(selfWeak.view);//.with.insets(UIEdgeInsetsZero);
     }];
+    
+    [self.scroll addSubview:self.contentView];
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(@0);
+        make.width.equalTo(@(Dev_ScreenWidth));
+    }];
 }
 
 #pragma mark - setter and getter
 //@synthesize scroll = _scroll;
 - (UIScrollView *)scroll {
-    
     if (!_scroll) {
         _scroll = [[UIScrollView alloc] init];
         _scroll.translatesAutoresizingMaskIntoConstraints = NO;
@@ -55,6 +60,13 @@
     }
     
     return _scroll;
+}
+
+- (UIView *)contentView {
+    if (!_contentView) {
+        _contentView = [[UIView alloc] init];
+    }
+    return _contentView;
 }
 
 #pragma mark - 其他方法

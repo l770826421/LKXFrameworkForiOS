@@ -18,6 +18,8 @@
 
 /** 需要使用scrollView的VC,这里是用AutoLayout */
 @property (nonatomic, strong) UIScrollView *scroll;
+/** 用于scroll的内容view,还需要设置contentSize */
+@property (nonatomic, strong) UIView *contentView;
 
 /** 返回顶部button,默认不显示,隐藏 */
 @property (nonatomic, strong) UIButton *topBtn;

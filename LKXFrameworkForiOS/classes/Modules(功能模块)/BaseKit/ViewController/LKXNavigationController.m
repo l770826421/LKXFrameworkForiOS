@@ -28,6 +28,8 @@
 + (void)initialize {
     // 导航栏北京颜色
     [[UINavigationBar appearance] setBarTintColor:kNavigationBarBackgroundColor];
+    // 透明
+    [UINavigationBar appearance].translucent = NO;
     
     // 导航栏title字体大小和颜色
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : kNavigationBarTitleColor, NSFontAttributeName :[UIFont boldSystemFontOfSize:kNavigationBarTitleboldFontSize]}];
@@ -40,7 +42,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.automaticallyAdjustsScrollViewInsets = NO;;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    // 设置一个NavigationBar背景图片
+    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    // 消除阴影
+    self.navigationBar.shadowImage = [UIImage new];
 }
 
 - (void)didReceiveMemoryWarning {
