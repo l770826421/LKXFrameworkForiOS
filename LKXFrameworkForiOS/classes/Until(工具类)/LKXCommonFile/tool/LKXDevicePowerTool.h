@@ -62,7 +62,7 @@ typedef NS_ENUM(NSInteger, LKXAdressBookStatus) {
  
  @param stateBlock 联网权限状态
  */
-+ (void)testNetWorkPowerState:(void(^)(CTCellularDataRestrictedState state))stateBlock;
++ (void)testNetWorkPowerState:(void(^ _Nonnull)(CTCellularDataRestrictedState state))stateBlock;
 
 /**
  查询应用的联网功能
@@ -77,14 +77,14 @@ typedef NS_ENUM(NSInteger, LKXAdressBookStatus) {
 /**
  获取相册权限,只能在系统大于8.0下使用
  */
-+ (void)requireAssetsLibraryPower:(void(^)(LKXAssetsLibraryStatus status))statusBlock;
++ (void)requireAssetsLibraryPower:(void(^ _Nonnull)(LKXAssetsLibraryStatus status))statusBlock;
 
 /**
  检查对应的media权限
  
  @param mediaType 对应权限的Type,AVMediaTypeVideo -> 相机权限; AVMediaTypeAudio -> 麦克风权限
  */
-+ (AVAuthorizationStatus)testMediaTypePowerWithMediaType:(NSString *)mediaType;
++ (AVAuthorizationStatus)testMediaTypePowerWithMediaType:(NSString * _Nullable)mediaType;
 
 /**
  获取对应的Media权限
@@ -92,7 +92,7 @@ typedef NS_ENUM(NSInteger, LKXAdressBookStatus) {
  @param mediaType  对应的mediaType字符串
  @param completionHandler 获取权限的结果
  */
-+ (void)requireMediaPowerWithMediaType:(NSString *)mediaType completionHandler:(void(^)(bool granted))completionHandler;
++ (void)requireMediaPowerWithMediaType:(NSString * _Nullable)mediaType completionHandler:(void(^ _Nonnull)(bool granted))completionHandler;
 
 /**
  获取定位权限
@@ -115,7 +115,7 @@ typedef NS_ENUM(NSInteger, LKXAdressBookStatus) {
 /**
  获取通讯录权限
  */
-+ (void)requireAddressBookPowerCompletion:(void(^)(BOOL granted, NSError *error))completion;
++ (void)requireAddressBookPowerCompletion:(void(^ _Nonnull)(BOOL granted, NSError * _Nonnull error))completion;
 
 /**
  检查日历或备忘录权限

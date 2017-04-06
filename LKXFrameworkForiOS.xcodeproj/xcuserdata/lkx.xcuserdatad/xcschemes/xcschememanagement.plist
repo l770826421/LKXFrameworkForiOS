@@ -9,16 +9,6 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>LKXWidget.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>LKXWiget.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -33,16 +23,6 @@
 			<true/>
 		</dict>
 		<key>163DF22D1CC6000600A2DA26</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>16875D991DE3E9B300F09085</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>16875DB01DE3EC8900F09085</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -98,6 +98,36 @@
  */
 - (NSDateComponents *)dateInfo;
 
+/**
+ 时间加减
+ 
+ @param ti 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingTimeInterval:(NSTimeInterval)ti;
 
+/**
+ 按分钟时间加减
+ 
+ @param minute 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingMinute:(NSInteger)minute;
+
+/**
+ 按小时时间加减
+ 
+ @param hour 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingHour:(NSInteger)hour;
+
+/**
+ 按天时间加减
+ 
+ @param day 正数增加,负数减少
+ @return 计算后的时间
+ */
+- (instancetype)lkx_dateByAddingDay:(NSInteger)day;
 
 @end

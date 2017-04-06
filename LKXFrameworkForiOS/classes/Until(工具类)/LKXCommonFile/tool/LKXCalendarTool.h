@@ -12,6 +12,22 @@
 @interface LKXCalendarTool : NSObject
 
 /**
+ 检查日历或备忘录权限
+ 
+ @param entityType 日历或者备忘录枚举值
+ @return 权限
+ */
++ (EKAuthorizationStatus)testEntityPowerWithEntityType:(EKEntityType)entityType;
+
+/**
+ 获取日历或者备忘录权限
+ 
+ @param entityType 日历或者备忘录枚举值
+ @param completion 获取结果
+ */
++ (void)requireEntityPowerWithEntityType:(EKEntityType)entityType completion:(void(^_Nullable)(BOOL granted, NSError * _Nullable error))completion;
+
+/**
  创建事件,必须使用这里使用的事件,这里设置基本的配置
  
  *  标题 title;
@@ -25,7 +41,7 @@
  [event addAlarm:[EKAlarm alarmWithRelativeOffset:-60.0f *  60.0f * 24]];
  @return 事件对象
  */
-- (EKEvent *)createEvent;
+- (EKEvent * _Nonnull)createEvent;
 
 /**
  添加事件
@@ -33,7 +49,7 @@
  @param event 事件对象
  @param success 是否写入成功
  */
-- (void)writeDataWithEvent:(EKEvent *)event success:(void(^)(BOOL success))success;
+- (void)writeDataWithEvent:(EKEvent * _Nonnull)event success:(void(^ _Nonnull)(BOOL success))success;
 
 /**
  查询事件
@@ -43,38 +59,6 @@
  @param types 事件类型组,必须是EKEntityType类型
  @return 事件数组
  */
-- (NSArray *)readEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate entityTypes:(NSArray *)types;
-
-/**
- 时间加减
- 
- @param ti 正数增加,负数减少
- @return 计算后的时间
- */
-- (instancetype)lkx_dateByAddingTimeInterval:(NSTimeInterval)ti;
-
-/**
- 按分钟时间加减
- 
- @param minute 正数增加,负数减少
- @return 计算后的时间
- */
-- (instancetype)lkx_dateByAddingMinute:(NSInteger)minute;
-
-/**
- 按小时时间加减
- 
- @param hour 正数增加,负数减少
- @return 计算后的时间
- */
-- (instancetype)lkx_dateByAddingHour:(NSInteger)hour;
-
-/**
- 按天时间加减
- 
- @param day 正数增加,负数减少
- @return 计算后的时间
- */
-- (instancetype)lkx_dateByAddingDay:(NSInteger)day;
+- (NSArray * _Nonnull)readEventsWithStartDate:(NSDate * _Nonnull)startDate endDate:(NSDate * _Nonnull)endDate entityTypes:(NSArray * _Nonnull)types;
 
 @end

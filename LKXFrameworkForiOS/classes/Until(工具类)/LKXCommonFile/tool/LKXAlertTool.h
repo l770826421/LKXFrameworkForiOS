@@ -13,7 +13,7 @@
 @protocol LKXAlertToolDelegate <NSObject>
 
 @optional
-- (void)alertTool:(LKXAlertTool *)alertTool didSelectedIndex:(NSInteger)index;
+- (void)alertTool:(LKXAlertTool * _Nonnull)alertTool didSelectedIndex:(NSInteger)index;
 
 @end
 
@@ -24,17 +24,17 @@
 @interface LKXAlertTool : NSObject
 
 /** title */
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString * _Nullable title;
 /** message */
-@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString * _Nullable message;
 /** 弹出框的类型 */
 @property (nonatomic, assign) UIAlertControllerStyle style;
 /** 各个选择的title */
-@property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSArray * _Nullable titles;
 /** 显示的VC */
-@property (nonatomic, weak) UIViewController *showViewController;
+@property (nonatomic, strong) UIViewController * _Nonnull  showViewController;
 /** delegate */
-@property (nonatomic, weak)  id<LKXAlertToolDelegate> delegate;
+@property (nonatomic, weak)   _Nullable id<LKXAlertToolDelegate> delegate;
 
 /**
  显示提示框选择框

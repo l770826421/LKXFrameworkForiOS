@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 cnmobi. All rights reserved.
 //
 
-#import "NSDate+category.h"
+#import "NSDate+Category.h"
 
 @implementation NSDate (Category)
 
@@ -224,6 +224,7 @@
  
  @param minute 正数增加,负数减少
  @return 计算后的时间
+ 
  */
 - (instancetype)lkx_dateByAddingMinute:(NSInteger)minute {
     NSTimeInterval ti = 60 * minute;

@@ -11,6 +11,7 @@
 
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "LKXTouchIDValidateTool.h"
+#import "NSDate+Category.h"
 
 #import "Masonry.h"
 
@@ -143,9 +144,11 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         LKXMLog(@"(x: %f, y: %f) -- (width: %f, height: %f)", blackView.lkx_left, blackView.lkx_top, blackView.lkx_width, blackView.lkx_height);
     });
+    
+    NSDate *date = [NSDate date];
+    NSDateComponents *components = [date dateInfo];
+    LKXMLog(@"date info : %@", components);
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -211,6 +214,8 @@
     }];
 
     return;
+    
+    /*
     // 初始化上下文对象
     LAContext *context = [[LAContext alloc] init];
     NSError *error = nil;
@@ -261,6 +266,7 @@
                 break;
         }
     }
+     */
 }
 
 #pragma mark - UIAlertToolDelegate 

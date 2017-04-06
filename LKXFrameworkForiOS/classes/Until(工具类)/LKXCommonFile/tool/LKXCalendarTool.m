@@ -20,6 +20,32 @@
 
 @implementation LKXCalendarTool
 
+/**
+ 检查日历或备忘录权限
+ 
+ @param entityType 日历或者备忘录枚举值
+ @return 权限
+ */
++ (EKAuthorizationStatus)testEntityPowerWithEntityType:(EKEntityType)entityType {
+    EKAuthorizationStatus ekStatus = [EKEventStore authorizationStatusForEntityType:entityType];
+    return ekStatus;
+}
+
+/**
+ 获取日历或者备忘录权限
+ 
+ @param entityType 日历或者备忘录枚举值
+ @param completion 获取结果
+ */
++ (void)requireEntityPowerWithEntityType:(EKEntityType)entityType completion:(void(^)(BOOL granted, NSError * _Nullable error))completion {
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    [eventStore requestAccessToEntityType:entityType completion:^(BOOL granted, NSError * _Nullable error) {
+        if (completion) {
+            completion(granted, error);
+        }
+    }];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
