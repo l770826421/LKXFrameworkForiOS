@@ -43,6 +43,11 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
     [self.view endEditing:YES];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kMBHUDTool hideMBHUD:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
