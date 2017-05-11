@@ -23,9 +23,6 @@ extern NSString * const kAPPCurrentLogin;
 /** 用户信息 */
 @property (nonatomic, strong) LKXUser *user_sl;
 
-/** 是否添加返回键,YES:添加;NO->不添加  */
-@property (nonatomic, assign, setter=isBackItem:) BOOL isBackItem;
-
 /**
  *  @author 刘克邪
  *
@@ -33,6 +30,13 @@ extern NSString * const kAPPCurrentLogin;
  *
  */
 - (BOOL)currentLogin;
+
+/**
+ Navigator bar 左功能键
+ 
+ @param imageName 对应的图片
+ */
+- (void)leftBarButtonItemWithImageName:(NSString *)imageName;
 
 /**
  *  @author 刘克邪
@@ -48,16 +52,16 @@ extern NSString * const kAPPCurrentLogin;
 /**
  *  @author 刘克邪
  *
- *  @brief pop方法,如果不是pop上一个界面,则重写该方法
+ *  @brief  navigator bar 左功能键响应
  */
-- (void)btnActionBack;
+- (void)leftBarButtonAction:(UIButton *)btn;
 
 /**
  *  @author 刘克邪
  *
- *  @brief  搜索
+ *  @brief  navigator bar 右功能键响应
  */
-- (void)btnActionSearch;
+- (void)rightBarButtonAction:(UIButton *)btn;
 
 #pragma mark - 网络请求
 /**

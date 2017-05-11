@@ -43,28 +43,22 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
     [self.view endEditing:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [kMBHUDTool hideMBHUD:YES];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - setter and getter
-- (void)isBackItem:(BOOL)isBackItem {
-    _isBackItem = isBackItem;
-    if (_isBackItem) {
-        
-        self.navigationItem.leftBarButtonItem =
-            [UIBarButtonItem lkx_backBarItemWithIcon:@"icon_back"
-                                          target:self
-                                          action:@selector(btnActionBack)];
-    } else {
-        self.navigationItem.leftBarButtonItem = nil;
-    }
+/**
+ Navigator bar 左功能键
+ 
+ @param imageName 对应的图片
+ */
+- (void)leftBarButtonItemWithImageName:(NSString *)imageName {
+    UIButton *leftSliderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftSliderBtn.frame = CGRectMake(0, 0, 30, 30);
+    [leftSliderBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [leftSliderBtn addTarget:self action:@selector(leftBarButtonAction:) forControlEvents:UIControlEventTouchDown];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftSliderBtn];
 }
 
 /**
@@ -80,7 +74,7 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
         [UIBarButtonItem lkx_barItemWithIcon:normalName
                                 selectedIcon:selectedName
                                       target:self
-                                      action:@selector(btnActionSearch)];
+                                      action:@selector(rightBarButtonAction)];
 }
 
 /**
@@ -113,16 +107,22 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
 }
 
 #pragma mark - 控件响应方法
-- (void)btnActionBack {
+/**
+ *  @author 刘克邪
+ *
+ *  @brief  navigator bar 左功能键响应
+ */
+- (void)leftBarButtonAction:(UIButton *)btn {
+    [kMBHUDTool hideMBHUD:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**
  *  @author 刘克邪
  *
- *  @brief  搜索
+ *  @brief  navigator bar 右功能键响应
  */
-- (void)btnActionSearch {};
+- (void)rightBarButtonAction:(UIButton *)btn {};
 
 #pragma mark - 网络请求
 /**
