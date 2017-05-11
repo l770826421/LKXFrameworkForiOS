@@ -118,7 +118,24 @@ single_implementation(MBHUDTool)
     }];
 }
 
-#pragma mark - 以下三个适合做上传下载
+/**
+ 显示一个自定义的提示view
+ 
+ @param view 提示view,传入的view的frame要确定
+ */
+- (void)showCustomView:(UIView *)view {
+    [self implementMBHUD];
+    mbHud.mode = MBProgressHUDModeCustomView;
+    mbHud.customView = view;
+    mbHud.detailsLabelText = nil;
+    mbHud.labelText = nil;
+    mbHud.dimBackground = NO;
+    [[kAppDelegate window] addSubview:mbHud];
+    [mbHud show:YES];
+    
+    [mbHud hide:YES afterDelay:kAfterDelay];
+}
+
 //一个横向的进度条
 - (void)showHorizontalBar
 {

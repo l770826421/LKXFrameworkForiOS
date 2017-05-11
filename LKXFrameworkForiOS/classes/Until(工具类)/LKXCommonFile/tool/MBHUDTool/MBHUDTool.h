@@ -25,9 +25,15 @@ single_interface(MBHUDTool)
 //显示一个数据加载的动画,小菊花
 - (void)showActivityIndicator;
 
-#pragma mark - 以下三个适合做上传下载
 //显示一个圆环加载
 - (void)showAnnular;
+
+/**
+ 显示一个自定义的提示view
+ 
+ @param view 提示view
+ */
+- (void)showCustomView:(UIView *)view;
 
 //一个横向的进度条
 - (void)showHorizontalBar;

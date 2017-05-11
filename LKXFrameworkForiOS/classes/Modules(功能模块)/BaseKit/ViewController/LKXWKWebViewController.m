@@ -1,19 +1,27 @@
 //
-//  LKXUKWebViewController.m
+//  LKXWKWebViewController.m
 //  LKXFrameworkForiOS
 //
 //  Created by lkx on 2017/3/20.
 //  Copyright © 2017年 刘克邪. All rights reserved.
 //
 
-#import "LKXUKWebViewController.h"
+#import "LKXWKWebViewController.h"
 #import "Masonry.h"
 
-@interface LKXUKWebViewController ()
+@interface LKXWKWebViewController ()
 
 @end
 
-@implementation LKXUKWebViewController
+@implementation LKXWKWebViewController
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.autoRedirect = YES;
+    }
+    return self;
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -66,9 +74,12 @@
     return parameterStr;
 }
 
+/**
+ 开始load网页
+ */
 - (void)startLoadWeb {
     
-    NSAssert([NSString isEmptyWithString:self.urlString], @"没有传入网址URL");
+    NSAssert(![NSString isEmptyWithString:self.urlString], @"没有传入网址URL");
     
     NSURL *url = [NSURL URLWithString:self.urlString];
     
@@ -117,21 +128,24 @@
  页面开始加载调用
  */
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
-    
+    LKXMLog(@"接收到服务器请求之后跳转");
 }
 
 /**
  当内容开始返回时调用
  */
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-    
+    LKXMLog(@"当内容开始返回时调用");
 }
 
 /**
  页面加载完成之后调用
  */
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    
+    [kMBHUDTool hideMBHUD:YES];
+    if (self.webView.scrollView.mj_header.isRefreshing) {
+        [self.webView.scrollView.mj_header endRefreshing];
+    }
 }
 
 /**
@@ -154,6 +168,7 @@
  在发送请求之前,决定是否跳转
  */
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    LKXMLog(@"在发送请求之前,决定是否跳转--%@", decisionHandler);
     WKNavigationActionPolicy policy = _autoRedirect ? WKNavigationActionPolicyAllow : WKNavigationActionPolicyCancel;
     decisionHandler(policy);
 }

@@ -12,6 +12,7 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "LKXTouchIDValidateTool.h"
 #import "NSDate+Category.h"
+#import "LKXWKWebViewController.h"
 
 #import "Masonry.h"
 
@@ -114,7 +115,7 @@
     [whiteView addSubview:alertBtn];
     [alertBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(whiteView);
-        make.size.mas_equalTo(CGSizeMake(100, 44));
+        make.size.mas_equalTo(CGSizeMake(200, 44));
     }];
     
     UIView *blueView = [[UIView alloc] init];
@@ -126,6 +127,20 @@
         make.right.equalTo(container);
         make.height.equalTo(@200);
     }];
+    
+    /** 居中显示 */
+    UIButton *pushBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [pushBtn setTitle:@"推出WKWebView" forState:UIControlStateNormal];
+    [pushBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [pushBtn addTarget:self
+                 action:@selector(pushAction:)
+       forControlEvents:UIControlEventTouchUpInside];
+    [blueView addSubview:pushBtn];
+    [pushBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(blueView);
+        make.size.mas_equalTo(CGSizeMake(200, 44));
+    }];
+    
     
     UIView *blackView = [[UIView alloc] init];
     blackView.backgroundColor = [UIColor blackColor];
@@ -283,6 +298,11 @@
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     LKXMLog(@"--------%@", _titles[buttonIndex]);
+}
+
+- (void)pushAction:(UIButton *)btn {
+    LKXWKWebViewController *vc = [[LKXWKWebViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

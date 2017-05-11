@@ -1,5 +1,5 @@
 //
-//  LKXUKWebViewController.h
+//  LKXWKWebViewController.h
 //  LKXFrameworkForiOS
 //
 //  Created by lkx on 2017/3/20.
@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface LKXUKWebViewController : LKXScrollViewController <WKNavigationDelegate, WKUIDelegate>
+@interface LKXWKWebViewController : LKXScrollViewController <WKNavigationDelegate, WKUIDelegate>
 
 /** WKWebView */
 @property (nonatomic, strong) WKWebView * _Nonnull webView;
@@ -26,6 +26,12 @@
 
 /** JSContext, JS and OC 交互 */
 @property (nonatomic, strong) JSContext * _Nonnull context;
+
+/**
+ 开始load网页
+ */
+- (void)startLoadWeb;
+
 #pragma mark - WKNavigationDelegate
 // 追踪加载过程
 /**
