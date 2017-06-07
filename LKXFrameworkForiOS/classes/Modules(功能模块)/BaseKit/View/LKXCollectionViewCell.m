@@ -1,6 +1,6 @@
 //
 //  LKXCollectionViewCell.m
-//  XGMEport
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/23.
 //  Copyright © 2016年 刘克邪. All rights reserved.

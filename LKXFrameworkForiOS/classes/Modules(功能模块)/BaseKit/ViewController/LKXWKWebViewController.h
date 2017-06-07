@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface LKXWKWebViewController : LKXScrollViewController <WKNavigationDelegate, WKUIDelegate>
+@interface LKXWKWebViewController : LKXScrollViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler>
 
 /** WKWebView */
 @property (nonatomic, strong) WKWebView * _Nonnull webView;
@@ -23,9 +23,10 @@
 @property (nonatomic, strong) NSMutableDictionary * _Nonnull parameters;
 /** 请求方式,默认是"GET" */
 @property (nonatomic, assign) LKXWebViewHTTPMethod HTTPMethod;
-
-/** JSContext, JS and OC 交互 */
-@property (nonatomic, strong) JSContext * _Nonnull context;
+/**
+ js调用的oc方法数组
+ */
+@property (nonatomic, strong) NSArray <NSString *> * _Nonnull jsCallSelectors;
 
 /**
  开始load网页
@@ -99,30 +100,7 @@
  */
 - (void)webView:(WKWebView * _Nonnull)webView runJavaScriptConfirmPanelWithMessage:(NSString * _Nullable)message initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
 
-#pragma mark - other
-/**
- *  @author 刘克邪
- *
- *  @brief  JS传回来的字符串值
- *
- */
-- (NSString * _Nullable)stringParameterWithContext;
-
-/**
- *  @author 刘克邪
- *
- *  @brief  JS传回来的字典
- *
- */
-- (NSDictionary * _Nonnull)dictionaryParameterWithContext;
-
-/**
- *  @author 刘克邪
- *
- *  @brief  webView 请求参数
- */
-- (void)jionParameterWithDictionary:(NSDictionary * _Nonnull)dic;
-
-
+#pragma mark - WKScriptMessageHandler
+- (void)userContentController:(WKUserContentController * _Nullable)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nullable)message;
 
 @end

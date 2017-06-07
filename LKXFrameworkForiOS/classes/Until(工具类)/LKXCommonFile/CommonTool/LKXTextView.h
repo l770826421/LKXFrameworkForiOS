@@ -1,6 +1,6 @@
 //
 //  LKXTextView.h
-//  UIKit
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/4/21.
 //  Copyright © 2016年 刘克邪. All rights reserved.

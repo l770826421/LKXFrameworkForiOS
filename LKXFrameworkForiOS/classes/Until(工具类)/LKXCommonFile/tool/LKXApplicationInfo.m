@@ -1,6 +1,6 @@
 //
 //  LKXApplicationInfo.m
-//  XGMEport
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/4/22.
 //  Copyright © 2016年 刘克邪. All rights reserved.

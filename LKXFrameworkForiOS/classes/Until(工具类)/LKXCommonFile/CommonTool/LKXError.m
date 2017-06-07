@@ -1,6 +1,6 @@
 //
 //  LKXError.m
-//  SLBusiness
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/8/1.
 //  Copyright © 2016年 刘克邪. All rights reserved.

@@ -8,8 +8,14 @@
 
 #import "LKXWKWebViewController.h"
 #import "Masonry.h"
+#import "LKXWebProgressView.h"
 
 @interface LKXWKWebViewController ()
+
+/**
+ webView加载进度条
+ */
+@property (nonatomic, strong) LKXWebProgressView *webProgressView;
 
 @end
 
@@ -40,6 +46,15 @@
     
     [self addHeaderInScrollView:self.webView.scrollView];
     self.webView.scrollView.bounces = YES;
+    
+    [self.webView addObserver:self
+                   forKeyPath:@"estimatedProgress"
+                      options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+                      context:nil];
+}
+
+- (void)dealloc {
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,9 +116,17 @@
 
 #pragma mark - getter and setter
 - (WKWebView *)webView {
-    
     if (!_webView ) {
-        _webView = [[WKWebView alloc] init];
+        // webVeiw的配置对象
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.preferences.javaScriptEnabled = YES;
+        configuration.preferences.javaScriptCanOpenWindowsAutomatically = YES;
+        
+        for (NSString *sel in self.jsCallSelectors) {
+            [configuration.userContentController addScriptMessageHandler:self name:sel];
+        }
+        
+        _webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
         _webView.translatesAutoresizingMaskIntoConstraints = NO;
         _webView.navigationDelegate = self;
         _webView.UIDelegate = self;
@@ -115,11 +138,26 @@
     return _webView;
 }
 
-- (JSContext *)context {
-    if (_context == nil) {
-        _context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+- (LKXWebProgressView *)webProgressView {
+    if (!_webProgressView) {
+        _webProgressView = [[LKXWebProgressView alloc] initWithFrame:CGRectMake(0, 0, self.view.lkx_width, 2)];
+        _webProgressView.backgroundColor = [UIColor whiteColor];
+        _webProgressView.progressColor = kAPPMainColor;
+        [self.view addSubview:_webProgressView];
     }
-    return _context;
+    return _webProgressView;
+}
+
+#pragma mark - 监听
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"estimatedProgress"] && object == self.webView) {
+        LKXMLog(@"webView加载进度:%f", self.webView.estimatedProgress);
+        self.webProgressView.hidden = NO;
+        self.webProgressView.progress = self.webView.estimatedProgress;
+        if (self.webView.estimatedProgress >= 1.0f) {
+            self.webProgressView.hidden = YES;
+        }
+    }
 }
 
 #pragma mark - WKNavigationDelegate
@@ -202,81 +240,34 @@
  显示一个JS的Alert(与JS交互)
  */
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-    
+    LKXMLog(@"WKFrameInfo = %@", frame);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }]];
+    [self presentViewController:alert animated:YES completion:NULL];
 }
 
 /**
  弹出一个输入框(与JS交互的)
  */
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable))completionHandler {
-    
+    LKXMLog(@"runJavaScriptTextInputPanelWithPrompt");
+    completionHandler(@"http");
 }
 
 /**
  显示一个确认框(JS的)
  */
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
-    
+    LKXMLog(@"runJavaScriptConfirmPanelWithMessage");
+    completionHandler(YES);
+
 }
 
-#pragma mark - other
-/**
- *  @author 刘克邪
- *
- *  @brief  JS传回来的字符串值
- *
- */
-- (NSString *)stringParameterWithContext {
-    NSArray *args = [JSContext currentArguments];
-    if (args.count == 0) {
-        return nil;
-    }
-    
-    JSValue *value = [args objectAtIndex:0];
-    NSString *string = [value toString];
-    return string;
-}
-
-/**
- *  @author 刘克邪
- *
- *  @brief  JS传回来的字典
- *
- */
-- (NSDictionary *)dictionaryParameterWithContext {
-    NSArray *args = [JSContext currentArguments];
-    if (args.count == 0) {
-        return nil;
-    }
-    
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    
-    for (JSValue *value in args) {
-        
-        NSString *string = [value toString];
-        NSMutableDictionary *dict = [string dictionaryWithString];
-        if (dict) {
-            [dic setValuesForKeysWithDictionary:dict];
-        }
-    }
-    
-    return dic;
-}
-
-/**
- *  @author 刘克邪
- *
- *  @brief  webView 请求参数
- */
-- (void)jionParameterWithDictionary:(NSDictionary *)dic {
-    
-    if (!dic) {
-        dic = @{};
-    }
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:dic];
-    
-    self.parameters = [parameters mutableCopy];
+#pragma mark - WKScriptMessageHandler
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    LKXMLog(@"js交互信息: %@", message);
 }
 
 @end

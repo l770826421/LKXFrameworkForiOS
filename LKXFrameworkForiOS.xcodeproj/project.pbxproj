@@ -50,6 +50,7 @@
 		16859D381E70FAB30025A0C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16859D361E70FAB30025A0C6 /* LaunchScreen.storyboard */; };
 		16859D391E70FAB30025A0C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16859D371E70FAB30025A0C6 /* Main.storyboard */; };
 		16875DF01DE43F3300F09085 /* LKXTouchIDValidateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */; };
+		169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169852901EE79CAF00F04D62 /* LKXWebProgressView.m */; };
 		16A7D49D1D4AFF9B00160D34 /* LKXConstString.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */; };
 		16CA804C1DB7261100FF5F1A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80401DB7261100FF5F1A /* AFHTTPSessionManager.m */; };
 		16CA804D1DB7261100FF5F1A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80431DB7261100FF5F1A /* AFNetworkReachabilityManager.m */; };
@@ -265,6 +266,8 @@
 		16875D9C1DE3E9B400F09085 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		16875DEE1DE43F3300F09085 /* LKXTouchIDValidateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXTouchIDValidateTool.h; sourceTree = "<group>"; };
 		16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXTouchIDValidateTool.m; sourceTree = "<group>"; };
+		1698528F1EE79CAF00F04D62 /* LKXWebProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXWebProgressView.h; sourceTree = "<group>"; };
+		169852901EE79CAF00F04D62 /* LKXWebProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXWebProgressView.m; sourceTree = "<group>"; };
 		16A7D49B1D4AFF9B00160D34 /* LKXConstString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXConstString.h; sourceTree = "<group>"; };
 		16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXConstString.m; sourceTree = "<group>"; };
 		16CA803F1DB7261100FF5F1A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -1045,6 +1048,8 @@
 		16CEDD9E1D4AFBBE006C09CC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1698528F1EE79CAF00F04D62 /* LKXWebProgressView.h */,
+				169852901EE79CAF00F04D62 /* LKXWebProgressView.m */,
 				166489B71D4B076B0037F789 /* LKXBarButton.h */,
 				166489B81D4B076B0037F789 /* LKXBarButton.m */,
 				16CEDDC51D4AFC1C006C09CC /* LKXCollectionViewCell.h */,
@@ -1265,6 +1270,7 @@
 				16CEDD8A1D4AFB27006C09CC /* UIView+WebCacheOperation.m in Sources */,
 				16774A711EC419BD00602906 /* LKXWKWebDemoViewController.m in Sources */,
 				16CA80541DB728DE00FF5F1A /* LKXError.m in Sources */,
+				169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */,
 				16CEDD4E1D4AFB1E006C09CC /* MJRefreshBackNormalFooter.m in Sources */,
 				166489B91D4B076B0037F789 /* LKXBarButton.m in Sources */,
 				16347F011DB8D22A00D997C7 /* UIControl+Runtime.m in Sources */,

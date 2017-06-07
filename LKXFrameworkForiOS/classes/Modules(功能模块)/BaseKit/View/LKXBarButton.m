@@ -1,6 +1,6 @@
 //
 //  LKXBarButton.m
-//  SLShop
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/5/6.
 //  Copyright © 2016年 刘克邪. All rights reserved.

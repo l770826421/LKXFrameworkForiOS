@@ -1,6 +1,6 @@
 //
 //  LKXTextField.m
-//  MyCategory
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 15-1-4.
 //  Copyright (c) 2015年 cnmobi. All rights reserved.

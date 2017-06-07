@@ -1,6 +1,6 @@
 //
 //  LKXSameLengthCollectionViewFlowLayout.m
-//  SLShop
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/6/7.
 //  Copyright © 2016年 刘克邪. All rights reserved.

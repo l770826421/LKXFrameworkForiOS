@@ -1,9 +1,9 @@
 //
 //  LKXCalendarTool.h
-//  Polyu
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 2017/3/16.
-//  Copyright © 2017年 西格美.刘克邪. All rights reserved.
+//  Copyright © 2017年 刘克邪. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

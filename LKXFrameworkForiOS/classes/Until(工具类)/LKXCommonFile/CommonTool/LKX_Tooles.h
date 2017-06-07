@@ -1,6 +1,6 @@
 //
 //  LKX_Tooles.h
-//  36Project
+//  LKXFrameworkForiOS
 //
 //  Created by 李恩 on 13-4-19.
 //  Copyright (c) 2013年 cnmobi . All rights reserved.

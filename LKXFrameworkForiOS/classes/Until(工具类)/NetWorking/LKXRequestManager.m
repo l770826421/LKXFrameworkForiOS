@@ -1,7 +1,6 @@
-
 //
 //  LKXRequestManager.m
-//  XGMEport
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/28.
 //  Copyright © 2016年 刘克邪. All rights reserved.

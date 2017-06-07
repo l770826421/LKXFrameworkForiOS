@@ -1,6 +1,6 @@
 //
 //  LKXAPPDefine.h
-//  ZJB_APP_2.0
+//  LKXFrameworkForiOS
 //
 //  Created by qiaoxing on 13-1-18.
 //  Copyright (c) 2013年 My company name. All rights reserved.

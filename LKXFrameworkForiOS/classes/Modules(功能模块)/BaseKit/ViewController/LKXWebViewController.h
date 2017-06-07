@@ -1,6 +1,6 @@
 //
 //  LKXWebViewController.h
-//  XGMEport
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/29.
 //  Copyright © 2016年 刘克邪. All rights reserved.

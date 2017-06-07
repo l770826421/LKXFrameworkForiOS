@@ -1,6 +1,6 @@
 //
 //  LKXReloadView.m
-//  XGMEport
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/21.
 //  Copyright © 2016年 刘克邪. All rights reserved.
