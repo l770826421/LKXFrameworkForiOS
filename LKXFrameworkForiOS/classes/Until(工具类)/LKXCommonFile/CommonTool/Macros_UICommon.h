@@ -1,6 +1,6 @@
 //
 //  Macros_UICommon.h
-//  MyCategory
+//  LKXFrameworkForiOS
 //
 //  Created by Developer on 15/9/8.
 //  Copyright (c) 2015年 Developer. All rights reserved.
@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>                                   //需要添加 QuartzCore.framework 库函数
-#import "UIColor+Category.h"
+#import "UIColor+LKXCategory.h"
 
 #pragma mark - 设备相关
 /** 
@@ -89,7 +89,7 @@
 //宏定义该应用程序所有的颜色
 #define RGBCOLOR(r,g,b)             [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 #define RGBACOLOR(r,g,b,a)          [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-#define ColorWithHex(str) [UIColor colorFromHexRGB:str]
+#define ColorWithHex(str) [UIColor lkx_colorFromHexRGB:str]
 
 // 宏定义创建颜色图片
 #define ImageNamed(_name)           [UIImage imageNamed:_name]

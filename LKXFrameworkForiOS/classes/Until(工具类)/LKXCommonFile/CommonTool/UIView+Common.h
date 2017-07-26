@@ -1,6 +1,6 @@
 //
 //  UIView+LKXCommon.h
-//  ChatApp
+//  LKXFrameworkForiOS
 //
 //  Created by cnmobi1 on 13-9-13.
 //  Copyright (c) 2013年 cnmobi1. All rights reserved.
@@ -51,7 +51,7 @@
 
  @param cornerRadius 圆角数
  */
-- (void)setCornerRadius:(CGFloat)cornerRadius;
+- (void)lkx_setCornerRadius:(CGFloat)cornerRadius;
 
 /**
  这是表框线
@@ -59,7 +59,7 @@
  @param borderWidth 边框线粗
  @param borderColor 边框的颜色
  */
-- (void)setBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+- (void)lkx_setBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
 /**
  设置圆角,边框,边框颜色,背景颜色
@@ -69,25 +69,25 @@
  @param borderWidth 边框线粗,默认2.0
  @param borderColor 边框颜色
  */
-- (void)setBackgroundColor:(UIColor *)bgColor
-              cornerRadius:(CGFloat)cornerRadius
-               borderWidth:(CGFloat)borderWidth
-               borderColor:(UIColor *)borderColor;
+- (void)lkx_setBackgroundColor:(UIColor *)bgColor
+                  cornerRadius:(CGFloat)cornerRadius
+                   borderWidth:(CGFloat)borderWidth
+                   borderColor:(UIColor *)borderColor;
 
 
 #pragma mark - 给视图添加一下划线
 /*
  划线的起始坐标为左下角，frame的y值应该取到底部的距离
  */
-- (void)addLineWithlineColor:(UIColor *)lineColor
-                   andFrame:(CGRect)frame;
+- (void)lkx_addLineWithlineColor:(UIColor *)lineColor
+                        andFrame:(CGRect)frame;
 
 
 #pragma mark - SaveViewImage
 /**
  保存图片
  */
-- (UIImage *)SaveViewImage;
+- (UIImage *)lkx_saveViewImage;
 
 #pragma mark -  绘制可以带虚线框的View视图
 /**
@@ -100,12 +100,12 @@
  @param dashPattern2 虚线2长度
  @param borderColor 虚线颜色
  */
-- (void)setShapeLayerWithBGColor:(UIColor *)bgColor
-                    cornerRadius:(CGFloat)cornerRadius
-                     borderWidth:(CGFloat)borderWidth
-                    dashPattern1:(NSInteger)dashPattern1
-                    dashPattern2:(NSInteger)dashPattern2
-                     borderColor:(UIColor *)borderColor;
+- (void)lkx_setShapeLayerWithBGColor:(UIColor *)bgColor
+                        cornerRadius:(CGFloat)cornerRadius
+                         borderWidth:(CGFloat)borderWidth
+                        dashPattern1:(NSInteger)dashPattern1
+                        dashPattern2:(NSInteger)dashPattern2
+                         borderColor:(UIColor *)borderColor;
 
 #pragma mark - addAnimation    
 
@@ -116,15 +116,15 @@
  @param AmtionType 动画类型
  @param AmtionFrom 动画方向
  */
--(void)addAnimationWithDuration:(CFTimeInterval)Duration
-                  andAmtionType:(NSString *)AmtionType
-                  andAmtionFrom:(NSString *)AmtionFrom;
+-(void)lkx_addAnimationWithDuration:(CFTimeInterval)Duration
+                      andAmtionType:(NSString *)AmtionType
+                      andAmtionFrom:(NSString *)AmtionFrom;
 
 #pragma mark - setShadow        设置视图阴影效果
 /**
  设置视图阴影效果
  */
-- (void)makeInsetShadow;
+- (void)lkx_makeInsetShadow;
 
 /**
  设置视图阴影效果
@@ -132,8 +132,8 @@
  @param radius 阴影的偏移大小
  @param alpha 透明度
  */
-- (void)makeInsetShadowWithRadius:(float)radius
-                            alpha:(float)alpha;
+- (void)lkx_makeInsetShadowWithRadius:(float)radius
+                                alpha:(float)alpha;
 /**
  设置视图阴影效果
  
@@ -141,9 +141,9 @@
  @param color 透明度
  @param directions 阴影散发方向
  */
-- (void)makeInsetShadowWithRadius:(float)radius
-                            color:(UIColor *)color
-                       directions:(NSArray *)directions;
+- (void)lkx_makeInsetShadowWithRadius:(float)radius
+                                color:(UIColor *)color
+                           directions:(NSArray *)directions;
 
 
 
@@ -152,13 +152,13 @@
  * 将UIColor变换为UIImage
  *
  **/
-+ (UIImage *)createImageWithColor:(UIColor *)color;
++ (UIImage *)lkx_createImageWithColor:(UIColor *)color;
 
 /*
  * 创建自定义大小的UIImage
  *
  */
-+ (UIImage *)createImageWithColor:(UIColor *)color
++ (UIImage *)lkx_createImageWithColor:(UIColor *)color
                              rect:(CGRect)aRect;
 
 #pragma mark - AllViews
@@ -170,9 +170,9 @@
  @param userinterface 是否开启交互
  @return UIImageView
  */
-+ (UIImageView *)createImageViewWithImage:(UIImage *)image
-                                    frame:(CGRect)frame
-                   userInteractionEnabled:(BOOL)userinterface;
++ (UIImageView *)lkx_createImageViewWithImage:(UIImage *)image
+                                        frame:(CGRect)frame
+                       userInteractionEnabled:(BOOL)userinterface;
 
 /**
  创建一个UIButton
@@ -187,14 +187,14 @@
  @param action 事件执行函数
  @return UIButton
  */
-+ (UIButton *)createButtonWithTitle:(NSString *)title
-                              frame:(CGRect)frame
-                               type:(UIButtonType)type
-                    backGroundColor:(UIColor *)color
-               backGroundIMg_Normal:(UIImage *)normalImg
-              backGroundIMG_Highted:(UIImage *)hightedImg
-                             target:(id)target
-                             action:(SEL)action;
++ (UIButton *)lkx_createButtonWithTitle:(NSString *)title
+                                  frame:(CGRect)frame
+                                   type:(UIButtonType)type
+                        backGroundColor:(UIColor *)color
+                   backGroundIMg_Normal:(UIImage *)normalImg
+                  backGroundIMG_Highted:(UIImage *)hightedImg
+                                 target:(id)target
+                                 action:(SEL)action;
 
 /**
  创建一个UILabel
@@ -207,12 +207,12 @@
  @param textalignment 文字排版
  @return UILabel
  */
-+ (UILabel *)createLabelWithText:(NSString *)text
-                           frame:(CGRect)frame
-                            font:(UIFont *)font
-                       textColor:(UIColor *)T_Color
-                 backgroundColor:(UIColor *)B_Color
-                   textAlignment:(NSTextAlignment)textalignment;
++ (UILabel *)lkx_createLabelWithText:(NSString *)text
+                               frame:(CGRect)frame
+                                font:(UIFont *)font
+                           textColor:(UIColor *)T_Color
+                     backgroundColor:(UIColor *)B_Color
+                       textAlignment:(NSTextAlignment)textalignment;
 
 /**
  创建一个UITextField
@@ -226,11 +226,11 @@
  @param textAlignment 文字排版
  @return UITextField
  */
-+ (UITextField *)createTextFieldWithText:(NSString *)text
-                                   frame:(CGRect)frame
-                                    font:(UIFont *)font
-                               textColor:(UIColor *)T_Color
-                         backgroundColor:(UIColor *)B_Color
-                               placetext:(NSString *)placetext
-                           textAlignment:(NSTextAlignment)textAlignment;
++ (UITextField *)lkx_createTextFieldWithText:(NSString *)text
+                                       frame:(CGRect)frame
+                                        font:(UIFont *)font
+                                   textColor:(UIColor *)T_Color
+                             backgroundColor:(UIColor *)B_Color
+                                   placetext:(NSString *)placetext
+                               textAlignment:(NSTextAlignment)textAlignment;
 @end

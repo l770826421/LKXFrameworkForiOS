@@ -1,20 +1,20 @@
 //
-//  UIColor+Category.m
-//  MyCategory
+//  UIColor+LKXCategory.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 14-11-21.
 //  Copyright (c) 2014年 cnmobi. All rights reserved.
 //
 
-#import "UIColor+category.h"
+#import "UIColor+LKXCategory.h"
 
-@implementation UIColor (Category)
+@implementation UIColor (LKXCategory)
 /**
  通过16进制计算颜色
  
  @param inColorString 16进制
  */
-+ (UIColor *)colorFromHexRGB:(NSString *)inColorString
++ (UIColor *)lkx_colorFromHexRGB:(NSString *)inColorString
 {
     UIColor *result = nil;
     unsigned int colorCode = 0;
@@ -41,7 +41,7 @@
  *
  *  @return UIColor
  */
-+ (UIColor *)randomColor
++ (UIColor *)lkx_randomColor
 {
     CGFloat hue = (arc4random() % 256 / 256.0); //  0.0 to 1.0
     CGFloat saturation = (arc4random() % 128 / 256.0) + 0.5;    //  0.5 to 1.0, away from white

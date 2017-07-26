@@ -1,6 +1,6 @@
 //
 //  BigBtn.m
-//  Kido
+//  LKXFrameworkForiOS
 //
 //  Created by zhaoyd on 14-6-27.
 //  Copyright (c) 2014年 cnmobi. All rights reserved.

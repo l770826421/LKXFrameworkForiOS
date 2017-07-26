@@ -1,19 +1,18 @@
-
 //
-//  UIControl+Runtime.m
-//  MyCategory
+//  UIControl+LKXRuntime.m
+//  LKXFrameworkForiOS
 //
 //  Created by Developer on 15/9/17.
 //  Copyright (c) 2015年 Developer. All rights reserved.
 //
 
-#import "UIControl+Runtime.h"
+#import "UIControl+LKXRuntime.h"
 #import <objc/runtime.h>
 
 static const char *UIControl_acceptEventInterval = "UIControl_acceptEventInterval";
 static const char *UIControl_ignoreEvent = "UIControl_ignoreEvent";
 
-@implementation UIControl (Runtime)
+@implementation UIControl (LKXRuntime)
 
 + (void)load
 {

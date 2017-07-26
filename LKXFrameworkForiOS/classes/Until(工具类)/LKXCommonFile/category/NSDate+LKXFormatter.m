@@ -1,12 +1,12 @@
 //
-//  NSDate+Formatter.m
-//  XGMEport
+//  NSDate+LKXFormatter.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/28.
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#import "NSDate+Formatter.h"
+#import "NSDate+LKXFormatter.h"
 
 #define kSecondForYear (365 * kSecondForDay)
 #define kSecondForWeek (7 * kSecondForDay)
@@ -15,7 +15,7 @@
 #define kSecondForHour (60 * kSecondForMinute)
 #define kSecondForMinute 60
 
-@implementation NSDate (Formatter)
+@implementation NSDate (LKXFormatter)
 /**
  *  @author 刘克邪
  *
@@ -25,7 +25,7 @@
  *  @param formatter  时间格式
  *
  */
-+ (NSDate *)dateWithString:(NSString *)dateString formatter:(NSString *)formatter {
++ (NSDate *)lkx_dateWithString:(NSString *)dateString formatter:(NSString *)formatter {
     
     NSDate *date;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -41,7 +41,7 @@
  *  @brief  将时间转为当前时区的时间
  *
  */
-- (NSDate *)dateForCurrentTimeZone {
+- (NSDate *)lkx_dateForCurrentTimeZone {
     NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMT];
     NSDate *date = [self dateByAddingTimeInterval:timeZoneOffset];
     return date;
@@ -55,7 +55,7 @@
  *  @param formatter 时间格式
  *
  */
-- (NSString *)dateWithFormatter:(NSString *)formatter {
+- (NSString *)lkx_dateWithFormatter:(NSString *)formatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = formatter;
     
@@ -73,11 +73,11 @@
  *  @brief  与当前时间的时间间隔
  *
  */
-- (NSTimeInterval)dateIntervalWithNow {
+- (NSTimeInterval)lkx_dateIntervalWithNow {
     
     NSDate *currentDate = [NSDate date];
     
-    return [self dateIntervalWithOhterDate:currentDate];
+    return [self lkx_dateIntervalWithOhterDate:currentDate];
 }
 
 /**
@@ -86,9 +86,9 @@
  *  @brief  与一时间的时间间隔
  *
  */
-- (NSTimeInterval)dateIntervalWithOhterDate:(NSDate *)otherDate {
+- (NSTimeInterval)lkx_dateIntervalWithOhterDate:(NSDate *)otherDate {
     
-    NSDate *currentDate = [otherDate dateForCurrentTimeZone];
+    NSDate *currentDate = [otherDate lkx_dateForCurrentTimeZone];
     NSTimeInterval currentInterval = [currentDate timeIntervalSince1970];
     
     NSTimeInterval interval = [self timeIntervalSince1970];
@@ -104,9 +104,9 @@
  *  @brief  与当前时间的时间间隔的字符串
  *
  */
-- (NSString *)dateIntervalStringWithNow {
+- (NSString *)lkx_dateIntervalStringWithNow {
     
-    return [self dateIntervalStringWithOhterDate:[NSDate date]];
+    return [self lkx_dateIntervalStringWithOhterDate:[NSDate date]];
 }
 
 /**
@@ -115,9 +115,9 @@
  *  @brief  与一时间的时间间隔的字符串
  *
  */
-- (NSString *)dateIntervalStringWithOhterDate:(NSDate *)otherDate {
+- (NSString *)lkx_dateIntervalStringWithOhterDate:(NSDate *)otherDate {
     
-    NSTimeInterval dateInterval = [self dateIntervalWithOhterDate:otherDate];
+    NSTimeInterval dateInterval = [self lkx_dateIntervalWithOhterDate:otherDate];
     
     NSString *src;
     

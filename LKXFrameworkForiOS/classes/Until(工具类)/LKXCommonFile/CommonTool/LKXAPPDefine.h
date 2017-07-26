@@ -19,9 +19,9 @@
 #import "UIView+Common.h"
 #import "LKX_Tooles.h"
 
-#import "NSString+category.h"
-#import "NSString+Verification.h"
-#import "NSString+Encryption.h"
+#import "NSString+LKXCategory.h"
+#import "NSString+LKXVerification.h"
+#import "NSString+LKXEncryption.h"
 
 //判断网络是否可用，1判断直接默认网络可用，0不判断网络环境
 #define isJudgeNet 0

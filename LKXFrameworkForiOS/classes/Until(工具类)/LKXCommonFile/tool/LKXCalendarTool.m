@@ -8,8 +8,8 @@
 
 #import "LKXCalendarTool.h"
 #import <EventKit/EventKit.h>
-#import "NSDate+Formatter.h"
-#import "NSDate+Category.h"
+#import "NSDate+LKXFormatter.h"
+#import "NSDate+LKXCategory.h"
 
 @interface LKXCalendarTool ()
 

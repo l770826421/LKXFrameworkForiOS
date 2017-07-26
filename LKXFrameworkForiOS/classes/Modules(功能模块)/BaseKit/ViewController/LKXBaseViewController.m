@@ -74,7 +74,7 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
         [UIBarButtonItem lkx_barItemWithIcon:normalName
                                 selectedIcon:selectedName
                                       target:self
-                                      action:@selector(rightBarButtonAction)];
+                                      action:@selector(rightBarButtonAction:)];
 }
 
 /**

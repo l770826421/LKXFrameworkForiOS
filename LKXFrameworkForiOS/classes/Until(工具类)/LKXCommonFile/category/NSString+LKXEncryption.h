@@ -1,6 +1,6 @@
 //
-//  NSString+Encryption.h
-//  MyCategory
+//  NSString+LKXEncryption.h
+//  LKXFrameworkForiOS
 //
 //  Created by Developer on 15/9/8.
 //  Copyright (c) 2015年 Developer. All rights reserved.
@@ -13,10 +13,10 @@
  *
  *  @brief  加密扩展
  */
-@interface NSString (Encryption)
+@interface NSString (LKXEncryption)
 
 // 大写加密
-- (NSString *)encryptionWithMD5For16Bit_uppercase;
+- (NSString *)lkx_encryptionWithMD5For16Bit_uppercase;
 
 /**
  *  @author lkx
@@ -27,10 +27,10 @@
  *
  *  @return 加密后的数据
  */
-- (NSString *)encryptionWithMD5WithBit_uppercase:(NSInteger)length;
+- (NSString *)lkx_encryptionWithMD5WithBit_uppercase:(NSInteger)length;
 
 // 小写加密
-- (NSString *)encryptionWithMD5For16Bit_lowercase;
+- (NSString *)lkx_encryptionWithMD5For16Bit_lowercase;
 
 /**
  *  @author lkx
@@ -41,7 +41,7 @@
  *
  *  @return 加密后的数据
  */
-- (NSString *)encryptionWithMD5WithBit_lowercase:(NSInteger)length;
+- (NSString *)lkx_encryptionWithMD5WithBit_lowercase:(NSInteger)length;
 
 #pragma mark - SHA1加密
 /**
@@ -51,6 +51,6 @@
  *
  *  @return SHA1 32位加密后的字符串
  */
-- (NSString *)encryptionSha1WithFor40Bit_uppercase;
+- (NSString *)lkx_encryptionSha1WithFor40Bit_uppercase;
 
 @end

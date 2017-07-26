@@ -1,23 +1,23 @@
 //
-//  NSString+Category.m
-//  MyCategory
+//  NSString+LKXCategory.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 14-11-24.
 //  Copyright (c) 2014年 cnmobi. All rights reserved.
 //
 
-#import "NSString+Category.h"
+#import "NSString+LKXCategory.h"
 
 #define Billion 1000000000.0    // 十亿
 #define Million 1000000.0       // 百万
 
-@implementation NSString (Category)
+@implementation NSString (LKXCategory)
 
 #pragma mark - 类方法
 /*
  * 获取手机的UUID
  */
-+ (NSString *)uuid
++ (NSString *)lkx_uuid
 {
 //    CFUUIDRef puuid = CFUUIDCreate(nil);
 //    CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
@@ -33,7 +33,7 @@
  * @parameter number 为long long
  * @return NSString  @"x.x million" @"x.x billion"
  */
-+ (NSString *)convertBigDataWithLongLong:(long long)number
++ (NSString *)lkx_convertBigDataWithLongLong:(long long)number
 {
     if (number > 1000000000)
     {
@@ -53,7 +53,7 @@
  *
  *  @return X year X month X days X hour X minute的字符串
  */
-+ (NSString *)remainTimeString:(long long )timeInterval
++ (NSString *)lkx_remainTimeString:(long long )timeInterval
 {
     NSMutableString *string = [NSMutableString string];
     NSInteger year = (NSInteger) (timeInterval / (365 * 30 * 24 * 60 * 60));
@@ -111,14 +111,14 @@
  *
  *  @return UTF-8字符串
  */
-+ (NSString *)GB2312ToUTF8:(NSData *)data
++ (NSString *)lkx_GB2312ToUTF8:(NSData *)data
 {
     NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_2312_80);
     NSString *rstString = [[NSString alloc] initWithData:data encoding:encoding];
     return rstString;
 }
 
-- (NSString *)encodingURLString
+- (NSString *)lkx_encodingURLString
 {
     // [NSString stringByAddingPercentEncodingWithAllowedCharacters:]
     NSString *encodingString =  [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"]];//(__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
@@ -136,7 +136,7 @@
  *
  *  @return 返回文件大小
  */
-+ (long long)folderOrFileSizeAtPath:(NSString *)path
++ (long long)lkx_folderOrFileSizeAtPath:(NSString *)path
 {
     NSError *error;
     long long folderSize = 0;
@@ -167,7 +167,7 @@
  *  @brief  当字符串为nil或者长度为0是返回YES,否则返回NO
  *
  */
-+ (BOOL)isNullWithString:(NSString *)src {
++ (BOOL)lkx_isNullWithString:(NSString *)src {
     if (src == nil && src.length == 0) {
         return YES;
     }
@@ -180,8 +180,8 @@
  *  @brief  当字符串为nil、空字符串、长度为0,返回YES,否则返回NO
  *
  */
-+ (BOOL)isEmptyWithString:(NSString *)src {
-    BOOL isEmpty = [NSString isNullWithString:src];
++ (BOOL)lkx_isEmptyWithString:(NSString *)src {
+    BOOL isEmpty = [NSString lkx_isNullWithString:src];
     if (!isEmpty) {
         if ([src stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0) {
             return YES;
@@ -193,83 +193,12 @@
 }
 
 #pragma mark - 实例方法
-
-/**
- *  将字符串中得某些字符或字符串设置不同字体颜色
- *
- *  @param color      第一个字符设置为颜色
- *  @param atherColor 其他字符颜色
- *
- *  @return 返回类型为NSAttributedString
- */
-- (NSAttributedString *)attributedFirstChar:(UIColor *)color
-                                 atherColor:(UIColor *)atherColor
-{
-    if (self.length == 0 || self == nil)
-    {
-        return nil;
-    }
-    
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
-    NSRange range0 = NSMakeRange(0, 1);
-    [attributedString addAttribute:NSForegroundColorAttributeName value:color range:range0];
-    NSRange range1 = NSMakeRange(1, self.length - 1);
-    [attributedString addAttribute:NSForegroundColorAttributeName value:atherColor range:range1];
-    return attributedString;
-}
-
-/**
- *  获取NSAttributedString
- *
- *  @param text  文本
- *  @param color 文本的颜色
- *
- *  @return NSAttributedString
- */
-- (NSAttributedString *)attributedText:(NSString *)text
-                                 color:(UIColor *)color
-{
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
-    
-    NSRange range = [self rangeOfString:text];
-    [attributedStr addAttribute:NSForegroundColorAttributeName value:color range:range];
-    
-    return attributedStr;
-}
-
-/**
- *  获取NSAttributedString
- *
- *  @param text1  文本1
- *  @param color1 文本1的颜色
- *  @param text2  文本2
- *  @param color2 文本2的颜色
- *
- *  @return NSAttributedString
- */
-- (NSAttributedString *)attributedText1:(NSString *)text1
-                                 color1:(UIColor *)color1
-                                  text2:(NSString *)text2
-                                 color2:(UIColor *)color2
-{
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
-    
-    NSRange range = [self rangeOfString:text1];
-    [attributedStr addAttribute:NSForegroundColorAttributeName value:color1 range:range];
-    
-    range = [self rangeOfString:text2];
-    [attributedStr addAttribute:NSForegroundColorAttributeName value:color2 range:range];
-    
-    return attributedStr;
-}
-
 /*
  * 获取attributedString的属性字典
  *
  * @return 返回类型为NSDictionary
  */
-- (NSDictionary *)attributedDictionary
+- (NSDictionary *)lkx_attributedDictionary
 {
     NSAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
     NSRange range = NSMakeRange(0, attributedStr.length);
@@ -281,7 +210,7 @@
  * 去除字符串最后的字符串
  * @parameter suffixStr 去除的字符串
  */
-- (NSString *)subSuffixString:(NSString *)suffixStr
+- (NSString *)lkx_subSuffixString:(NSString *)suffixStr
 {
     NSString *src;
     if ([self hasSuffix:suffixStr])
@@ -297,7 +226,7 @@
  *
  *  @return NSString
  */
-- (NSString *)phoneMiddleFourWithStar
+- (NSString *)lkx_phoneMiddleFourWithStar
 {
     NSMutableString *src = [NSMutableString stringWithString:self];
     if (src.length >= 8) {
@@ -313,7 +242,7 @@
  *
  *  @return NSString
  */
-- (NSString *)nameMiddleWithStar
+- (NSString *)lkx_nameMiddleWithStar
 {
     NSMutableString *src = [NSMutableString stringWithString:self];
     
@@ -336,7 +265,7 @@
  *
  *  @return NSString
  */
-- (NSString *)IDCardNumberMiddleWithStar
+- (NSString *)lkx_IDCardNumberMiddleWithStar
 {
     NSMutableString *src = [NSMutableString stringWithString:self];
     
@@ -351,11 +280,11 @@
 /*
  * 获取指定URL的MIMEType类型
  */
-- (void)mimeType:(void (^)(NSString *mimeType))mimeTypeBlock {
+- (void)lkx_mimeType:(void (^)(NSString *mimeType))mimeTypeBlock {
     if (Dev_IOSVersion < 9.0) {
-        mimeTypeBlock([self mimeTypeBefore_iOS_9_0]);
+        mimeTypeBlock([self lkx_mimeTypeBefore_iOS_9_0]);
     } else {
-        [self mimeTypeAfter_iOS_9_0:^(NSString *mimeType) {
+        [self lkx_mimeTypeAfter_iOS_9_0:^(NSString *mimeType) {
             mimeTypeBlock(mimeType);
         }];
     }
@@ -365,7 +294,7 @@
 /*
  * iOS9.0前获取指定URL的MIMEType类型
  */
-- (NSString *)mimeTypeBefore_iOS_9_0
+- (NSString *)lkx_mimeTypeBefore_iOS_9_0
 {
     NSURL *url = [NSURL URLWithString:self];
     //1NSURLRequest
@@ -386,7 +315,7 @@
 /*
  * iOS9.0后获取指定URL的MIMEType类型
  */
-- (void)mimeTypeAfter_iOS_9_0:(void (^)(NSString *mimeType))mimeTypeBlock
+- (void)lkx_mimeTypeAfter_iOS_9_0:(void (^)(NSString *mimeType))mimeTypeBlock
 {
     NSURL *url = [NSURL URLWithString:self];
     //1NSURLRequest
@@ -409,7 +338,7 @@
  *
  *  @return NSString
  */
-- (NSString *)cutWithString:(NSString *)str
+- (NSString *)lkx_cutWithString:(NSString *)str
 {
     NSRange range = [self rangeOfString:str];
     if (range.location == NSNotFound)
@@ -428,7 +357,7 @@
  *
  *  @return 一个字母的字符串
  */
-- (NSString *)uppercaseWithFirstChar
+- (NSString *)lkx_uppercaseWithFirstChar
 {
     NSMutableString *source = [self mutableCopy];
     CFStringTransform((CFMutableStringRef)source, NULL, kCFStringTransformMandarinLatin, NO);
@@ -445,7 +374,7 @@
  *
  *  @return 实际显示区域
  */
-- (CGSize)getSizeWithTextSize:(CGSize)textSize
+- (CGSize)lkx_getSizeWithTextSize:(CGSize)textSize
                          fontSize:(CGFloat)fontSize
 {
     CGSize tempSize = CGSizeZero;
@@ -477,7 +406,7 @@
  *
  *  @return utf-8编码字符串
  */
-- (NSString *)UTF8 {
+- (NSString *)lkx_UTF8 {
     // [NSString stringByAddingPercentEncodingWithAllowedCharacters:]
     NSString *src = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, NULL, kCFStringEncodingUTF8));
     return src;
@@ -489,7 +418,7 @@
  *  @brief  将字符串转成NSDictionary
  *
  */
-- (NSMutableDictionary *)dictionaryWithString {
+- (NSMutableDictionary *)lkx_dictionaryWithString {
     NSError *err;
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];

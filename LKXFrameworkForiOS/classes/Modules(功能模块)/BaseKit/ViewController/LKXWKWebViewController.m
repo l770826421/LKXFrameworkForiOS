@@ -94,7 +94,7 @@
  */
 - (void)startLoadWeb {
     
-    NSAssert(![NSString isEmptyWithString:self.urlString], @"没有传入网址URL");
+    NSAssert(![NSString lkx_isEmptyWithString:self.urlString], @"没有传入网址URL");
     
     NSURL *url = [NSURL URLWithString:self.urlString];
     
@@ -105,7 +105,7 @@
     }
     [request setHTTPMethod:HTTPMethod];
     NSString *body = [self bodyParameters];
-    if (![NSString isEmptyWithString:body]) {
+    if (![NSString lkx_isEmptyWithString:body]) {
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
     

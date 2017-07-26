@@ -1,21 +1,21 @@
 //
-//  UIWebView+CallPhone.m
-//  SLShop
+//  UIWebView+LKXCallPhone.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/5/27.
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#import "UIWebView+CallPhone.h"
+#import "UIWebView+LKXCallPhone.h"
 
-@implementation UIWebView (CallPhone)
+@implementation UIWebView (LKXCallPhone)
 
 /**
  *  @author 刘克邪
  *
  *  @brief  拨打电话
  */
-+ (instancetype)callPhone:(NSString *)phone {
++ (instancetype)lkx_callPhone:(NSString *)phone {
     
     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@", phone];
     

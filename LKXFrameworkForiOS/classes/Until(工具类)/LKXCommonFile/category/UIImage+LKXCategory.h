@@ -1,6 +1,6 @@
 //
-//  UIImage+Category.h
-//  malama_ca
+//  UIImage+LKXCategory.h
+//  LKXFrameworkForiOS
 //
 //  Created by Developer on 15/4/28.
 //  Copyright (c) 2015年 Developer. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Category)
+@interface UIImage (LKXCategory)
 
 #pragma mark - 类方法
 /**
@@ -20,9 +20,21 @@
  *
  *  @return 拉伸后的图片
  */
-+ (UIImage *)stretchImageWithImageName:(NSString *)imageName
++ (UIImage *)lkx_stretchImageWithImageName:(NSString *)imageName
                               andWidth:(float)width
                                 height:(float)height;
+
+/**
+ * 将UIColor变换为UIImage
+ *
+ **/
++ (UIImage *)lkx_imageWithColor:(UIColor *)color;
+
+/*
+ * 创建自定义大小的UIImage
+ *
+ */
++ (UIImage *)lkx_imageWithColor:(UIColor *)color size:(CGSize)aSize;
 
 #pragma mark - 实例方法
 /**
@@ -33,30 +45,18 @@
  *
  *  @return 拉伸后的图片
  */
-- (UIImage *)stretchImageWithWidth:(float)width
+- (UIImage *)lkx_stretchImageWithWidth:(float)width
                          andHeight:(float)height;
 
-/**
- * 将UIColor变换为UIImage
- *
- **/
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
-/*
- * 创建自定义大小的UIImage
- *
- */
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)aSize;
-
 //得到压缩图片
-- (NSString *)base64StringCompressImage;
+- (NSString *)lkx_base64StringCompressImage;
 
 /**
  *  将图片压缩
  *
  *  @return UIImage
  */
-- (UIImage *)compressImage:(CGFloat)compress;
+- (UIImage *)lkx_compressImage:(CGFloat)compress;
 
 /**
  *  改变一个图片的颜色，但是它上面的颜色渐变不变,透明度不变
@@ -66,7 +66,7 @@
  *
  *  @return UIImage
  */
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
+- (UIImage *)lkx_imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
 
 /**
  *  等比率缩放图片
@@ -75,7 +75,7 @@
  *
  *  @return 缩放后的图片
  */
-- (UIImage *)toScale:(CGFloat)scaleSize;
+- (UIImage *)lkx_toScale:(CGFloat)scaleSize;
 
 /**
  *  将image重画到自定size大小
@@ -84,6 +84,6 @@
  *
  *  @return 重画后的大小
  */
-- (UIImage *)reSize:(CGSize)reSize;
+- (UIImage *)lkx_reSize:(CGSize)reSize;
 
 @end

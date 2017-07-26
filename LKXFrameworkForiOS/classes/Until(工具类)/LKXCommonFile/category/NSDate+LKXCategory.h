@@ -1,6 +1,6 @@
 //
-//  NSDate+Category.h
-//  MyCategory
+//  NSDate+LKXCategory.h
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 14-11-19.
 //  Copyright (c) 2014年 cnmobi. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (Category)
+@interface NSDate (LKXCategory)
 
 #pragma mark - 类方法
 /*
@@ -17,7 +17,7 @@
  * @parameter timeInterval 时间戳
  * return HH:mm:ss 格式的时间
  */
-+ (NSString *)stringWithTimeInterval:(NSInteger)timeInterval;
++ (NSString *)lkx_stringWithTimeInterval:(NSInteger)timeInterval;
 
 /**
  *  将时间戳换算成一个时间，将小时、分钟、秒数的数组
@@ -26,13 +26,13 @@
  *
  *  @return 时间，将小时、分钟、秒数的数组
  */
-+ (NSArray *)timeArrayWithTimeInterval:(NSTimeInterval)timeInterval;
++ (NSArray *)lkx_timeArrayWithTimeInterval:(NSTimeInterval)timeInterval;
 
 /*
  * 将字符串转化NSDate
  * 例如: 1991-09-08 转为时间
  */
-+ (NSDate *)dateWithString:(NSString *)dateString
++ (NSDate *)lkx_dateWithString:(NSString *)dateString
                  formatter:(NSString *)formatter;
 
 #pragma mark - 实例方法
@@ -43,28 +43,28 @@
 *
 *  @return 指定格式的时间
 */
-- (NSString *)stringWithFormatter:(NSString *)formatter;
+- (NSString *)lkx_stringWithFormatter:(NSString *)formatter;
 
 /**
  *  将时间时区转为系统时间
  *
  *  @return 系统时间
  */
-- (NSDate *)dateWithSystem;
+- (NSDate *)lkx_dateWithSystem;
 
 /**
  *  计算传入的时间与当前的时间差
  *
  *  @return 时间差
  */
-- (NSTimeInterval)subTimeWithSystem;
+- (NSTimeInterval)lkx_subTimeWithSystem;
 
 /**
  *  将时间转为当前时区的时间
  *
  *  @return 当前时区的时间
  */
-- (NSDate *)getNowDate;
+- (NSDate *)lkx_getNowDate;
 
 /**
  *  计算两个时间差 self为开始时间
@@ -73,21 +73,21 @@
  *
  *  @return 时间差
  */
-- (NSTimeInterval)deltaTimeWithEndDate:(NSDate *)endDate;
+- (NSTimeInterval)lkx_deltaTimeWithEndDate:(NSDate *)endDate;
 
 /**
  *  将日期格式化为 2011年4月4日 星期一
  *
  *  @return 2011年4月4日 星期一 格式的时间字符串
  */
-- (NSString *)weekFormatterDate_ZH;
+- (NSString *)lkx_weekFormatterDate_ZH;
 
 /**
  *  将日期格式化为 2011年4月4日
  *
  *  @return 2011年4月4日 格式的时间字符串
  */
-- (NSString *)dayFormatterDate_ZH;
+- (NSString *)lkx_dayFormatterDate_ZH;
 
 /**
  *  获取日期的具体信息
@@ -96,7 +96,7 @@
  *
  *  @return 日期的基本信息
  */
-- (NSDateComponents *)dateInfo;
+- (NSDateComponents *)lkx_dateInfo;
 
 /**
  时间加减

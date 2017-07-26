@@ -45,7 +45,7 @@
     
     self.relodButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.relodButton.frame = CGRectMake((view.lkx_width - 100 ) * 0.5, self.messageLabel.lkx_bottom + 8, 100, 40);
-    [self.relodButton setBackgroundColor:[UIColor whiteColor] cornerRadius:4.0 borderWidth:1.0 borderColor:[UIColor lightGrayColor]];
+    [self.relodButton lkx_setBackgroundColor:[UIColor whiteColor] cornerRadius:4.0 borderWidth:1.0 borderColor:[UIColor lightGrayColor]];
     [self.relodButton setTitle:@"重新加载" forState:UIControlStateNormal];
     [self.relodButton setTitleColor:[UIColor lightGrayColor]
                            forState:UIControlStateNormal];

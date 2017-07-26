@@ -69,12 +69,12 @@
     rightBtn.frame = CGRectMake(0, 0, 30, 30);
     rightBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    if (![NSString isEmptyWithString:icon]) {
+    if (![NSString lkx_isEmptyWithString:icon]) {
         [rightBtn setImage:[[UIImage imageNamed:icon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                   forState:UIControlStateNormal];
     }
     
-    if (![NSString isEmptyWithString:selectedIcon]) {
+    if (![NSString lkx_isEmptyWithString:selectedIcon]) {
         [rightBtn setImage:[[UIImage imageNamed:selectedIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                   forState:UIControlStateSelected];
         
@@ -105,7 +105,7 @@
     rightBtn.frame = CGRectMake(0, 0, 30, 30);
     
     [rightBtn setTitle:title forState:UIControlStateNormal];
-    if (![NSString isEmptyWithString:selectedTitle]) {
+    if (![NSString lkx_isEmptyWithString:selectedTitle]) {
         [rightBtn setTitle:selectedTitle forState:UIControlStateSelected];
     }
     [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -142,12 +142,12 @@
                    forState:UIControlStateNormal];
     rightBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:10];
-    if (![NSString isEmptyWithString:icon]) {
+    if (![NSString lkx_isEmptyWithString:icon]) {
         [rightBtn setImage:[[UIImage imageNamed:icon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                   forState:UIControlStateNormal];
     }
     
-    if (![NSString isEmptyWithString:selectedIcon]) {
+    if (![NSString lkx_isEmptyWithString:selectedIcon]) {
         [rightBtn setImage:[[UIImage imageNamed:selectedIcon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                   forState:UIControlStateSelected];
         

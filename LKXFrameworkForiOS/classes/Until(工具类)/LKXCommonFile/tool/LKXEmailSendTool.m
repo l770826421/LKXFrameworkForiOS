@@ -8,7 +8,7 @@
 
 #import "LKXEmailSendTool.h"
 #import <MessageUI/MFMailComposeViewController.h>
-#import "NSString+category.h"
+#import "NSString+LKXCategory.h"
 
 @implementation LKXEmailSendTool
 
@@ -108,7 +108,7 @@
     {
         NSData *data = [NSData dataWithContentsOfFile:path];
         NSString *name = [[path componentsSeparatedByString:@"/"] lastObject];
-        [path mimeType:^(NSString *mimeType) {
+        [path lkx_mimeType:^(NSString *mimeType) {
             [mailPicker addAttachmentData:data mimeType:mimeType fileName:name];
         }];
     }

@@ -1,15 +1,15 @@
 //
-//  UIImage+Category.m
-//  malama_ca
+//  UIImage+LKXCategory.m
+//  LKXFrameworkForiOS
 //
 //  Created by Developer on 15/4/28.
 //  Copyright (c) 2015年 Developer. All rights reserved.
 //
 
-#import "UIImage+Category.h"
+#import "UIImage+LKXCategory.h"
 
 // http://blog.csdn.net/xuhuan_wh/article/details/6434055
-@implementation UIImage (Category)
+@implementation UIImage (LKXCategory)
 
 #pragma mark - 类方法
 /**
@@ -21,30 +21,13 @@
  *
  *  @return 拉伸后的图片
  */
-+ (UIImage *)stretchImageWithImageName:(NSString *)imageName
++ (UIImage *)lkx_stretchImageWithImageName:(NSString *)imageName
                               andWidth:(float)width
                                 height:(float)height
 {
     UIImage *sourceImage = [UIImage imageNamed:imageName];
-    UIImage *stretchImage = [sourceImage stretchImageWithWidth:width
+    UIImage *stretchImage = [sourceImage lkx_stretchImageWithWidth:width
                                                      andHeight:height];
-    return stretchImage;
-}
-
-#pragma mark - 实例方法
-/**
- *  拉伸图片
- *
- *  @param width  距离左边的长度
- *  @param height 距离底部的长度
- *
- *  @return 拉伸后的图片
- */
-- (UIImage *)stretchImageWithWidth:(float)width
-                         andHeight:(float)height
-{
-    UIImage *stretchImage = [self stretchableImageWithLeftCapWidth:width
-                                                      topCapHeight:height];
     return stretchImage;
 }
 
@@ -52,18 +35,18 @@
  * 将UIColor变换为UIImage
  *
  **/
-+ (UIImage *)imageWithColor:(UIColor *)color
++ (UIImage *)lkx_imageWithColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0.0f, 0.0f, 10.0f, 10.0f);
     
-    return [self imageWithColor:color size:rect.size];
+    return [self lkx_imageWithColor:color size:rect.size];
 }
 
 /*
  * 创建自定义大小的UIImage
  *
  */
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)aSize
++ (UIImage *)lkx_imageWithColor:(UIColor *)color size:(CGSize)aSize
 {
     UIGraphicsBeginImageContext(aSize);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -75,15 +58,32 @@
     return theImage;
 }
 
+#pragma mark - 实例方法
+/**
+ *  拉伸图片
+ *
+ *  @param width  距离左边的长度
+ *  @param height 距离底部的长度
+ *
+ *  @return 拉伸后的图片
+ */
+- (UIImage *)lkx_stretchImageWithWidth:(float)width
+                         andHeight:(float)height
+{
+    UIImage *stretchImage = [self stretchableImageWithLeftCapWidth:width
+                                                      topCapHeight:height];
+    return stretchImage;
+}
+
 //得到压缩图片
-- (NSString *)base64StringCompressImage
+- (NSString *)lkx_base64StringCompressImage
 {
     NSData *imgData = UIImageJPEGRepresentation(self,1);
     NSData *compressData;
     //如果是jpg格式
     if (imgData)
     {
-        compressData = UIImageJPEGRepresentation(self,[self compressParameter:imgData]);
+        compressData = UIImageJPEGRepresentation(self,[self lkx_compressParameter:imgData]);
     }
     else    //如果是png格式
     {
@@ -104,14 +104,14 @@
  *
  *  @return UIImage
  */
-- (UIImage *)compressImage:(CGFloat)compress
+- (UIImage *)lkx_compressImage:(CGFloat)compress
 {
     NSData *imgData = UIImageJPEGRepresentation(self,1);
     NSData *compressData;
     //如果是jpg格式
     if (imgData)
     {
-        compressData = UIImageJPEGRepresentation(self, compress >= 0 ? compress : [self compressParameter:imgData]);
+        compressData = UIImageJPEGRepresentation(self, compress >= 0 ? compress : [self lkx_compressParameter:imgData]);
     }
     else    //如果是png格式
     {
@@ -122,7 +122,7 @@
 }
 
 //压缩系数
--(float)compressParameter:(NSData*)mydata
+- (float)lkx_compressParameter:(NSData*)mydata
 {
     if (mydata.length > (1024*1024*1.5) && mydata.length < (1024*1024*3))
     {
@@ -143,7 +143,7 @@
 }
 
 //处理图片 照相有旋转
-- (UIImage *)fixOrientation:(UIImage *)aImage {
+- (UIImage *)lkx_fixOrientation:(UIImage *)aImage {
     
     // No-op if the orientation is already correct
     if (aImage.imageOrientation == UIImageOrientationUp)
@@ -228,7 +228,7 @@
  *
  *  @return UIImage
  */
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode
+- (UIImage *)lkx_imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode
 {
     //保持图片的透明度,设置opaque为NO;用0.0f设置scale
     UIGraphicsBeginImageContextWithOptions(self.size, NO, .0f);
@@ -257,7 +257,7 @@
  *
  *  @return 缩放后的图片
  */
-- (UIImage *)toScale:(CGFloat)scaleSize
+- (UIImage *)lkx_toScale:(CGFloat)scaleSize
 {
     UIGraphicsBeginImageContext(CGSizeMake(self.size.width * scaleSize, self.size.height * scaleSize));
     [self drawInRect:CGRectMake(0, 0, self.size.width * scaleSize, self.size.height * scaleSize)];
@@ -274,7 +274,7 @@
  *
  *  @return 重画后的大小
  */
-- (UIImage *)reSize:(CGSize)reSize
+- (UIImage *)lkx_reSize:(CGSize)reSize
 {
     UIGraphicsBeginImageContext(reSize);
     [self drawInRect:CGRectMake(0, 0, reSize.width, reSize.height)];

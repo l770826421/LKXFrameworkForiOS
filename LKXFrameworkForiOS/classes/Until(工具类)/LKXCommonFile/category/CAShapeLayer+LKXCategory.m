@@ -1,14 +1,14 @@
 //
-//  CAShapeLayer+Category.m
-//  SLShop
+//  CAShapeLayer+LKXCategory.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/6/8.
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#import "CAShapeLayer+Category.h"
+#import "CAShapeLayer+LKXCategory.h"
 
-@implementation CAShapeLayer (Category)
+@implementation CAShapeLayer (LKXCategory)
 
 /**
  *  @author 刘克邪
@@ -22,7 +22,7 @@
  *  @param dashLineSpace 虚线的每条线间距
  *
  */
-+ (instancetype)dashedLineLayerWithframe:(CGRect)frame color:(UIColor *)color lineWidth:(CGFloat)lineWidth dashLineWidth:(CGFloat)dashLineWidth dashLineSpace:(CGFloat)dashLineSpace {
++ (instancetype)lkx_dashedLineLayerWithframe:(CGRect)frame color:(UIColor *)color lineWidth:(CGFloat)lineWidth dashLineWidth:(CGFloat)dashLineWidth dashLineSpace:(CGFloat)dashLineSpace {
     
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     [shapeLayer setFrame:frame];

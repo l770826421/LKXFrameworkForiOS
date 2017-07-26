@@ -1,19 +1,19 @@
 //
-//  NSString+Encryption.m
-//  MyCategory
+//  NSString+LKXEncryption.m
+//  LKXFrameworkForiOS
 //
 //  Created by Developer on 15/9/8.
 //  Copyright (c) 2015年 Developer. All rights reserved.
 //
 #import <CommonCrypto/CommonDigest.h>
 
-#import "NSString+Encryption.h"
+#import "NSString+LKXEncryption.h"
 
-@implementation NSString (Encryption)
+@implementation NSString (LKXEncryption)
 
 #pragma mark - MD5 16位加密
 // 大写加密
-- (NSString *)encryptionWithMD5For16Bit_uppercase
+- (NSString *)lkx_encryptionWithMD5For16Bit_uppercase
 {
     const char *cStr = [self UTF8String];
     unsigned char result[16];
@@ -35,7 +35,7 @@
  *
  *  @return 加密后的数据
  */
-- (NSString *)encryptionWithMD5WithBit_uppercase:(NSInteger)length
+- (NSString *)lkx_encryptionWithMD5WithBit_uppercase:(NSInteger)length
 {
     NSMutableString *string = [NSMutableString string];
     
@@ -52,7 +52,7 @@
 }
 
 // 小写加密
-- (NSString *)encryptionWithMD5For16Bit_lowercase
+- (NSString *)lkx_encryptionWithMD5For16Bit_lowercase
 {
     const char *cStr = [self UTF8String];
     unsigned char result[16];
@@ -74,7 +74,7 @@
  *
  *  @return 加密后的数据
  */
-- (NSString *)encryptionWithMD5WithBit_lowercase:(NSInteger)length
+- (NSString *)lkx_encryptionWithMD5WithBit_lowercase:(NSInteger)length
 {
     NSMutableString *string = [NSMutableString string];
     
@@ -98,7 +98,7 @@
  *
  *  @return SHA1 32位加密后的字符串
  */
-- (NSString *)encryptionSha1WithFor40Bit_uppercase {
+- (NSString *)lkx_encryptionSha1WithFor40Bit_uppercase {
     
     const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData *data = [NSData dataWithBytes:cstr length:self.length];

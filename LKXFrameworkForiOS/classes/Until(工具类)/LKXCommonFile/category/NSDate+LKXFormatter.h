@@ -1,6 +1,6 @@
 //
-//  NSDate+Formatter.h
-//  XGMEport
+//  NSDate+LKXFormatter.h
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/28.
 //  Copyright © 2016年 刘克邪. All rights reserved.
@@ -58,7 +58,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *
  *  @brief  时间格式扩展
  */
-@interface NSDate (Formatter)
+@interface NSDate (LKXFormatter)
 
 /**
  *  @author 刘克邪
@@ -69,7 +69,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @param formatter  时间格式
  *
  */
-+ (NSDate *)dateWithString:(NSString *)dateString formatter:(NSString *)formatter;
++ (NSDate *)lkx_dateWithString:(NSString *)dateString formatter:(NSString *)formatter;
 
 /**
  *  @author 刘克邪
@@ -77,7 +77,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @brief  将时间转为当前时区的时间
  *
  */
-- (NSDate *)dateForCurrentTimeZone;
+- (NSDate *)lkx_dateForCurrentTimeZone;
 
 /**
  *  @author 刘克邪
@@ -87,7 +87,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @param formatter 时间格式
  *
  */
-- (NSString *)dateWithFormatter:(NSString *)formatter;
+- (NSString *)lkx_dateWithFormatter:(NSString *)formatter;
 
 /**
  *  @author 刘克邪
@@ -95,7 +95,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @brief  与当前时间的时间间隔
  *
  */
-- (NSTimeInterval)dateIntervalWithNow;
+- (NSTimeInterval)lkx_dateIntervalWithNow;
 
 /**
  *  @author 刘克邪
@@ -103,7 +103,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @brief  与一时间的时间间隔
  *
  */
-- (NSTimeInterval)dateIntervalWithOhterDate:(NSDate *)otherDate;
+- (NSTimeInterval)lkx_dateIntervalWithOhterDate:(NSDate *)otherDate;
 
 /**
  *  @author 刘克邪
@@ -111,7 +111,7 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @brief  与当前时间的时间间隔的字符串
  *
  */
-- (NSString *)dateIntervalStringWithNow;
+- (NSString *)lkx_dateIntervalStringWithNow;
 
 /**
  *  @author 刘克邪
@@ -119,6 +119,6 @@ static NSString * const BeijingTimezon = @"Asia/BeiJing";
  *  @brief  与一时间的时间间隔的字符串
  *
  */
-- (NSString *)dateIntervalStringWithOhterDate:(NSDate *)otherDate;
+- (NSString *)lkx_dateIntervalStringWithOhterDate:(NSDate *)otherDate;
 
 @end

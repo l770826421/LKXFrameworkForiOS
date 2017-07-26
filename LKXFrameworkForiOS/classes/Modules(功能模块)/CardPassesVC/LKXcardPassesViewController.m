@@ -11,7 +11,7 @@
 
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "LKXTouchIDValidateTool.h"
-#import "NSDate+Category.h"
+#import "NSDate+LKXCategory.h"
 #import "LKXWKWebViewController.h"
 #import "LKXCalendarTool.h"
 
@@ -176,7 +176,7 @@
     });
     
     NSDate *date = [NSDate date];
-    NSDateComponents *components = [date dateInfo];
+    NSDateComponents *components = [date lkx_dateInfo];
     LKXMLog(@"date info : %@", components);
 }
 

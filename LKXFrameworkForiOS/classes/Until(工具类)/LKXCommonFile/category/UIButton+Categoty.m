@@ -1,22 +1,22 @@
 //
-//  UIButton+Categoty.m
-//  MyCategory
+//  UIButton+LKXCategoty.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 14-11-27.
 //  Copyright (c) 2014年 cnmobi. All rights reserved.
 //
 
-#import "UIButton+categoty.h"
+#import "UIButton+LKXCategoty.h"
 
-@implementation UIButton (Categoty)
+@implementation UIButton (LKXCategoty)
 
 /*
  * *给button添加角标
  */
-- (void)addCorner
+- (void)lkx_addCorner
 {
     UILabel *cornerLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.lkx_width - 17.0f, self.lkx_top - 15.0f, 25.0f, 25.0f)];
-    [cornerLbl setBackgroundColor:REDCOLOR cornerRadius:13.0f borderWidth:0 borderColor:CLEARCOLOR];
+    [cornerLbl lkx_setBackgroundColor:REDCOLOR cornerRadius:13.0f borderWidth:0 borderColor:CLEARCOLOR];
     cornerLbl.textColor = WHITECOLOR;
     cornerLbl.font = FontSize(12);
     cornerLbl.tag = 10000;
@@ -29,7 +29,7 @@
 /*
  * 给角标设置内容
  */
-- (void)setCornerContent:(int)number
+- (void)lkx_setCornerContent:(int)number
 {
     UILabel *cornerLbl;
     for (UIView *subView in self.subviews)

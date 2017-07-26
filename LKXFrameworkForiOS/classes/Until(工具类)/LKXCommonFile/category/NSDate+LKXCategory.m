@@ -1,14 +1,14 @@
 //
-//  NSDate+Category.m
-//  MyCategory
+//  NSDate+LKXCategory.m
+//  LKXFrameworkForiOS
 //
 //  Created by lkx on 14-11-19.
 //  Copyright (c) 2014年 cnmobi. All rights reserved.
 //
 
-#import "NSDate+Category.h"
+#import "NSDate+LKXCategory.h"
 
-@implementation NSDate (Category)
+@implementation NSDate (LKXCategory)
 
 #pragma mark - 类方法
 /*
@@ -17,7 +17,7 @@
  * @parameter timeInterval 时间戳
  * return HH:mm:ss 格式的时间
  */
-+ (NSString *)stringWithTimeInterval:(NSInteger)timeInterval
++ (NSString *)lkx_stringWithTimeInterval:(NSInteger)timeInterval
 {
     NSString *timeStr;
     int hour = (int) (timeInterval / (60*60));
@@ -34,7 +34,7 @@
  *
  *  @return 时间，将小时、分钟、秒数的数组
  */
-+ (NSArray *)timeArrayWithTimeInterval:(NSTimeInterval)timeInterval
++ (NSArray *)lkx_timeArrayWithTimeInterval:(NSTimeInterval)timeInterval
 {
     NSString *hourStr;
     NSString *minuteStr;
@@ -53,8 +53,8 @@
  * 将字符串转化NSDate
  * 例如: 1991-09-08 转为时间
  */
-+ (NSDate *)dateWithString:(NSString *)dateString
-                 formatter:(NSString *)formatter
++ (NSDate *)lkx_dateWithString:(NSString *)dateString
+                     formatter:(NSString *)formatter
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = formatter;
@@ -70,7 +70,7 @@
  *
  *  @return 指定格式的时间
  */
-- (NSString *)stringWithFormatter:(NSString *)formatter
+- (NSString *)lkx_stringWithFormatter:(NSString *)formatter
 {
     NSString *dateStr;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -84,7 +84,7 @@
  *
  *  @return 系统时间
  */
-- (NSDate *)dateWithSystem
+- (NSDate *)lkx_dateWithSystem
 {
     NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMT];
     NSDate *date = [self dateByAddingTimeInterval:timeZoneOffset];
@@ -96,7 +96,7 @@
  *
  *  @return 时间差
  */
-- (NSTimeInterval)subTimeWithSystem
+- (NSTimeInterval)lkx_subTimeWithSystem
 {
     NSDate *nowDate = [NSDate date];
     NSTimeInterval timeIntl = [self timeIntervalSinceDate:nowDate];
@@ -108,7 +108,7 @@
  *
  *  @return 当前时区的时间
  */
-- (NSDate *)getNowDate
+- (NSDate *)lkx_getNowDate
 {
     NSTimeZone *sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"]; //UTC
     NSTimeZone *destinationTimeZone = [NSTimeZone localTimeZone];
@@ -126,7 +126,7 @@
  *
  *  @return 时间差
  */
-- (NSTimeInterval)deltaTimeWithEndDate:(NSDate *)endDate
+- (NSTimeInterval)lkx_deltaTimeWithEndDate:(NSDate *)endDate
 {
     if (self == nil || endDate == nil)
     {
@@ -149,7 +149,7 @@
  *
  *  @return 2011年4月4日 星期一 格式的时间字符串
  */
-- (NSString *)weekFormatterDate_ZH
+- (NSString *)lkx_weekFormatterDate_ZH
 {
     NSString *tempStr;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -165,7 +165,7 @@
  *
  *  @return 2011年4月4日 格式的时间字符串
  */
-- (NSString *)dayFormatterDate_ZH
+- (NSString *)lkx_dayFormatterDate_ZH
 {
     NSString *tempStr;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -183,7 +183,7 @@
  *
  *  @return 日期的基本信息
  */
-- (NSDateComponents *)dateInfo
+- (NSDateComponents *)lkx_dateInfo
 {
     NSDateComponents *components = [[NSDateComponents alloc] init];
     // NSGregorianCalendar

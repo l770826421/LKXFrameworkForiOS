@@ -72,7 +72,7 @@
 
 - (void)startLoadWeb {
     
-    if ([NSString isEmptyWithString:self.urlString]) {
+    if ([NSString lkx_isEmptyWithString:self.urlString]) {
         [kMBHUDTool showHUDWithText:@"没有填充URL" delay:kMBHUDDelay];
         LKXMLog(@"没有填充URL");
         return;
@@ -87,7 +87,7 @@
     }
     [request setHTTPMethod:HTTPMethod];
     NSString *body = [self bodyParameters];
-    if (![NSString isEmptyWithString:body]) {
+    if (![NSString lkx_isEmptyWithString:body]) {
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
     
@@ -197,7 +197,7 @@
     for (JSValue *value in args) {
         
         NSString *string = [value toString];
-        NSMutableDictionary *dict = [string dictionaryWithString];
+        NSMutableDictionary *dict = [string lkx_dictionaryWithString];
         if (dict) {
             [dic setValuesForKeysWithDictionary:dict];
         }

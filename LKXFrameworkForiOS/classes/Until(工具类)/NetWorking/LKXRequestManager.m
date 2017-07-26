@@ -8,7 +8,7 @@
 
 #import "LKXRequestManager.h"
 #import "AFNetWorkingTool.h"
-#import "NSDate+Formatter.h"
+#import "NSDate+LKXFormatter.h"
 
 @interface LKXRequestManager ()
 
@@ -79,7 +79,7 @@
             [NSMutableDictionary dictionaryWithDictionary:oldParameters];
 
     NSString *str_timeItl =
-            [[NSDate date] dateWithFormatter:Date_Formatter_YYYYMMddHHmmss];
+            [[NSDate date] lkx_dateWithFormatter:Date_Formatter_YYYYMMddHHmmss];
     allParameters[@"timespan"] = str_timeItl;
     
     return allParameters;
