@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+            timestampString = "520849666.488912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-peripheral:didDiscoverServices:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LKXBluetoothTool peripheral:didDiscoverServices:]"
+                  moduleName = "OCZatsugaku"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+                  timestampString = "520850267.087277"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LKXBluetoothTool peripheral:didDiscoverServices:]"
+                  moduleName = "OCZatsugaku"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+                  timestampString = "520850267.088924"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+            timestampString = "520849670.873468"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-centralManager:didFailToConnectPeripheral:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+            timestampString = "520850170.611156"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-peripheral:didDiscoverCharacteristicsForService:error:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LKXBluetoothTool peripheral:didDiscoverCharacteristicsForService:error:]"
+                  moduleName = "OCZatsugaku"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+                  timestampString = "520850267.094626"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LKXBluetoothTool peripheral:didDiscoverCharacteristicsForService:error:]"
+                  moduleName = "OCZatsugaku"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+                  timestampString = "520850267.095924"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+            timestampString = "520850244.135226"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-discoverServices:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
+            timestampString = "520850322.733956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "-centralManager:didConnectPeripheral:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

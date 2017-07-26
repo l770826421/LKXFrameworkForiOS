@@ -1,0 +1,121 @@
+
+//
+//  LKXRequestManager.m
+//  XGMEport
+//
+//  Created by lkx on 16/3/28.
+//  Copyright © 2016年 刘克邪. All rights reserved.
+//
+
+#import "LKXRequestManager.h"
+#import "AFNetWorkingTool.h"
+#import "NSDate+Formatter.h"
+#import "MJExtension.h"
+#import "IDTabBarLinkModel.h"
+#import "IDHomeCellModel.h"
+#import "IDSettingCellModel.h"
+
+@interface LKXRequestManager ()
+
+/** AFNetWorkingTool工具类 */
+@property (nonatomic, strong) AFNetWorkingTool *afNetworkingTool;
+
+@end
+
+@implementation LKXRequestManager
+
+/**
+ *  @author 刘克邪
+ *
+ *  @brief  实现了LKXRequestManager的类单例创建
+ *
+ *  在分配空间的时候就实现单例初始化,实现了线程单例安全
+ *
+ */
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    static LKXRequestManager *instance;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        instance = [super allocWithZone:zone];
+    });
+    
+    return instance;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.afNetworkingTool = [AFNetWorkingTool shareAFNetWorkingTool];
+    }
+    return self;
+}
+
+/**
+ *  @author 刘克邪
+ *
+ *  @brief  每一个单例必须以share开头
+ *
+ */
++ (instancetype)shareRequestManager {
+    return [[self alloc] init];
+}
+
+/**
+ *  @author 刘克邪
+ *
+ *  @brief  获取当前时间戳
+ *
+ */
+- (NSTimeInterval)currentDate {
+    NSDate *date = [NSDate date];
+    NSTimeInterval timInterval = [date timeIntervalSince1970];
+    return timInterval;
+}
+
+/**
+ *  @author 刘克邪
+ *
+ *  @brief  获取当前时间戳的字符串
+ *
+ */
+- (NSDictionary *)allParameters:(NSDictionary *)oldParameters {
+    NSMutableDictionary *allParameters =
+            [NSMutableDictionary dictionaryWithDictionary:oldParameters];
+
+    NSString *str_timeItl =
+            [[NSDate date] dateWithFormatter:Date_Formatter_YYYYMMddHHmmss];
+    allParameters[@"timespan"] = str_timeItl;
+    
+    return allParameters;
+}
+
+/**
+ 根数据
+ */
+- (void)rootDataRequestWithSuccess:(void (^)())success
+                           failure:(void (^)(NSString *message))failure {
+    [self.afNetworkingTool postRequestWithParameters:nil success:^(id JSON) {
+        NSArray *tabbarLinks = [IDTabBarLinkModel mj_objectArrayWithKeyValuesArray:JSON[@"footerlink"]];
+        [NSKeyedArchiver archiveRootObject:tabbarLinks toFile:FILE_PATH_OF_DOCUMENT(IDTabbarLinkFilename)];
+        
+        NSArray *homeCellModels = [IDHomeCellModel mj_objectArrayWithKeyValuesArray:JSON[@"homefunc"]];
+        [NSKeyedArchiver archiveRootObject:homeCellModels toFile:FILE_PATH_OF_DOCUMENT(IDHomeFilename)];
+        
+        NSArray *settings = [IDSettingCellModel mj_objectArrayWithKeyValuesArray:JSON[@"navmenu"]];
+        [NSKeyedArchiver archiveRootObject:settings toFile:FILE_PATH_OF_DOCUMENT(IDSettingFilename)];
+        
+        NSString *version = [JSON[@"version"] valueForKey:@"value"];
+        [kUserDefaults setObject:version forKey:IDVersionValue];
+        [kUserDefaults synchronize];
+        
+        [kNotifi postNotificationName:IDLaunchJumpNotifaction
+                               object:nil];
+        
+        success();
+    } failure:^(NSError *error) {
+        failure(error.localizedDescription);
+    }];
+}
+
+@end
