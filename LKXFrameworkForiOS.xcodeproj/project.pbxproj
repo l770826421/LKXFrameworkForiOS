@@ -16,6 +16,7 @@
 		163DF2281CC6000600A2DA26 /* LKXFrameworkForiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 163DF2271CC6000600A2DA26 /* LKXFrameworkForiOSTests.m */; };
 		163DF2331CC6000600A2DA26 /* LKXFrameworkForiOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 163DF2321CC6000600A2DA26 /* LKXFrameworkForiOSUITests.m */; };
 		166489B91D4B076B0037F789 /* LKXBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 166489B81D4B076B0037F789 /* LKXBarButton.m */; };
+		1665ED761F287214000CCD4F /* LKXAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1665ED751F287214000CCD4F /* LKXAlertTool.m */; };
 		166C73441D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C72F31D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m */; };
 		166C73451D4B4FBF00D66FEA /* NSLayoutConstraint+Horizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C72F51D4B4FBF00D66FEA /* NSLayoutConstraint+Horizontal.m */; };
 		166C73461D4B4FBF00D66FEA /* NSLayoutConstraint+Vertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C72F71D4B4FBF00D66FEA /* NSLayoutConstraint+Vertical.m */; };
@@ -139,7 +140,6 @@
 		16CEDDD81D4AFC1C006C09CC /* LKXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEDDD01D4AFC1C006C09CC /* LKXTableViewCell.m */; };
 		16CEDDD91D4AFC1C006C09CC /* UIBarButtonItem+LKX.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEDDD21D4AFC1C006C09CC /* UIBarButtonItem+LKX.m */; };
 		16E878DD1E94958900893C25 /* LKXDevicePowerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E878DC1E94958900893C25 /* LKXDevicePowerTool.m */; };
-		16F520921DB8A7370079B52D /* LKXAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F520911DB8A7370079B52D /* LKXAlertTool.m */; };
 		16FA226C1E94ED740000D710 /* LKXCalendarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA226B1E94ED740000D710 /* LKXCalendarTool.m */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +192,8 @@
 		163DF2341CC6000600A2DA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		166489B71D4B076B0037F789 /* LKXBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXBarButton.h; sourceTree = "<group>"; };
 		166489B81D4B076B0037F789 /* LKXBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXBarButton.m; sourceTree = "<group>"; };
+		1665ED741F287214000CCD4F /* LKXAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXAlertTool.h; sourceTree = "<group>"; };
+		1665ED751F287214000CCD4F /* LKXAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXAlertTool.m; sourceTree = "<group>"; };
 		166C72F11D4B4FBF00D66FEA /* LKXLayoutContraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXLayoutContraint.h; sourceTree = "<group>"; };
 		166C72F21D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+Addition.h"; sourceTree = "<group>"; };
 		166C72F31D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+Addition.m"; sourceTree = "<group>"; };
@@ -453,8 +455,6 @@
 		16CEDDD21D4AFC1C006C09CC /* UIBarButtonItem+LKX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LKX.m"; sourceTree = "<group>"; };
 		16E878DB1E94958900893C25 /* LKXDevicePowerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXDevicePowerTool.h; sourceTree = "<group>"; };
 		16E878DC1E94958900893C25 /* LKXDevicePowerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXDevicePowerTool.m; sourceTree = "<group>"; };
-		16F520901DB8A7370079B52D /* LKXAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXAlertTool.h; sourceTree = "<group>"; };
-		16F520911DB8A7370079B52D /* LKXAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXAlertTool.m; sourceTree = "<group>"; };
 		16FA226A1E94ED740000D710 /* LKXCalendarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXCalendarTool.h; sourceTree = "<group>"; };
 		16FA226B1E94ED740000D710 /* LKXCalendarTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXCalendarTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -646,6 +646,8 @@
 		166C732B1D4B4FBF00D66FEA /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				1665ED741F287214000CCD4F /* LKXAlertTool.h */,
+				1665ED751F287214000CCD4F /* LKXAlertTool.m */,
 				16FA226A1E94ED740000D710 /* LKXCalendarTool.h */,
 				16FA226B1E94ED740000D710 /* LKXCalendarTool.m */,
 				16E878DB1E94958900893C25 /* LKXDevicePowerTool.h */,
@@ -660,8 +662,6 @@
 				166C73311D4B4FBF00D66FEA /* LKXTextField.m */,
 				166C73341D4B4FBF00D66FEA /* MBHUDTool */,
 				166C73391D4B4FBF00D66FEA /* ReachabilityTool */,
-				16F520901DB8A7370079B52D /* LKXAlertTool.h */,
-				16F520911DB8A7370079B52D /* LKXAlertTool.m */,
 				16875DEE1DE43F3300F09085 /* LKXTouchIDValidateTool.h */,
 				16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */,
 			);
@@ -1161,7 +1161,7 @@
 				TargetAttributes = {
 					163DF2091CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = CCE8HZ4H5D;
+						DevelopmentTeam = YWJ53DW5P7;
 					};
 					163DF2221CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1272,6 +1272,7 @@
 				16CA80541DB728DE00FF5F1A /* LKXError.m in Sources */,
 				169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */,
 				16CEDD4E1D4AFB1E006C09CC /* MJRefreshBackNormalFooter.m in Sources */,
+				1665ED761F287214000CCD4F /* LKXAlertTool.m in Sources */,
 				166489B91D4B076B0037F789 /* LKXBarButton.m in Sources */,
 				16347F011DB8D22A00D997C7 /* UIControl+Runtime.m in Sources */,
 				16CEDD851D4AFB27006C09CC /* UIImage+GIF.m in Sources */,
@@ -1350,7 +1351,6 @@
 				16CEDD581D4AFB1E006C09CC /* UIView+MJExtension.m in Sources */,
 				16CEDDD61D4AFC1C006C09CC /* LKXTabBar.m in Sources */,
 				166C73571D4B4FBF00D66FEA /* BigBtn.m in Sources */,
-				16F520921DB8A7370079B52D /* LKXAlertTool.m in Sources */,
 				16CEDD0D1D4AFB18006C09CC /* MJFoundation.m in Sources */,
 				166C73611D4B4FBF00D66FEA /* MBHUDTool.m in Sources */,
 				166C73541D4B4FBF00D66FEA /* UIWebView+CallPhone.m in Sources */,
@@ -1479,7 +1479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CCE8HZ4H5D;
+				DEVELOPMENT_TEAM = YWJ53DW5P7;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/Classes/Resource(本地文件)/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOS/Info.plist;
@@ -1496,7 +1496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CCE8HZ4H5D;
+				DEVELOPMENT_TEAM = YWJ53DW5P7;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/Classes/Resource(本地文件)/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOS/Info.plist;

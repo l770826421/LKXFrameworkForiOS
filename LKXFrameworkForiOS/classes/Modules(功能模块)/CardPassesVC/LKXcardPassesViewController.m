@@ -13,6 +13,7 @@
 #import "LKXTouchIDValidateTool.h"
 #import "NSDate+Category.h"
 #import "LKXWKWebViewController.h"
+#import "LKXCalendarTool.h"
 
 #import "Masonry.h"
 
@@ -82,16 +83,16 @@
         make.height.equalTo(redViewWeak.mas_height);
     }];
     
-    // 在subWhiteView中添加一个button
-    UIButton *touchIDButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [touchIDButton setTitle:@"touch ID 测试" forState:UIControlStateNormal];
-    [touchIDButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    touchIDButton.titleLabel.font = [UIFont systemFontOfSize:FONT_size12];
-    [touchIDButton addTarget:self
-                   action:@selector(btnActionTouchID:)
+    // 在subBlackView中添加一个button
+    UIButton *calendarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [calendarButton setTitle:@"添加日历" forState:UIControlStateNormal];
+    [calendarButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    calendarButton.titleLabel.font = [UIFont systemFontOfSize:FONT_size12];
+    [calendarButton addTarget:self
+                   action:@selector(calendarAction:)
          forControlEvents:UIControlEventTouchUpInside];
-    [subWhiteView addSubview:touchIDButton];
-    [touchIDButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [subBlackView addSubview:calendarButton];
+    [calendarButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
@@ -104,6 +105,20 @@
         make.right.equalTo(container);
         make.height.equalTo(@200);
     }];
+    
+    // 在subWhiteView中添加一个button
+    UIButton *touchIDButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [touchIDButton setTitle:@"touch ID 测试" forState:UIControlStateNormal];
+    [touchIDButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    touchIDButton.titleLabel.font = [UIFont systemFontOfSize:FONT_size12];
+    [touchIDButton addTarget:self
+                      action:@selector(btnActionTouchID:)
+            forControlEvents:UIControlEventTouchUpInside];
+    [subWhiteView addSubview:touchIDButton];
+    [touchIDButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
     
     /** 居中显示 */
     UIButton *alertBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -303,6 +318,17 @@
 - (void)pushAction:(UIButton *)btn {
     LKXWKWebViewController *vc = [[LKXWKWebViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)calendarAction:(UIButton *)btn {
+    LKXCalendarTool *calendarTool = [[LKXCalendarTool alloc] init];
+    EKEvent *event = [calendarTool createEvent];
+    event.title = @"测试";
+    [calendarTool writeDataWithEvent:event success:^(BOOL success) {
+        if (success) {
+            LKXMLog(@"添加时间到日历成功");
+        }
+    }];
 }
 
 @end
