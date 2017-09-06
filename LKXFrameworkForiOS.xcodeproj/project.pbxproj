@@ -139,6 +139,8 @@
 		16CEDDD71D4AFC1C006C09CC /* LKXTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEDDCE1D4AFC1C006C09CC /* LKXTabBarButton.m */; };
 		16CEDDD81D4AFC1C006C09CC /* LKXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEDDD01D4AFC1C006C09CC /* LKXTableViewCell.m */; };
 		16CEDDD91D4AFC1C006C09CC /* UIBarButtonItem+LKX.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEDDD21D4AFC1C006C09CC /* UIBarButtonItem+LKX.m */; };
+		16E3484F1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E3484E1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m */; };
+		16E348521F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E348511F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m */; };
 		16E878DD1E94958900893C25 /* LKXDevicePowerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E878DC1E94958900893C25 /* LKXDevicePowerTool.m */; };
 		16FA226C1E94ED740000D710 /* LKXCalendarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA226B1E94ED740000D710 /* LKXCalendarTool.m */; };
 /* End PBXBuildFile section */
@@ -453,6 +455,10 @@
 		16CEDDD01D4AFC1C006C09CC /* LKXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXTableViewCell.m; sourceTree = "<group>"; };
 		16CEDDD11D4AFC1C006C09CC /* UIBarButtonItem+LKX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LKX.h"; sourceTree = "<group>"; };
 		16CEDDD21D4AFC1C006C09CC /* UIBarButtonItem+LKX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LKX.m"; sourceTree = "<group>"; };
+		16E3484D1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXEstimatedRowHeightViewController.h; sourceTree = "<group>"; };
+		16E3484E1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXEstimatedRowHeightViewController.m; sourceTree = "<group>"; };
+		16E348501F56C60E005E30B8 /* LKXEstimatedRowHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXEstimatedRowHeightCell.h; sourceTree = "<group>"; };
+		16E348511F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXEstimatedRowHeightCell.m; sourceTree = "<group>"; };
 		16E878DB1E94958900893C25 /* LKXDevicePowerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXDevicePowerTool.h; sourceTree = "<group>"; };
 		16E878DC1E94958900893C25 /* LKXDevicePowerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXDevicePowerTool.m; sourceTree = "<group>"; };
 		16FA226A1E94ED740000D710 /* LKXCalendarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXCalendarTool.h; sourceTree = "<group>"; };
@@ -802,6 +808,7 @@
 		16CED7181D4AF36D006C09CC /* Modules(功能模块) */ = {
 			isa = PBXGroup;
 			children = (
+				16E3484C1F56C26D005E30B8 /* TableView */,
 				16837AB01DD0866E0048BCE0 /* WKWebView */,
 				16CA807B1DB755CF00FF5F1A /* CardPassesVC */,
 				16CEDD9A1D4AFBBE006C09CC /* BaseKit */,
@@ -1093,6 +1100,17 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		16E3484C1F56C26D005E30B8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				16E3484D1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.h */,
+				16E3484E1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m */,
+				16E348501F56C60E005E30B8 /* LKXEstimatedRowHeightCell.h */,
+				16E348511F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1232,6 +1250,7 @@
 				16CED8231D4AF36D006C09CC /* TAAbstractDotView.m in Sources */,
 				16CED8281D4AF36D006C09CC /* SDCycleScrollView.m in Sources */,
 				16CEDD841D4AFB27006C09CC /* UIButton+WebCache.m in Sources */,
+				16E348521F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m in Sources */,
 				166C73471D4B4FBF00D66FEA /* CAShapeLayer+LKXCategory.m in Sources */,
 				16CA804F1DB7261100FF5F1A /* AFURLRequestSerialization.m in Sources */,
 				16CEDDBE1D4AFBBE006C09CC /* LKXBaseViewController.m in Sources */,
@@ -1317,6 +1336,7 @@
 				166C73491D4B4FBF00D66FEA /* NSData+LKXCategory.m in Sources */,
 				16CEDD801D4AFB27006C09CC /* SDWebImageDownloader.m in Sources */,
 				16CEDD4F1D4AFB1E006C09CC /* MJRefreshBackStateFooter.m in Sources */,
+				16E3484F1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m in Sources */,
 				16CEDD831D4AFB27006C09CC /* SDWebImagePrefetcher.m in Sources */,
 				16CA807A1DB7515F00FF5F1A /* ViewController+MASAdditions.m in Sources */,
 				16CEDD471D4AFB1E006C09CC /* MJRefreshComponent.m in Sources */,

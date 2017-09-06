@@ -13,6 +13,7 @@
 #import "LKXBaseViewController.h"
 #import "LKXcardPassesViewController.h"
 #import "LKXWKWebDemoViewController.h"
+#import "LKXEstimatedRowHeightViewController.h"
 
 #import "LKXTabBar.h"
 
@@ -80,7 +81,7 @@
          normalImage:@"icon_order_normal"
        selectedImage:@"icon_order_hightlight"];
     
-    LKXBaseViewController *peopleCenterVC = [[LKXBaseViewController alloc] init];
+    LKXEstimatedRowHeightViewController *peopleCenterVC = [[LKXEstimatedRowHeightViewController alloc] init];
     [self addChildVC:peopleCenterVC
         andItemTitle:@"个人中心"
          normalImage:@"icon_user_normal"

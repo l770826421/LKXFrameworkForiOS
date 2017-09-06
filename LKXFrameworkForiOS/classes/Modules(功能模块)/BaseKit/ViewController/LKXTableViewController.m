@@ -83,6 +83,8 @@
         _tableView.backgroundColor = self.view.backgroundColor;
         _tableView.separatorInset = UIEdgeInsetsZero;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        _tableView.estimatedRowHeight = 44;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
     }
     
     return _tableView;
@@ -111,9 +113,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 160;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 160;
+//}
 
 
 #pragma mark - other

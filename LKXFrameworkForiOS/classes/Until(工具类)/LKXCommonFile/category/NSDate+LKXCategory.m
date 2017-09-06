@@ -185,11 +185,10 @@
  */
 - (NSDateComponents *)lkx_dateInfo
 {
-    NSDateComponents *components = [[NSDateComponents alloc] init];
     // NSGregorianCalendar
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond; // NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-    components = [calendar components:unitFlags fromDate:self];
+    NSDateComponents *components = [calendar components:unitFlags fromDate:self];
     /*
       *  NSInteger week = [components weekday];
       *  NSInteger month = [comps month];
