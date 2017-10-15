@@ -24,9 +24,9 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
 @implementation LKXBaseViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
     [self.view endEditing:YES];
+    [self deleteSystemTabBarButton];
 }
 
 - (void)viewDidLoad {
@@ -80,20 +80,14 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
 /**
  *  @author 刘克邪
  *
- *  @brief  用户信息
- *
+ *  @brief  删除系统自动生成的UITabBarButton
  */
-@synthesize user_sl = _user_sl;
-- (LKXUser *)user_sl {
-    if ([self currentLogin]) {
-        if (!_user_sl) {
-            LKXUser *user = [NSKeyedUnarchiver unarchiveObjectWithFile:FILE_PATH_OF_DOCUMENT(SLUserFilename)];
-            _user_sl = user;
+- (void)deleteSystemTabBarButton {
+    for (UIView *child in self.tabBarController.tabBar.subviews) {
+        if ([child isKindOfClass:[UIControl class]]) {
+            [child removeFromSuperview];
         }
-    } else {
-        _user_sl = nil;
     }
-    return _user_sl;
 }
 
 /**

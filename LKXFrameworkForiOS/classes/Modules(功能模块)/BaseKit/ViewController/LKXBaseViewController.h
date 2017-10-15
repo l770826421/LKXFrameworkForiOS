@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @class LKXReloadView;
-@class LKXUser;
 
 extern NSString * const kAPPCurrentLogin;
 
@@ -20,8 +19,13 @@ extern NSString * const kAPPCurrentLogin;
  */
 @interface LKXBaseViewController : UIViewController
 
-/** 用户信息 */
-@property (nonatomic, strong) LKXUser *user_sl;
+/**
+ *  @author 刘克邪
+ *
+ *  @brief  删除系统自动生成的UITabBarButton
+ */
+- (void)deleteSystemTabBarButton;
+
 
 /**
  *  @author 刘克邪
