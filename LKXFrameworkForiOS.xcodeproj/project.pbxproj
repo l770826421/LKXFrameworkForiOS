@@ -52,6 +52,7 @@
 		16859D311E70FA510025A0C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16859D281E70FA510025A0C6 /* Assets.xcassets */; };
 		16875DF01DE43F3300F09085 /* LKXTouchIDValidateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */; };
 		169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169852901EE79CAF00F04D62 /* LKXWebProgressView.m */; };
+		16994AF61F93182E00DC878F /* LKXImagePickerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16994AF41F93182D00DC878F /* LKXImagePickerTool.m */; };
 		16A7D49D1D4AFF9B00160D34 /* LKXConstString.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */; };
 		16CA804C1DB7261100FF5F1A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80401DB7261100FF5F1A /* AFHTTPSessionManager.m */; };
 		16CA804D1DB7261100FF5F1A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CA80431DB7261100FF5F1A /* AFNetworkReachabilityManager.m */; };
@@ -272,6 +273,8 @@
 		16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXTouchIDValidateTool.m; sourceTree = "<group>"; };
 		1698528F1EE79CAF00F04D62 /* LKXWebProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXWebProgressView.h; sourceTree = "<group>"; };
 		169852901EE79CAF00F04D62 /* LKXWebProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXWebProgressView.m; sourceTree = "<group>"; };
+		16994AF41F93182D00DC878F /* LKXImagePickerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKXImagePickerTool.m; sourceTree = "<group>"; };
+		16994AF51F93182E00DC878F /* LKXImagePickerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKXImagePickerTool.h; sourceTree = "<group>"; };
 		16A7D49B1D4AFF9B00160D34 /* LKXConstString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXConstString.h; sourceTree = "<group>"; };
 		16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXConstString.m; sourceTree = "<group>"; };
 		16CA803F1DB7261100FF5F1A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -652,6 +655,8 @@
 		166C732B1D4B4FBF00D66FEA /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				16994AF51F93182E00DC878F /* LKXImagePickerTool.h */,
+				16994AF41F93182D00DC878F /* LKXImagePickerTool.m */,
 				1665ED741F287214000CCD4F /* LKXAlertTool.h */,
 				1665ED751F287214000CCD4F /* LKXAlertTool.m */,
 				16FA226A1E94ED740000D710 /* LKXCalendarTool.h */,
@@ -1340,6 +1345,7 @@
 				16CEDD831D4AFB27006C09CC /* SDWebImagePrefetcher.m in Sources */,
 				16CA807A1DB7515F00FF5F1A /* ViewController+MASAdditions.m in Sources */,
 				16CEDD471D4AFB1E006C09CC /* MJRefreshComponent.m in Sources */,
+				16994AF61F93182E00DC878F /* LKXImagePickerTool.m in Sources */,
 				16CEDD0F1D4AFB18006C09CC /* MJPropertyKey.m in Sources */,
 				166C73441D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m in Sources */,
 				16CEDD131D4AFB18006C09CC /* NSObject+MJKeyValue.m in Sources */,
