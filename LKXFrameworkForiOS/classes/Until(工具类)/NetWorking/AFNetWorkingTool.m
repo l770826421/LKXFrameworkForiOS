@@ -157,14 +157,15 @@
 
 - (NSDictionary *)dictionaryForData:(NSData *)data {
     NSError *err;
+    NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
     if (err) {
-        NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         LKXMLog(@"非json数据 = %@", src);
         return nil;
     } else {
+        LKXMLog(@"json数据 =\n %@", src);
         return dic;
     }
 }

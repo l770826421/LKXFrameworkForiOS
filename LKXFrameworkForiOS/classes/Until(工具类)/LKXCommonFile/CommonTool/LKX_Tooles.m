@@ -8,9 +8,14 @@
 
 #import "LKX_Tooles.h"
 
-#define MsgBox(msg) [self MsgBox:msg]
-
 @implementation LKX_Tooles
+
+/** 直接传入精度丢失有问题的Double类型*/
+NSString *decimalNumberWithDouble(double conversionValue){
+    NSString *doubleString        = [NSString stringWithFormat:@"%lf", conversionValue];
+    NSDecimalNumber *decNumber    = [NSDecimalNumber decimalNumberWithString:doubleString];
+    return [decNumber stringValue];
+}
 
 #pragma mark - 日期的具体信息
 

@@ -12,6 +12,9 @@
 
 @interface LKX_Tooles : NSObject
 
+/** 直接传入精度丢失有问题的Double类型*/
+NSString *decimalNumberWithDouble(double conversionValue);
+
 //打开一个网址
 + (void)OpenUrl:(NSString *)inUrl;
 

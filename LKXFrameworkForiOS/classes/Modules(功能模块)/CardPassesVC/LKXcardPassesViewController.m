@@ -14,6 +14,7 @@
 #import "NSDate+LKXCategory.h"
 #import "LKXWKWebViewController.h"
 #import "LKXCalendarTool.h"
+#import "UIImage+LKXHack.h"
 
 #import "Masonry.h"
 
@@ -68,6 +69,11 @@
     __weak __typeof(subWhiteView) subWhiteViewWeak = subWhiteView;
     __weak __typeof(subBlackView) subBlackViewWeak = subBlackView;
     [subWhiteView mas_makeConstraints:^(MASConstraintMaker *make) {
+        // 1.函数式编程:
+        // equalTo(redViewWeak.mas_left)
+        // offset(padding)
+        // 2.链式编程
+        // equalTo(redViewWeak.mas_left).with.offset(padding)
         make.centerY.mas_equalTo(redViewWeak.mas_centerY);
         make.left.equalTo(redViewWeak.mas_left).with.offset(padding);
         make.right.equalTo(subBlackViewWeak.mas_left).with.offset(-padding);
@@ -165,6 +171,14 @@
         make.left.equalTo(container);
         make.right.equalTo(container);
         make.height.equalTo(@200);
+    }];
+    
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.image = [UIImage imageNamed:@"avatar"];
+    [blackView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(@20);
+        make.width.height.equalTo(@100);
     }];
     
     [container mas_makeConstraints:^(MASConstraintMaker *make) {

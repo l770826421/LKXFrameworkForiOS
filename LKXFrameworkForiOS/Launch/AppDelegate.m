@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "LKXTabBarController.h"
+#import "LKXUser.h"
+#import "NSObject+LKXRuntime.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +27,9 @@
     
     LKXTabBarController *tabBarController = [[LKXTabBarController alloc] init];
     self.window.rootViewController = tabBarController;
+    
+    [self objectForRuntime];
+    [self functionAndChainForProgram];
     
     return YES;
 }
@@ -49,6 +54,46 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - other
+
+/**
+ runtime在字典转模型的应用
+ */
+- (void)objectForRuntime {
+    [LKXUser lkx_propertyList];
+    LKXUser *user =
+    [LKXUser lkx_objectWithDictionary:@{
+                                        @"name" : @"张三",
+                                        @"age" : @12,
+                                        @"hight" : @170,
+                                        @"nickname" : @"大西瓜"
+                                        }];
+    LKXMLog(@"user = %@", user.description);
+}
+
+/**
+ 函数编程和链式编程
+ */
+- (void)functionAndChainForProgram {
+    LKXUser *user = [[LKXUser alloc] init];
+    // 链式编程
+    // 1.传统的写法
+    // 1> run和eat需要单独调用
+    // 2> 不能随意组合顺序
+    [user run];
+    [user eat];
+    
+    // 2.可以连续调用
+    // 例如: [[user run] eat];
+    [[user run1] eat1];
+    
+    // 3.函数式编程
+    // 在OC中什么时候会用到'()' -> 执行'block需要()'
+    user.run2().eat2();
+    
+    user.run3(100).eat3(@"water").run3(1000).eat3(@"wind");
 }
 
 @end
