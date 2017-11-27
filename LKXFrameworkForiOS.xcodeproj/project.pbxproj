@@ -602,6 +602,7 @@
 		166C72EF1D4B4FBF00D66FEA /* Until(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				16CEDD9A1D4AFBBE006C09CC /* BaseKit */,
 				166C72F01D4B4FBF00D66FEA /* LKXAutolayout */,
 				166C72F81D4B4FBF00D66FEA /* LKXCommonFile */,
 				166C733F1D4B4FBF00D66FEA /* NetWorking */,
@@ -872,7 +873,6 @@
 				16E3484C1F56C26D005E30B8 /* TableView */,
 				16837AB01DD0866E0048BCE0 /* WKWebView */,
 				16CA807B1DB755CF00FF5F1A /* CardPassesVC */,
-				16CEDD9A1D4AFBBE006C09CC /* BaseKit */,
 			);
 			path = "Modules(功能模块)";
 			sourceTree = "<group>";
