@@ -11,6 +11,9 @@
 		16347F011DB8D22A00D997C7 /* UIControl+LKXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 16347F001DB8D22A00D997C7 /* UIControl+LKXRuntime.m */; };
 		163DF2281CC6000600A2DA26 /* LKXFrameworkForiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 163DF2271CC6000600A2DA26 /* LKXFrameworkForiOSTests.m */; };
 		163DF2331CC6000600A2DA26 /* LKXFrameworkForiOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 163DF2321CC6000600A2DA26 /* LKXFrameworkForiOSUITests.m */; };
+		164EAD7F1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164EAD7E1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.m */; };
+		164EAD821FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 164EAD811FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m */; };
+		164EAD841FBC4AA900BAFED4 /* LKXUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 164EAD831FBC4AA900BAFED4 /* LKXUserTests.m */; };
 		166489B91D4B076B0037F789 /* LKXBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 166489B81D4B076B0037F789 /* LKXBarButton.m */; };
 		1665ED761F287214000CCD4F /* LKXAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1665ED751F287214000CCD4F /* LKXAlertTool.m */; };
 		166C73441D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C72F31D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m */; };
@@ -193,6 +196,11 @@
 		163DF22E1CC6000600A2DA26 /* LKXFrameworkForiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LKXFrameworkForiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		163DF2321CC6000600A2DA26 /* LKXFrameworkForiOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKXFrameworkForiOSUITests.m; sourceTree = "<group>"; };
 		163DF2341CC6000600A2DA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		164EAD7D1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKXStretchingHeaderViewController.h; sourceTree = "<group>"; };
+		164EAD7E1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKXStretchingHeaderViewController.m; sourceTree = "<group>"; };
+		164EAD801FBBEFE800BAFED4 /* UINavigationController+LKXCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+LKXCategory.h"; sourceTree = "<group>"; };
+		164EAD811FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+LKXCategory.m"; sourceTree = "<group>"; };
+		164EAD831FBC4AA900BAFED4 /* LKXUserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKXUserTests.m; sourceTree = "<group>"; };
 		166489B71D4B076B0037F789 /* LKXBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXBarButton.h; sourceTree = "<group>"; };
 		166489B81D4B076B0037F789 /* LKXBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXBarButton.m; sourceTree = "<group>"; };
 		1665ED741F287214000CCD4F /* LKXAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXAlertTool.h; sourceTree = "<group>"; };
@@ -546,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				163DF2271CC6000600A2DA26 /* LKXFrameworkForiOSTests.m */,
+				164EAD831FBC4AA900BAFED4 /* LKXUserTests.m */,
 				163DF2291CC6000600A2DA26 /* Info.plist */,
 			);
 			path = LKXFrameworkForiOSTests;
@@ -569,6 +578,25 @@
 				16CED7A41D4AF36D006C09CC /* Resource(本地文件) */,
 			);
 			path = classes;
+			sourceTree = "<group>";
+		};
+		164EAD7B1FBBDF8D00BAFED4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				16BE78A61FB53D430084CBA8 /* View */,
+				16CA807C1DB755DB00FF5F1A /* LKXcardPassesViewController.h */,
+				16CA807D1DB755DB00FF5F1A /* LKXcardPassesViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		164EAD7C1FBBDF9700BAFED4 /* StretchingHeader */ = {
+			isa = PBXGroup;
+			children = (
+				164EAD7D1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.h */,
+				164EAD7E1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.m */,
+			);
+			path = StretchingHeader;
 			sourceTree = "<group>";
 		};
 		166C72EF1D4B4FBF00D66FEA /* Until(工具类) */ = {
@@ -638,6 +666,8 @@
 				166C73151D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m */,
 				168F011D1FB40C3C00CBFC6F /* NSObject+LKXRuntime.h */,
 				168F011E1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m */,
+				164EAD801FBBEFE800BAFED4 /* UINavigationController+LKXCategory.h */,
+				164EAD811FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -830,9 +860,8 @@
 		16CA807B1DB755CF00FF5F1A /* CardPassesVC */ = {
 			isa = PBXGroup;
 			children = (
-				16BE78A61FB53D430084CBA8 /* View */,
-				16CA807C1DB755DB00FF5F1A /* LKXcardPassesViewController.h */,
-				16CA807D1DB755DB00FF5F1A /* LKXcardPassesViewController.m */,
+				164EAD7C1FBBDF9700BAFED4 /* StretchingHeader */,
+				164EAD7B1FBBDF8D00BAFED4 /* Main */,
 			);
 			path = CardPassesVC;
 			sourceTree = "<group>";
@@ -1204,6 +1233,7 @@
 		163DF2021CC6000600A2DA26 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LKX;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "刘克邪";
 				TargetAttributes = {
@@ -1331,6 +1361,7 @@
 				166C734C1D4B4FBF00D66FEA /* NSMutableAttributedString+LKXCategory.m in Sources */,
 				1684C7761E7F81ED0006B43D /* LKXWKWebViewController.m in Sources */,
 				16CEDDC31D4AFBBE006C09CC /* LKXTableViewController.m in Sources */,
+				164EAD7F1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.m in Sources */,
 				16CEDDD31D4AFC1C006C09CC /* LKXCollectionViewCell.m in Sources */,
 				16CED8261D4AF36D006C09CC /* TAPageControl.m in Sources */,
 				16CEDDD51D4AFC1C006C09CC /* LKXSameLengthCollectionViewFlowLayout.m in Sources */,
@@ -1357,6 +1388,7 @@
 				16CEDDC01D4AFBBE006C09CC /* LKXNavigationController.m in Sources */,
 				16CEDD111D4AFB18006C09CC /* NSObject+MJClass.m in Sources */,
 				168F011F1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m in Sources */,
+				164EAD821FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m in Sources */,
 				16CEDD481D4AFB1E006C09CC /* MJRefreshFooter.m in Sources */,
 				16CA80731DB7515F00FF5F1A /* MASConstraintMaker.m in Sources */,
 				16CEDD561D4AFB1E006C09CC /* UIScrollView+MJExtension.m in Sources */,
@@ -1417,6 +1449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164EAD841FBC4AA900BAFED4 /* LKXUserTests.m in Sources */,
 				163DF2281CC6000600A2DA26 /* LKXFrameworkForiOSTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1611,7 +1644,7 @@
 		163DF23E1CC6000600A2DA26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/LKXFrameworkForiOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LKXFrameworkForiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSUITests;

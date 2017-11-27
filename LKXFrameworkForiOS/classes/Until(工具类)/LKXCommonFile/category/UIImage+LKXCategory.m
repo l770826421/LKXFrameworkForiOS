@@ -284,4 +284,54 @@
     return reSizeImage;
 }
 
+/**
+ 重绘图片
+
+ @param corner 圆角
+ @param size 重绘的大小
+ @param fillColor 填充颜色
+ @param completion 图片返回
+ */
+- (void)lkx_imageWithCorner:(CGFloat)corner
+                       size:(CGSize)size
+                  fillColor:(UIColor *)fillColor
+                 completion:(void (^)(UIImage *image))completion {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSTimeInterval start = CACurrentMediaTime();
+        
+        // 创建图片上下文
+        // 0表示当前设备的分辨率
+        UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+        
+        CGRect rect = CGRectMake(0, 0, size.width, size.height);
+        
+        // 设置填充颜色
+        [fillColor set];
+        UIRectFill(rect);
+        
+        // 绘制贝塞尔曲线,剪切图片,用于重绘图片
+        UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:corner];
+        
+        // 剪切图片
+        [bezierPath addClip];
+        
+        [self drawInRect:rect];
+        
+        
+        // 获取绘制的图片
+        UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+        
+        // 关闭图片上下文
+        UIGraphicsEndImageContext();
+        
+        LKXMLog(@"绘制时间:%f", CACurrentMediaTime() - start);
+        
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(result);
+            });
+        }
+    });
+}
+
 @end

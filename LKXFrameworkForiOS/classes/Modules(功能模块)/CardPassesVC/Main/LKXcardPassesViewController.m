@@ -15,6 +15,8 @@
 #import "LKXWKWebViewController.h"
 #import "LKXCalendarTool.h"
 #import "UIImage+LKXHack.h"
+#import "UIImage+LKXCategory.h"
+#import "LKXStretchingHeaderViewController.h"
 
 #import "Masonry.h"
 
@@ -26,6 +28,11 @@
 @end
 
 @implementation LKXcardPassesViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillAppear:animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -122,7 +129,22 @@
             forControlEvents:UIControlEventTouchUpInside];
     [subWhiteView addSubview:touchIDButton];
     [touchIDButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.top.left.right.equalTo(@0);
+    }];
+    
+    // 在subWhiteView中添加一个button
+    UIButton *pushButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [pushButton setTitle:@"PUSH" forState:UIControlStateNormal];
+    [pushButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    pushButton.titleLabel.font = [UIFont systemFontOfSize:FONT_size12];
+    [pushButton addTarget:self
+                      action:@selector(pushStretchingHeaderVCAction)
+            forControlEvents:UIControlEventTouchUpInside];
+    [subWhiteView addSubview:pushButton];
+    [pushButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(touchIDButton.mas_bottom).offset(8);
+        make.left.bottom.right.equalTo(@0);
+        make.height.equalTo(touchIDButton);
     }];
     
     
@@ -174,12 +196,17 @@
     }];
     
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:@"avatar"];
     [blackView addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(@20);
-        make.width.height.equalTo(@100);
+        make.width.height.equalTo(@120);
     }];
+    
+    UIImage *image = [UIImage imageNamed:@"icon_base"];
+    [image lkx_imageWithCorner:60 size:CGSizeMake(120, 120) fillColor:[UIColor whiteColor] completion:^(UIImage *image) {
+        imageView.image = image;
+    }];
+    
     
     [container mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(blackView.mas_bottom);
@@ -343,6 +370,11 @@
             LKXMLog(@"添加时间到日历成功");
         }
     }];
+}
+
+- (void)pushStretchingHeaderVCAction {
+    LKXStretchingHeaderViewController *vc = [[LKXStretchingHeaderViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

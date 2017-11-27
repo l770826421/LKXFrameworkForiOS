@@ -53,10 +53,12 @@
 - (UIScrollView *)scroll {
     if (!_scroll) {
         _scroll = [[UIScrollView alloc] init];
-        _scroll.translatesAutoresizingMaskIntoConstraints = NO;
         _scroll.showsHorizontalScrollIndicator = NO;
         _scroll.showsVerticalScrollIndicator = NO;
         _scroll.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        if (@available(iOS 11.0, *)) {
+            _scroll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     
     return _scroll;

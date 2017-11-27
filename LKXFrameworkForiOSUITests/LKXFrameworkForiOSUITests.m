@@ -32,9 +32,14 @@
     [super tearDown];
 }
 
+/**
+ 使用‘录制’开始编写UI测试
+ */
 - (void)testExample {
     // Use recording to get started writing UI tests.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    
 }
 
 @end

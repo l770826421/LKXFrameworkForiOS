@@ -168,7 +168,7 @@
  *
  */
 + (BOOL)lkx_isNullWithString:(NSString *)src {
-    if (src == nil && src.length == 0) {
+    if (src == nil || src.length == 0) {
         return YES;
     }
     return NO;

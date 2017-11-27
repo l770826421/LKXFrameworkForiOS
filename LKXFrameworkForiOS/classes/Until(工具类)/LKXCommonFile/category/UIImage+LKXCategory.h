@@ -86,4 +86,17 @@
  */
 - (UIImage *)lkx_reSize:(CGSize)reSize;
 
+/**
+ 重绘图片
+ 
+ @param corner 圆角
+ @param size 重绘的大小
+ @param fillColor 填充颜色
+ @param completion 图片返回
+ */
+- (void)lkx_imageWithCorner:(CGFloat)corner
+                       size:(CGSize)size
+                  fillColor:(UIColor *)fillColor
+                 completion:(void (^)(UIImage *image))completion;
+
 @end

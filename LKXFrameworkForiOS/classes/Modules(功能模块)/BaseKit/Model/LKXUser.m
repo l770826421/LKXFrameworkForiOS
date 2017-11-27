@@ -11,13 +11,28 @@
 
 @implementation LKXUser
 
+MJCodingImplementation
+
+/**
+ 异步初始化LKXUser
+ 
+ @param dic 数据源字典
+ @param completion 返回block
+ */
++ (void)loadUserWithDictionary:(NSDictionary *)dic completion:(void (^)(LKXUser *user))completion {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        LKXUser *user = [LKXUser lkx_objectWithDictionary:dic];
+        if (completion) {
+            completion(user);
+        }
+    });
+}
+
 - (NSString *)description {
     NSArray *propertyList = @[@"name", @"age", @"hight"];
     
     return [self dictionaryWithValuesForKeys:propertyList].description;
 }
-
-MJCodingImplementation
 
 - (void)run {
     LKXMLog(@"%s", __FUNCTION__);

@@ -74,7 +74,6 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
-        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.showsHorizontalScrollIndicator = NO;
@@ -83,8 +82,15 @@
         _tableView.backgroundColor = self.view.backgroundColor;
         _tableView.separatorInset = UIEdgeInsetsZero;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        _tableView.estimatedRowHeight = 44;
-        _tableView.rowHeight = UITableViewAutomaticDimension;
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            _tableView.estimatedRowHeight = 0;
+            _tableView.estimatedSectionFooterHeight = 0;
+            _tableView.estimatedSectionHeaderHeight = 0;
+        } else {
+            _tableView.estimatedRowHeight = 44;
+            _tableView.rowHeight = UITableViewAutomaticDimension;
+        }
     }
     
     return _tableView;
@@ -113,9 +119,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 160;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 160;
+}
 
 
 #pragma mark - other

@@ -46,7 +46,7 @@
     // 设置一个NavigationBar背景图片
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     // 消除阴影
-    self.navigationBar.shadowImage = [UIImage new];
+//    self.navigationBar.shadowImage = [UIImage new];
 }
 
 - (void)didReceiveMemoryWarning {

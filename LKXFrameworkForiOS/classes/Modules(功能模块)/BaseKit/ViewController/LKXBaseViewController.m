@@ -33,8 +33,14 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = kAPPVCMainColor;
+    
+    if (Dev_IOSVersion >= 11.0) {   // iOS11以上系统右滑返回问题
+        self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

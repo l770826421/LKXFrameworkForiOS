@@ -12,11 +12,15 @@
 #import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
 
+#define kRestoreApplicationStateKey @"kRestoreApplicationStateKey"
+
 @interface AppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    LKXTabBarController *_tabBarController;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -25,10 +29,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
-    LKXTabBarController *tabBarController = [[LKXTabBarController alloc] init];
-    self.window.rootViewController = tabBarController;
+    _tabBarController = [[LKXTabBarController alloc] init];
+    self.window.rootViewController = _tabBarController;
     
     [self objectForRuntime];
+    LKXMLog(@"----%s---", (char *)(@selector(objectForRuntime)));
     [self functionAndChainForProgram];
     
     return YES;
@@ -54,6 +59,27 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+    return YES;
+}
+
+- (void)application:(UIApplication *)application willEncodeRestorableStateWithCoder:(NSCoder *)coder {
+    NSMutableArray *viewcontrollers = [_tabBarController.viewControllers copy];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:viewcontrollers];
+    [coder encodeObject:data forKey:kRestoreApplicationStateKey];
+}
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+    return YES;
+}
+
+- (void)application:(UIApplication *)application didDecodeRestorableStateWithCoder:(NSCoder *)coder {
+    NSData *data = [coder decodeObjectForKey:kRestoreApplicationStateKey];
+    NSArray *viewControllers = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    _tabBarController.viewControllers = viewControllers;
+    
 }
 
 #pragma mark - other

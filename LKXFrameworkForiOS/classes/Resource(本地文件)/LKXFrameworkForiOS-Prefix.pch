@@ -14,6 +14,7 @@
 #import "LKXAPPDefine.h"
 #import "MBHUDTool.h"
 #import "LKXConstString.h"
+#import "UINavigationController+LKXCategory.h"
 
 /************** AFNetworking **************/
 #ifndef TARGET_OS_IOS

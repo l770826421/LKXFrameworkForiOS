@@ -68,13 +68,15 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
-        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _collectionView.alwaysBounceVertical = YES;
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _collectionView;
 }

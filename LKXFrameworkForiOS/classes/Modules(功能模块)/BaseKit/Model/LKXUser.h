@@ -12,6 +12,14 @@
 
 @interface LKXUser : NSObject <MJCoding>
 
+/**
+ 异步初始化LKXUser
+ 
+ @param dic 数据源字典
+ @param completion 返回block
+ */
++ (void)loadUserWithDictionary:(NSDictionary *)dic completion:(void (^)(LKXUser *user))completion;
+
 /** 姓名 */
 @property(nonatomic, copy) NSString *name;
 /** 年龄 */
