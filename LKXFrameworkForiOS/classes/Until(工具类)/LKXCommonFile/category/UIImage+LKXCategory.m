@@ -314,9 +314,7 @@
         
         // 剪切图片
         [bezierPath addClip];
-        
         [self drawInRect:rect];
-        
         
         // 获取绘制的图片
         UIImage *result = UIGraphicsGetImageFromCurrentImageContext();

@@ -1,5 +1,5 @@
 //
-//  BigBtn.h
+//  LKXBigButton.h
 //  LKXFrameworkForiOS
 //
 //  Created by zhaoyd on 14-6-27.
@@ -12,6 +12,6 @@
 /**
  button frame太小的时候，扩大响应区域
  */
-@interface BigBtn : UIButton
+@interface LKXBigButton : UIButton
 
 @end

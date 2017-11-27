@@ -7,7 +7,7 @@
 //
 
 #import "UIView+Common.h"
-#import "BigBtn.h"
+#import "LKXBigButton.h"
 
 @implementation UIView (Common)
 
@@ -466,7 +466,7 @@
                                  target:(id)target
                                  action:(SEL)action
 {
-    BigBtn * btn = [BigBtn buttonWithType:type];
+    LKXBigButton * btn = [LKXBigButton buttonWithType:type];
     btn.frame = frame;
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

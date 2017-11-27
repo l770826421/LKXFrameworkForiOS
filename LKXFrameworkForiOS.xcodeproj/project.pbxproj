@@ -32,7 +32,7 @@
 		166C73511D4B4FBF00D66FEA /* UIColor+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */; };
 		166C73531D4B4FBF00D66FEA /* UIImage+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73131D4B4FBF00D66FEA /* UIImage+LKXCategory.m */; };
 		166C73541D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73151D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m */; };
-		166C73571D4B4FBF00D66FEA /* BigBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731D1D4B4FBF00D66FEA /* BigBtn.m */; };
+		166C73571D4B4FBF00D66FEA /* LKXBigButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731D1D4B4FBF00D66FEA /* LKXBigButton.m */; };
 		166C73581D4B4FBF00D66FEA /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C731F1D4B4FBF00D66FEA /* ChineseToPinyin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166C73591D4B4FBF00D66FEA /* LKX_Tooles.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73211D4B4FBF00D66FEA /* LKX_Tooles.m */; };
 		166C735B1D4B4FBF00D66FEA /* LKXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73261D4B4FBF00D66FEA /* LKXTextView.m */; };
@@ -238,8 +238,8 @@
 		166C73131D4B4FBF00D66FEA /* UIImage+LKXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LKXCategory.m"; sourceTree = "<group>"; };
 		166C73141D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+LKXCallPhone.h"; sourceTree = "<group>"; };
 		166C73151D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+LKXCallPhone.m"; sourceTree = "<group>"; };
-		166C731C1D4B4FBF00D66FEA /* BigBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigBtn.h; sourceTree = "<group>"; };
-		166C731D1D4B4FBF00D66FEA /* BigBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigBtn.m; sourceTree = "<group>"; };
+		166C731C1D4B4FBF00D66FEA /* LKXBigButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXBigButton.h; sourceTree = "<group>"; };
+		166C731D1D4B4FBF00D66FEA /* LKXBigButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXBigButton.m; sourceTree = "<group>"; };
 		166C731E1D4B4FBF00D66FEA /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
 		166C731F1D4B4FBF00D66FEA /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
 		166C73201D4B4FBF00D66FEA /* LKX_Tooles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKX_Tooles.h; sourceTree = "<group>"; };
@@ -669,6 +669,8 @@
 				168F011E1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m */,
 				164EAD801FBBEFE800BAFED4 /* UINavigationController+LKXCategory.h */,
 				164EAD811FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m */,
+				166C73291D4B4FBF00D66FEA /* UIView+Common.h */,
+				166C732A1D4B4FBF00D66FEA /* UIView+Common.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -678,8 +680,8 @@
 			children = (
 				16CA80521DB728DE00FF5F1A /* LKXError.h */,
 				16CA80531DB728DE00FF5F1A /* LKXError.m */,
-				166C731C1D4B4FBF00D66FEA /* BigBtn.h */,
-				166C731D1D4B4FBF00D66FEA /* BigBtn.m */,
+				166C731C1D4B4FBF00D66FEA /* LKXBigButton.h */,
+				166C731D1D4B4FBF00D66FEA /* LKXBigButton.m */,
 				166C731E1D4B4FBF00D66FEA /* ChineseToPinyin.h */,
 				166C731F1D4B4FBF00D66FEA /* ChineseToPinyin.m */,
 				166C73201D4B4FBF00D66FEA /* LKX_Tooles.h */,
@@ -689,8 +691,6 @@
 				166C73261D4B4FBF00D66FEA /* LKXTextView.m */,
 				166C73271D4B4FBF00D66FEA /* Macros_UICommon.h */,
 				166C73281D4B4FBF00D66FEA /* SingletonMacro.h */,
-				166C73291D4B4FBF00D66FEA /* UIView+Common.h */,
-				166C732A1D4B4FBF00D66FEA /* UIView+Common.m */,
 			);
 			path = CommonTool;
 			sourceTree = "<group>";
@@ -858,13 +858,13 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		16CA807B1DB755CF00FF5F1A /* CardPassesVC */ = {
+		16CA807B1DB755CF00FF5F1A /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				164EAD7C1FBBDF9700BAFED4 /* StretchingHeader */,
 				164EAD7B1FBBDF8D00BAFED4 /* Main */,
 			);
-			path = CardPassesVC;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		16CED7181D4AF36D006C09CC /* Modules(功能模块) */ = {
@@ -872,7 +872,7 @@
 			children = (
 				16E3484C1F56C26D005E30B8 /* TableView */,
 				16837AB01DD0866E0048BCE0 /* WKWebView */,
-				16CA807B1DB755CF00FF5F1A /* CardPassesVC */,
+				16CA807B1DB755CF00FF5F1A /* Home */,
 			);
 			path = "Modules(功能模块)";
 			sourceTree = "<group>";
@@ -1438,7 +1438,7 @@
 				16CEDD861D4AFB27006C09CC /* UIImage+MultiFormat.m in Sources */,
 				16CEDD581D4AFB1E006C09CC /* UIView+MJExtension.m in Sources */,
 				16CEDDD61D4AFC1C006C09CC /* LKXTabBar.m in Sources */,
-				166C73571D4B4FBF00D66FEA /* BigBtn.m in Sources */,
+				166C73571D4B4FBF00D66FEA /* LKXBigButton.m in Sources */,
 				16CEDD0D1D4AFB18006C09CC /* MJFoundation.m in Sources */,
 				166C73611D4B4FBF00D66FEA /* MBHUDTool.m in Sources */,
 				166C73541D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m in Sources */,

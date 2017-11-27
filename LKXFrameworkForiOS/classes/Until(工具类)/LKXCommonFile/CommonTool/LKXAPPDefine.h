@@ -7,7 +7,7 @@
 //
 
 #import "Macros_UICommon.h"
-#import "BigBtn.h"
+#import "LKXBigButton.h"
 #import "ChineseToPinyin.h"
 
 #import "MBProgressHUD.h"
