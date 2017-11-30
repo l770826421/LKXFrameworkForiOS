@@ -97,7 +97,7 @@
     } else {
         _headerView.lkx_height = kHeaderHeight;
         CGFloat min = kHeaderHeight - 64;
-        _headerView.lkx_top = -MIN(min, offset);
+        _headerView.lkx_y = -MIN(min, offset);
         
         CGFloat progress = 1 - (offset / min);
         _headerIV.alpha = progress;
@@ -107,7 +107,7 @@
         [self setNeedsStatusBarAppearanceUpdate];
     }
     _headerIV.lkx_height = _headerView.lkx_height;
-    _lineView.lkx_top = _headerView.lkx_height - _lineView.lkx_height;
+    _lineView.lkx_y = _headerView.lkx_height - _lineView.lkx_height;
 }
 
 @end

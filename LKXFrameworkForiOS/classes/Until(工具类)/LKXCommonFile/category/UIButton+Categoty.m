@@ -15,7 +15,7 @@
  */
 - (void)lkx_addCorner
 {
-    UILabel *cornerLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.lkx_width - 17.0f, self.lkx_top - 15.0f, 25.0f, 25.0f)];
+    UILabel *cornerLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.lkx_width - 17.0f, self.lkx_y - 15.0f, 25.0f, 25.0f)];
     [cornerLbl lkx_setBackgroundColor:REDCOLOR cornerRadius:13.0f borderWidth:0 borderColor:CLEARCOLOR];
     cornerLbl.textColor = WHITECOLOR;
     cornerLbl.font = FontSize(12);

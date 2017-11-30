@@ -17,9 +17,9 @@
 
 #pragma mark - 获取视图的上下左右宽高
 /** X坐标 */
-@property (nonatomic, assign) CGFloat lkx_left;
+@property (nonatomic, assign) CGFloat lkx_x;
 /** y坐标 */
-@property (nonatomic, assign) CGFloat lkx_top;
+@property (nonatomic, assign) CGFloat lkx_y;
 /** 最右边x坐标 */
 @property (nonatomic, assign, readonly) CGFloat lkx_right;
 /** 最底部y坐标 */
@@ -28,6 +28,10 @@
 @property (nonatomic, assign) CGFloat lkx_width;
 /** height */
 @property (nonatomic, assign) CGFloat lkx_height;
+/** size */
+@property(nonatomic, assign) CGSize lkx_size;
+/** origin */
+@property(nonatomic, assign) CGPoint lkx_origin;
 
 
 #pragma mark - 获取视图的常用坐标
