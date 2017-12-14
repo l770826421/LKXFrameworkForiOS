@@ -38,7 +38,7 @@
 }
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    CGFloat titleW = self.lkx_width + kSpace;
+    CGFloat titleW = self.lkx_width;
     CGFloat titleH = 30;
     CGFloat titleX = 0;
     CGFloat titleY = self.lkx_height - titleH + kSpace;

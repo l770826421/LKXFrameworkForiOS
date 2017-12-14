@@ -128,7 +128,7 @@
         
         _webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
         _webView.translatesAutoresizingMaskIntoConstraints = NO;
-//        _webView.navigationDelegate = self;
+        _webView.navigationDelegate = self;
         _webView.UIDelegate = self;
         _webView.scrollView.bounces  = NO;
         _webView.scrollView.delegate = self;
