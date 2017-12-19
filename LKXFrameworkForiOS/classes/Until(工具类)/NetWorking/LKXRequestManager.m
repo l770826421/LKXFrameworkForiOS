@@ -8,7 +8,6 @@
 
 #import "LKXRequestManager.h"
 #import "AFNetWorkingTool.h"
-#import "NSDate+LKXFormatter.h"
 
 @interface LKXRequestManager ()
 
@@ -54,35 +53,6 @@
  */
 + (instancetype)shareRequestManager {
     return [[self alloc] init];
-}
-
-/**
- *  @author 刘克邪
- *
- *  @brief  获取当前时间戳
- *
- */
-- (NSTimeInterval)currentDate {
-    NSDate *date = [NSDate date];
-    NSTimeInterval timInterval = [date timeIntervalSince1970];
-    return timInterval;
-}
-
-/**
- *  @author 刘克邪
- *
- *  @brief  获取当前时间戳的字符串
- *
- */
-- (NSDictionary *)allParameters:(NSDictionary *)oldParameters {
-    NSMutableDictionary *allParameters =
-            [NSMutableDictionary dictionaryWithDictionary:oldParameters];
-
-    NSString *str_timeItl =
-            [[NSDate date] lkx_dateWithFormatter:Date_Formatter_YYYYMMddHHmmss];
-    allParameters[@"timespan"] = str_timeItl;
-    
-    return allParameters;
 }
 
 @end

@@ -33,7 +33,7 @@
     self.window.rootViewController = _tabBarController;
     
     [self objectForRuntime];
-    LKXMLog(@"----%s---", (char *)(@selector(objectForRuntime)));
+    LKXMLog(@"----%@---", NSStringFromSelector(@selector(objectForRuntime)));
     [self functionAndChainForProgram];
     
     return YES;

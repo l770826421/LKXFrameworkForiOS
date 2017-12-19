@@ -15,6 +15,8 @@
 
 /** 数据请求对象 */
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+/** URL请求对象 */
+@property(nonatomic, strong) AFURLSessionManager *urlSessionManager;
 
 @end
 
@@ -78,59 +80,31 @@
     return src;
 }
 
+#pragma mark - get请求
 /**
- *  @author 刘克邪
- *
- *  @brief  GET请求
- *
- *  @param parameters       请求子路径
- *  @param success    success Block
- *  @param failure    failure Block
- */
-- (void)getRequestWithParameters:(NSDictionary *)parameters
-                         success:(AFNetWorkingToolSuccessBlock)success
-                         failure:(AFNetWorkingToolFailureBlock)failure {
-    
-    [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
-    [self.sessionManager GET:@"" parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        BOOL succ = [self dataSeparteWithCode:responseObject];
-        if (succ) { // 获取到成功的数据
-            success(responseObject[@"data"]);
-        } else { // 获取到失败的信息
-            LKXError *err = [LKXError lkx_error];
-            [err lkx_setUserInfo:responseObject[@"info"]];
-            failure(err);
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        LKXError *err = [LKXError lkx_error];
-        if (Dev_IOSVersion < 10.0) {
-            [err lkx_setUserInfo:@"网络已断开,请检查网络是否连接。"];
-        } else {
-            [err lkx_setUserInfo:@"网络已断开,请检查网络设置，设置>蜂窝移动网络>使用无线局域网与蜂窝移动的应用。"];
-        }
-        
-        failure(err);
-    }];
-}
+ get请求
 
-/**
- *  @author 刘克邪
- *
- *  @brief  POST请求
- *
+ @param urlString 请求URL
+ @param show 是否显示小菊花
+ @param parameters 请求参数
+ @param progress 请求进度
+ @param dicSuccess 请求结果是NSDictionary
+ @param failure 请求失败
  */
-- (void)postRequestWithParameters:(NSDictionary *)parameters
-                          success:(AFNetWorkingToolSuccessBlock)success
-                          failure:(AFNetWorkingToolFailureBlock)failure {
+- (void)getRequestWithURLString:(NSString *)urlString
+          showActivityIndicator:(BOOL)show
+                     parameters:(NSDictionary *)parameters
+                       progress:(AFNetWorkingToolProgressBlock)progress
+              dictionarySuccess:(AFNetWorkingToolJSONSuccessBlock)dicSuccess
+                        failure:(AFNetWorkingToolFailureBlock)failure {
     
-    [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
-    [self.sessionManager POST:@"" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        LKXMLog(@"%@", task.currentRequest.URL);
-        NSDictionary *json = [self dictionaryForData:responseObject];
+    [self getRequestWithURLString:urlString
+            showActivityIndicator:show
+                       parameters:parameters
+                         progress:^(CGFloat totalProgress, CGFloat completedProgress) {
+        progress(totalProgress, completedProgress);
+    } dataSuccess:^(NSData *data) {
+        NSDictionary *json = [self dictionaryForData:data];
         if (json == nil) {
             LKXError *err = [LKXError lkx_error];
             [err lkx_setUserInfo:@"返回数据为空"];
@@ -139,22 +113,172 @@
         
         BOOL succ = [self dataSeparteWithCode:json];
         if (succ) { // 获取到成功的数据
-            success(json[@"data"]);
+            dicSuccess(json[@"data"]);
         } else { // 获取到失败的信息
             failure(json[@"info"]);
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        LKXError *err = [LKXError lkx_error];
-        if (Dev_IOSVersion < 10.0) {
-            [err lkx_setUserInfo:@"网络已断开,请检查网络是否连接。"];
-        } else {
-            [err lkx_setUserInfo:@"网络已断开,请检查网络设置，设置>蜂窝移动网络>使用无线局域网与蜂窝移动的应用。"];
-        }
-        
-        failure(err);
+    } failure:^(NSError *error) {
+        failure(error);
     }];
 }
 
+/**
+ get请求
+ 
+ @param urlString 请求URL
+ @param show 是否显示小菊花
+ @param parameters 请求参数
+ @param progress 请求进度
+ @param stringSuccess 请求结果是NSString
+ @param failure 请求失败
+ */
+- (void)getRequestWithURLString:(NSString *)urlString
+          showActivityIndicator:(BOOL)show
+                     parameters:(NSDictionary *)parameters
+                       progress:(AFNetWorkingToolProgressBlock)progress
+                  stringSuccess:(AFNetWorkingToolStringSuccessBlock)stringSuccess
+                        failure:(AFNetWorkingToolFailureBlock)failure {
+    
+    [self getRequestWithURLString:urlString
+            showActivityIndicator:show
+                       parameters:parameters
+                         progress:^(CGFloat totalProgress, CGFloat completedProgress) {
+        progress(totalProgress, completedProgress);
+    }  dataSuccess:^(NSData *data) {
+        NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        stringSuccess(src);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ get请求
+ 
+ @param urlString 请求URL
+ @param show 是否显示小菊花
+ @param parameters 请求参数
+ @param progress 请求进度
+ @param success 请求结果是NSData
+ @param failure 请求失败
+ */
+- (void)getRequestWithURLString:(NSString *)urlString
+          showActivityIndicator:(BOOL)show
+                     parameters:(NSDictionary *)parameters
+                       progress:(AFNetWorkingToolProgressBlock)progress
+                    dataSuccess:(AFNetWorkingToolDataSuccessBlock)dataSuccess
+                        failure:(AFNetWorkingToolFailureBlock)failure {
+    
+    if (show) {
+        [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
+    }
+    [self.sessionManager GET:@"" parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        progress(downloadProgress.totalUnitCount, downloadProgress.completedUnitCount);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        dataSuccess(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+#pragma mark - post请求
+/**
+ post请求
+
+ @param urlString 请求URL字符串
+ @param show 是否显示小菊花
+ @param parameters 请求参数
+ @param progress 请求进度
+ @param dicSuccess 请求结果是NSDictionary
+ @param failure 请求失败
+ */
+- (void)postRequestWithURL:(NSString *)urlString
+     showActivityIndicator:(BOOL)show
+                parameters:(NSDictionary *)parameters
+                  progress:(AFNetWorkingToolProgressBlock)progress
+        dictionarySuccess:(AFNetWorkingToolJSONSuccessBlock)dicSuccess
+                   failure:(AFNetWorkingToolFailureBlock)failure {
+    [self postRequestWithURL:urlString showActivityIndicator:show parameters:parameters progress:^(CGFloat totalProgress, CGFloat completedProgress) {
+        progress(totalProgress, completedProgress);
+    } dataSuccess:^(NSData *data) {
+        NSDictionary *json = [self dictionaryForData:data];
+        if (json == nil) {
+            LKXError *err = [LKXError lkx_error];
+            [err lkx_setUserInfo:@"返回数据为空"];
+            return ;
+        }
+        
+        BOOL succ = [self dataSeparteWithCode:json];
+        if (succ) { // 获取到成功的数据
+            dicSuccess(json[@"data"]);
+        } else { // 获取到失败的信息
+            failure(json[@"info"]);
+        }
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ post请求
+ 
+ @param urlString 请求URL字符串
+ @param show 是否显示小菊花
+ @param parameters 请求参数
+ @param progress 请求进度
+ @param stringSuccess 请求结果是NSString
+ @param failure 请求失败
+ */
+- (void)postRequestWithURL:(NSString *)urlString
+     showActivityIndicator:(BOOL)show
+                parameters:(NSDictionary *)parameters
+                  progress:(AFNetWorkingToolProgressBlock)progress
+             stringSuccess:(AFNetWorkingToolStringSuccessBlock)stringSuccess
+                   failure:(AFNetWorkingToolFailureBlock)failure {
+    [self postRequestWithURL:urlString showActivityIndicator:show parameters:parameters progress:^(CGFloat totalProgress, CGFloat completedProgress) {
+        progress(totalProgress, completedProgress);
+    } dataSuccess:^(NSData *data) {
+        NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        stringSuccess(src);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ post请求
+ 
+ @param urlString 请求URL
+ @param show 是否显示小菊花
+ @param parameters 请求参数
+ @param progress 请求进度
+ @param dataSuccess 请求结果是NSData
+ @param failure 请求失败
+ */
+- (void)postRequestWithURL:(NSString *)urlString
+     showActivityIndicator:(BOOL)show
+                parameters:(NSDictionary *)parameters
+                  progress:(AFNetWorkingToolProgressBlock)progress
+                dataSuccess:(AFNetWorkingToolDataSuccessBlock)dataSuccess
+                   failure:(AFNetWorkingToolFailureBlock)failure {
+    if (show) {
+        [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
+    }
+    
+    [self.sessionManager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+        progress(uploadProgress.totalUnitCount, uploadProgress.completedUnitCount);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        LKXMLog(@"%@", task.currentRequest.URL);
+        dataSuccess(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+#pragma mark - 私有方法
+/**
+ NSData转NSDictionary
+ */
 - (NSDictionary *)dictionaryForData:(NSData *)data {
     NSError *err;
     NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
