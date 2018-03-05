@@ -26,4 +26,6 @@ typedef void (^RequestManagerFailureBlock)(NSString *errorInfo);
  */
 + (instancetype)shareRequestManager;
 
+- (void)categoryWithURL:(NSString *)url success:(void (^)(NSDictionary *json))success failure:(void (^)(NSString *message))failure;
+
 @end

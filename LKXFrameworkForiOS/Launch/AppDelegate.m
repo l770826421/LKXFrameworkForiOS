@@ -11,6 +11,7 @@
 #import "LKXTabBarController.h"
 #import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
+#import "LKXRequestManager.h"
 
 #define kRestoreApplicationStateKey @"kRestoreApplicationStateKey"
 
@@ -35,6 +36,12 @@
     [self objectForRuntime];
     LKXMLog(@"----%@---", NSStringFromSelector(@selector(objectForRuntime)));
     [self functionAndChainForProgram];
+    
+    [[LKXRequestManager shareRequestManager] categoryWithURL:@"http://apim.tp-shop.cn/index.php?m=Api&c=Goods&a=goodsCategoryList" success:^(NSDictionary *json) {
+        LKXMLog(@"json = %@", json);
+    } failure:^(NSString *message) {
+        LKXMLog(@"message = %@", message);
+    }];
     
     return YES;
 }
@@ -65,22 +72,22 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application willEncodeRestorableStateWithCoder:(NSCoder *)coder {
-    NSMutableArray *viewcontrollers = [_tabBarController.viewControllers copy];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:viewcontrollers];
-    [coder encodeObject:data forKey:kRestoreApplicationStateKey];
-}
-
-- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-    return YES;
-}
-
-- (void)application:(UIApplication *)application didDecodeRestorableStateWithCoder:(NSCoder *)coder {
-    NSData *data = [coder decodeObjectForKey:kRestoreApplicationStateKey];
-    NSArray *viewControllers = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    _tabBarController.viewControllers = viewControllers;
-    
-}
+//- (void)application:(UIApplication *)application willEncodeRestorableStateWithCoder:(NSCoder *)coder {
+//    NSMutableArray *viewcontrollers = [_tabBarController.viewControllers copy];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:viewcontrollers];
+//    [coder encodeObject:data forKey:kRestoreApplicationStateKey];
+//}
+//
+//- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+//    return YES;
+//}
+//
+//- (void)application:(UIApplication *)application didDecodeRestorableStateWithCoder:(NSCoder *)coder {
+//    NSData *data = [coder decodeObjectForKey:kRestoreApplicationStateKey];
+//    NSArray *viewControllers = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    _tabBarController.viewControllers = viewControllers;
+//
+//}
 
 #pragma mark - other
 

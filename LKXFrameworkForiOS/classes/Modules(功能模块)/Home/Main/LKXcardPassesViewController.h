@@ -6,8 +6,8 @@
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#import "LKXWebViewController.h"
+#import "LKXScrollViewController.h"
 
-@interface LKXcardPassesViewController : LKXWebViewController
+@interface LKXcardPassesViewController : LKXScrollViewController
 
 @end

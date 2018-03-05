@@ -45,7 +45,7 @@
 		166C73631D4B4FBF00D66FEA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C733B1D4B4FBF00D66FEA /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166C73641D4B4FBF00D66FEA /* ReachabilityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C733D1D4B4FBF00D66FEA /* ReachabilityTool.m */; };
 		166C73651D4B4FBF00D66FEA /* AFNetWorkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73411D4B4FBF00D66FEA /* AFNetWorkingTool.m */; };
-		166C73661D4B4FBF00D66FEA /* LKXRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73431D4B4FBF00D66FEA /* LKXRequestManager.m */; };
+		166C73661D4B4FBF00D66FEA /* LKXRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73431D4B4FBF00D66FEA /* LKXRequestManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16774A711EC419BD00602906 /* LKXWKWebDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16774A701EC419BD00602906 /* LKXWKWebDemoViewController.m */; };
 		1684C7761E7F81ED0006B43D /* LKXWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1684C7751E7F81ED0006B43D /* LKXWKWebViewController.m */; };
 		16875DF01DE43F3300F09085 /* LKXTouchIDValidateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */; };

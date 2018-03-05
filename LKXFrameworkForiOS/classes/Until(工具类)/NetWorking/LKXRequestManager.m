@@ -55,4 +55,12 @@
     return [[self alloc] init];
 }
 
+- (void)categoryWithURL:(NSString *)url success:(void (^)(NSDictionary *json))success failure:(void (^)(NSString *message))failure {
+    [self.afNetworkingTool getRequestWithURLString:url showActivityIndicator:YES parameters:@{@"parent_id": @"0"} progress:nil dictionarySuccess:^(NSDictionary *json) {
+        success(json);
+    } failure:^(NSError *error) {
+        failure(error.description);
+    }];
+}
+
 @end

@@ -9,7 +9,7 @@
 #import "AFNetWorkingTool.h"
 #import "LKXError.h"
 
-#define kTimeoutIntervalForRequest 60
+#define kTimeoutIntervalForRequest 30
 
 @interface AFNetWorkingTool ()
 
@@ -31,7 +31,7 @@
         
         // 可以标识请求,请求超时时间
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//        configuration.timeoutIntervalForRequest = kTimeoutIntervalForRequest;
+        configuration.timeoutIntervalForRequest = kTimeoutIntervalForRequest;
         
         // baseURl
         NSURL *baseUrl = [NSURL URLWithString:kAPPBaseUrl];
@@ -102,7 +102,10 @@
             showActivityIndicator:show
                        parameters:parameters
                          progress:^(CGFloat totalProgress, CGFloat completedProgress) {
-        progress(totalProgress, completedProgress);
+        if (progress) {
+                progress(totalProgress, completedProgress);
+        }
+        
     } dataSuccess:^(NSData *data) {
         NSDictionary *json = [self dictionaryForData:data];
         if (json == nil) {
@@ -143,7 +146,9 @@
             showActivityIndicator:show
                        parameters:parameters
                          progress:^(CGFloat totalProgress, CGFloat completedProgress) {
-        progress(totalProgress, completedProgress);
+         if (progress) {
+             progress(totalProgress, completedProgress);
+         }
     }  dataSuccess:^(NSData *data) {
         NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         stringSuccess(src);
@@ -172,8 +177,10 @@
     if (show) {
         [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
     }
-    [self.sessionManager GET:@"" parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-        progress(downloadProgress.totalUnitCount, downloadProgress.completedUnitCount);
+    [self.sessionManager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        if (progress) {
+            progress(downloadProgress.totalUnitCount, downloadProgress.completedUnitCount);
+        }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         dataSuccess(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -199,7 +206,9 @@
         dictionarySuccess:(AFNetWorkingToolJSONSuccessBlock)dicSuccess
                    failure:(AFNetWorkingToolFailureBlock)failure {
     [self postRequestWithURL:urlString showActivityIndicator:show parameters:parameters progress:^(CGFloat totalProgress, CGFloat completedProgress) {
-        progress(totalProgress, completedProgress);
+        if (progress) {
+            progress(totalProgress, completedProgress);
+        }
     } dataSuccess:^(NSData *data) {
         NSDictionary *json = [self dictionaryForData:data];
         if (json == nil) {
@@ -236,7 +245,9 @@
              stringSuccess:(AFNetWorkingToolStringSuccessBlock)stringSuccess
                    failure:(AFNetWorkingToolFailureBlock)failure {
     [self postRequestWithURL:urlString showActivityIndicator:show parameters:parameters progress:^(CGFloat totalProgress, CGFloat completedProgress) {
-        progress(totalProgress, completedProgress);
+        if (progress) {
+            progress(totalProgress, completedProgress);
+        }
     } dataSuccess:^(NSData *data) {
         NSString *src = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         stringSuccess(src);
@@ -266,7 +277,9 @@
     }
     
     [self.sessionManager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-        progress(uploadProgress.totalUnitCount, uploadProgress.completedUnitCount);
+        if (progress) {
+            progress(uploadProgress.totalUnitCount, uploadProgress.completedUnitCount);
+        }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         LKXMLog(@"%@", task.currentRequest.URL);
         dataSuccess(responseObject);
