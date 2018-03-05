@@ -36,12 +36,12 @@
                   moduleName = "OCZatsugaku"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
-                  timestampString = "520850267.087277"
+                  timestampString = "532603361.65494"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
                   endingLineNumber = "134"
-                  offsetFromSymbolStart = "124">
+                  offsetFromSymbolStart = "132">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,12 +51,12 @@
                   moduleName = "OCZatsugaku"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
-                  timestampString = "520850267.088924"
+                  timestampString = "532603361.659445"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
                   endingLineNumber = "134"
-                  offsetFromSymbolStart = "140">
+                  offsetFromSymbolStart = "148">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -100,12 +100,12 @@
                   moduleName = "OCZatsugaku"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
-                  timestampString = "520850267.094626"
+                  timestampString = "532603361.673347"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
                   endingLineNumber = "144"
-                  offsetFromSymbolStart = "156">
+                  offsetFromSymbolStart = "164">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -115,12 +115,12 @@
                   moduleName = "OCZatsugaku"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lkx/Desktop/%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81/OC%E4%BB%A3%E7%A0%81/OCZatsugaku/OCZatsugaku/CoreBluetooth/LKXBluetoothTool.m"
-                  timestampString = "520850267.095924"
+                  timestampString = "532603361.676233"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
                   endingLineNumber = "144"
-                  offsetFromSymbolStart = "172">
+                  offsetFromSymbolStart = "180">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -154,6 +154,54 @@
             startingLineNumber = "118"
             endingLineNumber = "118"
             landmarkName = "-centralManager:didConnectPeripheral:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/EditPDFFile/OCEditPDFCViewController.m"
+            timestampString = "528018495.772137"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-saveAction:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/EditPDFFile/OCTextView.m"
+            timestampString = "528025974.055283"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-createData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OCZatsugaku/EditPDFFile/OCEditPDFCViewController.m"
+            timestampString = "528018495.772278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-savePDFFile"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

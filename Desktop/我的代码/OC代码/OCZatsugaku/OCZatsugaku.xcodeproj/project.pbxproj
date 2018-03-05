@@ -83,13 +83,21 @@
 		167C821A1EFCFACE00A49196 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 167C81F01EFCFACE00A49196 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		167C821B1EFCFACE00A49196 /* ReachabilityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 167C81F21EFCFACE00A49196 /* ReachabilityTool.m */; };
 		167C82221EFD0CB400A49196 /* OCAnnularGradientProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167C82211EFD0CB400A49196 /* OCAnnularGradientProgressViewController.m */; };
+		167E4FC81F7759A70054362A /* OCPDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167E4FC71F7759A70054362A /* OCPDFView.m */; };
+		167E4FCC1F776A450054362A /* test11.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 167E4FCB1F776A450054362A /* test11.pdf */; };
 		16807D571F05F0D000251EE9 /* LKXArchLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16807D561F05F0D000251EE9 /* LKXArchLoadingView.m */; };
 		16807D5A1F06298C00251EE9 /* LKXBoundcyPreloaderLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16807D591F06298C00251EE9 /* LKXBoundcyPreloaderLoadingView.m */; };
 		16807D5D1F063E5400251EE9 /* LKXZhiHuLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16807D5C1F063E5400251EE9 /* LKXZhiHuLoadingView.m */; };
 		16807D601F064CE800251EE9 /* LKXTriangleLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16807D5F1F064CE800251EE9 /* LKXTriangleLoadingView.m */; };
+		1681831A1F78A26600FBA24E /* OCPDF2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 168183191F78A26600FBA24E /* OCPDF2View.m */; };
+		169557721F74A55D003EC37E /* OCEditPDFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169557711F74A55D003EC37E /* OCEditPDFCViewController.m */; };
+		169557751F74BF6A003EC37E /* OCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169557741F74BF6A003EC37E /* OCTextView.m */; };
+		169557781F750602003EC37E /* OCEditPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169557771F750602003EC37E /* OCEditPDFViewController.m */; };
+		16A1C94A1F7A0C88004F37A1 /* OCEditPDF2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C9491F7A0C88004F37A1 /* OCEditPDF2ViewController.m */; };
 		16B6A5621F00A9F100D6DF12 /* LKXAnnularGradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B6A5611F00A9F100D6DF12 /* LKXAnnularGradientProgressView.m */; };
 		16B6A5671F0113FE00D6DF12 /* OCColourTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B6A5661F0113FE00D6DF12 /* OCColourTabBarController.m */; };
 		16B6A56A1F01147100D6DF12 /* LKXColourTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B6A5691F01147100D6DF12 /* LKXColourTabBar.m */; };
+		16ECF4B51FBEDFD70011A631 /* NSURLSessionTask+OCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ECF4B41FBEDFD60011A631 /* NSURLSessionTask+OCCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +282,9 @@
 		167C821E1EFCFAF300A49196 /* OCZatsugakuPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCZatsugakuPrefix.pch; sourceTree = "<group>"; };
 		167C82201EFD0CB400A49196 /* OCAnnularGradientProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAnnularGradientProgressViewController.h; sourceTree = "<group>"; };
 		167C82211EFD0CB400A49196 /* OCAnnularGradientProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAnnularGradientProgressViewController.m; sourceTree = "<group>"; };
+		167E4FC61F7759A70054362A /* OCPDFView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCPDFView.h; sourceTree = "<group>"; };
+		167E4FC71F7759A70054362A /* OCPDFView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCPDFView.m; sourceTree = "<group>"; };
+		167E4FCB1F776A450054362A /* test11.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test11.pdf; sourceTree = "<group>"; };
 		16807D551F05F0D000251EE9 /* LKXArchLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXArchLoadingView.h; sourceTree = "<group>"; };
 		16807D561F05F0D000251EE9 /* LKXArchLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXArchLoadingView.m; sourceTree = "<group>"; };
 		16807D581F06298C00251EE9 /* LKXBoundcyPreloaderLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXBoundcyPreloaderLoadingView.h; sourceTree = "<group>"; };
@@ -282,12 +293,24 @@
 		16807D5C1F063E5400251EE9 /* LKXZhiHuLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXZhiHuLoadingView.m; sourceTree = "<group>"; };
 		16807D5E1F064CE800251EE9 /* LKXTriangleLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXTriangleLoadingView.h; sourceTree = "<group>"; };
 		16807D5F1F064CE800251EE9 /* LKXTriangleLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXTriangleLoadingView.m; sourceTree = "<group>"; };
+		168183181F78A26600FBA24E /* OCPDF2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCPDF2View.h; sourceTree = "<group>"; };
+		168183191F78A26600FBA24E /* OCPDF2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCPDF2View.m; sourceTree = "<group>"; };
+		169557701F74A55D003EC37E /* OCEditPDFCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCEditPDFCViewController.h; sourceTree = "<group>"; };
+		169557711F74A55D003EC37E /* OCEditPDFCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCEditPDFCViewController.m; sourceTree = "<group>"; };
+		169557731F74BF6A003EC37E /* OCTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCTextView.h; sourceTree = "<group>"; };
+		169557741F74BF6A003EC37E /* OCTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCTextView.m; sourceTree = "<group>"; };
+		169557761F750602003EC37E /* OCEditPDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCEditPDFViewController.h; sourceTree = "<group>"; };
+		169557771F750602003EC37E /* OCEditPDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCEditPDFViewController.m; sourceTree = "<group>"; };
+		16A1C9481F7A0C88004F37A1 /* OCEditPDF2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCEditPDF2ViewController.h; sourceTree = "<group>"; };
+		16A1C9491F7A0C88004F37A1 /* OCEditPDF2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCEditPDF2ViewController.m; sourceTree = "<group>"; };
 		16B6A5601F00A9F100D6DF12 /* LKXAnnularGradientProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXAnnularGradientProgressView.h; sourceTree = "<group>"; };
 		16B6A5611F00A9F100D6DF12 /* LKXAnnularGradientProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXAnnularGradientProgressView.m; sourceTree = "<group>"; };
 		16B6A5651F0113FE00D6DF12 /* OCColourTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCColourTabBarController.h; sourceTree = "<group>"; };
 		16B6A5661F0113FE00D6DF12 /* OCColourTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCColourTabBarController.m; sourceTree = "<group>"; };
 		16B6A5681F01147100D6DF12 /* LKXColourTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXColourTabBar.h; sourceTree = "<group>"; };
 		16B6A5691F01147100D6DF12 /* LKXColourTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXColourTabBar.m; sourceTree = "<group>"; };
+		16ECF4B31FBEDFD60011A631 /* NSURLSessionTask+OCCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+OCCategory.h"; sourceTree = "<group>"; };
+		16ECF4B41FBEDFD60011A631 /* NSURLSessionTask+OCCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+OCCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +459,7 @@
 		16697AAB1EFB6D6C00313305 = {
 			isa = PBXGroup;
 			children = (
+				167E4FCB1F776A450054362A /* test11.pdf */,
 				16697AB61EFB6D6D00313305 /* OCZatsugaku */,
 				16697AD01EFB6D6D00313305 /* OCZatsugakuTests */,
 				16697ADB1EFB6D6D00313305 /* OCZatsugakuUITests */,
@@ -456,10 +480,12 @@
 		16697AB61EFB6D6D00313305 /* OCZatsugaku */ = {
 			isa = PBXGroup;
 			children = (
+				16ECF4B21FBEDF840011A631 /* Category */,
 				1633A0421F023D0C00F7678E /* 第三方库 */,
 				167C81A11EFCFACE00A49196 /* Until(工具类) */,
 				16697ABA1EFB6D6D00313305 /* AppDelegate.h */,
 				16697ABB1EFB6D6D00313305 /* AppDelegate.m */,
+				1695576F1F74A51D003EC37E /* EditPDFFile */,
 				16697AF01EFBC05000313305 /* 带箭头的弹框和NSOperation */,
 				16697AF71EFBC0CC00313305 /* 本地通知 */,
 				167C821F1EFD0C4700A49196 /* 环形渐变进度条 */,
@@ -688,6 +714,25 @@
 			path = "环形渐变进度条";
 			sourceTree = "<group>";
 		};
+		1695576F1F74A51D003EC37E /* EditPDFFile */ = {
+			isa = PBXGroup;
+			children = (
+				169557701F74A55D003EC37E /* OCEditPDFCViewController.h */,
+				169557711F74A55D003EC37E /* OCEditPDFCViewController.m */,
+				169557731F74BF6A003EC37E /* OCTextView.h */,
+				169557741F74BF6A003EC37E /* OCTextView.m */,
+				169557761F750602003EC37E /* OCEditPDFViewController.h */,
+				169557771F750602003EC37E /* OCEditPDFViewController.m */,
+				16A1C9481F7A0C88004F37A1 /* OCEditPDF2ViewController.h */,
+				16A1C9491F7A0C88004F37A1 /* OCEditPDF2ViewController.m */,
+				168183181F78A26600FBA24E /* OCPDF2View.h */,
+				168183191F78A26600FBA24E /* OCPDF2View.m */,
+				167E4FC61F7759A70054362A /* OCPDFView.h */,
+				167E4FC71F7759A70054362A /* OCPDFView.m */,
+			);
+			path = EditPDFFile;
+			sourceTree = "<group>";
+		};
 		16B6A5641F0113D000D6DF12 /* 彩色TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,6 +742,15 @@
 				16B6A5691F01147100D6DF12 /* LKXColourTabBar.m */,
 			);
 			path = "彩色TabBar";
+			sourceTree = "<group>";
+		};
+		16ECF4B21FBEDF840011A631 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				16ECF4B31FBEDFD60011A631 /* NSURLSessionTask+OCCategory.h */,
+				16ECF4B41FBEDFD60011A631 /* NSURLSessionTask+OCCategory.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -812,6 +866,7 @@
 				16697AC71EFB6D6D00313305 /* LaunchScreen.storyboard in Resources */,
 				16697AC41EFB6D6D00313305 /* Assets.xcassets in Resources */,
 				16697AC21EFB6D6D00313305 /* Main.storyboard in Resources */,
+				167E4FCC1F776A450054362A /* test11.pdf in Resources */,
 				1633A0411F0238F800F7678E /* countries.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -841,8 +896,11 @@
 				167C82091EFCFACE00A49196 /* UIWebView+CallPhone.m in Sources */,
 				167C820F1EFCFACE00A49196 /* UIView+Common.m in Sources */,
 				16697ABC1EFB6D6D00313305 /* AppDelegate.m in Sources */,
+				169557751F74BF6A003EC37E /* OCTextView.m in Sources */,
+				167E4FC81F7759A70054362A /* OCPDFView.m in Sources */,
 				167C81FB1EFCFACE00A49196 /* NSLayoutConstraint+Vertical.m in Sources */,
 				167C82011EFCFACE00A49196 /* NSMutableAttributedString+Category.m in Sources */,
+				1681831A1F78A26600FBA24E /* OCPDF2View.m in Sources */,
 				167C82051EFCFACE00A49196 /* UIButton+Categoty.m in Sources */,
 				167C81FF1EFCFACE00A49196 /* NSDate+Category.m in Sources */,
 				167C82191EFCFACE00A49196 /* MBProgressHUD.m in Sources */,
@@ -884,11 +942,13 @@
 				16697AF51EFBC05000313305 /* OCPopoverViewController.m in Sources */,
 				1633A0601F023D1C00F7678E /* MASLayoutConstraint.m in Sources */,
 				167C82181EFCFACE00A49196 /* MBHUDTool.m in Sources */,
+				16ECF4B51FBEDFD70011A631 /* NSURLSessionTask+OCCategory.m in Sources */,
 				1633A0651F023D1C00F7678E /* View+MASAdditions.m in Sources */,
 				167C82151EFCFACE00A49196 /* LKXSpringCollectionViewFlowLayout.m in Sources */,
 				163B87FD1F03A22500B0AE1F /* AFHTTPSessionManager.m in Sources */,
 				1633A05E1F023D1C00F7678E /* MASConstraint.m in Sources */,
 				16785AF81F0B3FE1002BEFE4 /* LKXBluetoothTool.m in Sources */,
+				169557781F750602003EC37E /* OCEditPDFViewController.m in Sources */,
 				167C82101EFCFACE00A49196 /* LKXAlertTool.m in Sources */,
 				162469BE1F04F90900E1E6D5 /* LKXWalkLoadingView.m in Sources */,
 				163B88081F03A25900B0AE1F /* AFNetWorkingTool.m in Sources */,
@@ -910,10 +970,12 @@
 				167C821A1EFCFACE00A49196 /* Reachability.m in Sources */,
 				1633A0661F023D1C00F7678E /* ViewController+MASAdditions.m in Sources */,
 				167C821B1EFCFACE00A49196 /* ReachabilityTool.m in Sources */,
+				16A1C94A1F7A0C88004F37A1 /* OCEditPDF2ViewController.m in Sources */,
 				167C82131EFCFACE00A49196 /* LKXDevicePowerTool.m in Sources */,
 				162469BB1F04B56E00E1E6D5 /* LKXGlassesLoadingView.m in Sources */,
 				16B6A5671F0113FE00D6DF12 /* OCColourTabBarController.m in Sources */,
 				16807D5D1F063E5400251EE9 /* LKXZhiHuLoadingView.m in Sources */,
+				169557721F74A55D003EC37E /* OCEditPDFCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

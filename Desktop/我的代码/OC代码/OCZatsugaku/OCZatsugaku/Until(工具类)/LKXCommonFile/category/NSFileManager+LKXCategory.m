@@ -77,4 +77,22 @@
     return path;
 }
 
+/**
+ 写入文件
+
+ @param path 文件路径
+ @param data 文件数据
+ @return 是否写入成功
+ */
+- (BOOL)lkx_writeToFilePath:(NSString *)path data:(NSData *)data {
+    BOOL success = NO;
+    if (![self fileExistsAtPath:path]) {
+        success = [self createFileAtPath:path contents:data attributes:nil];
+    } else {
+        success = [data writeToFile:path atomically:YES];
+    }
+    
+    return YES;
+}
+
 @end

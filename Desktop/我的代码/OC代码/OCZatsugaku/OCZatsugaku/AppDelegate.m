@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LKXUNLocalNotificationTool.h"
 #import "LKXRequestManager.h"
+#import "NSURLSessionTask+OCCategory.h"
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 
@@ -26,12 +27,21 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     }
     
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     // 使用百度坐标拾取器接口
     [[LKXRequestManager shareRequestManager] rootDataRequestWithSuccess:^{
         LKXMLog(@"使用百度坐标拾取器接口成功");
     } failure:^(NSString *message) {
         LKXMLog(@"使用百度坐标拾取器接口失败:%@", message);
     }];
+    
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+    [task test];
+    LKXMLog(@"%@", [task class]);
+    LKXMLog(@"%@", [task superclass]);
+    LKXMLog(@"%@", [[task class] superclass]);
+    LKXMLog(@"%@", [[[task class] superclass] superclass]);
     
     return YES;
 }
