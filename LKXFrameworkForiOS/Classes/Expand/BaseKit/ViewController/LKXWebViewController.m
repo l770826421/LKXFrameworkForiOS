@@ -73,7 +73,7 @@
 - (void)startLoadWeb {
     
     if ([NSString lkx_isEmptyWithString:self.urlString]) {
-        [kMBHUDTool showHUDWithText:@"没有填充URL" delay:kMBHUDDelay];
+        [kMBHUDTool showHUDWithText:@"没有填充URL" detailText:nil delay:kMBHUDDelay];
         LKXMLog(@"没有填充URL");
         return;
     }
@@ -93,7 +93,7 @@
     
     [self.webView loadRequest:request];
     
-    [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
+    [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
 }
 
 #pragma mark - getter and setter

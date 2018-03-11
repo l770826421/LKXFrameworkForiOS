@@ -56,7 +56,7 @@
 }
 
 - (void)categoryWithURL:(NSString *)url success:(void (^)(NSDictionary *json))success failure:(void (^)(NSString *message))failure {
-    [self.afNetworkingTool getRequestWithURLString:url showActivityIndicator:YES parameters:@{@"parent_id": @"0"} progress:nil dictionarySuccess:^(NSDictionary *json) {
+    [self.afNetworkingTool getRequestWithURLString:url showActivityIndicator:NO parameters:@{@"parent_id": @"0"} progress:nil dictionarySuccess:^(NSDictionary *json) {
         success(json);
     } failure:^(NSError *error) {
         failure(error.description);

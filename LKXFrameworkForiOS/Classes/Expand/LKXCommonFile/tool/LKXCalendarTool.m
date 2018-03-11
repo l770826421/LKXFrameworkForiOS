@@ -87,12 +87,12 @@
 - (void)writeDataWithEvent:(EKEvent *)event success:(void(^)(BOOL success))success {
     [_eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
         if (error) {
-            [kMBHUDTool showHUDWithText:@"事件市场获取失败" delay:kMBHUDDelay];
+            [kMBHUDTool showHUDWithText:@"事件市场获取失败" detailText:nil delay:kMBHUDDelay];
             return;
         }
         
         if (!granted) {
-            [kMBHUDTool showHUDWithText:@"您已拒绝访问日历,请前往设置开启" delay:kMBHUDDelay];
+            [kMBHUDTool showHUDWithText:@"您已拒绝访问日历,请前往设置开启" detailText:nil delay:kMBHUDDelay];
             return;
         }
         

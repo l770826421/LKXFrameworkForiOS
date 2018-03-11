@@ -175,7 +175,7 @@
                         failure:(AFNetWorkingToolFailureBlock)failure {
     
     if (show) {
-        [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
+        [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
     }
     [self.sessionManager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         if (progress) {
@@ -273,7 +273,7 @@
                 dataSuccess:(AFNetWorkingToolDataSuccessBlock)dataSuccess
                    failure:(AFNetWorkingToolFailureBlock)failure {
     if (show) {
-        [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
+        [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
     }
     
     [self.sessionManager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {

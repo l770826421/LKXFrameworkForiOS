@@ -111,7 +111,7 @@
     
     [self.webView loadRequest:request];
     
-    [[MBHUDTool sharedMBHUDTool] showActivityIndicator];
+    [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
 }
 
 #pragma mark - getter and setter

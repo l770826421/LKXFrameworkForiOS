@@ -57,7 +57,7 @@
     
     if (!isExistenceNetwork && isShow)
     {
-        [kMBHUDTool showHUDWithText:kLocalizedString(@"网络连接异常") delay:kMBHUDDelay];
+        [kMBHUDTool showHUDWithText:kLocalizedString(@"网络连接异常") detailText:nil delay:kMBHUDDelay];
     }
     
     return isExistenceNetwork;

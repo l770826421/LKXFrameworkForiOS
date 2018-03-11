@@ -259,12 +259,12 @@
     } success:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // 其他情况,切换主线程处理
-            [kMBHUDTool showHUDWithText:@"Touch ID验证成功" delay:kMBHUDDelay];
+            [kMBHUDTool showHUDWithText:@"Touch ID验证成功" detailText:nil delay:kMBHUDDelay];
         }];
     } validateFailure:^(LAError errorCode) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // 其他情况,切换主线程处理
-            [kMBHUDTool showHUDWithText:@"Touch ID验证失败" delay:kMBHUDDelay];
+            [kMBHUDTool showHUDWithText:@"Touch ID验证失败" detailText:nil delay:kMBHUDDelay];
         }];
         switch (errorCode) {
             case LAErrorSystemCancel:

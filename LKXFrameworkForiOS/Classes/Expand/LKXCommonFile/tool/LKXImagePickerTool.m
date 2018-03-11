@@ -50,7 +50,7 @@
     }
     else
     {
-        [kMBHUDTool showHUDWithText:@"这设备不支持拍照功能" delay:2.0];
+        [kMBHUDTool showHUDWithText:@"这设备不支持拍照功能" detailText:nil delay:2.0];
         return;
     }
     
@@ -59,7 +59,7 @@
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:nil];
     if (!input)
     {
-        [kMBHUDTool showHUDWithText:@"您关闭了拍照功能,请到设置中去开启" delay:2.0];
+        [kMBHUDTool showHUDWithText:@"您关闭了拍照功能,请到设置中去开启" detailText:nil  delay:2.0];
         return;
     }
     
@@ -80,7 +80,7 @@
     }
     else
     {
-        [kMBHUDTool showHUDWithText:@"本设备不支持相册功能" delay:2.0];
+        [kMBHUDTool showHUDWithText:@"本设备不支持相册功能" detailText:nil delay:2.0];
         return;
     }
     isTakePhoto = NO;
