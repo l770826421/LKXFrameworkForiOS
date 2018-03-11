@@ -150,6 +150,7 @@
 		16CEDDD91D4AFC1C006C09CC /* UIBarButtonItem+LKX.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEDDD21D4AFC1C006C09CC /* UIBarButtonItem+LKX.m */; };
 		16E3484F1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E3484E1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m */; };
 		16E348521F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E348511F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m */; };
+		16E45CF42054D30200ABEAB5 /* File.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 16E45CF32054D30200ABEAB5 /* File.rtf */; };
 		16E878DD1E94958900893C25 /* LKXDevicePowerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E878DC1E94958900893C25 /* LKXDevicePowerTool.m */; };
 		16FA226C1E94ED740000D710 /* LKXCalendarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA226B1E94ED740000D710 /* LKXCalendarTool.m */; };
 /* End PBXBuildFile section */
@@ -481,6 +482,7 @@
 		16E3484E1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXEstimatedRowHeightViewController.m; sourceTree = "<group>"; };
 		16E348501F56C60E005E30B8 /* LKXEstimatedRowHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXEstimatedRowHeightCell.h; sourceTree = "<group>"; };
 		16E348511F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXEstimatedRowHeightCell.m; sourceTree = "<group>"; };
+		16E45CF32054D30200ABEAB5 /* File.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = File.rtf; sourceTree = "<group>"; };
 		16E878DB1E94958900893C25 /* LKXDevicePowerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXDevicePowerTool.h; sourceTree = "<group>"; };
 		16E878DC1E94958900893C25 /* LKXDevicePowerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXDevicePowerTool.m; sourceTree = "<group>"; };
 		16FA226A1E94ED740000D710 /* LKXCalendarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXCalendarTool.h; sourceTree = "<group>"; };
@@ -537,8 +539,9 @@
 			isa = PBXGroup;
 			children = (
 				168F011C1FB40BC300CBFC6F /* Launch */,
-				163DF2401CC6001B00A2DA26 /* classes */,
+				163DF2401CC6001B00A2DA26 /* Classes */,
 				163DF20D1CC6000600A2DA26 /* Supporting Files */,
+				16E45CF32054D30200ABEAB5 /* File.rtf */,
 			);
 			path = LKXFrameworkForiOS;
 			sourceTree = "<group>";
@@ -569,15 +572,15 @@
 			path = LKXFrameworkForiOSUITests;
 			sourceTree = "<group>";
 		};
-		163DF2401CC6001B00A2DA26 /* classes */ = {
+		163DF2401CC6001B00A2DA26 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				166C72EF1D4B4FBF00D66FEA /* Until(工具类) */,
-				16CED7181D4AF36D006C09CC /* Modules(功能模块) */,
-				16CED73A1D4AF36D006C09CC /* OpenSource(开源文件) */,
-				16CED7A41D4AF36D006C09CC /* Resource(本地文件) */,
+				166C72EF1D4B4FBF00D66FEA /* Expand */,
+				16CED7181D4AF36D006C09CC /* Main */,
+				16CED73A1D4AF36D006C09CC /* Vender */,
+				16CED7A41D4AF36D006C09CC /* Resource */,
 			);
-			path = classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		164EAD7B1FBBDF8D00BAFED4 /* Main */ = {
@@ -599,7 +602,7 @@
 			path = StretchingHeader;
 			sourceTree = "<group>";
 		};
-		166C72EF1D4B4FBF00D66FEA /* Until(工具类) */ = {
+		166C72EF1D4B4FBF00D66FEA /* Expand */ = {
 			isa = PBXGroup;
 			children = (
 				16CEDD9A1D4AFBBE006C09CC /* BaseKit */,
@@ -607,7 +610,7 @@
 				166C72F81D4B4FBF00D66FEA /* LKXCommonFile */,
 				166C733F1D4B4FBF00D66FEA /* NetWorking */,
 			);
-			path = "Until(工具类)";
+			path = Expand;
 			sourceTree = "<group>";
 		};
 		166C72F01D4B4FBF00D66FEA /* LKXAutolayout */ = {
@@ -867,17 +870,17 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		16CED7181D4AF36D006C09CC /* Modules(功能模块) */ = {
+		16CED7181D4AF36D006C09CC /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				16E3484C1F56C26D005E30B8 /* TableView */,
 				16837AB01DD0866E0048BCE0 /* WKWebView */,
 				16CA807B1DB755CF00FF5F1A /* Home */,
 			);
-			path = "Modules(功能模块)";
+			path = Main;
 			sourceTree = "<group>";
 		};
-		16CED73A1D4AF36D006C09CC /* OpenSource(开源文件) */ = {
+		16CED73A1D4AF36D006C09CC /* Vender */ = {
 			isa = PBXGroup;
 			children = (
 				16CA80551DB7515E00FF5F1A /* Masonry */,
@@ -887,7 +890,7 @@
 				16CEDCF41D4AFB18006C09CC /* MJExtension */,
 				16CED7721D4AF36D006C09CC /* SDCycleScrollView */,
 			);
-			path = "OpenSource(开源文件)";
+			path = Vender;
 			sourceTree = "<group>";
 		};
 		16CED7721D4AF36D006C09CC /* SDCycleScrollView */ = {
@@ -919,14 +922,14 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
-		16CED7A41D4AF36D006C09CC /* Resource(本地文件) */ = {
+		16CED7A41D4AF36D006C09CC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				16CED7AE1D4AF36D006C09CC /* LKXFrameworkForiOS-Prefix.pch */,
 				16A7D49B1D4AFF9B00160D34 /* LKXConstString.h */,
 				16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */,
 			);
-			path = "Resource(本地文件)";
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		16CEDCF41D4AFB18006C09CC /* MJExtension */ = {
@@ -1278,6 +1281,7 @@
 			files = (
 				168F01141FB40B9200CBFC6F /* LaunchScreen.storyboard in Resources */,
 				16CEDD531D4AFB1E006C09CC /* MJRefresh.bundle in Resources */,
+				16E45CF42054D30200ABEAB5 /* File.rtf in Resources */,
 				168F011B1FB40B9200CBFC6F /* Main.storyboard in Resources */,
 				168F01171FB40B9200CBFC6F /* LaunchScreen.storyboard in Resources */,
 				168F01181FB40B9200CBFC6F /* Assets.xcassets in Resources */,
