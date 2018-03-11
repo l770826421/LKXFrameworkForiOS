@@ -12,110 +12,106 @@
 const CGFloat kMBHUDDelay = 1.0;
 const CGFloat kAfterDelay = 1.0;
 
+@interface MBHUDTool()
+
+/** MBProgressHUD实例化对象,只初始化一次 */
+@property(nonatomic, strong) MBProgressHUD *mbHud;
+
+@end
+
 @implementation MBHUDTool
-{
-    MBProgressHUD *mbHud;
-}
 
 single_implementation(MBHUDTool)
 
 //创建MBProgressHUD实例
 - (void)implementMBHUD
 {
-    if (mbHud)
-    {
-        //存在时隐藏
-        [mbHud hide:NO];
-    }
-    else
-    {
-        //如果不存在,就实例化
-        mbHud = [[MBProgressHUD alloc] initWithView:[kAppDelegate window]];
-        mbHud.opaque = YES;
-        mbHud.delegate = self;
-    }
+    _mbHud = [MBProgressHUD showHUDAddedTo:[kAppDelegate window] animated:YES];
+    _mbHud.opaque = YES;
+    _mbHud.delegate = self;
 }
 
-//显示MBProgressHUD正在加载,并提示文字
+
+
+/**
+ 显示提示文字
+ */
 - (void)showHUDWithText:(NSString *)text
-{
-    [self implementMBHUD];
-    
-    if (text.length > 0)
-    {
-        mbHud.labelText = text;
-    }
-    else
-    {
-        mbHud.labelText = nil;
-    }
-    
-    mbHud.mode = MBProgressHUDModeIndeterminate;
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud show:YES];
+             detailText:(NSString *)detailText {
+    [self showHUDWithText:text detailText:detailText delay:kMBHUDDelay];
 }
 
-//显示delay秒钟的MBProgressHUD文字提示
-- (void)showHUDWithText:(NSString *)text delay:(NSTimeInterval)delay
-{
+
+/**
+ 显示提示文字
+ */
+- (void)showHUDWithText:(NSString *)text
+             detailText:(NSString *)detailText
+                  delay:(NSTimeInterval)delay {
     [self implementMBHUD];
     
-    mbHud.mode = MBProgressHUDModeText;
-    if (text.length > 0)
-    {
-        mbHud.detailsLabelText = text;
+    _mbHud.mode = MBProgressHUDModeText;
+    
+    if (text.length > 0) {
+        _mbHud.label.text = text;
+    } else {
+        _mbHud.label.text = nil;
     }
-    else
-    {
-        mbHud.detailsLabelText = nil;
+    
+    if (detailText > 0) {
+        _mbHud.detailsLabel.text = detailText;
+    } else {
+        _mbHud.detailsLabel.text = nil;
     }
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud show:YES];
-    if (delay <= 0)
-    {
-        [mbHud hide:YES afterDelay:kAfterDelay];
-    }
-    else
-    {
-        [mbHud hide:YES afterDelay:delay];
+
+    if (delay <= 0) {
+        [_mbHud hideAnimated:YES afterDelay:kAfterDelay];
+    } else {
+        [_mbHud hideAnimated:YES afterDelay:delay];
     }
 }
 
-//显示一个数据加载的动画,小菊花
-- (void)showActivityIndicator
-{
+
+/**
+ 显示一个数据加载的动画,小菊花(默认提示语加载中)
+ */
+- (void)showActivityIndicatorWithText:(NSString *)text
+                           detailText:(NSString *)detailText {
     [self implementMBHUD];
-    mbHud.mode = MBProgressHUDModeIndeterminate;
-    mbHud.detailsLabelText = kLocalizedString(@"加载中...");
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud show:YES];
+    _mbHud.mode = MBProgressHUDModeIndeterminate;
     
-    [mbHud hide:YES afterDelay:LKXTimeoutIntervalForRequest];
+    if (text.length > 0) {
+        _mbHud.label.text = text;
+    } else {
+        _mbHud.label.text = nil;
+    }
+    
+    if (detailText.length > 0) {
+        _mbHud.detailsLabel.text = detailText;
+    } else {
+        _mbHud.detailsLabel.text = kLocalizedString(@"加载中...");
+    }
 }
 
 
 //显示一个圆环加载
-- (void)showAnnular
+- (void)showAnnularWithText:(NSString *)text
+                 detailText:(NSString *)detailText
 {
     [self implementMBHUD];
-    mbHud.mode = MBProgressHUDModeAnnularDeterminate;
-    mbHud.detailsLabelText = kLocalizedString(@"加载中...");
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud showAnimated:YES whileExecutingBlock:^{
-        float progress = 0.0f;
-        while (progress < 1.0f)
-        {
-            progress += 0.01f;
-            mbHud.progress = progress;
-            usleep(5000);
-        }
-    } completionBlock:^{
-        [self hideMBHUD:YES];
-    }];
+    _mbHud.mode = MBProgressHUDModeAnnularDeterminate;
+    
+    if (text.length > 0) {
+        _mbHud.label.text = text;
+    } else {
+        _mbHud.label.text = nil;
+    }
+    
+    if (detailText.length > 0) {
+        _mbHud.detailsLabel.text = detailText;
+    } else {
+        _mbHud.detailsLabel.text = kLocalizedString(@"加载中...");
+    }
 }
 
 /**
@@ -123,72 +119,67 @@ single_implementation(MBHUDTool)
  
  @param view 提示view,传入的view的frame要确定
  */
-- (void)showCustomView:(UIView *)view {
+- (void)showCustomView:(UIView *)view
+                 delay:(NSTimeInterval)delay {
     [self implementMBHUD];
-    mbHud.mode = MBProgressHUDModeCustomView;
-    mbHud.customView = view;
-    mbHud.detailsLabelText = nil;
-    mbHud.labelText = nil;
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud show:YES];
+    _mbHud.mode = MBProgressHUDModeCustomView;
+    _mbHud.customView = view;
+    _mbHud.detailsLabel.text = nil;
+    _mbHud.label.text = nil;
     
-    [mbHud hide:YES afterDelay:kAfterDelay];
+    [_mbHud hideAnimated:YES afterDelay:delay];
 }
 
 //一个横向的进度条
-- (void)showHorizontalBar
-{
+- (void)showHorizontalBarWithText:(NSString *)text
+                       detailText:(NSString *)detailText {
     [self implementMBHUD];
-    mbHud.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    mbHud.detailsLabelText = kLocalizedString(@"加载中...");
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud showAnimated:YES whileExecutingBlock:^{
-        float progress = 0.0f;
-        while (progress < 1.0f) {
-            progress += 0.01f;
-            mbHud.progress = progress;
-            usleep(5000);
-        }
-    } completionBlock:^{
-        [self hideMBHUD:YES];
-    }];
+    _mbHud.mode = MBProgressHUDModeDeterminateHorizontalBar;
+    if (text.length > 0) {
+        _mbHud.label.text = text;
+    } else {
+        _mbHud.label.text = nil;
+    }
+    
+    if (detailText.length > 0) {
+        _mbHud.detailsLabel.text = detailText;
+    } else {
+        _mbHud.detailsLabel.text = kLocalizedString(@"加载中...");
+    }
 }
 
 //显示一个圆圈加载
-- (void)showDeterminate
-{
+- (void)showDeterminateWithText:(NSString *)text
+                     detailText:(NSString *)detailText {
     [self implementMBHUD];
-    mbHud.mode = MBProgressHUDModeDeterminate;
-    mbHud.detailsLabelText = kLocalizedString(@"加载中...");
-    mbHud.dimBackground = NO;
-    [[kAppDelegate window] addSubview:mbHud];
-    [mbHud showAnimated:YES whileExecutingBlock:^{
-        float progress = 0.0f;
-        while (progress < 1.0f) {
-            progress += 0.01f;
-            mbHud.progress = progress;
-            usleep(5000);
-        }
-    } completionBlock:^{
-        [self hideMBHUD:YES];
-    }];
+    _mbHud.mode = MBProgressHUDModeDeterminate;
+    
+    if (text.length > 0) {
+        _mbHud.label.text = text;
+    } else {
+        _mbHud.label.text = nil;
+    }
+    
+    if (detailText.length > 0) {
+        _mbHud.detailsLabel.text = detailText;
+    } else {
+        _mbHud.detailsLabel.text = kLocalizedString(@"加载中...");
+    }
 }
 
 //隐藏一处MBProgressHUD
 - (void)hideMBHUD:(BOOL)animated
 {
-    if (mbHud != nil && ![mbHud isHidden])
+    if (_mbHud != nil && ![_mbHud isHidden])
     {
-        [mbHud hide:animated];
+        [_mbHud hideAnimated:animated];
     }
 }
 
 //判断MBHUD是否存在
 - (BOOL)isShow
 {
-    if (mbHud != nil)
+    if (_mbHud != nil)
     {
         return NO;
     }
@@ -197,7 +188,7 @@ single_implementation(MBHUDTool)
 
 // 判断MBHUD是否隐藏
 - (BOOL)isHidden {
-    return mbHud.isHidden;
+    return _mbHud.isHidden;
 }
 
 #pragma mark - MBProgressHUDDelegate
@@ -205,7 +196,7 @@ single_implementation(MBHUDTool)
 {
     if (hud)
     {
-        hud.labelText = nil;
+        hud.label.text = nil;
         [hud removeFromSuperview];
         hud = nil;
     }

@@ -16,30 +16,47 @@ UIKIT_EXTERN const CGFloat kMBHUDDelay;
 @interface MBHUDTool : NSObject <MBProgressHUDDelegate>
 single_interface(MBHUDTool)
 
-//显示MBProgressHUD正在加载,并提示文字
-- (void)showHUDWithText:(NSString *)text;
+/** MBProgressHUD实例化对象,只初始化一次 */
+@property(nonatomic, strong, readonly) MBProgressHUD *mbHud;
 
-//显示delay秒钟的MBProgressHUD文字提示
-- (void)showHUDWithText:(NSString *)text delay:(NSTimeInterval)delay;
+/**
+ 显示提示文字
+ */
+- (void)showHUDWithText:(NSString *)text
+             detailText:(NSString *)detailText;
 
-//显示一个数据加载的动画,小菊花
-- (void)showActivityIndicator;
+/**
+ 显示提示文字
+ */
+- (void)showHUDWithText:(NSString *)text
+             detailText:(NSString *)detailText
+                  delay:(NSTimeInterval)delay;
+
+/**
+ 显示一个数据加载的动画,小菊花(默认提示语加载中)
+ */
+- (void)showActivityIndicatorWithText:(NSString *)text
+                           detailText:(NSString *)detailText;
 
 //显示一个圆环加载
-- (void)showAnnular;
+- (void)showAnnularWithText:(NSString *)text
+                 detailText:(NSString *)detailText;
 
 /**
  显示一个自定义的提示view
  
- @param view 提示view
+ @param view 提示view,传入的view的frame要确定
  */
-- (void)showCustomView:(UIView *)view;
+- (void)showCustomView:(UIView *)view
+                 delay:(NSTimeInterval)delay;
 
 //一个横向的进度条
-- (void)showHorizontalBar;
+- (void)showHorizontalBarWithText:(NSString *)text
+                       detailText:(NSString *)detailText;
 
 //显示一个圆圈加载
-- (void)showDeterminate;
+- (void)showDeterminateWithText:(NSString *)text
+                     detailText:(NSString *)detailText;
 
 //隐藏一处MBProgressHUD
 - (void)hideMBHUD:(BOOL)animated;
