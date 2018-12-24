@@ -98,6 +98,28 @@
 }
 
 /**
+ *  将图片转NSData
+ *
+ *
+ *  @return NSData
+ */
+- (NSData *)lkx_imageData
+{
+    NSData *imgData = UIImageJPEGRepresentation(self,1);
+    NSData *compressData;
+    //如果是jpg格式
+    if (imgData)
+    {
+        compressData = UIImageJPEGRepresentation(self, 1);
+    }
+    else    //如果是png格式
+    {
+        compressData = UIImagePNGRepresentation(self);
+    }
+    return compressData;
+}
+
+/**
  *  将图片压缩
  *
  *  @param compress 压缩比例,当小于0则用compressParameter:获取压缩比例

@@ -17,7 +17,7 @@
 
 NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
 
-@interface LKXBaseViewController () <LKXReloadViewDelegate>
+@interface LKXBaseViewController () <LKXReloadViewDelegate, UIViewControllerRestoration>
 
 @end
 
@@ -32,6 +32,9 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [self class];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = kAPPVCMainColor;
     
@@ -153,6 +156,20 @@ NSString * const kAPPCurrentLogin = @"kAPPCurrentLogin";
     [reloadView removeFromSuperview];
     reloadView = nil;
     [self reloadDataFromNetwork];
+}
+
+#pragma mark - UIViewControllerRestoration
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super decodeRestorableStateWithCoder:coder];
+}
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+    UIViewController *vc = [[[self class] alloc] init];
+    return vc;
 }
 
 @end

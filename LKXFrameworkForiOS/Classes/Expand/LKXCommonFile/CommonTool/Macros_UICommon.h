@@ -33,8 +33,8 @@
 #define Dev_ScreenWidth     Dev_ScreenSize.width                                    //返回屏幕宽度
 #define Dev_ScreenHeight    Dev_ScreenSize.height                                   //返回屏幕高度
 #define Dev_ScreenScale     [UIScreen mainScreen].scale                             //屏幕分辨率
-#define Dev_NavigationHeight 64.f                         //返回状态栏的高度
-#define Dev_TabbarHeight 49.f                             //返回Tabbar的高度
+#define Dev_NavigationHeight (isIPHoneX ? 88.0f : 64.f)                             //返回状态栏的高度
+#define Dev_TabbarHeight 49.f                                                       //返回Tabbar的高度
 
 #define Dev_AppFrame        [UIScreen mainScreen].applicationFrame                  //返回应用程序Frame
 #define Dev_AppFOrigin      Dev_AppFrame.origin                                     //返回应用程序原点
@@ -49,6 +49,8 @@
 #define isIPHone6           (Dev_ScreenHeight ==  667) ? YES : NO                   //判断是否是iphone6
 #define isIPHone6Plus       (Dev_ScreenHeight ==  736) ? YES : NO                   //判断是否是iphone6 plus
 #define isIPad              (Dev_ScreenHeight >  568) ? YES : NO                    //判断是否是ipad
+#define isIPHoneX       ((Dev_ScreenHeight == 812) ? YES : NO)                      //判断是否是iphoneX
+
 #define isHideKeyBarod      ![[UIApplication sharedApplication].keyWindow isFirstResponder]
 //判断是否隐藏键盘
 

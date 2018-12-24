@@ -52,6 +52,14 @@
 - (NSString *)lkx_base64StringCompressImage;
 
 /**
+ *  将图片转NSData
+ *
+ *
+ *  @return NSData
+ */
+- (NSData *)lkx_imageData;
+
+/**
  *  将图片压缩
  *
  *  @return UIImage
@@ -98,5 +106,13 @@
                        size:(CGSize)size
                   fillColor:(UIColor *)fillColor
                  completion:(void (^)(UIImage *image))completion;
+
+/**
+ 获取gif图片
+ 
+ @param name gif图片名称
+ @return gif图片
+ */
++ (UIImage *)gifImageWithName:(NSString *)name;
 
 @end

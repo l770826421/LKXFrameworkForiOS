@@ -19,7 +19,7 @@
     
     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@", phone];
     
-    UIWebView * callWebview = [[UIWebView alloc] init];
+    UIWebView * callWebview = [[UIWebView alloc] initWithFrame:CGRectZero];
     [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
     
     return callWebview;

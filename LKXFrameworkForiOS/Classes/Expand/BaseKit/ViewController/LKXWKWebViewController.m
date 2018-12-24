@@ -126,13 +126,14 @@
             [configuration.userContentController addScriptMessageHandler:self name:sel];
         }
         
-        _webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
-        _webView.translatesAutoresizingMaskIntoConstraints = NO;
-        _webView.navigationDelegate = self;
-        _webView.UIDelegate = self;
-        _webView.scrollView.bounces  = NO;
-        _webView.scrollView.delegate = self;
-        _webView.scrollView.backgroundColor = self.view.backgroundColor;
+        WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+        webView.translatesAutoresizingMaskIntoConstraints = NO;
+        webView.navigationDelegate = self;
+        webView.UIDelegate = self;
+        webView.scrollView.bounces  = NO;
+        webView.scrollView.delegate = self;
+        webView.scrollView.backgroundColor = self.view.backgroundColor;
+        _webView = webView;
     }
     
     return _webView;

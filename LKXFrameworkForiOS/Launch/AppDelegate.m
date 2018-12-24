@@ -12,6 +12,7 @@
 #import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
 #import "LKXRequestManager.h"
+#import "LKXNavigationController.h"
 
 #define kRestoreApplicationStateKey @"kRestoreApplicationStateKey"
 
@@ -27,6 +28,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // 测试
+    [self appleUncaughtExceptionWithOptions:launchOptions];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
@@ -42,6 +45,11 @@
     } failure:^(NSString *message) {
         LKXMLog(@"message = %@", message);
     }];
+    
+    [self testC];
+    
+//    NSArray *arr = [NSArray array];
+//    arr[0];
     
     return YES;
 }
@@ -68,9 +76,33 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    LKXMLog(@"open url:%@", url);
+    NSString *urlString = url.absoluteString;
+    if ([urlString hasSuffix:@"home"]) {
+        _tabBarController.selectedIndex = 0;
+    } else if ([urlString hasSuffix:@"webView"]) {
+        _tabBarController.selectedIndex = 1;
+    }  else if ([urlString hasSuffix:@"tableView"]) {
+        _tabBarController.selectedIndex = 2;
+    } else {
+        return NO;
+    }
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+    return YES;
+}
+
+//- (UIViewController *)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    return vc;
+//}
 
 //- (void)application:(UIApplication *)application willEncodeRestorableStateWithCoder:(NSCoder *)coder {
 //    NSMutableArray *viewcontrollers = [_tabBarController.viewControllers copy];
@@ -78,15 +110,11 @@
 //    [coder encodeObject:data forKey:kRestoreApplicationStateKey];
 //}
 //
-//- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-//    return YES;
-//}
 //
 //- (void)application:(UIApplication *)application didDecodeRestorableStateWithCoder:(NSCoder *)coder {
 //    NSData *data = [coder decodeObjectForKey:kRestoreApplicationStateKey];
 //    NSArray *viewControllers = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 //    _tabBarController.viewControllers = viewControllers;
-//
 //}
 
 #pragma mark - other
@@ -127,6 +155,28 @@
     user.run2().eat2();
     
     user.run3(100).eat3(@"water").run3(1000).eat3(@"wind");
+}
+
+- (void)testC {
+    int a[5] = {1, 2, 3, 4, 5};
+    int *ptr = (int *)(&a + 1);
+    printf("%d %d %d %d", *a, *(a + 1), *(ptr - 1), *(ptr + 1));
+}
+
+void UncaughtExceptionHandler(NSException *exception) {
+    // 可以通过exception对象获取一些崩溃信息，我们就是通过这些崩溃信息来进行解析的，例如下面的symbols数组就是我们的崩溃堆栈。
+    NSArray *symbols = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    LKXNLog(@"APP crash, name: %@ \n reason: %@ \n callStackSymbols: %@", name, reason, symbols);
+}
+
+- (void)appleUncaughtExceptionWithOptions:(NSDictionary *)launchOptions {
+    // 将下面C函数的函数地址当做参数
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+    // 获取奔溃统计的函数指针
+//    NSUncaughtExceptionHandler *handler = NSGetUncaughtExceptionHandler();
+//    LKXNLog(@"奔溃统计的函数指针: %@", handler);
 }
 
 @end

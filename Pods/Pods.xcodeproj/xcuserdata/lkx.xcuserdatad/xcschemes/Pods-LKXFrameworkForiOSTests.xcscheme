@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0AFB8349C14BB54BE1C3E78264F84CCE'
-               BlueprintName = 'Pods-LKXFrameworkForiOSTests'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-LKXFrameworkForiOSTests.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C12C7F4E50AF2A7A4FBA83EF02CA1478"
+               BlueprintName = "Pods-LKXFrameworkForiOSTests"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libPods-LKXFrameworkForiOSTests.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

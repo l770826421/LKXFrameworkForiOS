@@ -28,7 +28,7 @@
 		166C734D1D4B4FBF00D66FEA /* NSString+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73071D4B4FBF00D66FEA /* NSString+LKXCategory.m */; };
 		166C734E1D4B4FBF00D66FEA /* NSString+LKXEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73091D4B4FBF00D66FEA /* NSString+LKXEncryption.m */; };
 		166C734F1D4B4FBF00D66FEA /* NSString+LKXVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730B1D4B4FBF00D66FEA /* NSString+LKXVerification.m */; };
-		166C73501D4B4FBF00D66FEA /* UIButton+Categoty.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730D1D4B4FBF00D66FEA /* UIButton+Categoty.m */; };
+		166C73501D4B4FBF00D66FEA /* UIButton+LKXCategoty.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730D1D4B4FBF00D66FEA /* UIButton+LKXCategoty.m */; };
 		166C73511D4B4FBF00D66FEA /* UIColor+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */; };
 		166C73531D4B4FBF00D66FEA /* UIImage+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73131D4B4FBF00D66FEA /* UIImage+LKXCategory.m */; };
 		166C73541D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73151D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m */; };
@@ -164,7 +164,7 @@
 		166C730A1D4B4FBF00D66FEA /* NSString+LKXVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LKXVerification.h"; sourceTree = "<group>"; };
 		166C730B1D4B4FBF00D66FEA /* NSString+LKXVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LKXVerification.m"; sourceTree = "<group>"; };
 		166C730C1D4B4FBF00D66FEA /* UIButton+LKXCategoty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LKXCategoty.h"; sourceTree = "<group>"; };
-		166C730D1D4B4FBF00D66FEA /* UIButton+Categoty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Categoty.m"; sourceTree = "<group>"; };
+		166C730D1D4B4FBF00D66FEA /* UIButton+LKXCategoty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LKXCategoty.m"; sourceTree = "<group>"; };
 		166C730E1D4B4FBF00D66FEA /* UIColor+LKXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LKXCategory.h"; sourceTree = "<group>"; };
 		166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LKXCategory.m"; sourceTree = "<group>"; };
 		166C73121D4B4FBF00D66FEA /* UIImage+LKXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LKXCategory.h"; sourceTree = "<group>"; };
@@ -456,7 +456,7 @@
 				166C730A1D4B4FBF00D66FEA /* NSString+LKXVerification.h */,
 				166C730B1D4B4FBF00D66FEA /* NSString+LKXVerification.m */,
 				166C730C1D4B4FBF00D66FEA /* UIButton+LKXCategoty.h */,
-				166C730D1D4B4FBF00D66FEA /* UIButton+Categoty.m */,
+				166C730D1D4B4FBF00D66FEA /* UIButton+LKXCategoty.m */,
 				166C730E1D4B4FBF00D66FEA /* UIColor+LKXCategory.h */,
 				166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */,
 				166C73121D4B4FBF00D66FEA /* UIImage+LKXCategory.h */,
@@ -742,7 +742,6 @@
 				163DF2071CC6000600A2DA26 /* Frameworks */,
 				163DF2081CC6000600A2DA26 /* Resources */,
 				16875DAC1DE3E9B400F09085 /* Embed App Extensions */,
-				CAA926901A9607F805448D61 /* [CP] Embed Pods Frameworks */,
 				648512B97375A29B395533BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -762,8 +761,6 @@
 				163DF21F1CC6000600A2DA26 /* Sources */,
 				163DF2201CC6000600A2DA26 /* Frameworks */,
 				163DF2211CC6000600A2DA26 /* Resources */,
-				E341F43AA46EF2BD73F6DF32 /* [CP] Embed Pods Frameworks */,
-				F31C001E125A22D6CB8117E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -783,8 +780,6 @@
 				163DF22A1CC6000600A2DA26 /* Sources */,
 				163DF22B1CC6000600A2DA26 /* Frameworks */,
 				163DF22C1CC6000600A2DA26 /* Resources */,
-				3FA2A8DE7BEAF50229ED0B20 /* [CP] Embed Pods Frameworks */,
-				8AA523034B9C0EC030FC2E00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -878,28 +873,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LKXFrameworkForiOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3FA2A8DE7BEAF50229ED0B20 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKXFrameworkForiOSUITests/Pods-LKXFrameworkForiOSUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		648512B97375A29B395533BD /* [CP] Copy Pods Resources */ = {
@@ -908,9 +891,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LKXFrameworkForiOS/Pods-LKXFrameworkForiOS-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -923,43 +909,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LKXFrameworkForiOSUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8AA523034B9C0EC030FC2E00 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKXFrameworkForiOSUITests/Pods-LKXFrameworkForiOSUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CAA926901A9607F805448D61 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKXFrameworkForiOS/Pods-LKXFrameworkForiOS-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8C502EEE3E94FF63D2AE21B /* [CP] Check Pods Manifest.lock */ = {
@@ -968,43 +927,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LKXFrameworkForiOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E341F43AA46EF2BD73F6DF32 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKXFrameworkForiOSTests/Pods-LKXFrameworkForiOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F31C001E125A22D6CB8117E6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKXFrameworkForiOSTests/Pods-LKXFrameworkForiOSTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1015,7 +947,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				168F01161FB40B9200CBFC6F /* main.m in Sources */,
-				166C73501D4B4FBF00D66FEA /* UIButton+Categoty.m in Sources */,
+				166C73501D4B4FBF00D66FEA /* UIButton+LKXCategoty.m in Sources */,
 				16E348521F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m in Sources */,
 				166C73471D4B4FBF00D66FEA /* CAShapeLayer+LKXCategory.m in Sources */,
 				16CEDDBE1D4AFBBE006C09CC /* LKXBaseViewController.m in Sources */,
