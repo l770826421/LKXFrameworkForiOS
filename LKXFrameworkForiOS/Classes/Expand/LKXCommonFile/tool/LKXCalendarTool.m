@@ -85,6 +85,7 @@
  @param success 是否写入成功
  */
 - (void)writeDataWithEvent:(EKEvent *)event success:(void(^)(BOOL success))success {
+    __weak __typeof(self) weakSelf = self;
     [_eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
         if (error) {
             [kMBHUDTool showHUDWithText:@"事件市场获取失败" detailText:nil delay:kMBHUDDelay];
@@ -99,10 +100,14 @@
         // 事件保存到日历
         // 创建事件
         // refresh 返回YES标识活动可用,否者标识被删除或者无效。
+        __strong __typeof(weakSelf) strongSelf = weakSelf;
+        if (weakSelf) {
+            LKXMLog(@"weakSelf 是nil.");
+        }
         
-        [event setCalendar:[_eventStore defaultCalendarForNewEvents]];
+        [event setCalendar:[strongSelf.eventStore defaultCalendarForNewEvents]];
         NSError *err;
-        [_eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+        [strongSelf.eventStore saveEvent:event span:EKSpanThisEvent error:&err];
         
         if (err) {
             LKXMLog(@"保存失败%@", err);

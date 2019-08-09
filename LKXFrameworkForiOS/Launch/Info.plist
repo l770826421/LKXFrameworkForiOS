@@ -42,6 +42,18 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>本APP需要使用日历</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>本APP需要有私密信息需要面部识别才能打开</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>本应用需要使用定位</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>fetch</string>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

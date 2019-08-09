@@ -10,7 +10,6 @@
 #import "LKXBigButton.h"
 #import "ChineseToPinyin.h"
 
-#import "MBProgressHUD.h"
 #import "MBHUDTool.h"
 
 #define kMBHUDTool [MBHUDTool sharedMBHUDTool]

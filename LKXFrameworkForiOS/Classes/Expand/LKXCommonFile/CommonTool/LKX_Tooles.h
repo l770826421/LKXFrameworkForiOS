@@ -31,15 +31,21 @@ NSString *decimalNumberWithDouble(double conversionValue);
 + (id)resetDication:(NSMutableDictionary *)srcDict;
 
 #pragma mark - 设备支持
-+(BOOL)isPhoneSupported;                                    //判断当前设备是否支持IPone
-+(BOOL)isPad;                                               //判断是设备是否IPad
-+(UIInterfaceOrientation)deviceOrientation;                   //返回当前设备的握持姿势
++ (BOOL)isPhoneSupported;                                    //判断当前设备是否支持IPone
++ (BOOL)isPad;                                               //判断是设备是否IPad
+/**
+ 获取设备的旋转方向
+ UIDeviceOrientation: 是机器硬件的当前旋转方向,只读
+ 
+ @return 设备的旋转方向
+ */
++ (UIDeviceOrientation)deviceOrientation;
 
 
 //判断当前的设备是否支持该手持姿势，IPad全支持，IPhone不允许倒立持握
-+(BOOL)isSupportedOriention:(UIInterfaceOrientation) orientation;
++ (BOOL)isSupportedOriention:(UIInterfaceOrientation) orientation;
 
 //判断旋转
-+(CGAffineTransform)rotateTransformForOrientTation:(UIInterfaceOrientation)orientation;
++ (CGAffineTransform)rotateTransformForOrientTation:(UIInterfaceOrientation)orientation;
 
 @end

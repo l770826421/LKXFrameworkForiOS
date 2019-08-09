@@ -18,6 +18,8 @@
 #import "UIImage+LKXCategory.h"
 #import "LKXStretchingHeaderViewController.h"
 
+#import "SecureArchiverDelegate.h"
+
 #import "Masonry.h"
 
 @interface LKXcardPassesViewController () <LKXAlertToolDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
@@ -25,9 +27,56 @@
     NSArray *_titles;
 }
 
+/** 输入框 */
+@property(nonatomic, strong) UITextField *tfl;
+/** 安全的状态保存工具类 */
+@property(nonatomic, strong) SecureArchiverDelegate *secureArchiverDelegate;
 @end
 
 @implementation LKXcardPassesViewController
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        return self;
+    }
+    return nil;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [UIViewController class];
+}
+
+#pragma mark - 状态保存方法
++ (nullable UIViewController *) viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+    LKXcardPassesViewController *vc = [[LKXcardPassesViewController alloc] init];
+    return vc;
+}
+
+
+/**
+ 状态保存
+ */
+- (void)encodeRestorableStateWithCoder:(NSKeyedArchiver *)coder {
+    SecureArchiverDelegate *saDelegate = [[SecureArchiverDelegate alloc] init];
+    self.secureArchiverDelegate = saDelegate;
+    [coder setDelegate:[self secureArchiverDelegate]];
+    [coder encodeObject:self.tfl.text forKey:@"lkxTfl"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+/**
+ 状态恢复
+ */
+- (void)decodeRestorableStateWithCoder:(NSKeyedUnarchiver  *)coder {
+    SecureArchiverDelegate *saDelegate = [[SecureArchiverDelegate alloc] init];
+    [self setSecureArchiverDelegate:saDelegate];
+    [coder setDelegate:self.secureArchiverDelegate];
+    self.tfl.text = [coder decodeObjectForKey:@"lkxTfl"];
+    [super decodeRestorableStateWithCoder:coder];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -37,6 +86,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.restorationIdentifier = NSStringFromClass([self class]);
+    self.restorationClass = [LKXcardPassesViewController class];
+    
+    
     _titles = @[@"title1", @"title2", @"title3", @"title4", @"cacel"];
     
     [self autolayoutScroll];
@@ -219,6 +272,16 @@
     NSDate *date = [NSDate date];
     NSDateComponents *components = [date lkx_dateInfo];
     LKXMLog(@"date info : %@", components);
+    
+    UITextField *tfl = [[UITextField alloc] init];
+    tfl.backgroundColor = [UIColor redColor];
+    [blackView addSubview:tfl];
+    [tfl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(@(-20));
+        make.top.equalTo(@20);
+        make.height.equalTo(@30);
+        make.width.equalTo(@120);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -345,19 +408,12 @@
     LKXMLog(@"--------%@", _titles[index]);
 }
 
-#pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    LKXMLog(@"--------%@", _titles[buttonIndex]);
-}
-
-
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    LKXMLog(@"--------%@", _titles[buttonIndex]);
-}
+#pragma mark - 其他
 
 - (void)pushAction:(UIButton *)btn {
     LKXWKWebViewController *vc = [[LKXWKWebViewController alloc] init];
+    vc.urlString = @"https://www.baidu.com";
+    [vc startLoadWeb];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -291,7 +291,7 @@
 {
     CATransition *animation = [CATransition animation];
     animation.duration = Duration;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     animation.type      = AmtionType;
     animation.subtype   = AmtionFrom;
     

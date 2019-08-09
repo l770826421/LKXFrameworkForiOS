@@ -52,14 +52,14 @@ MJCodingImplementation
     return self;
 }
 
-- (LKXUser * (^)())run2 {
+- (LKXUser * (^)(void))run2 {
 //    void (^runBlock)() = ^{
 //        LKXMLog(@"%s", __FUNCTION__);
 //    };
 //
 //    return runBlock;
     
-    LKXUser * (^runBlock)() = ^{
+    LKXUser * (^runBlock)(void) = ^{
         LKXMLog(@"%s", __FUNCTION__);
         
         return self;
@@ -67,7 +67,7 @@ MJCodingImplementation
     return runBlock;
 }
 
-- (LKXUser * (^)())eat2 {
+- (LKXUser * (^)(void))eat2 {
     return ^{
         LKXMLog(@"%s", __FUNCTION__);
         
@@ -89,6 +89,11 @@ MJCodingImplementation
         
         return self;
     };
+}
+
+#pragma mark - LKXUserExports
+- (nonnull NSString *)updateUser:(nonnull NSDictionary *)info { 
+    return nil;
 }
 
 @end

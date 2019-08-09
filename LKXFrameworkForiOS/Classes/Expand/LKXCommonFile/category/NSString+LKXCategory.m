@@ -413,6 +413,28 @@
 }
 
 /**
+ 转base64字符串
+ 
+ @return base64字符串
+ */
+- (NSString *)lkx_toBase64String {
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64String = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    return base64String;
+}
+
+/**
+ base64字符串转明文
+ 
+ @return 返回正常的字符串
+ */
+- (NSString *)lkx_base64StringToString {
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return string;
+}
+
+/**
  *  @author 刘克邪
  *
  *  @brief  将字符串转成NSDictionary

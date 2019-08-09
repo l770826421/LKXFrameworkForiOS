@@ -16,4 +16,11 @@
  */
 +(NSData *)lkx_imageDataWithImage:(UIImage *)image;
 
+/**
+ 转base64字符串
+
+ @return base64字符串
+ */
+- (NSString *)lkx_toBase64String;
+
 @end

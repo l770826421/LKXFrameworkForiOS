@@ -1,13 +1,13 @@
 //
-//  LKXFrameworkForiOS-Prefix.pch
+//  LKXFrameworkForiOSPrefix.pch
 //  LKXFrameworkForiOS
 //
 //  Created by lkx on 16/3/21.
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#ifndef LKXFrameworkForiOS-Prefix_pch
-#define LKXFrameworkForiOS-Prefix_pch
+#ifndef LKXFrameworkForiOSPrefix_pch
+#define LKXFrameworkForiOSPrefix_pch
 
 #ifdef __OBJC__
 
@@ -55,4 +55,4 @@ typedef NS_ENUM(NSInteger, LKXWebViewHTTPMethod) {
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 
-#endif /* LKXFrameworkForiOS-Prefix */
+#endif /* LKXFrameworkForiOSPrefix */

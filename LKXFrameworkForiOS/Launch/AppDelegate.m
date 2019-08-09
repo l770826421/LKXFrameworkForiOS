@@ -8,15 +8,26 @@
 
 #import "AppDelegate.h"
 
+#import "LKXcardPassesViewController.h"
+#import "LKXWKWebDemoViewController.h"
+#import "LKXEstimatedRowHeightViewController.h"
+
 #import "LKXTabBarController.h"
 #import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
 #import "LKXRequestManager.h"
 #import "LKXNavigationController.h"
 
+#import "NSString+LKXEncryption.h"
+
+#import "LKXKeychainTool.h"
+
 #define kRestoreApplicationStateKey @"kRestoreApplicationStateKey"
 
 @interface AppDelegate ()
+
+/** 用户进入后台的覆盖view */
+@property(nonatomic, strong) UIImageView *splash;
 
 @end
 
@@ -34,6 +45,7 @@
     [self.window makeKeyAndVisible];
     
     _tabBarController = [[LKXTabBarController alloc] init];
+    [self setTabBarControllerSubChildren];
     self.window.rootViewController = _tabBarController;
     
     [self objectForRuntime];
@@ -51,21 +63,68 @@
 //    NSArray *arr = [NSArray array];
 //    arr[0];
     
+    NSString *account = [LKXKeychainTool readKeyChainValueWithKey:@"account" error:^(OSStatus errorStatus) {
+        LKXMLog(@"读取账号失败:%d", errorStatus);
+    }];
+    
+    NSString *password = [LKXKeychainTool readKeyChainValueWithKey:@"password" error:^(OSStatus errorStatus) {
+        LKXMLog(@"读取密码失败:%d", errorStatus);
+    }];
+    
+    LKXMLog(@"账号:%@, 密码:%@", account, password);
+    
+    // 给文件添加保护等级
+    
+    NSData *textData = [@"测试测试测试" dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSString *path = FILE_PATH_OF_DOCUMENT(@"test.txt");
+    
+    // 1.写入数据时设置保护等级
+    [textData writeToFile:path
+                  options:NSDataWritingFileProtectionComplete
+                    error:&error];
+    
+    // 2.通过NSFileManager设置保护等级
+    [[NSFileManager defaultManager] setAttributes:@{NSFileProtectionComplete : NSFileProtectionKey}
+                                     ofItemAtPath:path
+                                            error:&error];
+    
+    // 3.给数据库设置保护等级
+//    sqlite3_open_v2([databasePath NSUTF8StringEncoding], &handle, SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE_SQLITE_OPEN_FILEPROTECTION_COMPLETEUNLESSOPEN, NULL);
+    
+    [self encryption];
+    
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // 这里是进入后台屏幕遮挡
+    application = [UIApplication sharedApplication];
+    
+    if (!self.splash) {
+        UIImageView *splash = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [splash setImage:[UIImage imageNamed:@"sm.jpg"]];
+        splash.userInteractionEnabled = NO;
+        splash.alpha = 0.9;
+        self.splash = splash;
+    }
+    [[application keyWindow] addSubview:self.splash];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    if (self.splash) {
+        [self.splash removeFromSuperview];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -74,6 +133,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    LKXMLog(@"APP关闭");
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -118,6 +178,28 @@
 //}
 
 #pragma mark - other
+- (void)setTabBarControllerSubChildren {
+    LKXTabBarItemModel *cardPassesItem = [[LKXTabBarItemModel alloc] init];
+    cardPassesItem.viewController = [[LKXcardPassesViewController alloc] init];
+    cardPassesItem.title = @"一卡通";
+    cardPassesItem.normalImage = [UIImage imageNamed:@"icon_home_normal"];
+    cardPassesItem.selectedImage = [UIImage imageNamed:@"icon_home_hightlight"];
+    [_tabBarController addChildViewControllerWithItem:cardPassesItem];
+    
+    LKXTabBarItemModel *wkWebItem = [[LKXTabBarItemModel alloc] init];
+    wkWebItem.viewController = [[LKXWKWebDemoViewController alloc] init];
+    wkWebItem.title = @"网页";
+    wkWebItem.normalImage = [UIImage imageNamed:@"icon_web_normal"];
+    wkWebItem.selectedImage = [UIImage imageNamed:@"icon_web_hightlight"];
+    [_tabBarController addChildViewControllerWithItem:wkWebItem];
+    
+    
+    LKXTabBarItemModel *personCenterItem = [[LKXTabBarItemModel alloc] initWithViewController:[LKXEstimatedRowHeightViewController class]
+                                                                                        title:@"个人中心"
+                                                                              normalImageName:@"icon_user_normal"
+                                                                            selectedImageName:@"icon_user_hightlight"];
+    [_tabBarController addChildViewControllerWithItem:personCenterItem];
+}
 
 /**
  runtime在字典转模型的应用
@@ -154,6 +236,7 @@
     // 在OC中什么时候会用到'()' -> 执行'block需要()'
     user.run2().eat2();
     
+
     user.run3(100).eat3(@"water").run3(1000).eat3(@"wind");
 }
 
@@ -177,6 +260,63 @@ void UncaughtExceptionHandler(NSException *exception) {
     // 获取奔溃统计的函数指针
 //    NSUncaughtExceptionHandler *handler = NSGetUncaughtExceptionHandler();
 //    LKXNLog(@"奔溃统计的函数指针: %@", handler);
+}
+
+- (void)encryption {
+    NSString *plainText = @"我是明文";
+    NSString *cipherText = nil;
+    
+    // MD5
+    cipherText = [plainText lkx_MD5Encrypt];
+    LKXMLog(@"MD5: %@", cipherText);
+    
+    // sha1
+    cipherText = [plainText lkx_SHA1Encrypt];
+    LKXMLog(@"SHA1密文: %@", cipherText);
+    
+    // sha224
+    cipherText = [plainText lkx_SHA224Encrypt];
+    LKXMLog(@"SHA224密文: %@", cipherText);
+    
+    // sha256
+    cipherText = [plainText lkx_SHA256Encrypt];
+    LKXMLog(@"SHA256密文: %@", cipherText);
+    
+    // sha384
+    cipherText = [plainText lkx_SHA384Encrypt];
+    LKXMLog(@"SHA384密文: %@", cipherText);
+    
+    // SHA512
+    cipherText = [plainText lkx_SHA512Encrypt];
+    LKXMLog(@"SHA512密文: %@", cipherText);
+    
+    // DES
+    NSString *key = @"刘克邪lkx";
+    NSString *text = nil;
+    cipherText = [plainText lkx_DESEncryptionWithEncryptOrDecryptOperation:kCCEncrypt key:key];
+    LKXMLog(@"DES密文: %@", cipherText);
+    text = [cipherText lkx_DESEncryptionWithEncryptOrDecryptOperation:kCCDecrypt key:key];
+    LKXMLog(@"DES明文: %@", text);
+    
+    LKXMLog(@"------------------------");
+    
+    // AES
+    cipherText = [plainText lkx_AES256EncryptWithKey:key];
+    LKXMLog(@"AES密文: %@", cipherText);
+    text = [cipherText lkx_AES256DecryptWithKey:key];
+    LKXMLog(@"AES明文: %@", text);
+}
+
+- (void)htmlFunc {
+    NSString *pdfFolder = [[[NSBundle mainBundle] pathForResource:@"HTML.bundle" ofType:nil] stringByAppendingPathComponent:@"html"];
+    
+    NSError *error = nil;
+    NSArray *dirArr = [kFileManager contentsOfDirectoryAtPath:pdfFolder error:&error];
+    NSMutableArray *files = [NSMutableArray arrayWithCapacity:3];
+    for (NSString *filename in dirArr) {
+        [files addObject:[pdfFolder stringByAppendingPathComponent:filename]];
+    }
+    LKXMLog(@"%@", files);
 }
 
 @end

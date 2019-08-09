@@ -28,4 +28,15 @@
     return data;
 }
 
+/**
+ 转base64字符串
+ 
+ @return base64字符串
+ */
+- (NSString *)lkx_toBase64String {
+    NSData *base64Data = [self base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    NSString *base64String = [[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding];
+    return base64String;
+}
+
 @end

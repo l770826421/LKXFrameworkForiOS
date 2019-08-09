@@ -1,0 +1,562 @@
+<div class="outer-tab-wrap">
+    <div class="tab-btm">
+        <ul class="nav nav-tabs bar_tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#tab_content1" role="tab" data-toggle="tab" aria-expanded="true" data-type="documentManager">Document
+                    Manager</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1">
+                    <div id="divContent" class="x_panel">
+                        {content}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sitemap-management-wrap documentshow">
+    <input type="button" class="btn" id="btnAdd" value="Add New"/>
+</div>
+</div>
+<script id="listCategory" type="MyTemplate">
+    <div class="x_title">
+        <h2>Document List</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <span>
+            Category:
+        </span>
+        <select id="listSelectCategory" name="category">
+            <% for(var i=0; i < result.length; i++) { %>
+            <option value="<%= result[i].ID%>"
+            <% if(Category == result[i].ID){ %>
+            selected
+            <% } %>><%= result[i].TC %></option>
+            <% } %>
+        </select>
+        <button id="btnGo">GO</button>
+        <div class="table-responsive" id="divListContent">
+            <table class="table table-striped jambo_table bulk_action dataTable">
+                <thead>
+                <tr>
+                    <th class="sorting" data-sort-column="ID" style="width:30px;">ID</th>
+                    <th class="sorting" data-sort-column="Title">Title</th>
+                    <!--<th class="sorting" data-sort-column="SeqNo">SeqNo</th>-->
+                    <th class="sorting" data-sort-column="Status" style="width:100px;">Status</th>
+                    <th style="width: 150px;"></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</script>
+<script id="listContent" type="MyTemplate">
+    <table class="table table-striped jambo_table bulk_action dataTable">
+        <thead>
+        <tr>
+            <th class="sorting" data-sort-column="DocumentID" style="width:30px;">ID</th>
+            <th class="sorting" data-sort-column="TitleTC">Title</th>
+            <!--<th class="sorting" data-sort-column="SeqNo" style="width:30px;">SeqNo</th>-->
+            <th class="sorting" data-sort-column="Status" style="width:100px;">Status</th>
+            <th style="width: 150px;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i < result.length; i++) { %>
+        <tr>
+            <td><%= result[i].ID %></td>
+            <td><%= result[i].title_tc %></td>
+            <!--<td><%= result[i].SeqNo %></td>-->
+            <td><input type="checkbox" value="1" autocomplete="off"
+                <% if(result[i].Status == 1){ %>
+                checked="checked"
+                <% } %>
+                disabled="disabled"/>
+            </td>
+            <td>
+                <div class="btn-group-sm">
+                    <% if (result[i].HasRightEdit) { %>
+                    <a href="#" class="btn btnEdit" data-value="<%= result[i].ID %>">Edit</a>
+                    <% } %>
+                    <% if (result[i].HasRightDelete) { %>
+                    <a href="#" class="btn btnDelete" data-value="<%= result[i].ID %>">Delete</a>
+                    <% } %>
+                </div>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <div class="courseListPaging pagingWrap clearfix"></div>
+</script>
+<script id="editContent" type="MyTemplate">
+    <div class="x_title">
+        <h2>Add/Edit Document</h2>
+        <div class="clearfix"></div>
+    </div>
+    <form id="formEdit" action="actionhistory/updateDocument.ap1" class="form-horizontal form-label-left"
+          method="post">
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">ID:</label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <input name="id" class="form-control readonly"
+                       value="<%= result.ID %>" autocomplete="off" readonly unselectable="on"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Workflow:</label>
+            <div class="col-md-8 col-sm-12 col-xs-12 width300">
+                <div class="select_wrapper">
+                    <select name="workflowid" class="mandatory">
+                        <option value="" disabled
+                        <% if (result.workflow==null) {%> selected<% } %>>Please Select</option>
+                        <% for(var i=0; i< result.workflow.length; i++) {%>
+                        <% if (result.workflow[i].HasRight || result.workflow[i].WorkflowID==result.WorkflowID) { %>
+                        <option value="<%= result.workflow[i].WorkflowID %>"
+                        <% if (result.workflow[i].WorkflowID==result.WorkflowID) {%> selected<% } %>><%=
+                        result.workflow[i].Name %></option>
+                        <% } %>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Agency:<span
+                    class="remarks">*</span>
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                <label class="noraml">
+                    <input type="checkbox" name="all_bank" value="0"/>
+                    &nbsp;All</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% for(var i=0; i < result.AgencyCategories.length; i++){ %>
+
+                <% for(var j=0; j < result.AgencyCategories[i].Agencies.length; j++){%>
+                <label class="noraml">
+                    <input type="checkbox" name="agency[]"
+                           value="<%= result.AgencyCategories[i].Agencies[j].AgencyID %>"
+                    <% if(result.AgencyCategories[i].Agencies[j].Checked) { %>
+                    checked
+                    <% } %>
+                    />&nbsp;<%= result.AgencyCategories[i].Agencies[j].TC %></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Title(EN):
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <input name="title_en" class="form-control"
+                       value="<%= result.title_en %>" autocomplete="off"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Title(TC):<span
+                    class="remarks">*</span>
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <input name="title_tc" class="form-control mandatory"
+                       value="<%= result.title_tc %>" autocomplete="off"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Title(SC):
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <input name="title_sc" class="form-control"
+                       value="<%= result.title_sc %>" autocomplete="off"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Category:<span
+                    class="remarks">*</span>
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <div class="select_wrapper">
+                    <select name="category" class="mandatory">
+                        <% for(var i=0; i < result.DocCategories.length; i++){ %>
+                        <option value="<%=result.DocCategories[i].ID%>"
+                        <% if(result.Category == result.DocCategories[i].ID) {%>
+                        selected
+                        <% } %>
+                        ><%=result.DocCategories[i].TC%>
+                        </option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Documents: %><span
+                    class="remarks">*</span>
+            </label>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 noPadding">
+                <% if (result.documents_name) { %>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <a href="<%= result.documents %>" target="_blank"><%= result.documents_name %></a>
+                </div>
+                <% } %>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="file-wrapper">
+                        <div class="text">
+                            <% if(result.documents_name){ %>
+                            Please select file for update...
+                            <% } else {%>
+                            Please select file...
+                            <% } %>
+                        </div>
+                        <input name="documents_file" class="necessary" type="file"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="display: none">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">SeqNo:
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <input name="seqno" type="number" class="form-control" value="<%= result.SeqNo %>"
+                       autocomplete="off"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Status:<span
+                    class="remarks">*</span>
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <label class="noraml"><input type="radio" name="status" id="sitemapRightsAll" value="1"
+                    <% if(result.Status == 1 || null == result.Status){ %>
+                    checked
+                    <% } %>
+                    > &nbsp;Active</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="noraml"><input type="radio" name="status" id="sitemapRightsLast" value="0"
+                    <% if(result.Status == 0){ %>
+                    checked
+                    <% } %>
+                    >&nbsp;Deactivate</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Created by:</label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <label class="form-control readonly"><%= result.CreateBy %></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Date of creation:</label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <label class="form-control has-feedback-left readonly"><%= result.CreateDate %></label>
+                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Last updated by:</label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <label class="form-control readonly"><%= result.UpdateBy %></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-12">Last updated date:</label>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 width300">
+                <label class="form-control has-feedback-left readonly"><%= result.UpdateDate %></label>
+                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+            </div>
+        </div>
+        <input name="siteid" type="hidden" value="<%= siteID %>">
+        <div class="clearfix"></div>
+        <div class="sitemap-management-wrap DocumentEdit">
+            <input name="action" type="hidden">
+            <input id="btnSave" type="submit" class="btn" value="Save as Draft"/>
+            <input id="btnCancel" type="button" class="btn" value="Cancel"/>
+        </div>
+        <div id="workflowTask">
+        </div>
+    </form>
+</script>
+<script src="js/wcms.js"></script>
+<script>
+    (function () {
+        var f = function () {
+            zmsCore.bindInit('document', {
+                divContent: document.getElementById('divContent'),
+                siteID: null,
+                listCurrentPage: 1,
+                listSortColumn: 'TitleTC',
+                listSortAsc: true,
+                _this: null,
+                selectedID: null,
+                selectedIDCategory: null,
+                addWrapper: document.querySelector('#maincontent .sitemap-management-wrap'),
+                init: function () {
+                    _this = this;
+
+                    zmsCore.setTitle('Document Manager');
+                    _this.siteID = zmsCore.getCurrentSite().siteID;
+                    var hashObj = {id: null, c: null};
+                    zmsCore.getHashObject(hashObj);
+                    if (hashObj.id != null) {
+                        this.selectedID = hashObj.id;
+                        _this.getEdit();
+                    } else
+                        _this.getCategoryList();
+                },
+                getCategoryList: function () {
+                    var formData = {};
+                    formData["live"] = 'live';
+
+                    zmsCore.getData('actionhistory/listDocCategory.ap1', formData, function (result) {
+                        result.Category = _this.selectedIDCategory;
+                        _this.showCategoryList(result);
+                    });
+                },
+                showCategoryList: function (result) {
+                    var listCategory = document.getElementById('listCategory');
+                    if (result && result.result && listCategory) {
+
+                        /* Display the list page HTML */
+                        _this.divContent.innerHTML = ejs.render(listCategory.innerText, result);
+
+                        this.addWrapper.style.display = '';
+
+                        _this.selectedIDCategory = document.querySelector('#listSelectCategory').value;
+                        //添加按钮
+                        document.querySelector('#btnAdd').addEventListener('click', function (e) {
+                            e.preventDefault();
+                            _this.selectedID = null;
+                            _this.getEdit();
+                        });
+
+                        document.querySelector('#btnGo').addEventListener('click', function (evt) {
+                            evt.preventDefault();
+                            _this.selectedIDCategory = document.querySelector('#listSelectCategory').value;
+                            _this.listCurrentPage = 1;
+                            _this.getContentList();
+                        });
+                        _this.getContentList();
+                    }
+                },
+                showContentList: function (result) {
+                    var documentList = document.getElementById('listContent');
+                    var divDocList = document.getElementById('divListContent');
+                    if (result && result.result && documentList) {
+                        var listTemplate = documentList.innerText;
+
+                        /* Display the list page HTML */
+                        divDocList.innerHTML = ejs.render(listTemplate, result);
+                        divDocList.querySelector('th[data-sort-column="' + _this.listSortColumn + '"]').className = _this.listSortAsc ? 'sorting_asc' : 'sorting_desc';
+                        this.addWrapper.style.display = '';
+
+                        /* Bind list page sorting event */
+                        [].forEach.call(_this.divContent.querySelectorAll('.sorting, .sorting_asc, .sorting_desc'), function (elem) {
+                            elem.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                if (_this.listSortColumn == this.getAttribute('data-sort-column'))
+                                    _this.listSortAsc = !_this.listSortAsc;
+                                else
+                                    _this.listSortAsc = true;
+                                _this.listSortColumn = this.getAttribute('data-sort-column');
+                                _this.getContentList();
+                            });
+                        });
+
+                        //编辑按钮
+                        [].forEach.call(_this.divContent.querySelectorAll('.btnEdit'), function (elem) {
+                            elem.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                _this.selectedID = elem.getAttribute('data-value');
+                                _this.getEdit();
+                            });
+                        });
+
+                        //删除按钮
+                        [].forEach.call(this.divContent.querySelectorAll('.btnDelete'), function (elem) {
+                            elem.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                if (confirm('Confirm to delete?')) {
+                                    var formData = {};
+                                    formData["id"] = elem.getAttribute('data-value');
+                                    zmsCore.getData('actionhistory/deleteDocument.ap1', formData, function (result) {
+                                        if (result.result) {
+                                            zmsCore.alert('deleted');
+                                            _this.getContentList();
+                                        } else {
+                                            zmsCore.alert('delete failure');
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    }
+                    /* Generate paging */
+                    zmsCore.generatePaging(document.querySelectorAll('.courseListPaging'), result.totalPage, result.currentPage, function (index) {
+                        _this.listCurrentPage = index;
+                        _this.getContentList();
+                    });
+                },
+
+                getEdit: function () {
+                    var formData = {};
+                    formData['id'] = this.selectedID;
+                    formData['siteid'] = _this.siteID;//新闻ID
+                    zmsCore.getData('actionhistory/getDocument.ap1', formData, function (result) {
+                        result.siteID = _this.siteID;
+                        _this.showEdit(result);
+                    });
+                },
+
+                showEdit: function (result) {
+                    var edit = document.getElementById('editContent');
+                    _this.divContent.innerHTML = '';
+                    _this.divContent.innerHTML = ejs.render(edit.innerText, result);
+                    this.addWrapper.style.display = 'none';
+                    /*文件管理*/
+                    /*
+                    var fileUrl = '';
+                    var hash = [];
+                    hash.push('siteid=' + this.siteID);
+                    hash.push('charsetcode=' + zmsCore.getCharset());
+                    hash.push('select=true');
+                    fileUrl = 'filemanager.html#' + hash.join('&');
+                    var forEdit = document.getElementById('formEdit');
+                    var attribute = '';
+                    [].forEach.call(forEdit.querySelectorAll('a.file'), function (e) {
+                        e.setAttribute('data-src', fileUrl);
+                        e.addEventListener('click', function (ele) {
+                            ele.preventDefault();
+                            attribute = e.getAttribute('id');
+                        })
+                    });
+                    zmsCore.bindFancyboxEvent(function (name, elem, data) {
+                        if (name == 'internalurl') {
+                            // forEdit.querySelector('.file').value = data.path;
+
+                        } else if (name == 'filemanager') {
+                            forEdit.querySelector('input[name="' + attribute + '"]').value = data.file;
+                        }
+                    });
+                    */
+                    //上傳文件
+                    zmsCore.initFileUpload(_this.divContent.querySelectorAll('.file-wrapper'));
+                    //workflow
+                    zmsCore.generateWorkflowTask(result.ManagerID, result.result.ID, zmsCore.getCharset(), '', result.WorkflowTask, _this.divContent.querySelector('#workflowTask'), function () {
+                        _this.getEdit();
+                    });
+                    //取消按钮
+                    document.getElementById('btnCancel').addEventListener('click', function (e) {
+                        e.preventDefault();
+                        _this.getCategoryList();
+                    });
+                    var flag = true;
+                    for (var i = 0; i < document.querySelectorAll('input[name="agency[]"]').length; i++) {
+                        if (document.querySelectorAll('input[name="agency[]"]')[i].checked == false) {
+                            flag = false;
+                            break;
+                        }
+                    }
+
+                    if (flag) {
+                        document.querySelector('input[name="all_bank"]').checked = true;
+                    }
+
+                    //全选或者全不选
+                    document.querySelector('input[name="all_bank"]').addEventListener('click', function () {
+                        if (this.checked) {
+                            for (var i = 0; i < document.querySelectorAll('input[name="agency[]"]').length; i++) {
+                                document.querySelectorAll('input[name="agency[]"]')[i].checked = true;
+                            }
+                        } else {
+                            for (var i = 0; i < document.querySelectorAll('input[name="agency[]"]').length; i++) {
+                                document.querySelectorAll('input[name="agency[]"]')[i].checked = false;
+                            }
+                        }
+                    });
+                    //选择单个的全选和不选择单个的全选
+                    for (var i = 0; i < document.querySelectorAll('input[name="agency[]"]').length; i++) {
+                        document.querySelectorAll('input[name="agency[]"]')[i].addEventListener('click', function () {
+                            var s = 0;
+                            if (!this.checked) {
+                                document.querySelector('input[name="all_bank"]').checked = false;
+                            } else {
+                                for (var i = 0; i < document.querySelectorAll('input[name="agency[]"]').length; i++) {
+                                    if (document.querySelectorAll('input[name="agency[]"]')[i].checked) {
+                                        s++;
+                                    }
+                                }
+
+                                if (s == document.querySelectorAll('input[name="agency[]"]').length) {
+                                    document.querySelector('input[name="all_bank"]').checked = true;
+                                }
+                            }
+                        })
+                    }
+                    //提交按钮
+                    /*绑定编辑提交点击事件*/
+                    _this.divContent.querySelector('#formEdit').addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        var cal = 0;
+                        $('input[name="agency[]"]').each(function () {
+                            if ($(this).is(":checked")) {
+                                cal = parseInt(cal + 1);
+                            }
+                        });
+
+                        if (cal == 0) {
+                            zmsCore.alert('Choose at least one Agency');
+                            return false;
+                        }
+                        if (zmsCore.validate(this)) {
+                            zmsCore.postForm(this, function (result) {
+                                if (result.result) {
+                                    if (result.ID) {
+                                        _this.selectedID = result.ID;
+                                        _this.getEdit();
+                                    } else {
+                                        _this.getCategoryList();
+                                    }
+                                    zmsCore.alert(' updated.');
+                                } else {
+                                    if (result.reason = 'duplicate')
+                                        zmsCore.alert('Save fail: Duplicated Title(EN) / Title(TC) / Title(SC).');
+                                    else
+                                        zmsCore.alert(' update failure.');
+                                }
+                            });
+                        }
+                    });
+
+                },
+
+                getContentList: function () {
+                    var formData = {};
+                    formData["category"] = _this.selectedIDCategory;
+                    formData["siteid"] = this.siteID;
+                    formData["page"] = this.listCurrentPage;
+                    formData["sort"] = this.listSortColumn;
+                    formData["asc"] = this.listSortAsc;
+
+                    zmsCore.getData('actionhistory/listDocument.ap1', formData, function (result) {
+                        _this.showContentList(result);
+                    });
+                }
+            });
+            zmsCore.init('document', 'main');
+        };
+        if (window.zmsCore) {
+            f();
+            f = function () {
+            };
+        }
+        window.addEventListener('load', function () {
+            f();
+            f = function () {
+            };
+        });
+    })();
+</script>

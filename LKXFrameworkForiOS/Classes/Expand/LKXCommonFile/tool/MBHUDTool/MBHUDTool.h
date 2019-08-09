@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "SingletonMacro.h"
+
 #import "MBProgressHUD.h"
 
 UIKIT_EXTERN const CGFloat kMBHUDDelay;

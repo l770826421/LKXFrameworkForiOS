@@ -147,6 +147,20 @@
 - (NSString *)lkx_UTF8;
 
 /**
+ 转base64字符串
+
+ @return base64字符串
+ */
+- (NSString *)lkx_toBase64String;
+
+/**
+ base64字符串转明文
+
+ @return 返回正常的字符串
+ */
+- (NSString *)lkx_base64StringToString;
+
+/**
  *  @author 刘克邪
  *
  *  @brief  将字符串转成NSDictionary

@@ -8,8 +8,8 @@
 
 #import "LKXTabBarButton.h"
 
-#define kImageHeight 23
-#define kSpace 4
+#define kImageWidthAndHeight 25.0f
+#define kSpace 2.0f
 
 @implementation LKXTabBarButton
 
@@ -30,8 +30,8 @@
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    CGFloat imageW = 28;
-    CGFloat imageH = kImageHeight;
+    CGFloat imageW = kImageWidthAndHeight;
+    CGFloat imageH = kImageWidthAndHeight;
     CGFloat imageX = (contentRect.size.width - imageW) / 2;
     CGFloat imageY = kSpace;
     return CGRectMake(imageX, imageY, imageW, imageH);
@@ -39,9 +39,9 @@
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
     CGFloat titleW = self.lkx_width;
-    CGFloat titleH = 30;
+    CGFloat titleH = self.lkx_height - (kImageWidthAndHeight + kSpace * 3);
     CGFloat titleX = 0;
-    CGFloat titleY = self.lkx_height - titleH + kSpace;
+    CGFloat titleY = self.lkx_height - (titleH + kSpace);
     return CGRectMake(titleX, titleY, titleW, titleH);
 }
 

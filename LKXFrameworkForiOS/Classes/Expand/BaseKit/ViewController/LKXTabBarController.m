@@ -10,11 +10,6 @@
 
 #import "LKXNavigationController.h"
 
-#import "LKXBaseViewController.h"
-#import "LKXcardPassesViewController.h"
-#import "LKXWKWebDemoViewController.h"
-#import "LKXEstimatedRowHeightViewController.h"
-
 #import "LKXTabBar.h"
 
 /*********** UITabBar ***************/
@@ -56,7 +51,6 @@
     [super viewDidLoad];
     
     [self initTabBar];
-    [self setupChildVCs];
 }
 
 - (void)initTabBar {
@@ -68,34 +62,19 @@
     self.tabBarView = tabBar;
 }
 
-- (void)setupChildVCs {
-    LKXcardPassesViewController *cardPassesVC = [[LKXcardPassesViewController alloc] init];
-    [self addChildVC:cardPassesVC
-        andItemTitle:@"一卡通"
-         normalImage:@"icon_home_normal"
-       selectedImage:@"icon_home_hightlight"];
+/**
+ 添加子视图
+ 
+ @param item 子视图模型
+ */
+- (void)addChildViewControllerWithItem:(LKXTabBarItemModel *)item {
+    item.viewController.tabBarItem.title = item.title;
+    item.viewController.tabBarItem.image = item.normalImage;
+    item.viewController.tabBarItem.selectedImage = item.selectedImage;
     
-    LKXWKWebDemoViewController *eportVC = [[LKXWKWebDemoViewController alloc] init];
-    [self addChildVC:eportVC
-        andItemTitle:@"集港计划"
-         normalImage:@"icon_order_normal"
-       selectedImage:@"icon_order_hightlight"];
+    [self.tabBarView addTabBarButton:item.viewController.tabBarItem];
     
-    LKXEstimatedRowHeightViewController *peopleCenterVC = [[LKXEstimatedRowHeightViewController alloc] init];
-    [self addChildVC:peopleCenterVC
-        andItemTitle:@"个人中心"
-         normalImage:@"icon_user_normal"
-       selectedImage:@"icon_user_hightlight"];
-}
-
-- (void)addChildVC:(UIViewController *)vc andItemTitle:(NSString *)title normalImage:(NSString *)normalImage selectedImage:(NSString *)selectedImage {
-    vc.tabBarItem.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:normalImage];
-    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
-    
-    [self.tabBarView addTabBarButton:vc.tabBarItem];
-    
-    LKXNavigationController *navigationCtl = [[LKXNavigationController alloc] initWithRootViewController:vc];
+    LKXNavigationController *navigationCtl = [[LKXNavigationController alloc] initWithRootViewController:item.viewController];
     [self addChildViewController:navigationCtl];
 }
 

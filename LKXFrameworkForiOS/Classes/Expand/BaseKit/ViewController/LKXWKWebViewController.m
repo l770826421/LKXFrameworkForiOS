@@ -29,8 +29,8 @@
     return self;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     NSURLCache *cache = [NSURLCache sharedURLCache];
     [cache removeAllCachedResponses];
     [cache setDiskCapacity:0];
@@ -153,11 +153,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"estimatedProgress"] && object == self.webView) {
         LKXMLog(@"webView加载进度:%f", self.webView.estimatedProgress);
-        self.webProgressView.hidden = NO;
-        self.webProgressView.progress = self.webView.estimatedProgress;
-        if (self.webView.estimatedProgress >= 1.0f) {
-            self.webProgressView.hidden = YES;
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.webProgressView.hidden = NO;
+            self.webProgressView.progress = self.webView.estimatedProgress;
+            if (self.webView.estimatedProgress >= 1.0f) {
+                self.webProgressView.hidden = YES;
+            }
+        });
     }
 }
 

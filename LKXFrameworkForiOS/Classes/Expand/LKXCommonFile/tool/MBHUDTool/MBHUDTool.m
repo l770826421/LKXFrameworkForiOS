@@ -26,9 +26,13 @@ single_implementation(MBHUDTool)
 //创建MBProgressHUD实例
 - (void)implementMBHUD
 {
-    _mbHud = [MBProgressHUD showHUDAddedTo:[kAppDelegate window] animated:YES];
-    _mbHud.opaque = YES;
-    _mbHud.delegate = self;
+    if (_mbHud) {
+        [_mbHud hideAnimated:NO];
+    } else {
+        _mbHud = [MBProgressHUD showHUDAddedTo:[kAppDelegate window] animated:YES];
+        _mbHud.opaque = YES;
+        _mbHud.delegate = self;
+    }
 }
 
 

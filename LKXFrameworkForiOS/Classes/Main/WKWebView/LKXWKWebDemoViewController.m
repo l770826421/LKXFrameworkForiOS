@@ -8,6 +8,8 @@
 
 #import "LKXWKWebDemoViewController.h"
 
+#import "LKXUser.h"
+
 @interface LKXWKWebDemoViewController ()
 
 @end
@@ -20,6 +22,19 @@
     self.urlString = @"https://www.baidu.com";
     self.autoRedirect = YES;
     [self startLoadWeb];
+    
+    JSContext *context = [[JSContext alloc] init];
+    LKXUser *user = [[LKXUser alloc] init];
+    // 暴露属性
+    [user setAddress:@"泰和"];
+    // 非暴露属性
+    user.name = @"lkx";
+    context[@"user"] = user;
+    
+    JSValue *nameVal = [context evaluateScript:@"user.name"];
+    JSValue *addressVal = [context evaluateScript:@"user.address"];
+    LKXMLog(@"name: %@", nameVal);
+    LKXMLog(@"address: %@", addressVal);
 }
 
 - (void)didReceiveMemoryWarning {

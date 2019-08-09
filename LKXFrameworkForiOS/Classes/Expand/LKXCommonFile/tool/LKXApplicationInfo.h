@@ -59,6 +59,9 @@
 /** 地方型号(国际化区域名称) */
 @property (nonatomic, copy, readonly) NSString *localPhoneModel;
 
+/** bundle ID */
+@property (nonatomic, copy, readonly) NSString *bundleID;
+
 #pragma mark - other
 /**
  检测是否是最新版本,如果是则提示去商城更新

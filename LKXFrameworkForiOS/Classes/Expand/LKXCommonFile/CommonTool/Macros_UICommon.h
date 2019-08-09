@@ -124,6 +124,13 @@
 #define LKXNLog(__format, ... ) if(LKXLogState) NSLog( @"%@",[NSString stringWithFormat:(__format), ##__VA_ARGS__])
 
 
+#ifdef DEBUG
+#   define NSLog(...) NSLog(__VA_ARGS__);
+#else
+#   define NSLog(...);
+#endif
+
+
 
 #pragma mark - 字体相关
 // 字体格式选择

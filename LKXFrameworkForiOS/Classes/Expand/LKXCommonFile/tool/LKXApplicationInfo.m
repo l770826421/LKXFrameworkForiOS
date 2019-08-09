@@ -253,9 +253,13 @@
     return appcurrentVersionNumber;
 }
 
+- (NSString *)bundleID {
+    return [self.appInfoDic objectForKey:@"CFBundleIdentifier"];
+}
+
 - (NSString *)description {
     
-    return [NSString stringWithFormat:@"<%@:%p>,\n app名称 = %@,\n app版本 = %@,\n app build版本 = %@,\n 当前应用名称 = %@,\n 当前应用软件版本,比如1.4.0 = %@,\n 当前应用版本号码 = %@,\n app 手机序列号 = %@,\n 手机别名,用户定义的名称 = %@,\n 设备名称 = %@,\n 手机系统版本 = %@,\n 手机型号 = %@,\n 地方型号(国际化区域名称) = %@", NSStringFromClass([self class]), self, self.appName, self.appVersion, self.appBulid, self.appCurrentName, self.appCurrentVersionNumber, self.appCurrentVersionNumber, self.identfierNumber, self.userPhoneName, self.deviceName, self.phoneVersion, self.phoneModel, self.localPhoneModel];
+    return [NSString stringWithFormat:@"<%@:%p>,\n app名称 = %@,\n app版本 = %@,\n app build版本 = %@,\n 当前应用名称 = %@,\n 当前应用软件版本,比如1.4.0 = %@,\n 当前应用版本号码 = %@,\n app 手机序列号 = %@,\n 手机别名,用户定义的名称 = %@,\n 设备名称 = %@,\n 手机系统版本 = %@,\n 手机型号 = %@,\n 地方型号(国际化区域名称) = %@,\n bundle ID = %@\n", NSStringFromClass([self class]), self, self.appName, self.appVersion, self.appBulid, self.appCurrentName, self.appCurrentVersionNumber, self.appCurrentVersionNumber, self.identfierNumber, self.userPhoneName, self.deviceName, self.phoneVersion, self.phoneModel, self.localPhoneModel, self.bundleID];
 }
 
 #pragma mark - other

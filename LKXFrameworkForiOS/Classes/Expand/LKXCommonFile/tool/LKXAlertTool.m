@@ -8,12 +8,9 @@
 
 #import "LKXAlertTool.h"
 
-@interface LKXAlertTool () <UIAlertViewDelegate, UIActionSheetDelegate>
+@interface LKXAlertTool ()
 {
     UIAlertController *_alertController;
-#pragma clang diagostic ignored"-Wdeprecated-declarations"
-    UIAlertView *_alertView;
-    UIActionSheet *_actionSheet;
 }
 
 @end
@@ -32,20 +29,9 @@
 - (void)setStyle:(LKXAlertStyle)style {
     _style = style;
     if (style == LKXAlertStyleAlert) {
-        if (Dev_IOSVersion < 8.0) {
-//            #pragma clang diagostic ignored"-Wdeprecated-declarations"
-            _alertView = [[UIAlertView alloc] init];
-        } else {
-            _alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
-        }
-        
+        _alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
     } else {
-        if (Dev_IOSVersion < 8.0) {
-//#pragma clang diagostic ignored"-Wdeprecated-declarations"
-            _actionSheet = [[UIActionSheet alloc] init];
-        } else {
-            _alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        }
+        _alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     }
 }
 
@@ -58,40 +44,7 @@
         self.style = UIAlertControllerStyleAlert;
     }
     
-    if (_style == LKXAlertStyleAlert) {
-        if (Dev_IOSVersion < 8.0) {
-            _alertView.title = _title;
-            _alertView.message = _message;
-            _alertView.delegate = self;
-            for (NSString *title in _titles) {
-//                NSAssert([title isKindOfClass:[NSString class]], @"titles的必须是由字符串组成的数组");
-                if (!title || title.length == 0) {
-                    continue;
-                }
-                [_alertView addButtonWithTitle:title];
-            }
-            _alertView.cancelButtonIndex = _titles.count - 1;
-            [_alertView show];
-        } else {
-            [self alertControllerShow];
-        }
-    } else {
-        if (Dev_IOSVersion < 8.0) {
-            _actionSheet.title = _title;
-            _actionSheet.delegate = self;
-            for (NSString *title in _titles) {
-//                NSAssert([title isKindOfClass:[NSString class]], @"titles的必须是由字符串组成的数组");
-                if (!title || title.length == 0) {
-                    continue;
-                }
-                [_actionSheet addButtonWithTitle:title];
-            }
-            _actionSheet.cancelButtonIndex = _titles.count - 1;
-            [_actionSheet showInView:[UIApplication sharedApplication].keyWindow];
-        } else  {
-            [self alertControllerShow];
-        }
-    }
+    [self alertControllerShow];
 }
 
 - (void)alertControllerShow {
@@ -115,20 +68,6 @@
     }
     
     [_showViewController presentViewController:_alertController animated:YES completion:nil];
-}
-
-#pragma mark - UIAlertViewDelegate 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
-        [self.delegate alertTool:self didSelectedIndex:buttonIndex];
-    }
-}
-
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
-        [self.delegate alertTool:self didSelectedIndex:buttonIndex];
-    }
 }
 
 @end

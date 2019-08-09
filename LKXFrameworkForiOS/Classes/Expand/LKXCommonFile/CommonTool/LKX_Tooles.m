@@ -125,7 +125,12 @@ NSString *decimalNumberWithDouble(double conversionValue){
 #endif
 }
 
-//返回当前设备的握持姿势
+/**
+ 获取设备的旋转方向
+ UIDeviceOrientation: 是机器硬件的当前旋转方向,只读
+
+ @return 设备的旋转方向
+ */
 + (UIDeviceOrientation)deviceOrientation
 {
     UIDeviceOrientation orient = [UIDevice currentDevice].orientation;

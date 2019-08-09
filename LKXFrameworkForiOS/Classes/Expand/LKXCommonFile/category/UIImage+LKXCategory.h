@@ -107,12 +107,4 @@
                   fillColor:(UIColor *)fillColor
                  completion:(void (^)(UIImage *image))completion;
 
-/**
- 获取gif图片
- 
- @param name gif图片名称
- @return gif图片
- */
-+ (UIImage *)gifImageWithName:(NSString *)name;
-
 @end

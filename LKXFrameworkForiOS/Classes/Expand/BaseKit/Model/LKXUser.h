@@ -10,7 +10,9 @@
 
 #import "MJExtension.h"
 
-@interface LKXUser : NSObject <MJCoding>
+#import "LKXUserExports.h"
+
+@interface LKXUser : NSObject <MJCoding, LKXUserExports>
 
 /**
  异步初始化LKXUser
@@ -20,6 +22,11 @@
  */
 + (void)loadUserWithDictionary:(NSDictionary *)dic completion:(void (^)(LKXUser *user))completion;
 
+// 暴露的变量
+@property NSString *address;
+
+
+// 非暴露的变量
 /** 姓名 */
 @property(nonatomic, copy) NSString *name;
 /** 年龄 */
@@ -33,8 +40,8 @@
 - (instancetype)run1;
 - (instancetype)eat1;
 
-- (LKXUser * (^)())run2;
-- (LKXUser * (^)())eat2;
+- (LKXUser * (^)(void))run2;
+- (LKXUser * (^)(void))eat2;
 
 - (LKXUser * (^)(double distance))run3;
 - (LKXUser * (^)(NSString *food))eat3;
