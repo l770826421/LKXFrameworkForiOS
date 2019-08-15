@@ -68,7 +68,7 @@
 }
 
 /**
- 状态恢复
+ 状态恢复 
  */
 - (void)decodeRestorableStateWithCoder:(NSKeyedUnarchiver  *)coder {
     SecureArchiverDelegate *saDelegate = [[SecureArchiverDelegate alloc] init];
