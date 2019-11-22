@@ -9,6 +9,7 @@
 #import "LKXWKWebDemoViewController.h"
 
 #import "LKXUser.h"
+#import "LKXUserExports.h"
 
 @interface LKXWKWebDemoViewController ()
 

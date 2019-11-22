@@ -17,6 +17,17 @@
 #import "UINavigationController+LKXCategory.h"
 
 /************** AFNetworking **************/
+// 线上线下两个URL切换
+#define isOnLine 0
+#if isOnLine
+    #define kAPPBaseUrl @"http://magicers1992.6655.la:30974/yikatong/cardPass.php"
+#else
+    #define kAPPBaseUrl @"http://60.29.211.84:8018/yikatong/cardPass.php"
+#endif
+
+// AFNetworking json返回成功的结果标识key
+#define kAFNetworkingForSuccessKey @"status"
+
 #ifndef TARGET_OS_IOS
 
 #define TARGET_OS_IOS TARGET_OS_IPHONE

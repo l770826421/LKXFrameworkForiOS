@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "MJExtension.h"
-
 #import "LKXUserExports.h"
 
-@interface LKXUser : NSObject <MJCoding, LKXUserExports>
+@interface LKXUser : NSObject <MJCoding, NSCopying, LKXUserExports>
 
 /**
  异步初始化LKXUser
@@ -22,17 +21,18 @@
  */
 + (void)loadUserWithDictionary:(NSDictionary *)dic completion:(void (^)(LKXUser *user))completion;
 
-// 暴露的变量
-@property NSString *address;
-
-
-// 非暴露的变量
 /** 姓名 */
 @property(nonatomic, copy) NSString *name;
 /** 年龄 */
 @property(nonatomic, assign) NSUInteger age;
 /** 身高 */
 @property(nonatomic, assign) NSUInteger hight;
+
+/** 昵称 */
+@property(nonatomic, copy) NSString *nickname;
+
+/** synchronized测试 */
+@property(nonatomic, copy) NSString *sync;
 
 - (void)run;
 - (void)eat;

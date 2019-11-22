@@ -20,6 +20,7 @@
 
 @end
 
+/// AFNetWorking封装
 @implementation AFNetWorkingTool
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
@@ -175,7 +176,9 @@
                         failure:(AFNetWorkingToolFailureBlock)failure {
     
     if (show) {
-        [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
+        });
     }
     [self.sessionManager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         if (progress) {
@@ -273,7 +276,9 @@
                 dataSuccess:(AFNetWorkingToolDataSuccessBlock)dataSuccess
                    failure:(AFNetWorkingToolFailureBlock)failure {
     if (show) {
-        [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
+        });
     }
     
     [self.sessionManager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -286,6 +291,100 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
     }];
+}
+
+#pragma mark - 下载文件
+
+/// 下载文件
+/// @param urlString 下载链接
+/// @param HTTPMethod 请求方式
+/// @param show 是否显示小菊花
+/// @param parameters 请求参数
+/// @param progress 进度
+/// @param saveAsDestinatiomCompletion 将缓存文件另存到指定位置,targetPath->在tmp下缓存路径, 会在下载完后删除),fileName->文件名
+/// @param success 请求结果, 文件保存路劲, 文件名
+/// @param failure 请求失败
+- (void)downloadRequestWithURL:(NSString *)urlString
+                    HTTPMethod:(NSString *)HTTPMethod
+         showActivityIndicator:(BOOL)show
+                    parameters:(NSDictionary *)parameters
+                      progress:(AFNetWorkingToolProgressBlock)progress
+     saveTempFileToDestination:(NSURL *(^)(NSURL *targetPath, NSString *fileName))saveAsDestinatiomCompletion
+                       success:(void(^)(NSURL *url, NSString  *filename))success
+                       failure:(AFNetWorkingToolFailureBlock)failure {
+    if (show) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
+        });
+    }
+    
+    if (HTTPMethod.length == 0 || HTTPMethod == nil) {
+        HTTPMethod = @"POST";
+    }
+    NSMutableURLRequest *request = [self.sessionManager.requestSerializer requestWithMethod:HTTPMethod
+                                                                                  URLString:urlString
+                                                                                 parameters:nil
+                                                                                      error:nil];
+    
+    [[self.sessionManager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        LKXNLog(@"downloadProgress: %lld / %lld", downloadProgress.completedUnitCount, downloadProgress.totalUnitCount);
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        NSURL *destinationURL = saveAsDestinatiomCompletion(targetPath, response.suggestedFilename);
+        return destinationURL;
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        if (error) {
+            failure(error);
+        } else {
+            LKXMLog(@"response: %@", response);
+            success(filePath, response.suggestedFilename);
+        }
+    }] resume];
+}
+
+#pragma mark - 上传
+/**
+ 上傳文件
+ 
+ @param urlString 上傳路勁
+ @param show 是否显示小菊花
+ @param fileDatas 文件Data
+ @param parameters 上傳參數
+ @param appendFileDataCompletion 拼接上传的数据流
+ @param success 請求成功block
+ @param failure 請求失敗block
+ */
+- (void)uploadWithURLString:(NSString *)urlString
+      showActivityIndicator:(BOOL)show
+                  fileDatas:(NSArray *)fileDatas
+                 parameters:(NSDictionary *)parameters
+             appendFileData:(id<AFMultipartFormData> (^)(id<AFMultipartFormData>  _Nonnull formData))appendFileDataCompletion
+                    success:(AFNetWorkingToolJSONSuccessBlock)success
+                    failure:(AFNetWorkingToolFailureBlock)failure {
+    [[self.sessionManager POST:urlString
+                    parameters:parameters
+                     /*headers:nil*/
+     constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        if (appendFileDataCompletion) {
+            formData = appendFileDataCompletion(formData);
+        } else {
+            LKXNLog(@"上传文件没有拼接文件NSData");
+            return;
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *json = [self dictionaryForData:responseObject];
+        if ([self dataSeparteWithCode:json]) {
+            success(json);
+        } else {
+            NSError *error = [NSError errorWithDomain:NSPOSIXErrorDomain
+                                                 code:-1
+                                             userInfo:@{NSLocalizedDescriptionKey : @"上傳失敗"}];
+            failure(error);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }] resume];
 }
 
 #pragma mark - 私有方法
@@ -318,7 +417,7 @@
  *  @return code == 1 数据源; code == 0 错误信息
  */
 - (BOOL)dataSeparteWithCode:(NSDictionary *)dic {
-    int code = [dic[@"status"] intValue];;
+    int code = [dic[kAFNetworkingForSuccessKey] intValue];;
     if (code) {
         return NO;
     } else {

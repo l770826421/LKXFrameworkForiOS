@@ -9,9 +9,14 @@
 #import "LKXStretchingHeaderViewController.h"
 #import "LKXEstimatedRowHeightCell.h"
 
+#import "NSTimer+LKXWeakTime.h"
+
 #define kHeaderHeight 220
 
 @interface LKXStretchingHeaderViewController ()
+
+/** 定时器 */
+@property(nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -22,6 +27,10 @@
     UIView              *_lineView;
 }
 
+- (void)dealloc {
+    NSLog(@"LKXStretchingHeaderViewController dealloc");
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];;
 }
@@ -30,6 +39,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setUI];
+    
+    self.timer = [NSTimer scheduledWeakTimerWithTimeInterval:1.0
+                                                      target:self
+                                                    selector:@selector(testTimer)
+                                                    userInfo:nil
+                                                     repeats:YES];
+}
+
+- (void)testTimer {
+    NSLog(@"testTimer");
 }
 
 - (void)didReceiveMemoryWarning {

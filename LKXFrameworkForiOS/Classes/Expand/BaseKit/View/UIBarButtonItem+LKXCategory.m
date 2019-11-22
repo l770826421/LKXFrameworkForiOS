@@ -6,10 +6,10 @@
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#import "UIBarButtonItem+LKX.h"
+#import "UIBarButtonItem+LKXCategory.h"
 #import "LKXBarButton.h"
 
-@implementation UIBarButtonItem (LKX)
+@implementation UIBarButtonItem (LKXCategory)
 
 /**
  *  @author 刘克邪

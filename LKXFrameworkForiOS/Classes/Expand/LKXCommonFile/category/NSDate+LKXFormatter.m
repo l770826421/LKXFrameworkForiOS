@@ -26,12 +26,10 @@
  *
  */
 + (NSDate *)lkx_dateWithString:(NSString *)dateString formatter:(NSString *)formatter {
-    
-    NSDate *date;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = formatter;
-    date = [dateFormatter dateFromString:dateString];
-    
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    NSDate *date = [dateFormatter dateFromString:dateString];
     return date;
 }
 
@@ -58,7 +56,6 @@
 - (NSString *)lkx_dateWithFormatter:(NSString *)formatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = formatter;
-    
     // 统一设置成东八区,为了服务器端的超时判断
     dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT+0800"];
     LKXMLog(@"timeZone = %@", dateFormatter.timeZone);
@@ -74,9 +71,7 @@
  *
  */
 - (NSTimeInterval)lkx_dateIntervalWithNow {
-    
     NSDate *currentDate = [NSDate date];
-    
     return [self lkx_dateIntervalWithOhterDate:currentDate];
 }
 
@@ -87,12 +82,9 @@
  *
  */
 - (NSTimeInterval)lkx_dateIntervalWithOhterDate:(NSDate *)otherDate {
-    
     NSDate *currentDate = [otherDate lkx_dateForCurrentTimeZone];
     NSTimeInterval currentInterval = [currentDate timeIntervalSince1970];
-    
     NSTimeInterval interval = [self timeIntervalSince1970];
-    
     NSTimeInterval dateInterval = currentInterval - interval;
     
     return dateInterval;

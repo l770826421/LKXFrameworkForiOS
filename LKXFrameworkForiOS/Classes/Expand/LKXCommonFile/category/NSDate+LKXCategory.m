@@ -49,19 +49,6 @@
     return @[hourStr, minuteStr, secondStr];
 }
 
-/*
- * 将字符串转化NSDate
- * 例如: 1991-09-08 转为时间
- */
-+ (NSDate *)lkx_dateWithString:(NSString *)dateString
-                     formatter:(NSString *)formatter
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = formatter;
-    NSDate *date = [dateFormatter dateFromString:dateString];
-    return date;
-}
-
 #pragma mark - 实例方法
 /**
  *  将时间转为指定的格式

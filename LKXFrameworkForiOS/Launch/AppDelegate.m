@@ -13,12 +13,13 @@
 #import "LKXEstimatedRowHeightViewController.h"
 
 #import "LKXTabBarController.h"
-#import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
 #import "LKXRequestManager.h"
 #import "LKXNavigationController.h"
 
 #import "NSString+LKXEncryption.h"
+
+#import "LKXUser.h"
 
 #import "LKXKeychainTool.h"
 

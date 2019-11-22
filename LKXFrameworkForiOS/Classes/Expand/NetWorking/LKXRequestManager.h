@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^RequestManagerSuccessBlock)(id obj);
 typedef void (^RequestManagerFailureBlock)(NSString *errorInfo);
 
@@ -29,3 +31,5 @@ typedef void (^RequestManagerFailureBlock)(NSString *errorInfo);
 - (void)categoryWithURL:(NSString *)url success:(void (^)(NSDictionary *json))success failure:(void (^)(NSString *message))failure;
 
 @end
+
+NS_ASSUME_NONNULL_END

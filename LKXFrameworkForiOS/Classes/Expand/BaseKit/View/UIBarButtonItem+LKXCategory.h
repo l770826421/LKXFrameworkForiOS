@@ -13,7 +13,7 @@
  *
  *  @brief  UIBarButtonItem的扩展类
  */
-@interface UIBarButtonItem (LKX)
+@interface UIBarButtonItem (LKXCategory)
 /**
  *  @author 刘克邪
  *

@@ -7,11 +7,8 @@
 //
 
 #import "LKXBaseViewController.h"
-
-#import "UIBarButtonItem+LKX.h"
+#import "UIBarButtonItem+LKXCategory.h"
 #import "LKXReloadView.h"
-
-#import "LKXUser.h"
 
 #import "MJRefresh.h"
 
