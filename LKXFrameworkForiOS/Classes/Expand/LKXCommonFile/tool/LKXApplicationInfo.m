@@ -54,7 +54,6 @@
     
     if (!_appInfoDic) {
         _appInfoDic = [[NSBundle mainBundle] infoDictionary];
-//        CFShow((__bridge CFTypeRef)(_appInfoDic));
     }
     return _appInfoDic;
 }
