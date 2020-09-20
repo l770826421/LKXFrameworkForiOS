@@ -19,7 +19,6 @@
  *  @param color 颜色 - NSForegroundColorAttributeName
  */
 - (void)lkx_setColorWithString:(NSString *)src color:(UIColor *)color {
-    
     NSRange range = [self.string rangeOfString:src];
     [self addAttribute:NSForegroundColorAttributeName
                  value:color

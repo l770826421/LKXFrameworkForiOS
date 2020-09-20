@@ -14,6 +14,7 @@ target 'LKXFrameworkForiOS' do
   pod 'SDCycleScrollView'
   pod 'Masonry'
   pod 'Reachability'
+  pod 'YKWoodpecker'
 
   target 'LKXFrameworkForiOSTests' do
     inherit! :search_paths

@@ -78,9 +78,15 @@
  *  @brief  添加下拉刷新
  */
 - (void)addHeaderInScrollView:(UIScrollView *)scroll {
-    __block LKXScrollViewController *block_self = self;
+    __weak __typeof(&*self) weakSelf = self;
     MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [block_self downRefreshData];
+        if (!weakSelf) {
+            LKXNLog(@"weakSelf 是nil.");
+            return;
+        }
+        __strong __typeof(&*self) strongSelf = weakSelf;
+
+        [strongSelf downRefreshData];
     }];
     mj_header.backgroundColor = scroll.backgroundColor;
     
@@ -104,9 +110,15 @@
  *  @brief  添加上拉刷新
  */
 - (void)addFooterInScrollView:(UIScrollView *)scroll {
-    __block LKXScrollViewController *block_self = self;
+    __weak __typeof(&*self) weakSelf = self;
     MJRefreshAutoNormalFooter *mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [block_self pullRefreshData];
+        if (!weakSelf) {
+            LKXNLog(@"weakSelf 是nil.");
+            return;
+        }
+        __strong __typeof(&*self) strongSelf = weakSelf;
+
+        [strongSelf pullRefreshData];
     }];
     [mj_footer setTitle:@"" forState:MJRefreshStateIdle];
     mj_footer.automaticallyRefresh = NO;

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <YKWoodpecker.h>
 
 #import "LKXcardPassesViewController.h"
 #import "LKXWKWebDemoViewController.h"
@@ -22,6 +23,7 @@
 #import "LKXUser.h"
 
 #import "LKXKeychainTool.h"
+#import "LKXEmailSendTool.h"
 
 #define kRestoreApplicationStateKey @"kRestoreApplicationStateKey"
 
@@ -39,6 +41,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // Specify the command source URL for method-listening-in commands, the commands will be loaded automatically after setting * Optional, if you don't have your specifications, you can use the command sources at https://github.com/ZimWoodpecker/WoodpeckerCmdSource
+        [YKWoodpeckerManager sharedInstance].cmdSourceUrl = @"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerCmdSource/master/cmdSource/default/demo.json";
+        
+        // It's suggested to open 'safePluginMode' in release mode, so that only safe plugins can be open * Optional
+    #ifndef DEBUG
+        [YKWoodpeckerManager sharedInstance].safePluginMode = YES;
+    #endif
+        
+        // Specify a 'parseDelegate' and you can realize custom commands via 'YKWCmdCoreCmdParseDelegate' * Optional
+        [YKWoodpeckerManager sharedInstance].cmdCore.parseDelegate = self;
+        
+        // Show the woodpecker, the 'ViewPicker' plugin will be open on launch.
+        [YKWoodpeckerManager sharedInstance].autoOpenUICheckOnShow = YES;
+        [[YKWoodpeckerManager sharedInstance] show];
+        
+        // Register the crash handler to log crash * Optional
+        [[YKWoodpeckerManager sharedInstance] registerCrashHandler];
+
+        // Demo for registering a plugin * Optional
+        [[YKWoodpeckerManager sharedInstance] registerPluginWithParameters:@{@"pluginName" : @"XXX",
+                                                                             @"isSafePlugin" : @(NO),
+                                                                             @"pluginInfo" : @"by user_XX",
+                                                                             @"pluginCharIconText" : @"x",
+                                                                             @"pluginCategoryName" : @"自定义",
+                                                                             @"pluginClassName" : @"ClassName"}];
+    
     // 测试
     [self appleUncaughtExceptionWithOptions:launchOptions];
     
@@ -94,6 +122,8 @@
 //    sqlite3_open_v2([databasePath NSUTF8StringEncoding], &handle, SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE_SQLITE_OPEN_FILEPROTECTION_COMPLETEUNLESSOPEN, NULL);
     
     [self encryption];
+    
+//    [LKXEmailSendTool systemSendEmailWithRecipients:@[@"770826421@qq.com"] andCcRecipients:nil andBccRecipients:nil addTheme:@"测试" addBody:@"测试body"];
     
     return YES;
 }
@@ -248,15 +278,17 @@
 }
 
 void UncaughtExceptionHandler(NSException *exception) {
-    // 可以通过exception对象获取一些崩溃信息，我们就是通过这些崩溃信息来进行解析的，例如下面的symbols数组就是我们的崩溃堆栈。
+    // 可以通过exception对象获取一些崩溃信息，我们就是通过这些崩溃信息来进行解析的
+    // 例如下面的symbols数组就是我们的崩溃堆栈。
     NSArray *symbols = [exception callStackSymbols];
     NSString *reason = [exception reason];
     NSString *name = [exception name];
     LKXNLog(@"APP crash, name: %@ \n reason: %@ \n callStackSymbols: %@", name, reason, symbols);
+    abort();
 }
 
 - (void)appleUncaughtExceptionWithOptions:(NSDictionary *)launchOptions {
-    // 将下面C函数的函数地址当做参数
+    // 注册异常处理函数
     NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     // 获取奔溃统计的函数指针
 //    NSUncaughtExceptionHandler *handler = NSGetUncaughtExceptionHandler();

@@ -23,35 +23,22 @@
 /// AFNetWorking封装
 @implementation AFNetWorkingTool
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    static AFNetWorkingTool *instance;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        instance = [super allocWithZone:zone];
-        
+- (instancetype)init {
+    self = [super init];
+    if (self) {
         // 可以标识请求,请求超时时间
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForRequest = kTimeoutIntervalForRequest;
         
         // baseURl
         NSURL *baseUrl = [NSURL URLWithString:kAPPBaseUrl];
-        instance.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseUrl sessionConfiguration:configuration];
-        instance.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        instance.sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", @"application/json",
+        self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseUrl sessionConfiguration:configuration];
+        self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        self.sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", @"application/json",
                            @"application/xml", @"text/json",
                            @"text/javascript", nil];
-        instance.sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        instance.sessionManager.requestSerializer.timeoutInterval =  kTimeoutIntervalForRequest;
-    });
-    
-    return instance;
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
+        self.sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        self.sessionManager.requestSerializer.timeoutInterval =  kTimeoutIntervalForRequest;
     }
     return self;
 }
@@ -63,7 +50,14 @@
  *
  */
 + (instancetype)shareAFNetWorkingTool {
-    return [[AFNetWorkingTool alloc] init];
+    static AFNetWorkingTool *instance;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    
+    return instance;
 }
 
 /**
@@ -180,7 +174,7 @@
             [kMBHUDTool showActivityIndicatorWithText:nil detailText:nil];
         });
     }
-    [self.sessionManager GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self.sessionManager GET:urlString parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         if (progress) {
             progress(downloadProgress.totalUnitCount, downloadProgress.completedUnitCount);
         }
@@ -281,7 +275,7 @@
         });
     }
     
-    [self.sessionManager POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    [self.sessionManager POST:urlString parameters:parameters headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         if (progress) {
             progress(uploadProgress.totalUnitCount, uploadProgress.completedUnitCount);
         }
@@ -362,7 +356,7 @@
                     failure:(AFNetWorkingToolFailureBlock)failure {
     [[self.sessionManager POST:urlString
                     parameters:parameters
-                     /*headers:nil*/
+                       headers:nil
      constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         if (appendFileDataCompletion) {
             formData = appendFileDataCompletion(formData);

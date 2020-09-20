@@ -53,7 +53,6 @@
 		1685CD3E22A8F75A007D3AD1 /* LKXKeychainTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685CD3D22A8F75A007D3AD1 /* LKXKeychainTool.m */; };
 		16875DF01DE43F3300F09085 /* LKXTouchIDValidateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */; };
 		168F01161FB40B9200CBFC6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F010D1FB40B9100CBFC6F /* main.m */; };
-		168F01181FB40B9200CBFC6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168F010F1FB40B9200CBFC6F /* Assets.xcassets */; };
 		168F01191FB40B9200CBFC6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F01101FB40B9200CBFC6F /* AppDelegate.m */; };
 		168F011F1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F011E1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m */; };
 		169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169852901EE79CAF00F04D62 /* LKXWebProgressView.m */; };
@@ -499,8 +498,8 @@
 				166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */,
 				166C73121D4B4FBF00D66FEA /* UIImage+LKXCategory.h */,
 				166C73131D4B4FBF00D66FEA /* UIImage+LKXCategory.m */,
-				166C73141D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.h */,
 				166C73151D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m */,
+				166C73141D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.h */,
 				168F011D1FB40C3C00CBFC6F /* NSObject+LKXRuntime.h */,
 				168F011E1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m */,
 				164EAD801FBBEFE800BAFED4 /* UINavigationController+LKXCategory.h */,
@@ -918,7 +917,6 @@
 				16F46D5222E8260600AAD128 /* HTML.bundle in Resources */,
 				16E45CF42054D30200ABEAB5 /* File.rtf in Resources */,
 				16AAA0E722E7097D0007E5BD /* LaunchScreen.storyboard in Resources */,
-				168F01181FB40B9200CBFC6F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,10 +963,25 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LKXFrameworkForiOS/Pods-LKXFrameworkForiOS-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Assets/Images.xcassets/Contents.json",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Assets/Images.xcassets/icon_woodpecker.imageset/Contents.json",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Assets/Images.xcassets/icon_woodpecker.imageset/icon_woodpecker@2x.png",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Assets/Images.xcassets/icon_woodpecker.imageset/icon_woodpecker@3x.png",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Plugins/woodpecker_plugin_list_cn.plist",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Plugins/woodpecker_plugin_list_en.plist",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Utils/ykwoodpecker_cn.json",
+				"${PODS_ROOT}/YKWoodpecker/YKWoodpecker/Assets/Images.xcassets",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Contents.json",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon_woodpecker@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon_woodpecker@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/woodpecker_plugin_list_cn.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/woodpecker_plugin_list_en.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ykwoodpecker_cn.json",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1265,7 +1278,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = person.LKX.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				WARNING_CFLAGS = "";
 			};
@@ -1284,7 +1297,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.LKX.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				WARNING_CFLAGS = "";
 			};

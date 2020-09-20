@@ -62,7 +62,7 @@
     //添加邮件内容
     [mailUrl appendFormat:@"&body=<b>%@</b>", body];
     // NSString *eamil = [mailUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *eamil = [mailUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"]];
+    NSString *eamil = [mailUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:eamil]];
 

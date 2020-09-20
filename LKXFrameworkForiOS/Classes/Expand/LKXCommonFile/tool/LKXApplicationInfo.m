@@ -78,6 +78,10 @@
     return [self.appInfoDic objectForKey:@"CFBundleVersion"];
 }
 
+- (NSString *)bundleID {
+    return [self.appInfoDic objectForKey:@"CFBundleIdentifier"];
+}
+
 /** app 手机序列号 */
 - (NSString *)identfierNumber {
     
@@ -230,31 +234,6 @@
     
     NSString *localPhoneModel = [[UIDevice currentDevice] localizedModel];
     return localPhoneModel;
-}
-
-/** 当前应用名称 */
-- (NSString *)appCurrentName {
-    
-    NSString *appCurVersion = [self.appInfoDic objectForKey:@"CFBundleName"];
-    return appCurVersion;
-}
-
-/** 当前应用软件版本 */
-- (NSString *)appCurrentVersion {
-    
-    NSString *appCurrentVersion = [self.appInfoDic objectForKey:@"CFBundleShortVersionString"];
-    return appCurrentVersion;
-}
-
-/** 当前应用版本号码 */
-- (NSNumber *)appCurrentVersionNumber {
-    
-    NSNumber *appcurrentVersionNumber = [self.appInfoDic objectForKey:@"CFBundleVersion"];
-    return appcurrentVersionNumber;
-}
-
-- (NSString *)bundleID {
-    return [self.appInfoDic objectForKey:@"CFBundleIdentifier"];
 }
 
 - (NSString *)description {

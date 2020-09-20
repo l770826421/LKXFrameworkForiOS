@@ -18,25 +18,6 @@
 
 @implementation LKXRequestManager
 
-/**
- *  @author 刘克邪
- *
- *  @brief  实现了LKXRequestManager的类单例创建
- *
- *  在分配空间的时候就实现单例初始化,实现了线程单例安全
- *
- */
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    static LKXRequestManager *instance;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        instance = [super allocWithZone:zone];
-    });
-    
-    return instance;
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -52,7 +33,14 @@
  *
  */
 + (instancetype)shareRequestManager {
-    return [[self alloc] init];
+    static LKXRequestManager *instance;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    
+    return instance;
 }
 
 - (void)categoryWithURL:(NSString *)url success:(void (^)(NSDictionary *json))success failure:(void (^)(NSString *message))failure {
