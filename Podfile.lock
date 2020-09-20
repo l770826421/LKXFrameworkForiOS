@@ -27,15 +27,15 @@ PODS:
   - YKWoodpecker (1.2.8)
 
 DEPENDENCIES:
-  - AFNetworking
-  - Masonry
-  - MBProgressHUD
-  - MJExtension
-  - MJRefresh
-  - Reachability
-  - SDCycleScrollView
-  - SDWebImage
-  - YKWoodpecker
+  - AFNetworking (~> 4.0.1)
+  - Masonry (~> 1.1.0)
+  - MBProgressHUD (~> 1.2.0)
+  - MJExtension (~> 3.2.2)
+  - MJRefresh (~> 3.4.3)
+  - Reachability (~> 3.2)
+  - SDCycleScrollView (~> 1.80)
+  - SDWebImage (~> 5.8.3)
+  - YKWoodpecker (~> 1.2.8)
 
 SPEC REPOS:
   trunk:
@@ -60,6 +60,6 @@ SPEC CHECKSUMS:
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   YKWoodpecker: c9c58ed903cde9507b0e9279c1c11abb119f32c2
 
-PODFILE CHECKSUM: 8ccb95a4026c6afbb67623c7f25a393bbfcf9509
+PODFILE CHECKSUM: a31fb9a0c21e45becccfaffa9ca34a2bdd34b534
 
 COCOAPODS: 1.9.3

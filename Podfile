@@ -6,15 +6,15 @@ target 'LKXFrameworkForiOS' do
   # use_frameworks!
 
   # Pods for LKXFrameworkForiOS
-  pod 'SDWebImage'
-  pod 'AFNetworking'
-  pod 'MJRefresh'
-  pod 'MJExtension'
-  pod 'MBProgressHUD'
-  pod 'SDCycleScrollView'
-  pod 'Masonry'
-  pod 'Reachability'
-  pod 'YKWoodpecker'
+  pod 'SDWebImage', '~> 5.8.3'
+  pod 'AFNetworking', '~> 4.0.1'
+  pod 'MJRefresh', '~> 3.4.3'
+  pod 'MJExtension', '~> 3.2.2'
+  pod 'MBProgressHUD', '~> 1.2.0'
+  pod 'SDCycleScrollView', '~> 1.80'
+  pod 'Masonry', '~> 1.1.0'
+  pod 'Reachability', '~> 3.2'
+  pod 'YKWoodpecker', '~> 1.2.8'
 
   target 'LKXFrameworkForiOSTests' do
     inherit! :search_paths
