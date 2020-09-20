@@ -73,7 +73,6 @@
 
 /** app build版本 */
 - (NSString *)appBulid {
-    
     return [self.appInfoDic objectForKey:@"CFBundleVersion"];
 }
 
