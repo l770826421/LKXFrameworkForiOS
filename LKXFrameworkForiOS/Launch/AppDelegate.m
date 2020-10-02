@@ -40,9 +40,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    // Specify the command source URL for method-listening-in commands, the commands will be loaded automatically after setting * Optional, if you don't have your specifications, you can use the command sources at https://github.com/ZimWoodpecker/WoodpeckerCmdSource
-        [YKWoodpeckerManager sharedInstance].cmdSourceUrl = @"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerCmdSource/master/cmdSource/default/demo.json";
+    // 参考网站 https://github.com/ZimWoodpecker/WoodpeckerCmdSource
+    [YKWoodpeckerManager sharedInstance].cmdSourceUrl = @"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerCmdSource/master/cmdSource/default/demo.json";
         
         // It's suggested to open 'safePluginMode' in release mode, so that only safe plugins can be open * Optional
     #ifndef DEBUG
