@@ -10,6 +10,8 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "NSString+LKXCategory.h"
 
+#import "Macros_UICommon.h"
+
 @implementation LKXEmailSendTool
 
 /**

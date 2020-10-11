@@ -7,6 +7,10 @@
 //
 
 #import "ReachabilityTool.h"
+#import "Macros_UICommon.h"
+#import "LKXAPPDefine.h"
+
+#import <UIKit/UIKit.h>
 
 // 检测是否有网的网络地址
 #define kReachabilityHostName @"www.baidu.com"

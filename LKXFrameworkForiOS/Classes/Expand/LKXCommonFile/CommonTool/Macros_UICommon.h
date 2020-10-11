@@ -11,8 +11,95 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>                                   //需要添加 QuartzCore.framework 库函数
-#import "UIColor+LKXCategory.h"
+#import <QuartzCore/QuartzCore.h>
+
+#import "LKXConstString.h"
+//需要添加 QuartzCore.framework 库函数
+//#import "UIColor+LKXCategory.h"
+//#import "NSString+LKXCategory.h"
+//#import "NSDate+LKXCategory.h"
+//#import "NSDate+LKXFormatter.h"
+//#import "NSData+LKXCategory.h"
+//#import "NSTimer+LKXWeakTime.h"
+//#import "UIControl+LKXRuntime.h"
+//#import "CAShapeLayer+LKXCategory.h"
+//#import "NSArray+LKXCategory.h"
+//#import "NSMutableAttributedString+LKXCategory.h"
+//#import "NSString+LKXEncryption.h"
+//#import "NSString+LKXVerification.h"
+//#import "UIButton+LKXCategoty.h"
+//#import "UIColor+LKXCategory.h"
+//#import "UIImage+LKXCategory.h"
+//#import "UIWebView+LKXCallPhone.h"
+//#import "NSObject+LKXRuntime.h"
+//#import "UINavigationController+LKXCategory.h"
+//#import "UIView+Common.h"
+//#import "LKXError.h"
+//#import "LKXBigButton.h"
+//#import "ChineseToPinyin.h"
+//#import "LKX_Tooles.h"
+//#import "LKXAPPDefine.h"
+//#import "LKXTextView.h"
+//#import "SingletonMacro.h"
+//#import "LKXKeychainTool.h"
+//#import "LKXImagePickerTool.h"
+//#import "LKXAlertTool.h"
+//#import "LKXCalendarTool.h"
+//#import "LKXDevicePowerTool.h"
+//#import "LKXEmailSendTool.h"
+//#import "LKXSpringCollectionViewFlowLayout.h"
+//#import "LKXTextView.h"
+//#import "LKXTextField.h"
+//#import "LKXMBHUDTool.h"
+//#import "ReachabilityTool.h"
+//#import "LKXTouchIDValidateTool.h"
+//#import "AFNetWorkingTool.h"
+//#import "LKXRequestManager.h"
+//#import "GTMDefines.h"
+//#import "GTMBase64.h"
+
+
+//#import "LKXTabBarItemModel.h"
+//#import "LKXWebProgressView.h"
+//#import "LKXBarButton.h"
+//#import "LKXCollectionViewCell.h"
+//#import "LKXReloadView.h"
+//#import "LKXSameLengthCollectionViewFlowLayout.h"
+//#import "LKXTabBar.h"
+//#import "LKXTabBarButton.h"
+//#import "LKXTableViewCell.h"
+//#import "UIBarButtonItem+LKXCategory.h"
+//#import "LKXBaseViewController.h"
+//#import "LKXNavigationController.h"
+//#import "LKXScrollViewController.h"
+//#import "LKXScrollViewController.h"
+//#import "LKXTabBarController.h"
+//#import "LKXTableViewController.h"
+//#import "LKXWebViewController.h"
+//#import "LKXWKWebViewController.h"
+//
+//#import "LKXBigButton.h"
+//
+//#import "LKXConstString.h"
+
+// 各个屏幕的比例,这取最小屏
+#define KDesignScale (480.0 / Dev_ScreenHeight)
+
+/*********** ViewController ***************/
+#define kAPPMainColor RGBCOLOR(57, 115, 210)
+#define kAPPVCMainColor RGBCOLOR(241, 241, 241)
+#define kCellColor RGBCOLOR(204, 204, 204)
+#define kCellLightColor RGBCOLOR(224, 224, 224)
+#define kTextMainColor [UIColor blackColor]
+
+// 线上线下两个URL切换
+#define isOnLine 0
+#if isOnLine
+    #define kAPPBaseUrl @"http://magicers1992.6655.la:30974/yikatong/cardPass.php"
+#else
+    #define kAPPBaseUrl @"http://60.29.211.84:8018/yikatong/cardPass.php"
+#endif
+
 
 #pragma mark - 设备相关
 /** 

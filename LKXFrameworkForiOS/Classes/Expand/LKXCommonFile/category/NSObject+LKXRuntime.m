@@ -8,6 +8,7 @@
 
 #import "NSObject+LKXRuntime.h"
 #import <objc/runtime.h>
+#import "Macros_UICommon.h"
 
 @implementation NSObject (LKXRuntime)
 

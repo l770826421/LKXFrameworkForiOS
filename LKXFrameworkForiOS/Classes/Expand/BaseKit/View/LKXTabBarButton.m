@@ -7,6 +7,9 @@
 //
 
 #import "LKXTabBarButton.h"
+#import "UIColor+LKXCategory.h"
+#import "Macros_UICommon.h"
+#import "UIView+Common.h"
 
 #define kImageWidthAndHeight 25.0f
 #define kSpace 2.0f

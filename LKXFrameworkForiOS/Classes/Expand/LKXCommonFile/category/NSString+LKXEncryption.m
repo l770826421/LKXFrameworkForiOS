@@ -8,6 +8,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 #import "NSString+LKXEncryption.h"
+#import "NSString+LKXCategory.h"
 #import "GTMBase64.h"
 #import "NSData+LKXCategory.h"
 

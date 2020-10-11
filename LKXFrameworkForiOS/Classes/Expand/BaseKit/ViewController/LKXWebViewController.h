@@ -8,6 +8,7 @@
 
 #import "LKXScrollViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "LKXAPPDefine.h"
 
 @interface LKXWebViewController : LKXScrollViewController <UIWebViewDelegate>
 

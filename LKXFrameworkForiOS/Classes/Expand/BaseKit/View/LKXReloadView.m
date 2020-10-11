@@ -7,6 +7,9 @@
 //
 
 #import "LKXReloadView.h"
+#import "Macros_UICommon.h"
+#import "UIView+LKXBase.h"
+#import "UIView+Common.h"
 
 #define kMessageFontSize 20
 #define kNetWorkErrorMessageText @"网络错误,请从新加载~~"

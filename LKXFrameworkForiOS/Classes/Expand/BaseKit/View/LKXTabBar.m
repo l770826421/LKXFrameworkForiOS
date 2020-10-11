@@ -8,6 +8,7 @@
 
 #import "LKXTabBar.h"
 #import "LKXTabBarButton.h"
+#import "UIView+Common.h"
 
 @interface LKXTabBar()
 

@@ -10,6 +10,8 @@
 #import "LKXEstimatedRowHeightCell.h"
 
 #import "NSTimer+LKXWeakTime.h"
+#import "Macros_UICommon.h"
+#import "UIView+Common.h"
 
 #define kHeaderHeight 220
 

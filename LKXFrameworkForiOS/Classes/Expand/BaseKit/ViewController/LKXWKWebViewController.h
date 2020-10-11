@@ -9,6 +9,7 @@
 #import "LKXScrollViewController.h"
 #import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "LKXAPPDefine.h"
 
 @interface LKXWKWebViewController : LKXScrollViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler>
 

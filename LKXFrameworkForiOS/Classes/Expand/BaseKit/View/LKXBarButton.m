@@ -7,6 +7,7 @@
 //
 
 #import "LKXBarButton.h"
+#import "UIView+Common.h"
 
 #define kButtonProportion (self.lkx_height / 44.0)
 #define kMargin 4

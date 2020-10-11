@@ -7,6 +7,7 @@
 //
 
 #import "NSString+LKXCategory.h"
+#import "Macros_UICommon.h"
 
 #define Billion 1000000000.0    // 十亿
 #define Million 1000000.0       // 百万

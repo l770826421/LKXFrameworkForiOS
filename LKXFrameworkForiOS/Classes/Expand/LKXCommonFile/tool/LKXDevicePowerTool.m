@@ -12,6 +12,8 @@
 #import <AddressBook/AddressBook.h>
 #import <Contacts/Contacts.h>
 
+#import "Macros_UICommon.h"
+
 @implementation LKXDevicePowerTool
 
 /**

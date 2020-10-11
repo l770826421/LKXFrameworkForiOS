@@ -48,7 +48,7 @@
         
     } else {
         newRect = CGRectMake(margin, top + 2, rect.size.width - margin * 2, rect.size.height - top * 2);
-        [self.placeholder drawInRect:newRect withAttributes:@{NSForegroundColorAttributeName : [UIColor lightGrayColor], NSFontAttributeName : [UIFont systemFontOfSize:kFontSize_13]}];
+        [self.placeholder drawInRect:newRect withAttributes:@{NSForegroundColorAttributeName : [UIColor lightGrayColor], NSFontAttributeName : [UIFont systemFontOfSize:13]}];
     }
 }
 

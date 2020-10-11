@@ -28,6 +28,8 @@
 - (void)fire:(NSTimer *)timer {
     if (self.target) {
         if ([self.target respondsToSelector:self.selector]) {
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic ignored "-Wunused-variable"
             [self.target performSelector:self.selector withObject:timer.userInfo];
         }
     } else {

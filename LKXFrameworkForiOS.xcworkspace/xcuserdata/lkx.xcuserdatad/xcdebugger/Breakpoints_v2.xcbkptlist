@@ -17,8 +17,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "-encodeRestorableStateWithCoder:"
-            landmarkType = "7">
+            landmarkName = "LKXcardPassesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -34,8 +34,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
-            landmarkName = "-decodeRestorableStateWithCoder:"
-            landmarkType = "7">
+            landmarkName = "LKXcardPassesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -51,8 +51,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "-awakeFromNib"
-            landmarkType = "7">
+            landmarkName = "LKXcardPassesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -68,8 +68,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "+viewControllerWithRestorationIdentifierPath:coder:"
-            landmarkType = "7">
+            landmarkName = "LKXcardPassesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -85,7 +85,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
             endingLineNumber = "148"
-            landmarkName = "@implementation LKXEstimatedRowHeightViewController"
+            landmarkName = "LKXEstimatedRowHeightViewController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>

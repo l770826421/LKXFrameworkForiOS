@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Reachability.h"
+#import <Reachability/Reachability.h>
 
 //判断网络是否可用，1判断直接默认网络可用，0不判断网络环境
 #define isJudgeNet   0

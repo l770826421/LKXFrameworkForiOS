@@ -10,7 +10,7 @@
 
 #import "SingletonMacro.h"
 
-#import "MBProgressHUD.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 UIKIT_EXTERN const CGFloat kMBHUDDelay;
 

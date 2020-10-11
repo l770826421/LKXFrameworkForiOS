@@ -33,7 +33,6 @@
 		166C734D1D4B4FBF00D66FEA /* NSString+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73071D4B4FBF00D66FEA /* NSString+LKXCategory.m */; };
 		166C734E1D4B4FBF00D66FEA /* NSString+LKXEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73091D4B4FBF00D66FEA /* NSString+LKXEncryption.m */; };
 		166C734F1D4B4FBF00D66FEA /* NSString+LKXVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730B1D4B4FBF00D66FEA /* NSString+LKXVerification.m */; };
-		166C73501D4B4FBF00D66FEA /* UIButton+LKXCategoty.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730D1D4B4FBF00D66FEA /* UIButton+LKXCategoty.m */; };
 		166C73511D4B4FBF00D66FEA /* UIColor+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */; };
 		166C73531D4B4FBF00D66FEA /* UIImage+LKXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73131D4B4FBF00D66FEA /* UIImage+LKXCategory.m */; };
 		166C73541D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73151D4B4FBF00D66FEA /* UIWebView+LKXCallPhone.m */; };
@@ -56,9 +55,9 @@
 		168F01161FB40B9200CBFC6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F010D1FB40B9100CBFC6F /* main.m */; };
 		168F01191FB40B9200CBFC6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F01101FB40B9200CBFC6F /* AppDelegate.m */; };
 		168F011F1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F011E1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m */; };
+		169589D925330289009E4311 /* UIView+LKXBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 169589D825330289009E4311 /* UIView+LKXBase.m */; };
 		169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169852901EE79CAF00F04D62 /* LKXWebProgressView.m */; };
 		16994AF61F93182E00DC878F /* LKXImagePickerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16994AF41F93182D00DC878F /* LKXImagePickerTool.m */; };
-		16A41073224387D800A624C6 /* LKXMBHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A41072224387D800A624C6 /* LKXMBHUDTool.m */; };
 		16A7D49D1D4AFF9B00160D34 /* LKXConstString.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */; };
 		16A9559722AF4C6B0025A8F4 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A9559522AF4C6B0025A8F4 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16AAA0E422E7096E0007E5BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16AAA0E222E7096E0007E5BD /* Main.storyboard */; };
@@ -178,8 +177,6 @@
 		166C73091D4B4FBF00D66FEA /* NSString+LKXEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LKXEncryption.m"; sourceTree = "<group>"; };
 		166C730A1D4B4FBF00D66FEA /* NSString+LKXVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LKXVerification.h"; sourceTree = "<group>"; };
 		166C730B1D4B4FBF00D66FEA /* NSString+LKXVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LKXVerification.m"; sourceTree = "<group>"; };
-		166C730C1D4B4FBF00D66FEA /* UIButton+LKXCategoty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LKXCategoty.h"; sourceTree = "<group>"; };
-		166C730D1D4B4FBF00D66FEA /* UIButton+LKXCategoty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LKXCategoty.m"; sourceTree = "<group>"; };
 		166C730E1D4B4FBF00D66FEA /* UIColor+LKXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LKXCategory.h"; sourceTree = "<group>"; };
 		166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LKXCategory.m"; sourceTree = "<group>"; };
 		166C73121D4B4FBF00D66FEA /* UIImage+LKXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LKXCategory.h"; sourceTree = "<group>"; };
@@ -209,7 +206,7 @@
 		166C73361D4B4FBF00D66FEA /* MBHUDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHUDTool.m; sourceTree = "<group>"; };
 		166C733C1D4B4FBF00D66FEA /* ReachabilityTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityTool.h; sourceTree = "<group>"; };
 		166C733D1D4B4FBF00D66FEA /* ReachabilityTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityTool.m; sourceTree = "<group>"; };
-		166C733E1D4B4FBF00D66FEA /* Reachability用法.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Reachability用法.h"; sourceTree = "<group>"; };
+		166C733E1D4B4FBF00D66FEA /* Reachability_using.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability_using.h; sourceTree = "<group>"; };
 		166C73401D4B4FBF00D66FEA /* AFNetWorkingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetWorkingTool.h; sourceTree = "<group>"; };
 		166C73411D4B4FBF00D66FEA /* AFNetWorkingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetWorkingTool.m; sourceTree = "<group>"; };
 		166C73421D4B4FBF00D66FEA /* LKXRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXRequestManager.h; sourceTree = "<group>"; };
@@ -230,12 +227,12 @@
 		168F01121FB40B9200CBFC6F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		168F011D1FB40C3C00CBFC6F /* NSObject+LKXRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKXRuntime.h"; sourceTree = "<group>"; };
 		168F011E1FB40C3C00CBFC6F /* NSObject+LKXRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKXRuntime.m"; sourceTree = "<group>"; };
+		169589D725330289009E4311 /* UIView+LKXBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LKXBase.h"; sourceTree = "<group>"; };
+		169589D825330289009E4311 /* UIView+LKXBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LKXBase.m"; sourceTree = "<group>"; };
 		1698528F1EE79CAF00F04D62 /* LKXWebProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXWebProgressView.h; sourceTree = "<group>"; };
 		169852901EE79CAF00F04D62 /* LKXWebProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXWebProgressView.m; sourceTree = "<group>"; };
 		16994AF41F93182D00DC878F /* LKXImagePickerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKXImagePickerTool.m; sourceTree = "<group>"; };
 		16994AF51F93182E00DC878F /* LKXImagePickerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKXImagePickerTool.h; sourceTree = "<group>"; };
-		16A41071224387D800A624C6 /* LKXMBHUDTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKXMBHUDTool.h; sourceTree = "<group>"; };
-		16A41072224387D800A624C6 /* LKXMBHUDTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKXMBHUDTool.m; sourceTree = "<group>"; };
 		16A7D49B1D4AFF9B00160D34 /* LKXConstString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXConstString.h; sourceTree = "<group>"; };
 		16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXConstString.m; sourceTree = "<group>"; };
 		16A9559422AF4C6B0025A8F4 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -495,8 +492,6 @@
 				166C73091D4B4FBF00D66FEA /* NSString+LKXEncryption.m */,
 				166C730A1D4B4FBF00D66FEA /* NSString+LKXVerification.h */,
 				166C730B1D4B4FBF00D66FEA /* NSString+LKXVerification.m */,
-				166C730C1D4B4FBF00D66FEA /* UIButton+LKXCategoty.h */,
-				166C730D1D4B4FBF00D66FEA /* UIButton+LKXCategoty.m */,
 				166C730E1D4B4FBF00D66FEA /* UIColor+LKXCategory.h */,
 				166C730F1D4B4FBF00D66FEA /* UIColor+LKXCategory.m */,
 				166C73121D4B4FBF00D66FEA /* UIImage+LKXCategory.h */,
@@ -509,6 +504,8 @@
 				164EAD811FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m */,
 				166C73291D4B4FBF00D66FEA /* UIView+Common.h */,
 				166C732A1D4B4FBF00D66FEA /* UIView+Common.m */,
+				169589D725330289009E4311 /* UIView+LKXBase.h */,
+				169589D825330289009E4311 /* UIView+LKXBase.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -567,8 +564,6 @@
 			children = (
 				166C73351D4B4FBF00D66FEA /* MBHUDTool.h */,
 				166C73361D4B4FBF00D66FEA /* MBHUDTool.m */,
-				16A41071224387D800A624C6 /* LKXMBHUDTool.h */,
-				16A41072224387D800A624C6 /* LKXMBHUDTool.m */,
 			);
 			path = MBHUDTool;
 			sourceTree = "<group>";
@@ -578,7 +573,7 @@
 			children = (
 				166C733C1D4B4FBF00D66FEA /* ReachabilityTool.h */,
 				166C733D1D4B4FBF00D66FEA /* ReachabilityTool.m */,
-				166C733E1D4B4FBF00D66FEA /* Reachability用法.h */,
+				166C733E1D4B4FBF00D66FEA /* Reachability_using.h */,
 			);
 			path = ReachabilityTool;
 			sourceTree = "<group>";
@@ -1036,7 +1031,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				168F01161FB40B9200CBFC6F /* main.m in Sources */,
-				166C73501D4B4FBF00D66FEA /* UIButton+LKXCategoty.m in Sources */,
 				16E348521F56C60E005E30B8 /* LKXEstimatedRowHeightCell.m in Sources */,
 				166C73471D4B4FBF00D66FEA /* CAShapeLayer+LKXCategory.m in Sources */,
 				16CEDDBE1D4AFBBE006C09CC /* LKXBaseViewController.m in Sources */,
@@ -1082,7 +1076,6 @@
 				164EAD821FBBEFE800BAFED4 /* UINavigationController+LKXCategory.m in Sources */,
 				166C734A1D4B4FBF00D66FEA /* NSDate+LKXCategory.m in Sources */,
 				16CEDDC41D4AFBBE006C09CC /* LKXWebViewController.m in Sources */,
-				16A41073224387D800A624C6 /* LKXMBHUDTool.m in Sources */,
 				16CA807E1DB755DB00FF5F1A /* LKXcardPassesViewController.m in Sources */,
 				168F01191FB40B9200CBFC6F /* AppDelegate.m in Sources */,
 				166C73491D4B4FBF00D66FEA /* NSData+LKXCategory.m in Sources */,
@@ -1093,6 +1086,7 @@
 				166C73591D4B4FBF00D66FEA /* LKX_Tooles.m in Sources */,
 				166C73511D4B4FBF00D66FEA /* UIColor+LKXCategory.m in Sources */,
 				16A7D49D1D4AFF9B00160D34 /* LKXConstString.m in Sources */,
+				169589D925330289009E4311 /* UIView+LKXBase.m in Sources */,
 				166C73481D4B4FBF00D66FEA /* NSArray+LKXCategory.m in Sources */,
 				166C735C1D4B4FBF00D66FEA /* UIView+Common.m in Sources */,
 				166C73461D4B4FBF00D66FEA /* NSLayoutConstraint+Vertical.m in Sources */,
@@ -1279,6 +1273,7 @@
 				INFOPLIST_FILE = LKXFrameworkForiOS/Launch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = person.LKX.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1299,6 +1294,7 @@
 				INFOPLIST_FILE = LKXFrameworkForiOS/Launch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = person.LKX.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

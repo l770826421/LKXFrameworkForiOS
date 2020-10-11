@@ -8,6 +8,8 @@
 
 #import "SecureArchiverDelegate.h"
 
+#import "Macros_UICommon.h"
+
 // Private category to limit access to the encryption routine to instances of SecureArchiverDelegate
 @interface SecureArchiverDelegate ()
 
@@ -73,8 +75,10 @@
         // If they key does not exist, generate a new one using the built-in PRNG and store it into the Keychain.
         
         cryptKey = [[NSMutableData alloc] initWithLength:kCCKeySizeAES256];
+#if DEBUG
         int result = SecRandomCopyBytes(kSecRandomDefault, kCCKeySizeAES256, [cryptKey mutableBytes]);
         LKXMLog(@"%d", result);
+#endif
         
         if (![SimpleKeychainWrapper addToKeychain:cryptKey withIdentifier:NSCoderCryptoKey forService:NSCoderCryptoService]) {
             return NO;

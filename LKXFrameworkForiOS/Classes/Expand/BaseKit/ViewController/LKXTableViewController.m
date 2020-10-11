@@ -9,7 +9,7 @@
 #import "LKXTableViewController.h"
 #import "LKXTableViewCell.h"
 
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface LKXTableViewController ()
 

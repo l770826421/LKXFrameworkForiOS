@@ -7,6 +7,7 @@
 //
 
 #import "LKX_Tooles.h"
+#import "Macros_UICommon.h"
 
 @implementation LKX_Tooles
 

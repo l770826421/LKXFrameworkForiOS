@@ -8,6 +8,8 @@
 
 #import "AFNetWorkingTool.h"
 #import "LKXError.h"
+#import "Macros_UICommon.h"
+#import "LKXAPPDefine.h"
 
 #define kTimeoutIntervalForRequest 30
 

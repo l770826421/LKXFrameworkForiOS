@@ -8,6 +8,8 @@
 
 #import "UIBarButtonItem+LKXCategory.h"
 #import "LKXBarButton.h"
+#import "NSString+LKXCategory.h"
+#import "Macros_UICommon.h"
 
 @implementation UIBarButtonItem (LKXCategory)
 
@@ -37,7 +39,7 @@
  *
  */
 + (instancetype)lkx_barItemWithIcon:(NSString *)icon size:(CGSize)size target:(id)target action:(SEL)action {
-    LKXBigButton *backButton = [LKXBigButton buttonWithType:UIButtonTypeCustom];
+    LKXBarButton *backButton = [LKXBarButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [[UIImage imageNamed:icon] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     if (CGSizeEqualToSize(size, CGSizeZero)) {
         size = CGSizeMake(30, 30);
@@ -65,7 +67,7 @@
  *
  */
 + (instancetype)lkx_barItemWithIcon:(NSString *)icon selectedIcon:(NSString *)selectedIcon target:(id)target action:(SEL)action {
-    LKXBigButton *rightBtn = [LKXBigButton buttonWithType:UIButtonTypeCustom];
+    LKXBarButton *rightBtn = [LKXBarButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 30, 30);
     rightBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
@@ -101,7 +103,7 @@
  *
  */
 + (instancetype)lkx_barItemWithTitle:(NSString *)title selectedTitle:(NSString *)selectedTitle target:(id)target action:(SEL)action {
-    LKXBigButton *rightBtn = [LKXBigButton buttonWithType:UIButtonTypeCustom];
+    LKXBarButton *rightBtn = [LKXBarButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 30, 30);
     
     [rightBtn setTitle:title forState:UIControlStateNormal];

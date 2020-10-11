@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+LKXFormatter.h"
+#import "Macros_UICommon.h"
 
 #define kSecondForYear (365 * kSecondForDay)
 #define kSecondForWeek (7 * kSecondForDay)

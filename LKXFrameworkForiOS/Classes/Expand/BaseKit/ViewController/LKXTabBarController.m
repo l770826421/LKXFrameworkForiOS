@@ -7,10 +7,13 @@
 //
 
 #import "LKXTabBarController.h"
+#import "UIColor+LKXCategory.h"
 
 #import "LKXNavigationController.h"
 
 #import "LKXTabBar.h"
+#import "LKXConstString.h"
+#import "Macros_UICommon.h"
 
 /*********** UITabBar ***************/
 #define kTabBarItemFontColorNormal ColorWithHex(@"7a7e83")

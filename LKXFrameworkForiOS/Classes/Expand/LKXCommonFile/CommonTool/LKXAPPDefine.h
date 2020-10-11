@@ -7,14 +7,13 @@
 //
 
 #import "Macros_UICommon.h"
-#import "LKXBigButton.h"
+
 #import "ChineseToPinyin.h"
 
 #import "MBHUDTool.h"
-
 #define kMBHUDTool [MBHUDTool sharedMBHUDTool]
 
-#import "Reachability.h"
+#import <Reachability/Reachability.h>
 #import "UIView+Common.h"
 #import "LKX_Tooles.h"
 
@@ -27,4 +26,12 @@
 
 // 网络状态
 #define kConnectNetwork @"kConnectNetwork"
+
+/**
+ WebView的请求方式
+ */
+typedef NS_ENUM(NSInteger, LKXWebViewHTTPMethod) {
+    LKXWebViewHTTPMethodGET,
+    LKXWebViewHTTPMethodPOST
+};
 

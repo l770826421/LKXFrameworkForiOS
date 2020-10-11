@@ -6,7 +6,7 @@
 //  Copyright © 2016年 刘克邪. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "LKXConstString.h"
 
 // 常量
 // UICollectionView的MinimumInteritemSpacing

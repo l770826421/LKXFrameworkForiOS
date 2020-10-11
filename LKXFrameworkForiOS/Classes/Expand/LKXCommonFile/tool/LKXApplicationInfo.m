@@ -7,6 +7,7 @@
 //
 
 #import <sys/sysctl.h>
+#import <UIKit/UIKit.h>
 
 #import "LKXApplicationInfo.h"
 

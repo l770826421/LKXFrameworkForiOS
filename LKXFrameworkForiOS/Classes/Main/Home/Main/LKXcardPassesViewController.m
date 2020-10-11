@@ -20,7 +20,9 @@
 
 #import "SecureArchiverDelegate.h"
 
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
+
+#import "Macros_UICommon.h"
 
 @interface LKXcardPassesViewController () <LKXAlertToolDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {

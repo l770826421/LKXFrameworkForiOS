@@ -16,17 +16,24 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LKXFrameworkForiOS"
-  spec.version      = "1.0.0"
-  spec.summary      = "是有刘克邪集成的常见的方法、功能."
+  spec.version      = "1.0.1"
+  spec.summary      = "将常见的方法、功能集成起来."
   spec.description  = <<-DESC
+  将常见的方法、功能集成起来:
+  1. Foundation的类扩展
+  2. UIKit的类扩展
+  3. 黑魔法使用
+  4. 权限查询
+  5. 设备信息
+  6. 。。。
                    DESC
 
-  spec.homepage     = "hgit@github.com:l770826421/LKXFrameworkForiOS.git"
-  spec.license      = "MIT (KexieLiu)"
+  spec.homepage     = "https://github.com/l770826421/LKXFrameworkForiOS.git"
+  spec.license      = "MIT"
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.author             = { "kexieliu" => "770826421@qq.com" }
+  spec.author             = { "KexieLiu" => "770826421@qq.com" }
   # Or just: spec.author    = "kexieliu"
   # spec.authors            = { "kexieliu" => "kxliul@isoftstone.com" }
   # spec.social_media_url   = "https://twitter.com/kexieliu"
@@ -47,7 +54,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
   #项目的真实地址，pod 就根据这个来导入的
-  spec.source       = { :git => "git@github.com:l770826421/LKXFrameworkForiOS.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/l770826421/LKXFrameworkForiOS.git", :tag => spec.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -58,8 +65,11 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
   # 暴露的文件
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "LKXFrameworkForiOS", "LKXFrameworkForiOS/Classes/Expand/**/*.{h,m}"
+  #spec.exclude_files = "LKXFrameworkForiOS/Exclude"
+  
+  #pch文件
+    spec.prefix_header_file = "LKXFrameworkForiOS/Classes/Expand/LKXCommonFile/CommonTool/Macros_UICommon.h"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -72,8 +82,8 @@ Pod::Spec.new do |spec|
   #  non-essential files like tests, examples and documentation.
   #
   # 暴露资源
-  spec.resource  = "icon.png"
-  spec.resources = "Resources/*.png"
+  # spec.resource  = "icon.png"
+  # spec.resources = "Resources/*.png"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -83,6 +93,7 @@ Pod::Spec.new do |spec|
   # 依赖的库
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
+  spec.frameworks= "UIKit", "Foundation", "JavaScriptCore", "objc", "QuartzCore", "CommonCrypto", "AVFoundation", "CoreTelephony", "CoreLocation", "EventKit", "Photos", "AssetsLibrary", "AddressBook", "Contacts", "MessageUI", "LocalAuthentication", "CoreLocation", "CoreBluetooth", "LocalAuthentication"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,7 +103,7 @@ Pod::Spec.new do |spec|
   #  you can include multiple dependencies to ensure it works.
 
   # 是否要求项目是否ARC
-  spec.requires_arc = true
+  spec.requires_arc = false
 
   # y依赖的系统库，和第三方哭
   spec.dependency 'SDWebImage', '~> 5.8.3'

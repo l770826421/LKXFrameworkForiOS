@@ -7,6 +7,7 @@
 //
 
 #import "LKXWebProgressView.h"
+#import "UIView+Common.h"
 
 @implementation LKXWebProgressView
 

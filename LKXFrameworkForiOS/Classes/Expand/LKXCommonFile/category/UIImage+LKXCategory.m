@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+LKXCategory.h"
+#import "Macros_UICommon.h"
 
 // http://blog.csdn.net/xuhuan_wh/article/details/6434055
 @implementation UIImage (LKXCategory)
@@ -92,8 +93,10 @@
     
     NSString *base64String = [compressData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
+#if DEBUG
     UIImage *img = [UIImage imageWithData:compressData];
     LKXMLog(@"oldsize == %@, compressSize == %@", NSStringFromCGSize(self.size), NSStringFromCGSize(img.size));
+#endif
     return base64String;
 }
 
@@ -344,7 +347,8 @@
         // 关闭图片上下文
         UIGraphicsEndImageContext();
         
-        LKXMLog(@"绘制时间:%f", CACurrentMediaTime() - start);
+        NSTimeInterval executeTime = CACurrentMediaTime() - start;
+        LKXMLog(@"绘制时间:%f", executeTime);
         
         if (completion) {
             dispatch_async(dispatch_get_main_queue(), ^{

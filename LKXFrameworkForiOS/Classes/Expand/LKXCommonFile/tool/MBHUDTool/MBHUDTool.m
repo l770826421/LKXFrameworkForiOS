@@ -7,7 +7,7 @@
 //
 
 #import "MBHUDTool.h"
-#import "AppDelegate.h"
+#import "Macros_UICommon.h"
 
 const CGFloat kMBHUDDelay = 1.0;
 const CGFloat kAfterDelay = 1.0;
@@ -16,6 +16,8 @@ const CGFloat kAfterDelay = 1.0;
 
 /** MBProgressHUD实例化对象,只初始化一次 */
 @property(nonatomic, strong) MBProgressHUD *mbHud;
+/** 展示的视图层次 */
+@property(nonatomic, strong) UIView *showView;
 
 @end
 
@@ -29,12 +31,18 @@ single_implementation(MBHUDTool)
     if (_mbHud) {
         [_mbHud hideAnimated:NO];
     } else {
-        _mbHud = [MBProgressHUD showHUDAddedTo:[kAppDelegate window] animated:YES];
+        _mbHud = [MBProgressHUD showHUDAddedTo:self.showView animated:YES];
         _mbHud.opaque = YES;
         _mbHud.delegate = self;
     }
 }
 
+- (UIView *)showView {
+    if (!_showView) {
+        _showView = [UIApplication sharedApplication].keyWindow;
+    }
+    return _showView;
+}
 
 
 /**

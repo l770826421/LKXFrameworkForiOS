@@ -10,6 +10,7 @@
 
 #import "LKXUser.h"
 #import "LKXUserExports.h"
+#import "Macros_UICommon.h"
 
 @interface LKXWKWebDemoViewController ()
 

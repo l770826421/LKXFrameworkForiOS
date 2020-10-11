@@ -7,7 +7,7 @@
 //
 
 #import "LKXBaseViewController.h"
-#import "MJRefresh.h"
+#import <MJRefresh/MJRefresh.h>
 
 /**
  *  @author 刘克邪

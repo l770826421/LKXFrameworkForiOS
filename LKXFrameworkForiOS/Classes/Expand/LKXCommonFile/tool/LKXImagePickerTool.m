@@ -7,7 +7,8 @@
 //
 
 #import "LKXImagePickerTool.h"
-//#import "UIImage+Category.h"
+#import "Macros_UICommon.h"
+#import "LKXAPPDefine.h"
 
 @implementation LKXImagePickerTool
 {

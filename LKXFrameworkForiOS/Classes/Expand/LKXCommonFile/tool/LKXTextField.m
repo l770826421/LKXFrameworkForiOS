@@ -7,6 +7,7 @@
 //
 
 #import "LKXTextField.h"
+#import "Macros_UICommon.h"
 
 @implementation LKXTextField
 

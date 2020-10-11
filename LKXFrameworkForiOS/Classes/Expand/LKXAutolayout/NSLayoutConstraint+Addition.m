@@ -7,6 +7,7 @@
 //
 
 #import "NSLayoutConstraint+Addition.h"
+#import "Macros_UICommon.h"
 
 @implementation NSLayoutConstraint (Addition)
 

@@ -8,6 +8,7 @@
 
 #import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
+#import "Macros_UICommon.h"
 
 @implementation LKXUser
 

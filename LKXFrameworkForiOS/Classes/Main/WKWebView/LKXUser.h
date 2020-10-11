@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MJExtension.h"
+#import <MJExtension/MJExtension.h>
 #import "LKXUserExports.h"
 
 @interface LKXUser : NSObject <MJCoding, NSCopying, LKXUserExports>

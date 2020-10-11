@@ -7,6 +7,7 @@
 //
 
 #import "LKXNavigationController.h"
+#import "Macros_UICommon.h"
 
 #define kNavigationBarBackgroundColor kAPPMainColor
 #define kNavigationBarButtonItemFontColor [UIColor whiteColor]

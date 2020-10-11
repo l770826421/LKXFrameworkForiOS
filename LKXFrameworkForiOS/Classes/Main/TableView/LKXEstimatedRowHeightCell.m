@@ -7,7 +7,7 @@
 //
 
 #import "LKXEstimatedRowHeightCell.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface LKXEstimatedRowHeightCell ()
 

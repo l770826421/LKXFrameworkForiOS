@@ -8,6 +8,7 @@
 
 #import "UIControl+LKXRuntime.h"
 #import <objc/runtime.h>
+#import "Macros_UICommon.h"
 
 static const char *UIControl_acceptEventInterval = "UIControl_acceptEventInterval";
 static const char *UIControl_ignoreEvent = "UIControl_ignoreEvent";
