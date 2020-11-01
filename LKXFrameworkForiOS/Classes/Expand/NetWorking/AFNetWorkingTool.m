@@ -13,6 +13,9 @@
 
 #define kTimeoutIntervalForRequest 30
 
+// AFNetworking json返回成功的结果标识key
+#define kAFNetworkingForSuccessKey @"status"
+
 @interface AFNetWorkingTool ()
 
 /** 数据请求对象 */

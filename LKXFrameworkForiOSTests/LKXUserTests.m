@@ -10,6 +10,7 @@
 #import "LKXUser.h"
 #import "NSObject+LKXRuntime.h"
 #import "NSString+LKXCategory.h"
+#import "NSString+LKXVerification.h"
 
 @interface LKXUserTests : XCTestCase
 
@@ -93,6 +94,18 @@
             [self checkUserWithDic:@{@"name" : @"zhang", @"age" : @130, @"title" : @"boss"}];
         }
     }];
+}
+
+- (void)testString {
+    NSString *string = @"test23842934";
+    NSString *numberStr = [string numberString];
+    BOOL result = [numberStr lkx_verificationDigitalString];
+    XCTAssertTrue(result);
+    
+    string = @"test238fdffd42934";
+    numberStr = [string numberString];
+    result = [numberStr lkx_verificationDigitalString];
+    XCTAssertTrue(result);
 }
 
 @end

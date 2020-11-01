@@ -13,9 +13,6 @@
 
 /************** AFNetworking **************/
 
-// AFNetworking json返回成功的结果标识key
-#define kAFNetworkingForSuccessKey @"status"
-
 #ifndef TARGET_OS_IOS
 
 #define TARGET_OS_IOS TARGET_OS_IPHONE

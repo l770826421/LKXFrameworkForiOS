@@ -452,4 +452,16 @@
     }
 }
 
+/// 获取所有数字
+- (nullable NSString *)numberString {
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    BOOL result = [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
+    if (!result) {
+        return nil;
+    }
+    NSInteger number = 0;
+    [scanner scanInteger:&number];
+    return [NSString stringWithFormat:@"%ld", (long)number];
+}
+
 @end

@@ -54,7 +54,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
   #项目的真实地址，pod 就根据这个来导入的
-  spec.source       = { :git => "https://github.com/l770826421/LKXFrameworkForiOS.git", :tag => spec.version.to_s }
+  # spec.source       = { :git => "https://github.com/l770826421/LKXFrameworkForiOS.git", :tag => spec.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -93,7 +93,7 @@ Pod::Spec.new do |spec|
   # 依赖的库
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
-  spec.frameworks= "UIKit", "Foundation", "JavaScriptCore", "objc", "QuartzCore", "CommonCrypto", "AVFoundation", "CoreTelephony", "CoreLocation", "EventKit", "Photos", "AssetsLibrary", "AddressBook", "Contacts", "MessageUI", "LocalAuthentication", "CoreLocation", "CoreBluetooth", "LocalAuthentication"
+  #spec.frameworks= "UIKit", "Foundation", "JavaScriptCore", "objc", "QuartzCore", "CommonCrypto", "AVFoundation", "CoreTelephony", "CoreLocation", "EventKit", "Photos", "AssetsLibrary", "AddressBook", "Contacts", "MessageUI", "LocalAuthentication", "CoreLocation", "CoreBluetooth", "LocalAuthentication"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

@@ -87,7 +87,7 @@
 
 // 密码验证（字母和数字组合）
 - (BOOL)lkx_verificationEnglishWithNumber {
-    NSString *regex = @"^[A-Za-z]*$";
+    NSString *regex = @"^[A-Za-z0-9]*$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     BOOL isMatch = [predicate evaluateWithObject:self];
     return isMatch;

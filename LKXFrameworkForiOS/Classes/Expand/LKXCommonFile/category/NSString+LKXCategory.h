@@ -169,4 +169,7 @@
  */
 - (NSMutableDictionary *)lkx_dictionaryWithString;
 
+/// 获取所有数字
+- (nullable NSString *)numberString;
+
 @end

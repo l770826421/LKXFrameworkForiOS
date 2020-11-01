@@ -19,6 +19,7 @@
 #import "LKXNavigationController.h"
 
 #import "NSString+LKXEncryption.h"
+#import "NSString+LKXCategory.h"
 
 #import "LKXUser.h"
 
