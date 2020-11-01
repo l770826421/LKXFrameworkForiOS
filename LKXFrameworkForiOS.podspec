@@ -16,24 +16,43 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LKXFrameworkForiOS"
-  spec.version      = "1.0.1"
-  spec.summary      = "将常见的方法、功能集成起来."
+  spec.version      = "0.0.1"
+  spec.summary      = "A short description of LKXFrameworkForiOS."
+
+  # This description is used to generate tags and improve search results.
+  #   * Think: What does it do? Why did you write it? What is the focus?
+  #   * Try to keep it short, snappy and to the point.
+  #   * Write the description between the DESC delimiters below.
+  #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  将常见的方法、功能集成起来:
-  1. Foundation的类扩展
-  2. UIKit的类扩展
-  3. 黑魔法使用
-  4. 权限查询
-  5. 设备信息
-  6. 。。。
                    DESC
 
-  spec.homepage     = "https://github.com/l770826421/LKXFrameworkForiOS.git"
-  spec.license      = "MIT"
+  spec.homepage     = "http://EXAMPLE/LKXFrameworkForiOS"
+  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+
+
+  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  Licensing your code is important. See https://choosealicense.com for more info.
+  #  CocoaPods will detect a license file if there is a named LICENSE*
+  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
+  #
+
+  spec.license      = "MIT (example)"
+  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.author             = { "KexieLiu" => "770826421@qq.com" }
+  #
+  #  Specify the authors of the library, with email addresses. Email addresses
+  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
+  #  accepts just a name if you'd rather not provide an email address.
+  #
+  #  Specify a social_media_url where others can refer to, for example a twitter
+  #  profile URL.
+  #
+
+  spec.author             = { "kexieliu" => "kxliul@isoftstone.com" }
   # Or just: spec.author    = "kexieliu"
   # spec.authors            = { "kexieliu" => "kxliul@isoftstone.com" }
   # spec.social_media_url   = "https://twitter.com/kexieliu"
@@ -45,7 +64,13 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  spec.platform     = :ios, "9.0"
+  # spec.platform     = :ios, "5.0"
+
+  #  When using multiple platforms
+  # spec.ios.deployment_target = "5.0"
+  # spec.osx.deployment_target = "10.7"
+  # spec.watchos.deployment_target = "2.0"
+  # spec.tvos.deployment_target = "9.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -53,8 +78,8 @@ Pod::Spec.new do |spec|
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
   #
-  #项目的真实地址，pod 就根据这个来导入的
-  # spec.source       = { :git => "https://github.com/l770826421/LKXFrameworkForiOS.git", :tag => spec.version.to_s }
+
+  spec.source       = { :git => "http://EXAMPLE/LKXFrameworkForiOS.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -64,12 +89,9 @@ Pod::Spec.new do |spec|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-  # 暴露的文件
-  spec.source_files  = "LKXFrameworkForiOS", "LKXFrameworkForiOS/Classes/Expand/**/*.{h,m}"
-  #spec.exclude_files = "LKXFrameworkForiOS/Exclude"
-  
-  #pch文件
-    spec.prefix_header_file = "LKXFrameworkForiOS/Classes/Expand/LKXCommonFile/CommonTool/Macros_UICommon.h"
+
+  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -81,19 +103,24 @@ Pod::Spec.new do |spec|
   #  You can preserve files from being cleaned, please don't preserve
   #  non-essential files like tests, examples and documentation.
   #
-  # 暴露资源
+
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
+
+  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
+
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-  # 依赖的库
+
+  # spec.framework  = "SomeFramework"
+  # spec.frameworks = "SomeFramework", "AnotherFramework"
+
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
-  #spec.frameworks= "UIKit", "Foundation", "JavaScriptCore", "objc", "QuartzCore", "CommonCrypto", "AVFoundation", "CoreTelephony", "CoreLocation", "EventKit", "Photos", "AssetsLibrary", "AddressBook", "Contacts", "MessageUI", "LocalAuthentication", "CoreLocation", "CoreBluetooth", "LocalAuthentication"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -102,18 +129,9 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # 是否要求项目是否ARC
-  spec.requires_arc = false
+  # spec.requires_arc = true
 
-  # y依赖的系统库，和第三方哭
-  spec.dependency 'SDWebImage', '~> 5.8.3'
-  spec.dependency 'AFNetworking', '~> 4.0.1'
-  spec.dependency 'MJRefresh', '~> 3.4.3'
-  spec.dependency 'MJExtension', '~> 3.2.2'
-  spec.dependency 'MBProgressHUD', '~> 1.2.0'
-  spec.dependency 'SDCycleScrollView', '~> 1.80'
-  spec.dependency 'Masonry', '~> 1.1.0'
-  spec.dependency 'Reachability', '~> 3.2'
-  spec.dependency 'YKWoodpecker', '~> 1.2.8'
+  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  # spec.dependency "JSONKit", "~> 1.4"
 
 end
