@@ -19,6 +19,8 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "9.0"
   spec.source       = { :git => "https://github.com/l770826421/LKXFrameworkForiOS.git", :tag => "#{spec.version}" }
   spec.source_files  = "LKXFrameworkForiOS/Classes/Expand/**/*.{h,m}"
+  spec.frameworks="Foundation","UIKit"
+  spec.xcconfig= { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/CommonCrypto" }
   spec.dependency 'SDWebImage'
   spec.dependency 'AFNetworking'
   spec.dependency 'MJRefresh'
