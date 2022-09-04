@@ -864,7 +864,7 @@
 				TargetAttributes = {
 					163DF2091CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = YV89939GVL;
+						DevelopmentTeam = CCE8HZ4H5D;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -877,10 +877,12 @@
 					};
 					163DF2221CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = CCE8HZ4H5D;
 						TestTargetID = 163DF2091CC6000600A2DA26;
 					};
 					163DF22D1CC6000600A2DA26 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = CCE8HZ4H5D;
 						TestTargetID = 163DF2091CC6000600A2DA26;
 					};
 				};
@@ -1267,7 +1269,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YV89939GVL;
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/Classes/Expand/Other/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOS/Launch/Info.plist;
@@ -1288,7 +1290,7 @@
 			baseConfigurationReference = 9D47BA3D11BF59435EA5CA0B /* Pods-LKXFrameworkForiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YV89939GVL;
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LKXFrameworkForiOS/Classes/Expand/Other/LKXFrameworkForiOS-Prefix.pch";
 				INFOPLIST_FILE = LKXFrameworkForiOS/Launch/Info.plist;
@@ -1308,6 +1310,7 @@
 			baseConfigurationReference = 99AF9ED19EBEE9815F358D19 /* Pods-LKXFrameworkForiOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				INFOPLIST_FILE = LKXFrameworkForiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSTests;
@@ -1321,6 +1324,7 @@
 			baseConfigurationReference = B1FF06A3A5E8A58C76C8BC94 /* Pods-LKXFrameworkForiOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				INFOPLIST_FILE = LKXFrameworkForiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSTests;
@@ -1333,6 +1337,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E712AB314C683A435D46C28 /* Pods-LKXFrameworkForiOSUITests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LKXFrameworkForiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1347,6 +1352,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 430FC4758B75B723EB324B77 /* Pods-LKXFrameworkForiOSUITests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				INFOPLIST_FILE = LKXFrameworkForiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSUITests;
