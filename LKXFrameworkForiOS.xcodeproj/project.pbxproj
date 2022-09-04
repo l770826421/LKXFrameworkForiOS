@@ -59,7 +59,6 @@
 		169852911EE79CAF00F04D62 /* LKXWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 169852901EE79CAF00F04D62 /* LKXWebProgressView.m */; };
 		16994AF61F93182E00DC878F /* LKXImagePickerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16994AF41F93182D00DC878F /* LKXImagePickerTool.m */; };
 		16A7D49D1D4AFF9B00160D34 /* LKXConstString.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */; };
-		16A9559722AF4C6B0025A8F4 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A9559522AF4C6B0025A8F4 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16AAA0E422E7096E0007E5BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16AAA0E222E7096E0007E5BD /* Main.storyboard */; };
 		16AAA0E722E7097D0007E5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16AAA0E522E7097D0007E5BD /* LaunchScreen.storyboard */; };
 		16BE78A91FB53D640084CBA8 /* UIImage+LKXHack.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BE78A81FB53D640084CBA8 /* UIImage+LKXHack.m */; };
@@ -235,9 +234,6 @@
 		16994AF51F93182E00DC878F /* LKXImagePickerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKXImagePickerTool.h; sourceTree = "<group>"; };
 		16A7D49B1D4AFF9B00160D34 /* LKXConstString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXConstString.h; sourceTree = "<group>"; };
 		16A7D49C1D4AFF9B00160D34 /* LKXConstString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXConstString.m; sourceTree = "<group>"; };
-		16A9559422AF4C6B0025A8F4 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		16A9559522AF4C6B0025A8F4 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
-		16A9559622AF4C6B0025A8F4 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		16AAA0E322E7096E0007E5BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		16AAA0E622E7097D0007E5BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16BE78A71FB53D640084CBA8 /* UIImage+LKXHack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+LKXHack.h"; sourceTree = "<group>"; };
@@ -434,7 +430,6 @@
 			isa = PBXGroup;
 			children = (
 				163B6E4A2387D3EB009C7D5B /* Other */,
-				16A9559322AF4C5F0025A8F4 /* GTMBase64 */,
 				16CEDD9A1D4AFBBE006C09CC /* BaseKit */,
 				166C72F01D4B4FBF00D66FEA /* LKXAutolayout */,
 				166C72F81D4B4FBF00D66FEA /* LKXCommonFile */,
@@ -632,16 +627,6 @@
 				168F010D1FB40B9100CBFC6F /* main.m */,
 			);
 			path = Launch;
-			sourceTree = "<group>";
-		};
-		16A9559322AF4C5F0025A8F4 /* GTMBase64 */ = {
-			isa = PBXGroup;
-			children = (
-				16A9559622AF4C6B0025A8F4 /* GTMBase64.h */,
-				16A9559522AF4C6B0025A8F4 /* GTMBase64.m */,
-				16A9559422AF4C6B0025A8F4 /* GTMDefines.h */,
-			);
-			name = GTMBase64;
 			sourceTree = "<group>";
 		};
 		16BE78A61FB53D430084CBA8 /* View */ = {
@@ -1057,7 +1042,6 @@
 				16347F011DB8D22A00D997C7 /* UIControl+LKXRuntime.m in Sources */,
 				166C734C1D4B4FBF00D66FEA /* NSMutableAttributedString+LKXCategory.m in Sources */,
 				1684C7761E7F81ED0006B43D /* LKXWKWebViewController.m in Sources */,
-				16A9559722AF4C6B0025A8F4 /* GTMBase64.m in Sources */,
 				16CEDDC31D4AFBBE006C09CC /* LKXTableViewController.m in Sources */,
 				164EAD7F1FBBDFD800BAFED4 /* LKXStretchingHeaderViewController.m in Sources */,
 				16CEDDD31D4AFC1C006C09CC /* LKXCollectionViewCell.m in Sources */,

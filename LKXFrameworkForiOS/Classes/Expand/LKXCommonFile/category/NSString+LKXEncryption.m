@@ -9,7 +9,6 @@
 
 #import "NSString+LKXEncryption.h"
 #import "NSString+LKXCategory.h"
-#import "GTMBase64.h"
 #import "NSData+LKXCategory.h"
 
 static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const void *data, CC_LONG len, unsigned char *md), CC_LONG digestLength, NSString *string) {
@@ -154,7 +153,6 @@ static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const v
         result = [[NSString alloc] initWithData:nsDataOut encoding:NSUTF8StringEncoding];
     } else { // 加密
         // 这里必须转base64,不能直接转NSString
-//        result = [GTMBase64 stringByEncodingData:nsDataOut];
         result = [nsDataOut lkx_toBase64String];
     }
     
