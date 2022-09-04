@@ -9,9 +9,9 @@
 Pod::Spec.new do |spec|
   spec.name         = "LKXFrameworkForiOS"
   spec.version      = "0.1.2"
-  spec.summary      = "A short description of LKXFrameworkForiOS."
+  spec.summary      = "iOS应用中的基本工具，持续更新。。。"
   spec.description  = <<-DESC
-  我自己写的一个项目常用的oc类扩展和工具类
+                    我自己写的一个项目常用的oc类扩展和工具类
                    DESC
   spec.homepage     = "https://github.com/l770826421/LKXFrameworkForiOS.git"
   spec.license      = "MIT"
