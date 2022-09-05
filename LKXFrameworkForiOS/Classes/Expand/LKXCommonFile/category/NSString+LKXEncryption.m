@@ -5,11 +5,12 @@
 //  Created by Developer on 15/9/8.
 //  Copyright (c) 2015年 Developer. All rights reserved.
 //
-#import <CommonCrypto/CommonDigest.h>
 
 #import "NSString+LKXEncryption.h"
 #import "NSString+LKXCategory.h"
 #import "NSData+LKXCategory.h"
+
+#import <CommonCrypto/CommonDigest.h>
 
 static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const void *data, CC_LONG len, unsigned char *md), CC_LONG digestLength, NSString *string) {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
