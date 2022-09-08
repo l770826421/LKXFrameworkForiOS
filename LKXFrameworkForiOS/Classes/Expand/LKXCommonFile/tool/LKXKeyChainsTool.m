@@ -6,7 +6,7 @@
 //  Copyright © 2019 刘克邪. All rights reserved.
 //
 
-#import "LKXKeychainTool.h"
+#import "LKXKeyChainsTool.h"
 
 #import "LKXApplicationInfo.h"
 
@@ -43,7 +43,7 @@
  使用此选项无法兼容kSecAttrAccessible,例如kSecAttrAccessibleWhenUnlockedThisDeviceOnly
  */
 
-@implementation LKXKeychainTool
+@implementation LKXKeyChainsTool
 
 /**
  这里是基本的钥匙串信息

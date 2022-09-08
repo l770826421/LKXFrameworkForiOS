@@ -1,5 +1,5 @@
 //
-//  LKXKeyChainTool.h
+//  LKXKeyChainsTool.h
 //  LKXTestDemo
 //
 //  Created by lkx on 6/6/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 // 相同公开库有LockBox
-@interface LKXKeychainTool : NSObject
+@interface LKXKeyChainsTool : NSObject
 
 /**
  存储字符串到钥匙串中

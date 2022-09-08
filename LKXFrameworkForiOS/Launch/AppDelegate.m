@@ -23,7 +23,7 @@
 
 #import "LKXUser.h"
 
-#import "LKXKeychainTool.h"
+#import "LKXKeyChainsTool.h"
 #import "LKXEmailSendTool.h"
 
 #define kRestoreApplicationStateKey @"kRestoreApplicationStateKey"
@@ -92,11 +92,11 @@
 //    NSArray *arr = [NSArray array];
 //    arr[0];
     
-    NSString *account = [LKXKeychainTool readKeyChainValueWithKey:@"account" error:^(OSStatus errorStatus) {
+    NSString *account = [LKXKeyChainsTool readKeyChainValueWithKey:@"account" error:^(OSStatus errorStatus) {
         LKXMLog(@"读取账号失败:%d", errorStatus);
     }];
     
-    NSString *password = [LKXKeychainTool readKeyChainValueWithKey:@"password" error:^(OSStatus errorStatus) {
+    NSString *password = [LKXKeyChainsTool readKeyChainValueWithKey:@"password" error:^(OSStatus errorStatus) {
         LKXMLog(@"读取密码失败:%d", errorStatus);
     }];
     

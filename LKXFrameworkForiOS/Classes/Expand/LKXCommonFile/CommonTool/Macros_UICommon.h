@@ -40,7 +40,7 @@
 //#import "LKXAPPDefine.h"
 //#import "LKXTextView.h"
 //#import "SingletonMacro.h"
-//#import "LKXKeychainTool.h"
+//#import "LKXKeyChainsTool.h"
 //#import "LKXImagePickerTool.h"
 //#import "LKXAlertTool.h"
 //#import "LKXCalendarTool.h"

@@ -50,7 +50,7 @@
 		166C73661D4B4FBF00D66FEA /* LKXRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 166C73431D4B4FBF00D66FEA /* LKXRequestManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16774A711EC419BD00602906 /* LKXWKWebDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16774A701EC419BD00602906 /* LKXWKWebDemoViewController.m */; };
 		1684C7761E7F81ED0006B43D /* LKXWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1684C7751E7F81ED0006B43D /* LKXWKWebViewController.m */; };
-		1685CD3E22A8F75A007D3AD1 /* LKXKeychainTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685CD3D22A8F75A007D3AD1 /* LKXKeychainTool.m */; };
+		1685CD3E22A8F75A007D3AD1 /* LKXKeyChainsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1685CD3D22A8F75A007D3AD1 /* LKXKeyChainsTool.m */; };
 		16875DF01DE43F3300F09085 /* LKXTouchIDValidateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */; };
 		168F01161FB40B9200CBFC6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F010D1FB40B9100CBFC6F /* main.m */; };
 		168F01191FB40B9200CBFC6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F01101FB40B9200CBFC6F /* AppDelegate.m */; };
@@ -214,8 +214,8 @@
 		16774A701EC419BD00602906 /* LKXWKWebDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXWKWebDemoViewController.m; sourceTree = "<group>"; };
 		1684C7741E7F81ED0006B43D /* LKXWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXWKWebViewController.h; sourceTree = "<group>"; };
 		1684C7751E7F81ED0006B43D /* LKXWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXWKWebViewController.m; sourceTree = "<group>"; };
-		1685CD3C22A8F75A007D3AD1 /* LKXKeychainTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXKeychainTool.h; sourceTree = "<group>"; };
-		1685CD3D22A8F75A007D3AD1 /* LKXKeychainTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXKeychainTool.m; sourceTree = "<group>"; };
+		1685CD3C22A8F75A007D3AD1 /* LKXKeyChainsTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXKeyChainsTool.h; sourceTree = "<group>"; };
+		1685CD3D22A8F75A007D3AD1 /* LKXKeyChainsTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXKeyChainsTool.m; sourceTree = "<group>"; };
 		16875D9C1DE3E9B400F09085 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		16875DEE1DE43F3300F09085 /* LKXTouchIDValidateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKXTouchIDValidateTool.h; sourceTree = "<group>"; };
 		16875DEF1DE43F3300F09085 /* LKXTouchIDValidateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKXTouchIDValidateTool.m; sourceTree = "<group>"; };
@@ -528,8 +528,8 @@
 		166C732B1D4B4FBF00D66FEA /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				1685CD3C22A8F75A007D3AD1 /* LKXKeychainTool.h */,
-				1685CD3D22A8F75A007D3AD1 /* LKXKeychainTool.m */,
+				1685CD3C22A8F75A007D3AD1 /* LKXKeyChainsTool.h */,
+				1685CD3D22A8F75A007D3AD1 /* LKXKeyChainsTool.m */,
 				16994AF51F93182E00DC878F /* LKXImagePickerTool.h */,
 				16994AF41F93182D00DC878F /* LKXImagePickerTool.m */,
 				1665ED741F287214000CCD4F /* LKXAlertTool.h */,
@@ -789,6 +789,7 @@
 				163DF2081CC6000600A2DA26 /* Resources */,
 				16875DAC1DE3E9B400F09085 /* Embed App Extensions */,
 				648512B97375A29B395533BD /* [CP] Copy Pods Resources */,
+				162C482D28C8E044000B27B9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -923,6 +924,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		162C482D28C8E044000B27B9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
 		18E48FBA5CC80B8016A7691D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1068,7 +1086,7 @@
 				16E3484F1F56C3CC005E30B8 /* LKXEstimatedRowHeightViewController.m in Sources */,
 				16994AF61F93182E00DC878F /* LKXImagePickerTool.m in Sources */,
 				166C73441D4B4FBF00D66FEA /* NSLayoutConstraint+Addition.m in Sources */,
-				1685CD3E22A8F75A007D3AD1 /* LKXKeychainTool.m in Sources */,
+				1685CD3E22A8F75A007D3AD1 /* LKXKeyChainsTool.m in Sources */,
 				166C73591D4B4FBF00D66FEA /* LKX_Tooles.m in Sources */,
 				166C73511D4B4FBF00D66FEA /* UIColor+LKXCategory.m in Sources */,
 				16A7D49D1D4AFF9B00160D34 /* LKXConstString.m in Sources */,
@@ -1260,6 +1278,31 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"Reachability\"",
+					"-l\"SDCycleScrollView\"",
+					"-l\"SDWebImage\"",
+					"-l\"YKWoodpecker\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = person.LKX.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1281,6 +1324,31 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"Reachability\"",
+					"-l\"SDCycleScrollView\"",
+					"-l\"SDWebImage\"",
+					"-l\"YKWoodpecker\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = person.LKX.LKXFrameworkForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1325,6 +1393,23 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = LKXFrameworkForiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					_all_load,
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = LKXFrameworkForiOS;
@@ -1339,6 +1424,23 @@
 				DEVELOPMENT_TEAM = CCE8HZ4H5D;
 				INFOPLIST_FILE = LKXFrameworkForiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					_all_load,
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = person.lkx.LKXFrameworkForiOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = LKXFrameworkForiOS;
