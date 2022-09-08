@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "LKXFrameworkForiOS"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "iOS应用中的基本工具，持续更新。。。"
   spec.description  = <<-DESC
                     我自己写的一个项目常用的oc类扩展和工具类
